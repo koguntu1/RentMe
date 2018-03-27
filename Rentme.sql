@@ -230,7 +230,7 @@ CREATE TABLE Login (
   [userID] VARCHAR(30) NOT NULL,
   [password] VARCHAR(45) NOT NULL,
   [employeeID] INT NOT NULL,
-  PRIMARY KEY ([login])
+  PRIMARY KEY ([loginID])
  ,
   CONSTRAINT [fk_Login_Employee]
     FOREIGN KEY ([employeeID])
