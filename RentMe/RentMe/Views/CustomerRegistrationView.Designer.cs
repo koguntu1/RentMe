@@ -32,44 +32,49 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblAuthorized = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtFirstName = new System.Windows.Forms.TextBox();
+            this.txtLastName = new System.Windows.Forms.TextBox();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblStreetNumber = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtStreetName = new System.Windows.Forms.TextBox();
             this.lblStreetName = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboStreetType = new System.Windows.Forms.ComboBox();
             this.streetsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rentMeDataSet = new RentMe.RentMeDataSet();
             this.lblStreetType = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtCity = new System.Windows.Forms.TextBox();
             this.lblCity = new System.Windows.Forms.Label();
             this.lblZipCode = new System.Windows.Forms.Label();
             this.lblState = new System.Windows.Forms.Label();
             this.cboState = new System.Windows.Forms.ComboBox();
             this.statesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblPhoneNumber = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtAddress2 = new System.Windows.Forms.TextBox();
             this.lblAddress2 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtMiddleInitial = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cboGender = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
+            this.mtStreetNumber = new System.Windows.Forms.MaskedTextBox();
+            this.mtxtZipCode = new System.Windows.Forms.MaskedTextBox();
+            this.mtxtHomePhone = new System.Windows.Forms.MaskedTextBox();
+            this.mtextDOB = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.streetsTableAdapter = new RentMe.RentMeDataSetTableAdapters.StreetsTableAdapter();
             this.statesTableAdapter = new RentMe.RentMeDataSetTableAdapters.StatesTableAdapter();
             this.tableAdapterManager = new RentMe.RentMeDataSetTableAdapters.TableAdapterManager();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblStateInfo = new System.Windows.Forms.Label();
+            this.lblStreetInfo = new System.Windows.Forms.Label();
+            this.genderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.genderTableAdapter = new RentMe.RentMeDataSetTableAdapters.GenderTableAdapter();
+            this.lblGender = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.streetsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -102,21 +107,21 @@
             this.lblFirstName.TabIndex = 6;
             this.lblFirstName.Text = "First Name";
             // 
-            // textBox1
+            // txtFirstName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(16, 125);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(240, 27);
-            this.textBox1.TabIndex = 1;
+            this.txtFirstName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirstName.Location = new System.Drawing.Point(16, 125);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(240, 27);
+            this.txtFirstName.TabIndex = 1;
             // 
-            // textBox2
+            // txtLastName
             // 
-            this.textBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(345, 125);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(240, 27);
-            this.textBox2.TabIndex = 3;
+            this.txtLastName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastName.Location = new System.Drawing.Point(345, 125);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(240, 27);
+            this.txtLastName.TabIndex = 3;
             // 
             // lblLastName
             // 
@@ -138,13 +143,13 @@
             this.lblStreetNumber.TabIndex = 10;
             this.lblStreetNumber.Text = "Street Number";
             // 
-            // textBox4
+            // txtStreetName
             // 
-            this.textBox4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(141, 178);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(318, 27);
-            this.textBox4.TabIndex = 5;
+            this.txtStreetName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStreetName.Location = new System.Drawing.Point(141, 178);
+            this.txtStreetName.Name = "txtStreetName";
+            this.txtStreetName.Size = new System.Drawing.Size(318, 27);
+            this.txtStreetName.TabIndex = 5;
             // 
             // lblStreetName
             // 
@@ -156,18 +161,19 @@
             this.lblStreetName.TabIndex = 12;
             this.lblStreetName.Text = "Street Name";
             // 
-            // comboBox1
+            // cboStreetType
             // 
-            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.streetsBindingSource, "abbreviation", true));
-            this.comboBox1.DataSource = this.streetsBindingSource;
-            this.comboBox1.DisplayMember = "name";
-            this.comboBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(465, 178);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(119, 27);
-            this.comboBox1.TabIndex = 6;
-            this.comboBox1.ValueMember = "name";
+            this.cboStreetType.DataSource = this.streetsBindingSource;
+            this.cboStreetType.DisplayMember = "abbreviation";
+            this.cboStreetType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboStreetType.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboStreetType.FormattingEnabled = true;
+            this.cboStreetType.Location = new System.Drawing.Point(465, 178);
+            this.cboStreetType.Name = "cboStreetType";
+            this.cboStreetType.Size = new System.Drawing.Size(119, 27);
+            this.cboStreetType.TabIndex = 6;
+            this.cboStreetType.ValueMember = "abbreviation";
+            this.cboStreetType.SelectedIndexChanged += new System.EventHandler(this.cboStreetType_SelectedIndexChanged);
             // 
             // streetsBindingSource
             // 
@@ -189,13 +195,13 @@
             this.lblStreetType.TabIndex = 15;
             this.lblStreetType.Text = "Street Type";
             // 
-            // textBox5
+            // txtCity
             // 
-            this.textBox5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(16, 279);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(331, 27);
-            this.textBox5.TabIndex = 8;
+            this.txtCity.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCity.Location = new System.Drawing.Point(16, 279);
+            this.txtCity.Name = "txtCity";
+            this.txtCity.Size = new System.Drawing.Size(331, 27);
+            this.txtCity.TabIndex = 8;
             // 
             // lblCity
             // 
@@ -229,7 +235,6 @@
             // 
             // cboState
             // 
-            this.cboState.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.statesBindingSource, "abbreviation", true));
             this.cboState.DataSource = this.statesBindingSource;
             this.cboState.DisplayMember = "abbreviation";
             this.cboState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -239,7 +244,7 @@
             this.cboState.Name = "cboState";
             this.cboState.Size = new System.Drawing.Size(106, 27);
             this.cboState.TabIndex = 9;
-            this.cboState.ValueMember = "name";
+            this.cboState.ValueMember = "abbreviation";
             this.cboState.SelectedIndexChanged += new System.EventHandler(this.cboState_SelectedIndexChanged);
             // 
             // statesBindingSource
@@ -257,13 +262,13 @@
             this.lblPhoneNumber.TabIndex = 22;
             this.lblPhoneNumber.Text = "Home Phone Number";
             // 
-            // textBox8
+            // txtAddress2
             // 
-            this.textBox8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(16, 227);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(568, 27);
-            this.textBox8.TabIndex = 7;
+            this.txtAddress2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress2.Location = new System.Drawing.Point(16, 227);
+            this.txtAddress2.Name = "txtAddress2";
+            this.txtAddress2.Size = new System.Drawing.Size(568, 27);
+            this.txtAddress2.TabIndex = 7;
             // 
             // lblAddress2
             // 
@@ -275,13 +280,13 @@
             this.lblAddress2.TabIndex = 24;
             this.lblAddress2.Text = "Additional Address Information";
             // 
-            // textBox11
+            // txtMiddleInitial
             // 
-            this.textBox11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(262, 125);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(76, 27);
-            this.textBox11.TabIndex = 2;
+            this.txtMiddleInitial.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMiddleInitial.Location = new System.Drawing.Point(262, 125);
+            this.txtMiddleInitial.Name = "txtMiddleInitial";
+            this.txtMiddleInitial.Size = new System.Drawing.Size(76, 27);
+            this.txtMiddleInitial.TabIndex = 2;
             // 
             // label4
             // 
@@ -303,14 +308,19 @@
             this.label5.TabIndex = 34;
             this.label5.Text = "Gender";
             // 
-            // comboBox3
+            // cboGender
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(478, 334);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(106, 27);
-            this.comboBox3.TabIndex = 12;
+            this.cboGender.DataSource = this.genderBindingSource;
+            this.cboGender.DisplayMember = "gender";
+            this.cboGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGender.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboGender.FormattingEnabled = true;
+            this.cboGender.Location = new System.Drawing.Point(478, 334);
+            this.cboGender.Name = "cboGender";
+            this.cboGender.Size = new System.Drawing.Size(106, 27);
+            this.cboGender.TabIndex = 12;
+            this.cboGender.ValueMember = "gender";
+            this.cboGender.SelectedIndexChanged += new System.EventHandler(this.cboGender_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -322,43 +332,43 @@
             this.label9.TabIndex = 35;
             this.label9.Text = "Date of Birth";
             // 
-            // maskedTextBox1
+            // mtStreetNumber
             // 
-            this.maskedTextBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(16, 178);
-            this.maskedTextBox1.Mask = "000000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(119, 27);
-            this.maskedTextBox1.TabIndex = 4;
-            this.maskedTextBox1.ValidatingType = typeof(int);
+            this.mtStreetNumber.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtStreetNumber.Location = new System.Drawing.Point(16, 178);
+            this.mtStreetNumber.Mask = "000000";
+            this.mtStreetNumber.Name = "mtStreetNumber";
+            this.mtStreetNumber.Size = new System.Drawing.Size(119, 27);
+            this.mtStreetNumber.TabIndex = 4;
+            this.mtStreetNumber.ValidatingType = typeof(int);
             // 
-            // maskedTextBox2
+            // mtxtZipCode
             // 
-            this.maskedTextBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox2.Location = new System.Drawing.Point(465, 279);
-            this.maskedTextBox2.Mask = "00000-9999";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(119, 27);
-            this.maskedTextBox2.TabIndex = 10;
+            this.mtxtZipCode.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtxtZipCode.Location = new System.Drawing.Point(465, 279);
+            this.mtxtZipCode.Mask = "00000-9999";
+            this.mtxtZipCode.Name = "mtxtZipCode";
+            this.mtxtZipCode.Size = new System.Drawing.Size(119, 27);
+            this.mtxtZipCode.TabIndex = 10;
             // 
-            // maskedTextBox3
+            // mtxtHomePhone
             // 
-            this.maskedTextBox3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox3.Location = new System.Drawing.Point(16, 334);
-            this.maskedTextBox3.Mask = "(999) 000-0000";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(331, 27);
-            this.maskedTextBox3.TabIndex = 11;
+            this.mtxtHomePhone.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtxtHomePhone.Location = new System.Drawing.Point(16, 334);
+            this.mtxtHomePhone.Mask = "(999) 000-0000";
+            this.mtxtHomePhone.Name = "mtxtHomePhone";
+            this.mtxtHomePhone.Size = new System.Drawing.Size(331, 27);
+            this.mtxtHomePhone.TabIndex = 11;
             // 
-            // maskedTextBox4
+            // mtextDOB
             // 
-            this.maskedTextBox4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox4.Location = new System.Drawing.Point(15, 393);
-            this.maskedTextBox4.Mask = "00/00/0000";
-            this.maskedTextBox4.Name = "maskedTextBox4";
-            this.maskedTextBox4.Size = new System.Drawing.Size(332, 27);
-            this.maskedTextBox4.TabIndex = 13;
-            this.maskedTextBox4.ValidatingType = typeof(System.DateTime);
+            this.mtextDOB.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtextDOB.Location = new System.Drawing.Point(15, 393);
+            this.mtextDOB.Mask = "00/00/0000";
+            this.mtextDOB.Name = "mtextDOB";
+            this.mtextDOB.Size = new System.Drawing.Size(332, 27);
+            this.mtextDOB.TabIndex = 13;
+            this.mtextDOB.ValidatingType = typeof(System.DateTime);
             // 
             // button1
             // 
@@ -395,6 +405,7 @@
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.EmployeeTableAdapter = null;
             this.tableAdapterManager.FurnitureTableAdapter = null;
+            this.tableAdapterManager.GenderTableAdapter = null;
             this.tableAdapterManager.LoginTableAdapter = null;
             this.tableAdapterManager.MemberTableAdapter = null;
             this.tableAdapterManager.Rental_return_transactionTableAdapter = null;
@@ -407,48 +418,79 @@
             this.tableAdapterManager.TransactionsTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = RentMe.RentMeDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // label1
+            // lblStateInfo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(353, 313);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "label1";
+            this.lblStateInfo.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStateInfo.Location = new System.Drawing.Point(174, 313);
+            this.lblStateInfo.Name = "lblStateInfo";
+            this.lblStateInfo.Size = new System.Drawing.Size(285, 15);
+            this.lblStateInfo.TabIndex = 36;
+            this.lblStateInfo.Text = "lblStateInfo";
+            this.lblStateInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblStreetInfo
+            // 
+            this.lblStreetInfo.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStreetInfo.Location = new System.Drawing.Point(299, 209);
+            this.lblStreetInfo.Name = "lblStreetInfo";
+            this.lblStreetInfo.Size = new System.Drawing.Size(285, 15);
+            this.lblStreetInfo.TabIndex = 37;
+            this.lblStreetInfo.Text = "lblStreetInfo";
+            this.lblStreetInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // genderBindingSource
+            // 
+            this.genderBindingSource.DataMember = "Gender";
+            this.genderBindingSource.DataSource = this.rentMeDataSet;
+            // 
+            // genderTableAdapter
+            // 
+            this.genderTableAdapter.ClearBeforeFill = true;
+            // 
+            // lblGender
+            // 
+            this.lblGender.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGender.Location = new System.Drawing.Point(299, 364);
+            this.lblGender.Name = "lblGender";
+            this.lblGender.Size = new System.Drawing.Size(285, 15);
+            this.lblGender.TabIndex = 38;
+            this.lblGender.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // CustomerRegistrationView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 537);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblGender);
+            this.Controls.Add(this.lblStreetInfo);
+            this.Controls.Add(this.lblStateInfo);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.maskedTextBox4);
-            this.Controls.Add(this.maskedTextBox3);
-            this.Controls.Add(this.maskedTextBox2);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.mtextDOB);
+            this.Controls.Add(this.mtxtHomePhone);
+            this.Controls.Add(this.mtxtZipCode);
+            this.Controls.Add(this.mtStreetNumber);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.cboGender);
+            this.Controls.Add(this.txtMiddleInitial);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.txtAddress2);
             this.Controls.Add(this.lblAddress2);
             this.Controls.Add(this.lblPhoneNumber);
             this.Controls.Add(this.lblState);
             this.Controls.Add(this.cboState);
             this.Controls.Add(this.lblZipCode);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtCity);
             this.Controls.Add(this.lblCity);
             this.Controls.Add(this.lblStreetType);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.cboStreetType);
+            this.Controls.Add(this.txtStreetName);
             this.Controls.Add(this.lblStreetName);
             this.Controls.Add(this.lblStreetNumber);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.lblLastName);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.lblAuthorized);
             this.Controls.Add(this.pictureBox1);
@@ -459,6 +501,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.streetsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,31 +512,31 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblAuthorized;
         private System.Windows.Forms.Label lblFirstName;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtFirstName;
+        private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblStreetNumber;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtStreetName;
         private System.Windows.Forms.Label lblStreetName;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboStreetType;
         private System.Windows.Forms.Label lblStreetType;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.Label lblCity;
         private System.Windows.Forms.Label lblZipCode;
         private System.Windows.Forms.Label lblState;
         private System.Windows.Forms.ComboBox cboState;
         private System.Windows.Forms.Label lblPhoneNumber;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtAddress2;
         private System.Windows.Forms.Label lblAddress2;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txtMiddleInitial;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cboGender;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox4;
+        private System.Windows.Forms.MaskedTextBox mtStreetNumber;
+        private System.Windows.Forms.MaskedTextBox mtxtZipCode;
+        private System.Windows.Forms.MaskedTextBox mtxtHomePhone;
+        private System.Windows.Forms.MaskedTextBox mtextDOB;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private RentMeDataSet rentMeDataSet;
@@ -502,6 +545,10 @@
         private System.Windows.Forms.BindingSource statesBindingSource;
         private RentMeDataSetTableAdapters.StatesTableAdapter statesTableAdapter;
         private RentMeDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblStateInfo;
+        private System.Windows.Forms.Label lblStreetInfo;
+        private System.Windows.Forms.BindingSource genderBindingSource;
+        private RentMeDataSetTableAdapters.GenderTableAdapter genderTableAdapter;
+        private System.Windows.Forms.Label lblGender;
     }
 }

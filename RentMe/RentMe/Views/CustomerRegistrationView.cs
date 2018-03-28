@@ -15,36 +15,107 @@ namespace RentMe.Views
         public CustomerRegistrationView()
         {
             InitializeComponent();
-            
-            
+
+
         }
 
         private void CustomerRegistrationView_Load(object sender, EventArgs e)
         {
-            label1.Text = "";
+            // TODO: This line of code loads data into the 'rentMeDataSet.Gender' table. You can move, or remove it, as needed.
+            this.genderTableAdapter.Fill(this.rentMeDataSet.Gender);
+            lblStateInfo.Text = "";
             // TODO: This line of code loads data into the 'rentMeDataSet.States' table. You can move, or remove it, as needed.
             this.statesTableAdapter.Fill(this.rentMeDataSet.States);
             // TODO: This line of code loads data into the 'rentMeDataSet.Streets' table. You can move, or remove it, as needed.
             this.streetsTableAdapter.Fill(this.rentMeDataSet.Streets);
-            fillLabel();
-            cboState.SelectedIndex = 0;
+            cboState.SelectedIndex = -1;
+            cboStreetType.SelectedIndex = -1;
+            cboGender.SelectedIndex = -1;
 
         }
 
         private void cboState_SelectedIndexChanged(object sender, EventArgs e)
         {
-            fillLabel();
+            displayState();
         }
 
-        private void fillLabel()
+        private void displayState()
         {
-            string stateName = cboState.SelectedValue as string;
 
-            if (stateName != null)
+            if (cboState.SelectedIndex == -1)
             {
-                label1.Text = stateName;
+                lblStateInfo.Text = "";
             }
-            
+            else
+            {
+                DataRowView drv = (DataRowView)cboState.SelectedItem;
+                string stateName = drv["name"].ToString() + ", " + drv["country"].ToString();
+
+                if (stateName != null)
+                {
+                    lblStateInfo.Text = stateName;
+                }
+                else
+                {
+                    lblStateInfo.Text = "";
+                }
+            }
+
+        }
+
+        private void displayStreet()
+        {
+            if (cboStreetType.SelectedIndex == -1)
+            {
+                lblStreetInfo.Text = "";
+            }
+            else
+            {
+                DataRowView drv = (DataRowView)cboStreetType.SelectedItem;
+                string streetType = drv["name"].ToString();
+
+                if (streetType != null)
+                {
+                    lblStreetInfo.Text = streetType;
+                }
+                else
+                {
+                    lblStreetInfo.Text = "";
+                }
+            }
+        }
+
+        private void cboStreetType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            displayStreet();
+        }
+
+        private void cboGender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            displayGender();
+        }
+
+        private void displayGender()
+        {
+
+            if (cboGender.SelectedIndex == -1)
+            {
+                cboGender.Text = "";
+            }
+            else
+            {
+                DataRowView drv = (DataRowView)cboGender.SelectedItem;
+                string genderType = drv["description"].ToString();
+
+                if (genderType != null)
+                {
+                    lblGender.Text = genderType;
+                }
+                else
+                {
+                    lblGender.Text = "";
+                }
+            }
         }
     }
 }
