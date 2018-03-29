@@ -65,17 +65,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RentMeDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Views\CustomerRegistrationView.cs">
+    <Compile Include="Views\CustomerView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\CustomerRegistrationView.Designer.cs">
-      <DependentUpon>CustomerRegistrationView.cs</DependentUpon>
+    <Compile Include="Views\CustomerView.Designer.cs">
+      <DependentUpon>CustomerView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\LoginView.Designer.cs">
       <DependentUpon>LoginView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MenuView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MenuView.Designer.cs">
+      <DependentUpon>MenuView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SearchFurnitureView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SearchFurnitureView.Designer.cs">
+      <DependentUpon>SearchFurnitureView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -87,11 +99,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\CustomerRegistrationView.resx">
-      <DependentUpon>CustomerRegistrationView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\CustomerView.resx">
+      <DependentUpon>CustomerView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MenuView.resx">
+      <DependentUpon>MenuView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SearchFurnitureView.resx">
+      <DependentUpon>SearchFurnitureView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

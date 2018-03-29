@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RentMe.Views
 {
-    public partial class CustomerRegistrationView : Form
+    public partial class CustomerView : Form
     {
-        public CustomerRegistrationView()
+        public CustomerView()
         {
             InitializeComponent();
 
@@ -21,6 +21,8 @@ namespace RentMe.Views
 
         private void CustomerRegistrationView_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'rentMeDataSet.Employee' table. You can move, or remove it, as needed.
+            this.employeeTableAdapter.Fill(this.rentMeDataSet.Employee);
             // TODO: This line of code loads data into the 'rentMeDataSet.Gender' table. You can move, or remove it, as needed.
             this.genderTableAdapter.Fill(this.rentMeDataSet.Gender);
             lblStateInfo.Text = "";
@@ -31,6 +33,8 @@ namespace RentMe.Views
             cboState.SelectedIndex = -1;
             cboStreetType.SelectedIndex = -1;
             cboGender.SelectedIndex = -1;
+            // Add corrected code for user that is logged into system
+            //lblUser.Text = fname + " " + middleinitial + ". " + lname;
 
         }
 

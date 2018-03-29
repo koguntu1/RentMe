@@ -17,7 +17,7 @@ namespace RentMe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CustomerRegistrationView());
+            Application.Run(new MenuView());
         }
     }
 }
