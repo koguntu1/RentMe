@@ -38,11 +38,13 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(202, 105);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 13);
+            this.label1.Size = new System.Drawing.Size(137, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Enter new password : ";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtNew
             // 
@@ -61,17 +63,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(202, 162);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 13);
+            this.label2.Size = new System.Drawing.Size(154, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Reenter new password : ";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnEnter
             // 
-            this.btnEnter.Location = new System.Drawing.Point(239, 225);
+            this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnter.Location = new System.Drawing.Point(205, 243);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(75, 23);
+            this.btnEnter.Size = new System.Drawing.Size(84, 32);
             this.btnEnter.TabIndex = 4;
             this.btnEnter.Text = "Enter";
             this.btnEnter.UseVisualStyleBackColor = true;

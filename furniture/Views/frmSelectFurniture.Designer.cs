@@ -49,7 +49,7 @@
             "By Category",
             "By Style",
             "By Furniture ID"});
-            this.Cobox_sortby.Location = new System.Drawing.Point(133, 105);
+            this.Cobox_sortby.Location = new System.Drawing.Point(151, 105);
             this.Cobox_sortby.Name = "Cobox_sortby";
             this.Cobox_sortby.Size = new System.Drawing.Size(128, 21);
             this.Cobox_sortby.TabIndex = 0;
@@ -60,27 +60,29 @@
             this.Cobox_selectItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cobox_selectItem.FormattingEnabled = true;
             this.Cobox_selectItem.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.Cobox_selectItem.Location = new System.Drawing.Point(376, 97);
+            this.Cobox_selectItem.Location = new System.Drawing.Point(382, 102);
             this.Cobox_selectItem.Name = "Cobox_selectItem";
             this.Cobox_selectItem.Size = new System.Drawing.Size(121, 21);
             this.Cobox_selectItem.TabIndex = 1;
             this.Cobox_selectItem.SelectedIndexChanged += new System.EventHandler(this.selectItems);
-            // s
+            // 
             // Lbl_searchFurniture
             // 
             this.Lbl_searchFurniture.AutoSize = true;
-            this.Lbl_searchFurniture.Location = new System.Drawing.Point(39, 105);
+            this.Lbl_searchFurniture.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_searchFurniture.Location = new System.Drawing.Point(39, 110);
             this.Lbl_searchFurniture.Name = "Lbl_searchFurniture";
-            this.Lbl_searchFurniture.Size = new System.Drawing.Size(88, 13);
+            this.Lbl_searchFurniture.Size = new System.Drawing.Size(106, 16);
             this.Lbl_searchFurniture.TabIndex = 2;
             this.Lbl_searchFurniture.Text = "Search furniture :";
             // 
             // Lbl_type
             // 
             this.Lbl_type.AutoSize = true;
+            this.Lbl_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_type.Location = new System.Drawing.Point(311, 105);
             this.Lbl_type.Name = "Lbl_type";
-            this.Lbl_type.Size = new System.Drawing.Size(45, 13);
+            this.Lbl_type.Size = new System.Drawing.Size(56, 16);
             this.Lbl_type.TabIndex = 3;
             this.Lbl_type.Text = "Types : ";
             // 
@@ -102,17 +104,18 @@
             // Lbl_foundItems
             // 
             this.Lbl_foundItems.AutoSize = true;
-            this.Lbl_foundItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_foundItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_foundItems.Location = new System.Drawing.Point(112, 147);
             this.Lbl_foundItems.Name = "Lbl_foundItems";
-            this.Lbl_foundItems.Size = new System.Drawing.Size(73, 13);
+            this.Lbl_foundItems.Size = new System.Drawing.Size(90, 16);
             this.Lbl_foundItems.TabIndex = 5;
             this.Lbl_foundItems.Text = "Found items...";
             this.Lbl_foundItems.Click += new System.EventHandler(this.Lbl_foundItems_Click);
             // 
             // btnProceed
             // 
-            this.btnProceed.Location = new System.Drawing.Point(666, 413);
+            this.btnProceed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProceed.Location = new System.Drawing.Point(609, 387);
             this.btnProceed.Name = "btnProceed";
             this.btnProceed.Size = new System.Drawing.Size(75, 23);
             this.btnProceed.TabIndex = 6;
@@ -122,6 +125,7 @@
             // 
             // btnAddToCart
             // 
+            this.btnAddToCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddToCart.Location = new System.Drawing.Point(133, 387);
             this.btnAddToCart.Name = "btnAddToCart";
             this.btnAddToCart.Size = new System.Drawing.Size(75, 23);
@@ -132,6 +136,7 @@
             // 
             // btnBack
             // 
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.Location = new System.Drawing.Point(42, 27);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
@@ -140,7 +145,7 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // Form5
+            // frmSelectFurniture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -154,7 +159,7 @@
             this.Controls.Add(this.Lbl_searchFurniture);
             this.Controls.Add(this.Cobox_selectItem);
             this.Controls.Add(this.Cobox_sortby);
-            this.Name = "Form5";
+            this.Name = "frmSelectFurniture";
             this.Text = "Search Furniture: ";
             this.Load += new System.EventHandler(this.Form5_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid_ShowItem)).EndInit();

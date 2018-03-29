@@ -54,7 +54,7 @@
             // TxtEmployee_id
             // 
             this.TxtEmployee_id.Enabled = false;
-            this.TxtEmployee_id.Location = new System.Drawing.Point(176, 72);
+            this.TxtEmployee_id.Location = new System.Drawing.Point(189, 71);
             this.TxtEmployee_id.Name = "TxtEmployee_id";
             this.TxtEmployee_id.Size = new System.Drawing.Size(116, 20);
             this.TxtEmployee_id.TabIndex = 0;
@@ -71,14 +71,15 @@
             // TxtTotal_price
             // 
             this.TxtTotal_price.Enabled = false;
-            this.TxtTotal_price.Location = new System.Drawing.Point(375, 293);
+            this.TxtTotal_price.Location = new System.Drawing.Point(382, 298);
             this.TxtTotal_price.Name = "TxtTotal_price";
             this.TxtTotal_price.Size = new System.Drawing.Size(82, 20);
             this.TxtTotal_price.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(501, 291);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(521, 298);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(57, 23);
             this.button1.TabIndex = 4;
@@ -88,6 +89,7 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(38, 21);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
@@ -99,45 +101,50 @@
             // LblCustomer_id
             // 
             this.LblCustomer_id.AutoSize = true;
+            this.LblCustomer_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblCustomer_id.Location = new System.Drawing.Point(330, 75);
             this.LblCustomer_id.Name = "LblCustomer_id";
-            this.LblCustomer_id.Size = new System.Drawing.Size(68, 13);
+            this.LblCustomer_id.Size = new System.Drawing.Size(84, 16);
             this.LblCustomer_id.TabIndex = 6;
             this.LblCustomer_id.Text = "Customer ID:";
             // 
             // LblEmployee_id
             // 
             this.LblEmployee_id.AutoSize = true;
+            this.LblEmployee_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEmployee_id.Location = new System.Drawing.Point(97, 75);
             this.LblEmployee_id.Name = "LblEmployee_id";
-            this.LblEmployee_id.Size = new System.Drawing.Size(73, 13);
+            this.LblEmployee_id.Size = new System.Drawing.Size(92, 16);
             this.LblEmployee_id.TabIndex = 7;
             this.LblEmployee_id.Text = "Employee ID: ";
             // 
             // LblTotal_amount
             // 
             this.LblTotal_amount.AutoSize = true;
+            this.LblTotal_amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTotal_amount.Location = new System.Drawing.Point(283, 298);
             this.LblTotal_amount.Name = "LblTotal_amount";
-            this.LblTotal_amount.Size = new System.Drawing.Size(76, 13);
+            this.LblTotal_amount.Size = new System.Drawing.Size(93, 16);
             this.LblTotal_amount.TabIndex = 8;
             this.LblTotal_amount.Text = "Total Amount :";
             // 
             // LblCurrent_date
             // 
             this.LblCurrent_date.AutoSize = true;
+            this.LblCurrent_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblCurrent_date.Location = new System.Drawing.Point(97, 110);
             this.LblCurrent_date.Name = "LblCurrent_date";
-            this.LblCurrent_date.Size = new System.Drawing.Size(71, 13);
+            this.LblCurrent_date.Size = new System.Drawing.Size(86, 16);
             this.LblCurrent_date.TabIndex = 12;
             this.LblCurrent_date.Text = "Current date: ";
             // 
             // LblDue_date
             // 
             this.LblDue_date.AutoSize = true;
+            this.LblDue_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblDue_date.Location = new System.Drawing.Point(339, 107);
             this.LblDue_date.Name = "LblDue_date";
-            this.LblDue_date.Size = new System.Drawing.Size(59, 13);
+            this.LblDue_date.Size = new System.Drawing.Size(71, 16);
             this.LblDue_date.TabIndex = 11;
             this.LblDue_date.Text = "Due Date: ";
             // 
@@ -151,7 +158,7 @@
             // TxtRentDate
             // 
             this.TxtRentDate.Enabled = false;
-            this.TxtRentDate.Location = new System.Drawing.Point(176, 107);
+            this.TxtRentDate.Location = new System.Drawing.Point(189, 106);
             this.TxtRentDate.Name = "TxtRentDate";
             this.TxtRentDate.Size = new System.Drawing.Size(116, 20);
             this.TxtRentDate.TabIndex = 9;
@@ -213,9 +220,10 @@
             // LblDateFormat
             // 
             this.LblDateFormat.AutoSize = true;
+            this.LblDateFormat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblDateFormat.Location = new System.Drawing.Point(545, 110);
             this.LblDateFormat.Name = "LblDateFormat";
-            this.LblDateFormat.Size = new System.Drawing.Size(61, 13);
+            this.LblDateFormat.Size = new System.Drawing.Size(76, 16);
             this.LblDateFormat.TabIndex = 14;
             this.LblDateFormat.Text = "(mm/dd/yy)";
             this.LblDateFormat.Click += new System.EventHandler(this.LblDateFormat_Click);
@@ -224,7 +232,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 374);
+            this.ClientSize = new System.Drawing.Size(652, 374);
             this.Controls.Add(this.LblDateFormat);
             this.Controls.Add(this.grid_selected_item);
             this.Controls.Add(this.LblCurrent_date);

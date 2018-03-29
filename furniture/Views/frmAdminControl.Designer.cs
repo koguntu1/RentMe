@@ -37,9 +37,10 @@
             // 
             // add_customer
             // 
-            this.add_customer.Location = new System.Drawing.Point(204, 114);
+            this.add_customer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add_customer.Location = new System.Drawing.Point(204, 111);
             this.add_customer.Name = "add_customer";
-            this.add_customer.Size = new System.Drawing.Size(123, 23);
+            this.add_customer.Size = new System.Drawing.Size(123, 26);
             this.add_customer.TabIndex = 0;
             this.add_customer.Text = "Add Customer";
             this.add_customer.UseVisualStyleBackColor = true;
@@ -48,9 +49,10 @@
             // 
             // add_employee
             // 
-            this.add_employee.Location = new System.Drawing.Point(204, 197);
+            this.add_employee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add_employee.Location = new System.Drawing.Point(204, 212);
             this.add_employee.Name = "add_employee";
-            this.add_employee.Size = new System.Drawing.Size(123, 23);
+            this.add_employee.Size = new System.Drawing.Size(123, 30);
             this.add_employee.TabIndex = 1;
             this.add_employee.Text = "Add Employee";
             this.add_employee.UseVisualStyleBackColor = true;
@@ -58,9 +60,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(421, 60);
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(420, 60);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(90, 23);
+            this.button3.Size = new System.Drawing.Size(90, 30);
             this.button3.TabIndex = 2;
             this.button3.Text = "Logout";
             this.button3.UseVisualStyleBackColor = true;
@@ -68,9 +71,10 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Location = new System.Drawing.Point(204, 157);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(123, 23);
+            this.btnSearch.Size = new System.Drawing.Size(123, 34);
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Search Customer";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -79,9 +83,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(201, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.Size = new System.Drawing.Size(144, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "Administrator Page";
             // 

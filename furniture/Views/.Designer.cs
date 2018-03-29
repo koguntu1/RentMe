@@ -46,19 +46,20 @@
             // LblSearch_customer
             // 
             this.LblSearch_customer.AutoSize = true;
-            this.LblSearch_customer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblSearch_customer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblSearch_customer.Location = new System.Drawing.Point(174, 102);
             this.LblSearch_customer.Name = "LblSearch_customer";
-            this.LblSearch_customer.Size = new System.Drawing.Size(109, 15);
+            this.LblSearch_customer.Size = new System.Drawing.Size(118, 16);
             this.LblSearch_customer.TabIndex = 0;
             this.LblSearch_customer.Text = "Search customer...";
             // 
             // Lbl_searchByPhone
             // 
             this.Lbl_searchByPhone.AutoSize = true;
+            this.Lbl_searchByPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_searchByPhone.Location = new System.Drawing.Point(174, 153);
             this.Lbl_searchByPhone.Name = "Lbl_searchByPhone";
-            this.Lbl_searchByPhone.Size = new System.Drawing.Size(93, 13);
+            this.Lbl_searchByPhone.Size = new System.Drawing.Size(115, 16);
             this.Lbl_searchByPhone.TabIndex = 1;
             this.Lbl_searchByPhone.Text = "By Phone Numer: ";
             this.Lbl_searchByPhone.Click += new System.EventHandler(this.Lbl_searchByPhone_Click);
@@ -66,9 +67,10 @@
             // Lbl_byName
             // 
             this.Lbl_byName.AutoSize = true;
+            this.Lbl_byName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_byName.Location = new System.Drawing.Point(174, 224);
             this.Lbl_byName.Name = "Lbl_byName";
-            this.Lbl_byName.Size = new System.Drawing.Size(56, 13);
+            this.Lbl_byName.Size = new System.Drawing.Size(70, 16);
             this.Lbl_byName.TabIndex = 2;
             this.Lbl_byName.Text = "By Name :";
             this.Lbl_byName.Click += new System.EventHandler(this.Lbl_byName_Click);
@@ -76,9 +78,10 @@
             // Lbl_or
             // 
             this.Lbl_or.AutoSize = true;
+            this.Lbl_or.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_or.Location = new System.Drawing.Point(374, 192);
             this.Lbl_or.Name = "Lbl_or";
-            this.Lbl_or.Size = new System.Drawing.Size(23, 13);
+            this.Lbl_or.Size = new System.Drawing.Size(28, 16);
             this.Lbl_or.TabIndex = 3;
             this.Lbl_or.Text = "OR";
             // 
@@ -101,9 +104,10 @@
             // Out_customer
             // 
             this.Out_customer.AutoSize = true;
+            this.Out_customer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Out_customer.Location = new System.Drawing.Point(320, 331);
             this.Out_customer.Name = "Out_customer";
-            this.Out_customer.Size = new System.Drawing.Size(137, 13);
+            this.Out_customer.Size = new System.Drawing.Size(171, 16);
             this.Out_customer.TabIndex = 7;
             this.Out_customer.Text = "Customer found will be here";
             this.Out_customer.Visible = false;
@@ -111,6 +115,7 @@
             // 
             // search_button
             // 
+            this.search_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.search_button.Location = new System.Drawing.Point(346, 267);
             this.search_button.Name = "search_button";
             this.search_button.Size = new System.Drawing.Size(75, 23);
@@ -121,7 +126,8 @@
             // 
             // Edit_button
             // 
-            this.Edit_button.Location = new System.Drawing.Point(510, 331);
+            this.Edit_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Edit_button.Location = new System.Drawing.Point(534, 331);
             this.Edit_button.Name = "Edit_button";
             this.Edit_button.Size = new System.Drawing.Size(75, 23);
             this.Edit_button.TabIndex = 9;
@@ -132,6 +138,7 @@
             // 
             // GO_button
             // 
+            this.GO_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GO_button.Location = new System.Drawing.Point(534, 360);
             this.GO_button.Name = "GO_button";
             this.GO_button.Size = new System.Drawing.Size(75, 23);
@@ -143,7 +150,8 @@
             // 
             // btnlAddCustomer
             // 
-            this.btnlAddCustomer.Location = new System.Drawing.Point(336, 94);
+            this.btnlAddCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlAddCustomer.Location = new System.Drawing.Point(332, 94);
             this.btnlAddCustomer.Name = "btnlAddCustomer";
             this.btnlAddCustomer.Size = new System.Drawing.Size(110, 23);
             this.btnlAddCustomer.TabIndex = 11;
@@ -153,6 +161,7 @@
             // 
             // btnlogout
             // 
+            this.btnlogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlogout.Location = new System.Drawing.Point(534, 54);
             this.btnlogout.Name = "btnlogout";
             this.btnlogout.Size = new System.Drawing.Size(75, 23);
@@ -163,6 +172,7 @@
             // 
             // btnReturn
             // 
+            this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.Location = new System.Drawing.Point(390, 360);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(115, 23);
