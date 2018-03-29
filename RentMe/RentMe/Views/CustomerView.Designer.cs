@@ -1,6 +1,6 @@
 ﻿namespace RentMe.Views
 {
-    partial class CustomerRegistrationView
+    partial class CustomerView
     {
         /// <summary>
         /// Required designer variable.
@@ -55,6 +55,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cboGender = new System.Windows.Forms.ComboBox();
+            this.genderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label9 = new System.Windows.Forms.Label();
             this.mtStreetNumber = new System.Windows.Forms.MaskedTextBox();
             this.mtxtZipCode = new System.Windows.Forms.MaskedTextBox();
@@ -67,14 +68,18 @@
             this.tableAdapterManager = new RentMe.RentMeDataSetTableAdapters.TableAdapterManager();
             this.lblStateInfo = new System.Windows.Forms.Label();
             this.lblStreetInfo = new System.Windows.Forms.Label();
-            this.genderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.genderTableAdapter = new RentMe.RentMeDataSetTableAdapters.GenderTableAdapter();
             this.lblGender = new System.Windows.Forms.Label();
+            this.lblUser = new System.Windows.Forms.Label();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeTableAdapter = new RentMe.RentMeDataSetTableAdapters.EmployeeTableAdapter();
+            this.lblLoggedIn = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.streetsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -93,9 +98,9 @@
             this.lblAuthorized.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAuthorized.Location = new System.Drawing.Point(148, 59);
             this.lblAuthorized.Name = "lblAuthorized";
-            this.lblAuthorized.Size = new System.Drawing.Size(312, 39);
+            this.lblAuthorized.Size = new System.Drawing.Size(311, 39);
             this.lblAuthorized.TabIndex = 5;
-            this.lblAuthorized.Text = "Customer Registration";
+            this.lblAuthorized.Text = "Customer Information";
             // 
             // lblFirstName
             // 
@@ -322,6 +327,11 @@
             this.cboGender.ValueMember = "gender";
             this.cboGender.SelectedIndexChanged += new System.EventHandler(this.cboGender_SelectedIndexChanged);
             // 
+            // genderBindingSource
+            // 
+            this.genderBindingSource.DataMember = "Gender";
+            this.genderBindingSource.DataSource = this.rentMeDataSet;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -438,11 +448,6 @@
             this.lblStreetInfo.Text = "lblStreetInfo";
             this.lblStreetInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // genderBindingSource
-            // 
-            this.genderBindingSource.DataMember = "Gender";
-            this.genderBindingSource.DataSource = this.rentMeDataSet;
-            // 
             // genderTableAdapter
             // 
             this.genderTableAdapter.ClearBeforeFill = true;
@@ -456,11 +461,42 @@
             this.lblGender.TabIndex = 38;
             this.lblGender.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // CustomerRegistrationView
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.Location = new System.Drawing.Point(16, 13);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(80, 14);
+            this.lblUser.TabIndex = 39;
+            this.lblUser.Text = "Logged In User";
+            // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataMember = "Employee";
+            this.employeeBindingSource.DataSource = this.rentMeDataSet;
+            // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
+            // 
+            // lblLoggedIn
+            // 
+            this.lblLoggedIn.AutoSize = true;
+            this.lblLoggedIn.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoggedIn.Location = new System.Drawing.Point(19, 31);
+            this.lblLoggedIn.Name = "lblLoggedIn";
+            this.lblLoggedIn.Size = new System.Drawing.Size(71, 14);
+            this.lblLoggedIn.TabIndex = 40;
+            this.lblLoggedIn.Text = "lblLoggedIn";
+            // 
+            // CustomerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 537);
+            this.Controls.Add(this.lblLoggedIn);
+            this.Controls.Add(this.lblUser);
             this.Controls.Add(this.lblGender);
             this.Controls.Add(this.lblStreetInfo);
             this.Controls.Add(this.lblStateInfo);
@@ -494,7 +530,7 @@
             this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.lblAuthorized);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "CustomerRegistrationView";
+            this.Name = "CustomerView";
             this.Text = "CustomerRegistrationView";
             this.Load += new System.EventHandler(this.CustomerRegistrationView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -502,6 +538,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -550,5 +587,9 @@
         private System.Windows.Forms.BindingSource genderBindingSource;
         private RentMeDataSetTableAdapters.GenderTableAdapter genderTableAdapter;
         private System.Windows.Forms.Label lblGender;
+        private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.BindingSource employeeBindingSource;
+        private RentMeDataSetTableAdapters.EmployeeTableAdapter employeeTableAdapter;
+        private System.Windows.Forms.Label lblLoggedIn;
     }
 }
