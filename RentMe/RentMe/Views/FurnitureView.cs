@@ -54,8 +54,6 @@ namespace RentMe.Views
             }
             else
             {
-
-
                 if (menuScreen.Enabled)
                 {
 
