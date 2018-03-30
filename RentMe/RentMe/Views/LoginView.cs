@@ -11,10 +11,7 @@ using System.Windows.Forms;
 namespace RentMe.Views
 {
     public partial class LoginView : Form
-    {
-
-        MenuView menuForm = new MenuView();
-
+    { 
             public LoginView()
         {
             InitializeComponent();
@@ -22,8 +19,10 @@ namespace RentMe.Views
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            MenuView menuForm = new MenuView();
             if (menuForm.Enabled)
             {
+                
 
                 if (menuForm.IsDisposed)
                 {
@@ -38,8 +37,20 @@ namespace RentMe.Views
                     menuForm.Show();
                     
                 }
+                this.Hide();
             }
             
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            System.Environment.Exit(1);
+        }
+
+        private void LoginView_FormClosed(object sender, FormClosingEventArgs e)
+        {
+            System.Environment.Exit(1);
         }
     }
 }

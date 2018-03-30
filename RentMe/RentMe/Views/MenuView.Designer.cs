@@ -139,6 +139,7 @@
             this.Controls.Add(this.lblUser);
             this.Name = "MenuView";
             this.Text = "Menu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuView_FormClosing);
             this.Load += new System.EventHandler(this.MenuView_Load);
             this.grpEmployee.ResumeLayout(false);
             this.ResumeLayout(false);

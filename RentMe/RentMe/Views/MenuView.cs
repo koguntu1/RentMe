@@ -12,22 +12,56 @@ namespace RentMe.Views
 {
     public partial class MenuView : Form
     {
-        CustomerView customer = new CustomerView();
-        //LoginView login = new LoginView();
+
+        LoginView loginScreen = new LoginView();
+
+
         public MenuView()
         {
             InitializeComponent();
-            
+
+
         }
 
         private void MenuView_Load(object sender, EventArgs e)
         {
+
             // Add corrected code for user that is logged into system
             //lblUser.Text = fname + " " + middleinitial + ". " + lname;
         }
 
+        private void MenuView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.WindowsShutDown)
+            {
+                return;
+            }
+            else
+            {
+
+                
+                if (loginScreen.Enabled)
+                {
+
+                    if (loginScreen.IsDisposed)
+                    {
+                        loginScreen = new LoginView();
+                        loginScreen.StartPosition = FormStartPosition.CenterScreen;
+                        loginScreen.Show();
+                    }
+                    else
+                    {
+                        loginScreen.StartPosition = FormStartPosition.CenterScreen;
+                        loginScreen.Show();
+                    }
+                }
+            }
+        }
+
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
+            CustomerView customer = new CustomerView();
+            
             if (customer.Enabled)
             {
 
@@ -42,6 +76,8 @@ namespace RentMe.Views
                     customer.StartPosition = FormStartPosition.CenterScreen;
                     customer.Show();
                 }
+
+                this.Hide();
             }
         }
 
@@ -52,7 +88,24 @@ namespace RentMe.Views
 
         private void btnSearchFurniture_Click(object sender, EventArgs e)
         {
+            FurnitureView furniture = new FurnitureView();
+            if (furniture.Enabled)
+            {
 
+
+                if (furniture.IsDisposed)
+                {
+                    furniture = new FurnitureView();
+                    furniture.StartPosition = FormStartPosition.CenterScreen;
+                    furniture.Show();
+                }
+                else
+                {
+                    furniture.StartPosition = FormStartPosition.CenterScreen;
+                    furniture.Show();
+                }
+                this.Hide();
+            }
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)
@@ -67,21 +120,21 @@ namespace RentMe.Views
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            //if (login.Enabled)
-            //{
+            if (loginScreen.Enabled)
+            {
 
-            //    if (login.IsDisposed)
-            //    {
-            //        login = new LoginView();
-            //        login.StartPosition = FormStartPosition.CenterScreen;
-            //        login.Show();
-            //    }
-            //    else
-            //    {
-            //        login.StartPosition = FormStartPosition.CenterScreen;
-            //        login.Show();
-            //    }
-            //}
+                if (loginScreen.IsDisposed)
+                {
+                    loginScreen = new LoginView();
+                    loginScreen.StartPosition = FormStartPosition.CenterScreen;
+                    loginScreen.Show();
+                }
+                else
+                {
+                    loginScreen.StartPosition = FormStartPosition.CenterScreen;
+                    loginScreen.Show();
+                }
+            }
 
             this.Close();
         }

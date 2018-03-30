@@ -12,6 +12,8 @@ namespace RentMe.Views
 {
     public partial class CustomerView : Form
     {
+
+        MenuView menuScreen = new MenuView();
         public CustomerView()
         {
             InitializeComponent();
@@ -19,7 +21,7 @@ namespace RentMe.Views
 
         }
 
-        private void CustomerRegistrationView_Load(object sender, EventArgs e)
+        private void CustomerView_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'rentMeDataSet.Employee' table. You can move, or remove it, as needed.
             this.employeeTableAdapter.Fill(this.rentMeDataSet.Employee);
@@ -39,7 +41,7 @@ namespace RentMe.Views
             mtxtHomePhone.Enabled = true;
             btnSearch.Enabled = true;
             btnAdd.Enabled = true;
-            btnCancel.Enabled = true;
+            btnExit.Enabled = true;
 
 
             // Add corrected code for user that is logged into system
@@ -135,22 +137,25 @@ namespace RentMe.Views
         {
             DisableControls();
             btnAdd.Enabled = true;
-            btnCancel.Enabled = true;
+            btnExit.Enabled = true;
             btnSearch.Enabled = true;
+            btnRestart.Enabled = true;
             btnAdd.Text = "Update";
-            btnAdd.Name = "btnUpdate";
             btnSearch.Text = "Search Again";
-            btnSearch.Name = "btnSearchAgain";
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+            menuScreen.Show();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            EnableControls();
+            btnAdd.Enabled = false;
+            btnSearch.Enabled = false;
+            btnRestart.Enabled = true;
         }
 
         private void EnableControls()
@@ -201,6 +206,49 @@ namespace RentMe.Views
                 if (ctrl is Button)
                 {
                     ((Button)ctrl).Enabled = false;
+                }
+            }
+        }
+
+        private void btnRestart_Click(object sender, EventArgs e)
+        {
+            DisableControls();
+            txtFirstName.Enabled = true;
+            txtFirstName.Text = "";
+            txtLastName.Enabled = true;
+            txtLastName.Text = "";
+            mtxtHomePhone.Enabled = true;
+            mtxtHomePhone.Text = "";
+            btnSearch.Enabled = true;
+            btnAdd.Enabled = true;
+            btnAdd.Text = "Add";
+            btnExit.Enabled = true;
+        }
+
+        private void CustomerView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.WindowsShutDown)
+            {
+                return;
+            }
+            else
+            {
+
+                
+                if (menuScreen.Enabled)
+                {
+
+                    if (menuScreen.IsDisposed)
+                    {
+                        menuScreen = new MenuView();
+                        menuScreen.StartPosition = FormStartPosition.CenterScreen;
+                        menuScreen.Show();
+                    }
+                    else
+                    {
+                        menuScreen.StartPosition = FormStartPosition.CenterScreen;
+                        menuScreen.Show();
+                    }
                 }
             }
         }
