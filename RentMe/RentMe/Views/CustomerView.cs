@@ -33,6 +33,15 @@ namespace RentMe.Views
             cboState.SelectedIndex = -1;
             cboStreetType.SelectedIndex = -1;
             cboGender.SelectedIndex = -1;
+            DisableControls();
+            txtFirstName.Enabled = true;
+            txtLastName.Enabled = true;
+            mtxtHomePhone.Enabled = true;
+            btnSearch.Enabled = true;
+            btnAdd.Enabled = true;
+            btnCancel.Enabled = true;
+
+
             // Add corrected code for user that is logged into system
             //lblUser.Text = fname + " " + middleinitial + ". " + lname;
 
@@ -118,6 +127,80 @@ namespace RentMe.Views
                 else
                 {
                     lblGender.Text = "";
+                }
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            DisableControls();
+            btnAdd.Enabled = true;
+            btnCancel.Enabled = true;
+            btnSearch.Enabled = true;
+            btnAdd.Text = "Update";
+            btnAdd.Name = "btnUpdate";
+            btnSearch.Text = "Search Again";
+            btnSearch.Name = "btnSearchAgain";
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EnableControls()
+        {
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is TextBox)
+                {
+                    ((TextBox)ctrl).Enabled = true;
+                }
+
+                if (ctrl is ComboBox)
+                {
+                    ((ComboBox)ctrl).Enabled = true;
+                }
+
+                if (ctrl is MaskedTextBox)
+                {
+                    ((MaskedTextBox)ctrl).Enabled = true;
+                }
+
+                if (ctrl is Button)
+                {
+                    ((Button)ctrl).Enabled = true;
+                }
+            }
+        }
+
+        private void DisableControls()
+        {
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is TextBox)
+                {
+                    ((TextBox)ctrl).Enabled = false;
+                }
+
+                if (ctrl is ComboBox)
+                {
+                    ((ComboBox)ctrl).Enabled = false;
+                }
+
+                if (ctrl is MaskedTextBox)
+                {
+                    ((MaskedTextBox)ctrl).Enabled = false;
+                }
+
+                if (ctrl is Button)
+                {
+                    ((Button)ctrl).Enabled = false;
                 }
             }
         }

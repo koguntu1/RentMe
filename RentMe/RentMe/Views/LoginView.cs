@@ -12,12 +12,34 @@ namespace RentMe.Views
 {
     public partial class LoginView : Form
     {
-        
+
+        MenuView menuForm = new MenuView();
+
             public LoginView()
         {
             InitializeComponent();
         }
 
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (menuForm.Enabled)
+            {
 
+                if (menuForm.IsDisposed)
+                {
+                    menuForm = new MenuView();
+                    menuForm.StartPosition = FormStartPosition.CenterScreen;
+                    menuForm.Show();
+                    this.Close();
+                }
+                else
+                {
+                    menuForm.StartPosition = FormStartPosition.CenterScreen;
+                    menuForm.Show();
+                    
+                }
+            }
+            
+        }
     }
 }

@@ -120,13 +120,10 @@
   <metadata name="ttLogin.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="ttLogin.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        R0lGODlhnQAeAPcAAP///3V0dHZ1dXd2dnh3d3h4eHl5eXp6ent7e3x8fH18fH59fX9+foB/f4GAgIKB
+        R0lGODlhnQAeAIcAAP///3V0dHZ1dXd2dnh3d3h4eHl5eXp6ent7e3x8fH18fH59fX9+foB/f4GAgIKB
         gYKCgoODg4SEhIWEhIWFhYaFhYeGhoiHh4mIiIuKioyLi4yMjI2MjI2NjY6Ojo+Pj5CPj5GQkJGRkZKR
         kZOSkpSTk5WUlJWVlZaWlpeXl5iYmJmYmJmZmZqZmZuampybm52cnJ6dnZ+enp+fn6CgoKGhoaKhoaOi
         oqSjo6WkpKWlpaalpaampqempqinp6ioqKmoqKmpqaqqqquqqq2srK6tra+urrCvr7GwsLKxsbKysrOz

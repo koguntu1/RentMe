@@ -12,7 +12,8 @@ namespace RentMe.Views
 {
     public partial class MenuView : Form
     {
-        CustomerView customerView = new CustomerView();
+        CustomerView customer = new CustomerView();
+        //LoginView login = new LoginView();
         public MenuView()
         {
             InitializeComponent();
@@ -27,19 +28,19 @@ namespace RentMe.Views
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-            if (customerView.Enabled)
+            if (customer.Enabled)
             {
 
-                if (customerView.IsDisposed)
+                if (customer.IsDisposed)
                 {
-                    customerView = new CustomerView();
-                    customerView.StartPosition = FormStartPosition.CenterScreen;
-                    customerView.Show();
+                    customer = new CustomerView();
+                    customer.StartPosition = FormStartPosition.CenterScreen;
+                    customer.Show();
                 }
                 else
                 {
-                    customerView.StartPosition = FormStartPosition.CenterScreen;
-                    customerView.Show();
+                    customer.StartPosition = FormStartPosition.CenterScreen;
+                    customer.Show();
                 }
             }
         }
@@ -62,6 +63,27 @@ namespace RentMe.Views
         private void btnSearchEmployee_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            //if (login.Enabled)
+            //{
+
+            //    if (login.IsDisposed)
+            //    {
+            //        login = new LoginView();
+            //        login.StartPosition = FormStartPosition.CenterScreen;
+            //        login.Show();
+            //    }
+            //    else
+            //    {
+            //        login.StartPosition = FormStartPosition.CenterScreen;
+            //        login.Show();
+            //    }
+            //}
+
+            this.Close();
         }
     }
 }
