@@ -64,7 +64,7 @@
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.LeftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
-            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.navFurniture = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -90,8 +90,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.furnitureDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.store_itemBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-            this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.navFurniture)).BeginInit();
+            this.navFurniture.SuspendLayout();
             this.SuspendLayout();
             // 
             // categoryLabel
@@ -225,6 +225,7 @@
             this.btnRestart.TabIndex = 48;
             this.btnRestart.Text = "Restart";
             this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // btnSearch
             // 
@@ -235,6 +236,7 @@
             this.btnSearch.TabIndex = 47;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnAdd
             // 
@@ -255,6 +257,7 @@
             this.btnExit.TabIndex = 45;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnSubmit
             // 
@@ -394,12 +397,12 @@
             // 
             this.ContentPanel.Size = new System.Drawing.Size(150, 150);
             // 
-            // bindingNavigator1
+            // navFurniture
             // 
-            this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
-            this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.navFurniture.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.navFurniture.CountItem = this.bindingNavigatorCountItem;
+            this.navFurniture.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.navFurniture.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -411,16 +414,16 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
-            this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.bindingNavigator1.Name = "bindingNavigator1";
-            this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(624, 25);
-            this.bindingNavigator1.TabIndex = 58;
-            this.bindingNavigator1.Text = "bindingNavigator1";
+            this.navFurniture.Location = new System.Drawing.Point(0, 0);
+            this.navFurniture.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.navFurniture.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.navFurniture.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.navFurniture.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.navFurniture.Name = "navFurniture";
+            this.navFurniture.PositionItem = this.bindingNavigatorPositionItem;
+            this.navFurniture.Size = new System.Drawing.Size(624, 25);
+            this.navFurniture.TabIndex = 58;
+            this.navFurniture.Text = "bindingNavigator1";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -534,7 +537,7 @@
             this.ClientSize = new System.Drawing.Size(624, 531);
             this.Controls.Add(this.lblLoggedIn);
             this.Controls.Add(this.lblUser);
-            this.Controls.Add(this.bindingNavigator1);
+            this.Controls.Add(this.navFurniture);
             this.Controls.Add(this.mtxtFineRate);
             this.Controls.Add(this.mtxtDailyRate);
             this.Controls.Add(this.cboFurnitureID);
@@ -565,9 +568,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.furnitureDetailsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.store_itemBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
-            this.bindingNavigator1.ResumeLayout(false);
-            this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.navFurniture)).EndInit();
+            this.navFurniture.ResumeLayout(false);
+            this.navFurniture.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -602,7 +605,7 @@
         private System.Windows.Forms.ToolStripPanel RightToolStripPanel;
         private System.Windows.Forms.ToolStripPanel LeftToolStripPanel;
         private System.Windows.Forms.ToolStripContentPanel ContentPanel;
-        private System.Windows.Forms.BindingNavigator bindingNavigator1;
+        private System.Windows.Forms.BindingNavigator navFurniture;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
