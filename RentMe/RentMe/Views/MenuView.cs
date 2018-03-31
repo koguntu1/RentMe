@@ -110,7 +110,24 @@ namespace RentMe.Views
 
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
+            ChangePasswordView password = new ChangePasswordView();
+            if (password.Enabled)
+            {
 
+
+                if (password.IsDisposed)
+                {
+                    password = new ChangePasswordView();
+                    password.StartPosition = FormStartPosition.CenterScreen;
+                    password.Show();
+                }
+                else
+                {
+                    password.StartPosition = FormStartPosition.CenterScreen;
+                    password.Show();
+                }
+                this.Hide();
+            }
         }
 
         private void btnSearchEmployee_Click(object sender, EventArgs e)

@@ -49,7 +49,7 @@
             this.txtLogin.AccessibleName = "Login";
             this.txtLogin.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolTip;
             this.txtLogin.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLogin.Location = new System.Drawing.Point(163, 132);
+            this.txtLogin.Location = new System.Drawing.Point(154, 132);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(214, 27);
             this.txtLogin.TabIndex = 0;
@@ -60,7 +60,7 @@
             // 
             this.loginLabel.AutoSize = true;
             this.loginLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginLabel.Location = new System.Drawing.Point(110, 135);
+            this.loginLabel.Location = new System.Drawing.Point(101, 135);
             this.loginLabel.Name = "loginLabel";
             this.loginLabel.Size = new System.Drawing.Size(50, 19);
             this.loginLabel.TabIndex = 1;
@@ -70,7 +70,7 @@
             // 
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordLabel.Location = new System.Drawing.Point(85, 166);
+            this.passwordLabel.Location = new System.Drawing.Point(76, 166);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(78, 19);
             this.passwordLabel.TabIndex = 3;
@@ -79,7 +79,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(163, 163);
+            this.textBox2.Location = new System.Drawing.Point(154, 163);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(214, 27);
             this.textBox2.TabIndex = 2;
@@ -96,7 +96,7 @@
             // 
             this.lblAuthorized.AutoSize = true;
             this.lblAuthorized.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAuthorized.Location = new System.Drawing.Point(89, 52);
+            this.lblAuthorized.Location = new System.Drawing.Point(80, 52);
             this.lblAuthorized.Name = "lblAuthorized";
             this.lblAuthorized.Size = new System.Drawing.Size(335, 39);
             this.lblAuthorized.TabIndex = 4;
@@ -106,7 +106,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(33, 91);
+            this.label1.Location = new System.Drawing.Point(24, 91);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(443, 23);
             this.label1.TabIndex = 5;
@@ -115,7 +115,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(183, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(174, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(157, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -125,7 +125,7 @@
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(141, 209);
+            this.btnLogin.Location = new System.Drawing.Point(132, 209);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(107, 27);
             this.btnLogin.TabIndex = 7;
@@ -136,7 +136,7 @@
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(280, 209);
+            this.btnExit.Location = new System.Drawing.Point(271, 209);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(107, 27);
             this.btnExit.TabIndex = 8;
@@ -148,7 +148,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(495, 261);
+            this.ClientSize = new System.Drawing.Size(494, 261);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.pictureBox1);
