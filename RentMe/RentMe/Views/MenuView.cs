@@ -115,7 +115,24 @@ namespace RentMe.Views
 
         private void btnSearchEmployee_Click(object sender, EventArgs e)
         {
+            EmployeeView employee = new EmployeeView();
+            if (employee.Enabled)
+            {
 
+
+                if (employee.IsDisposed)
+                {
+                    employee = new EmployeeView();
+                    employee.StartPosition = FormStartPosition.CenterScreen;
+                    employee.Show();
+                }
+                else
+                {
+                    employee.StartPosition = FormStartPosition.CenterScreen;
+                    employee.Show();
+                }
+                this.Hide();
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)

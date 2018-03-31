@@ -158,9 +158,12 @@ namespace RentMe.Views
         {
             DisableControls();
             btnAdd.Text = "Update";
+            // change to true for next iteration
             btnAdd.Enabled = false;
             btnSubmit.Enabled = false;
+            // ---------------------
             btnRestart.Enabled = true;
+            btnExit.Enabled = true;
         }
 
         private void btnRestart_Click(object sender, EventArgs e)
@@ -172,6 +175,7 @@ namespace RentMe.Views
             txtStyle.Enabled = true;
             btnSearch.Enabled = true;
             btnAdd.Text = "Add";
+            //btnAdd.Enabled = true;  Add next iteration
             btnRestart.Enabled = true;
             btnExit.Enabled = true;
         }
