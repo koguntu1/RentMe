@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RentMe.DAL;
+using RentMe.Models;
 
 namespace RentMe.Controller
 {
@@ -10,9 +12,26 @@ namespace RentMe.Controller
     {
         public bool isValidLogin(string username, string password)
         {
-            bool isValidLogin = false;
+            try
+            {
+                Login login = LoginDAL.GetLogin(username, password);
 
-            return isValidLogin;
+                if (login == null)
+                {
+                    return false;
+                }
+
+                else
+                {
+                    return true;
+                }
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }      
+            
         }
     }
 }

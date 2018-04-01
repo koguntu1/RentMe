@@ -11,16 +11,17 @@ namespace RentMe.DAL
 {
     class LoginDAL
     {
-        public static Login GetLogin(int employeeID)
+        public static Login GetLogin(string userID, string password)
         {
             Login login = new Login();
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string selectstatement =
-                "SELECT login1, password, employeeID " +
+                "SELECT password, employeeID, userID " +
                 "FROM login " +
-                "WHERE employeeID = @employeeID";
+                "WHERE userID = @userID AND password = @password";
             SqlCommand selectCommand = new SqlCommand(selectstatement, connection);
-            selectCommand.Parameters.AddWithValue("@employeeID", employeeID);
+            selectCommand.Parameters.AddWithValue("@userID", userID);
+            selectCommand.Parameters.AddWithValue("@password", password);
             try
             {
                 connection.Open();
@@ -28,9 +29,10 @@ namespace RentMe.DAL
                     selectCommand.ExecuteReader(CommandBehavior.SingleRow);
                 if (reader.Read())
                 {
-                    login.login1 = reader["description"].ToString();
-                    login.password = reader["description"].ToString();
-                    login.employeeID = Convert.ToInt32(reader["categoryID"].ToString());
+                    login.login1 = reader["userID"].ToString();
+                    login.password = reader["password"].ToString();
+                    login.employeeID = Convert.ToInt32(reader["employeeID"].ToString());
+                    
 
                 }
                 else
@@ -49,5 +51,6 @@ namespace RentMe.DAL
             }
             return login;
         }
+
     }
 }

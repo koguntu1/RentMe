@@ -46,16 +46,22 @@ namespace RentMe.Views
             }
             if ((txtLogin.Text != "" && textBox2.Text != "")) {
 
-
-                if (lgCont.isValidLogin(textBox2.Text, txtLogin.Text))
+                try
                 {
-                    this.Close();
+                    if (lgCont.isValidLogin(txtLogin.Text, textBox2.Text))
+                    {
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wrong username and/or password.");
+                        txtLogin.Focus();
+                        textBox2.Focus();
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Wrong username and/or password.");
-                    txtLogin.Focus();
-                    textBox2.Focus();
+                    MessageBox.Show(ex.ToString());
                 }
 
             }
