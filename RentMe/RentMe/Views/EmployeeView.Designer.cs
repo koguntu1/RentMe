@@ -85,6 +85,8 @@
             this.genderTableAdapter = new RentMe.RentMeDataSetTableAdapters.GenderTableAdapter();
             this.statesTableAdapter = new RentMe.RentMeDataSetTableAdapters.StatesTableAdapter();
             this.streetsTableAdapter = new RentMe.RentMeDataSetTableAdapters.StreetsTableAdapter();
+            this.cboAdmin = new System.Windows.Forms.ComboBox();
+            this.lblAdmin = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.navEmployee)).BeginInit();
             this.navEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).BeginInit();
@@ -600,11 +602,36 @@
             // 
             this.streetsTableAdapter.ClearBeforeFill = true;
             // 
+            // cboAdmin
+            // 
+            this.cboAdmin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAdmin.Font = new System.Drawing.Font("Calibri", 12F);
+            this.cboAdmin.FormattingEnabled = true;
+            this.cboAdmin.Items.AddRange(new object[] {
+            "Y",
+            "N"});
+            this.cboAdmin.Location = new System.Drawing.Point(484, 423);
+            this.cboAdmin.Name = "cboAdmin";
+            this.cboAdmin.Size = new System.Drawing.Size(105, 27);
+            this.cboAdmin.TabIndex = 84;
+            // 
+            // lblAdmin
+            // 
+            this.lblAdmin.AutoSize = true;
+            this.lblAdmin.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.lblAdmin.Location = new System.Drawing.Point(484, 404);
+            this.lblAdmin.Name = "lblAdmin";
+            this.lblAdmin.Size = new System.Drawing.Size(54, 19);
+            this.lblAdmin.TabIndex = 85;
+            this.lblAdmin.Text = "Admin";
+            // 
             // EmployeeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(604, 531);
+            this.Controls.Add(this.lblAdmin);
+            this.Controls.Add(this.cboAdmin);
             this.Controls.Add(this.navEmployee);
             this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.btnSearch);
@@ -715,5 +742,7 @@
         private RentMeDataSetTableAdapters.StatesTableAdapter statesTableAdapter;
         private System.Windows.Forms.BindingSource streetsBindingSource;
         private RentMeDataSetTableAdapters.StreetsTableAdapter streetsTableAdapter;
+        private System.Windows.Forms.ComboBox cboAdmin;
+        private System.Windows.Forms.Label lblAdmin;
     }
 }

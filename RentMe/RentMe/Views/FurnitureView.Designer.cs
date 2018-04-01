@@ -42,7 +42,10 @@
             this.furnitureTableAdapter = new RentMe.RentMeDataSetTableAdapters.FurnitureTableAdapter();
             this.tableAdapterManager = new RentMe.RentMeDataSetTableAdapters.TableAdapterManager();
             this.furnitureDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+<<<<<<< Updated upstream
             //this.furnitureDetailsTableAdapter = new RentMe.RentMeDataSetTableAdapters.FurnitureDetailsTableAdapter();
+=======
+>>>>>>> Stashed changes
             this.txtFurnitureDescrption = new System.Windows.Forms.TextBox();
             this.txtCategory = new System.Windows.Forms.TextBox();
             this.txtStyle = new System.Windows.Forms.TextBox();
@@ -200,10 +203,13 @@
             this.furnitureDetailsBindingSource.DataMember = "FurnitureDetails";
             this.furnitureDetailsBindingSource.DataSource = this.rentMeDataSet;
             // 
+<<<<<<< Updated upstream
             // furnitureDetailsTableAdapter
             // 
             //this.furnitureDetailsTableAdapter.ClearBeforeFill = true;
             // 
+=======
+>>>>>>> Stashed changes
             // txtFurnitureDescrption
             // 
             this.txtFurnitureDescrption.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.furnitureDetailsBindingSource, "furnitureDescrption", true));
@@ -540,7 +546,10 @@
             this.Load += new System.EventHandler(this.SearchFurnitureView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).EndInit();
+<<<<<<< Updated upstream
             //((System.ComponentModel.ISupportInitialize)(this.furnitureDetailsBindingSource)).EndInit();
+=======
+>>>>>>> Stashed changes
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.store_itemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navFurniture)).EndInit();
@@ -558,7 +567,10 @@
         private RentMeDataSetTableAdapters.FurnitureTableAdapter furnitureTableAdapter;
         private RentMeDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingSource furnitureDetailsBindingSource;
+<<<<<<< Updated upstream
         //private RentMeDataSetTableAdapters.FurnitureDetailsTableAdapter furnitureDetailsTableAdapter;
+=======
+>>>>>>> Stashed changes
         private System.Windows.Forms.TextBox txtFurnitureDescrption;
         private System.Windows.Forms.TextBox txtCategory;
         private System.Windows.Forms.TextBox txtStyle;

@@ -1113,6 +1113,8 @@ namespace RentMe {
             
             private global::System.Data.DataColumn columngender;
             
+            private global::System.Data.DataColumn columnadmin;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public EmployeeDataTable() {
@@ -1244,6 +1246,14 @@ namespace RentMe {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn adminColumn {
+                get {
+                    return this.columnadmin;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1279,7 +1289,7 @@ namespace RentMe {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public EmployeeRow AddEmployeeRow(string fname, string middleInitial, string lname, System.DateTime dateOfBirth, string homePhone, string Address1, string Address2, string City, string State, string PostalCode, string gender) {
+            public EmployeeRow AddEmployeeRow(string fname, string middleInitial, string lname, System.DateTime dateOfBirth, string homePhone, string Address1, string Address2, string City, string State, string PostalCode, string gender, string admin) {
                 EmployeeRow rowEmployeeRow = ((EmployeeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1293,7 +1303,8 @@ namespace RentMe {
                         City,
                         State,
                         PostalCode,
-                        gender};
+                        gender,
+                        admin};
                 rowEmployeeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEmployeeRow);
                 return rowEmployeeRow;
@@ -1335,6 +1346,7 @@ namespace RentMe {
                 this.columnState = base.Columns["State"];
                 this.columnPostalCode = base.Columns["PostalCode"];
                 this.columngender = base.Columns["gender"];
+                this.columnadmin = base.Columns["admin"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1364,6 +1376,8 @@ namespace RentMe {
                 base.Columns.Add(this.columnPostalCode);
                 this.columngender = new global::System.Data.DataColumn("gender", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columngender);
+                this.columnadmin = new global::System.Data.DataColumn("admin", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnadmin);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnemployeeID}, true));
                 this.columnemployeeID.AutoIncrement = true;
@@ -1385,6 +1399,8 @@ namespace RentMe {
                 this.columnState.MaxLength = 2;
                 this.columnPostalCode.MaxLength = 10;
                 this.columngender.MaxLength = 14;
+                this.columnadmin.AllowDBNull = false;
+                this.columnadmin.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5540,6 +5556,17 @@ namespace RentMe {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string admin {
+                get {
+                    return ((string)(this[this.tableEmployee.adminColumn]));
+                }
+                set {
+                    this[this.tableEmployee.adminColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsmiddleInitialNull() {
                 return this.IsNull(this.tableEmployee.middleInitialColumn);
             }
@@ -7758,10 +7785,11 @@ namespace RentMe.RentMeDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("State", "State");
             tableMapping.ColumnMappings.Add("PostalCode", "PostalCode");
             tableMapping.ColumnMappings.Add("gender", "gender");
+            tableMapping.ColumnMappings.Add("admin", "admin");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Employee] WHERE (([employeeID] = @Original_employeeID) AND ([fname] = @Original_fname) AND ((@IsNull_middleInitial = 1 AND [middleInitial] IS NULL) OR ([middleInitial] = @Original_middleInitial)) AND ([lname] = @Original_lname) AND ([dateOfBirth] = @Original_dateOfBirth) AND ((@IsNull_homePhone = 1 AND [homePhone] IS NULL) OR ([homePhone] = @Original_homePhone)) AND ((@IsNull_Address1 = 1 AND [Address1] IS NULL) OR ([Address1] = @Original_Address1)) AND ((@IsNull_Address2 = 1 AND [Address2] IS NULL) OR ([Address2] = @Original_Address2)) AND ((@IsNull_City = 1 AND [City] IS NULL) OR ([City] = @Original_City)) AND ((@IsNull_State = 1 AND [State] IS NULL) OR ([State] = @Original_State)) AND ((@IsNull_PostalCode = 1 AND [PostalCode] IS NULL) OR ([PostalCode] = @Original_PostalCode)) AND ((@IsNull_gender = 1 AND [gender] IS NULL) OR ([gender] = @Original_gender)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Employee] WHERE (([employeeID] = @Original_employeeID) AND ([fname] = @Original_fname) AND ((@IsNull_middleInitial = 1 AND [middleInitial] IS NULL) OR ([middleInitial] = @Original_middleInitial)) AND ([lname] = @Original_lname) AND ([dateOfBirth] = @Original_dateOfBirth) AND ((@IsNull_homePhone = 1 AND [homePhone] IS NULL) OR ([homePhone] = @Original_homePhone)) AND ((@IsNull_Address1 = 1 AND [Address1] IS NULL) OR ([Address1] = @Original_Address1)) AND ((@IsNull_Address2 = 1 AND [Address2] IS NULL) OR ([Address2] = @Original_Address2)) AND ((@IsNull_City = 1 AND [City] IS NULL) OR ([City] = @Original_City)) AND ((@IsNull_State = 1 AND [State] IS NULL) OR ([State] = @Original_State)) AND ((@IsNull_PostalCode = 1 AND [PostalCode] IS NULL) OR ([PostalCode] = @Original_PostalCode)) AND ((@IsNull_gender = 1 AND [gender] IS NULL) OR ([gender] = @Original_gender)) AND ([admin] = @Original_admin))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_employeeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employeeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fname", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -7783,10 +7811,11 @@ namespace RentMe.RentMeDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PostalCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PostalCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_gender", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "gender", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_gender", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "gender", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_admin", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "admin", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Employee] ([fname], [middleInitial], [lname], [dateOfBirth], [homePhone], [Address1], [Address2], [City], [State], [PostalCode], [gender]) VALUES (@fname, @middleInitial, @lname, @dateOfBirth, @homePhone, @Address1, @Address2, @City, @State, @PostalCode, @gender);
-SELECT employeeID, fname, middleInitial, lname, dateOfBirth, homePhone, Address1, Address2, City, State, PostalCode, gender FROM Employee WHERE (employeeID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Employee] ([fname], [middleInitial], [lname], [dateOfBirth], [homePhone], [Address1], [Address2], [City], [State], [PostalCode], [gender], [admin]) VALUES (@fname, @middleInitial, @lname, @dateOfBirth, @homePhone, @Address1, @Address2, @City, @State, @PostalCode, @gender, @admin);
+SELECT employeeID, fname, middleInitial, lname, dateOfBirth, homePhone, Address1, Address2, City, State, PostalCode, gender, admin FROM Employee WHERE (employeeID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@middleInitial", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "middleInitial", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7799,10 +7828,11 @@ SELECT employeeID, fname, middleInitial, lname, dateOfBirth, homePhone, Address1
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@State", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "State", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PostalCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PostalCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@gender", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@admin", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "admin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Employee] SET [fname] = @fname, [middleInitial] = @middleInitial, [lname] = @lname, [dateOfBirth] = @dateOfBirth, [homePhone] = @homePhone, [Address1] = @Address1, [Address2] = @Address2, [City] = @City, [State] = @State, [PostalCode] = @PostalCode, [gender] = @gender WHERE (([employeeID] = @Original_employeeID) AND ([fname] = @Original_fname) AND ((@IsNull_middleInitial = 1 AND [middleInitial] IS NULL) OR ([middleInitial] = @Original_middleInitial)) AND ([lname] = @Original_lname) AND ([dateOfBirth] = @Original_dateOfBirth) AND ((@IsNull_homePhone = 1 AND [homePhone] IS NULL) OR ([homePhone] = @Original_homePhone)) AND ((@IsNull_Address1 = 1 AND [Address1] IS NULL) OR ([Address1] = @Original_Address1)) AND ((@IsNull_Address2 = 1 AND [Address2] IS NULL) OR ([Address2] = @Original_Address2)) AND ((@IsNull_City = 1 AND [City] IS NULL) OR ([City] = @Original_City)) AND ((@IsNull_State = 1 AND [State] IS NULL) OR ([State] = @Original_State)) AND ((@IsNull_PostalCode = 1 AND [PostalCode] IS NULL) OR ([PostalCode] = @Original_PostalCode)) AND ((@IsNull_gender = 1 AND [gender] IS NULL) OR ([gender] = @Original_gender)));
-SELECT employeeID, fname, middleInitial, lname, dateOfBirth, homePhone, Address1, Address2, City, State, PostalCode, gender FROM Employee WHERE (employeeID = @employeeID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Employee] SET [fname] = @fname, [middleInitial] = @middleInitial, [lname] = @lname, [dateOfBirth] = @dateOfBirth, [homePhone] = @homePhone, [Address1] = @Address1, [Address2] = @Address2, [City] = @City, [State] = @State, [PostalCode] = @PostalCode, [gender] = @gender, [admin] = @admin WHERE (([employeeID] = @Original_employeeID) AND ([fname] = @Original_fname) AND ((@IsNull_middleInitial = 1 AND [middleInitial] IS NULL) OR ([middleInitial] = @Original_middleInitial)) AND ([lname] = @Original_lname) AND ([dateOfBirth] = @Original_dateOfBirth) AND ((@IsNull_homePhone = 1 AND [homePhone] IS NULL) OR ([homePhone] = @Original_homePhone)) AND ((@IsNull_Address1 = 1 AND [Address1] IS NULL) OR ([Address1] = @Original_Address1)) AND ((@IsNull_Address2 = 1 AND [Address2] IS NULL) OR ([Address2] = @Original_Address2)) AND ((@IsNull_City = 1 AND [City] IS NULL) OR ([City] = @Original_City)) AND ((@IsNull_State = 1 AND [State] IS NULL) OR ([State] = @Original_State)) AND ((@IsNull_PostalCode = 1 AND [PostalCode] IS NULL) OR ([PostalCode] = @Original_PostalCode)) AND ((@IsNull_gender = 1 AND [gender] IS NULL) OR ([gender] = @Original_gender)) AND ([admin] = @Original_admin));
+SELECT employeeID, fname, middleInitial, lname, dateOfBirth, homePhone, Address1, Address2, City, State, PostalCode, gender, admin FROM Employee WHERE (employeeID = @employeeID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@middleInitial", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "middleInitial", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7815,6 +7845,7 @@ SELECT employeeID, fname, middleInitial, lname, dateOfBirth, homePhone, Address1
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@State", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "State", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PostalCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PostalCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@gender", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@admin", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "admin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_employeeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "employeeID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fname", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_middleInitial", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "middleInitial", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -7835,6 +7866,7 @@ SELECT employeeID, fname, middleInitial, lname, dateOfBirth, homePhone, Address1
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PostalCode", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PostalCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_gender", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "gender", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_gender", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "gender", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_admin", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "admin", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@employeeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "employeeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -7852,7 +7884,7 @@ SELECT employeeID, fname, middleInitial, lname, dateOfBirth, homePhone, Address1
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT employeeID, fname, middleInitial, lname, dateOfBirth, homePhone, Address1," +
-                " Address2, City, State, PostalCode, gender FROM dbo.Employee";
+                " Address2, City, State, PostalCode, gender, admin FROM Employee";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7913,7 +7945,7 @@ SELECT employeeID, fname, middleInitial, lname, dateOfBirth, homePhone, Address1
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_employeeID, string Original_fname, string Original_middleInitial, string Original_lname, System.DateTime Original_dateOfBirth, string Original_homePhone, string Original_Address1, string Original_Address2, string Original_City, string Original_State, string Original_PostalCode, string Original_gender) {
+        public virtual int Delete(int Original_employeeID, string Original_fname, string Original_middleInitial, string Original_lname, System.DateTime Original_dateOfBirth, string Original_homePhone, string Original_Address1, string Original_Address2, string Original_City, string Original_State, string Original_PostalCode, string Original_gender, string Original_admin) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_employeeID));
             if ((Original_fname == null)) {
                 throw new global::System.ArgumentNullException("Original_fname");
@@ -7992,6 +8024,12 @@ SELECT employeeID, fname, middleInitial, lname, dateOfBirth, homePhone, Address1
                 this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_gender));
             }
+            if ((Original_admin == null)) {
+                throw new global::System.ArgumentNullException("Original_admin");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_admin));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8012,7 +8050,7 @@ SELECT employeeID, fname, middleInitial, lname, dateOfBirth, homePhone, Address1
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string fname, string middleInitial, string lname, System.DateTime dateOfBirth, string homePhone, string Address1, string Address2, string City, string State, string PostalCode, string gender) {
+        public virtual int Insert(string fname, string middleInitial, string lname, System.DateTime dateOfBirth, string homePhone, string Address1, string Address2, string City, string State, string PostalCode, string gender, string admin) {
             if ((fname == null)) {
                 throw new global::System.ArgumentNullException("fname");
             }
@@ -8074,6 +8112,12 @@ SELECT employeeID, fname, middleInitial, lname, dateOfBirth, homePhone, Address1
             else {
                 this.Adapter.InsertCommand.Parameters[10].Value = ((string)(gender));
             }
+            if ((admin == null)) {
+                throw new global::System.ArgumentNullException("admin");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(admin));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8106,6 +8150,7 @@ SELECT employeeID, fname, middleInitial, lname, dateOfBirth, homePhone, Address1
                     string State, 
                     string PostalCode, 
                     string gender, 
+                    string admin, 
                     int Original_employeeID, 
                     string Original_fname, 
                     string Original_middleInitial, 
@@ -8118,6 +8163,7 @@ SELECT employeeID, fname, middleInitial, lname, dateOfBirth, homePhone, Address1
                     string Original_State, 
                     string Original_PostalCode, 
                     string Original_gender, 
+                    string Original_admin, 
                     int employeeID) {
             if ((fname == null)) {
                 throw new global::System.ArgumentNullException("fname");
@@ -8180,85 +8226,97 @@ SELECT employeeID, fname, middleInitial, lname, dateOfBirth, homePhone, Address1
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(gender));
             }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_employeeID));
+            if ((admin == null)) {
+                throw new global::System.ArgumentNullException("admin");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(admin));
+            }
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_employeeID));
             if ((Original_fname == null)) {
                 throw new global::System.ArgumentNullException("Original_fname");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_fname));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_fname));
             }
             if ((Original_middleInitial == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_middleInitial));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_middleInitial));
             }
             if ((Original_lname == null)) {
                 throw new global::System.ArgumentNullException("Original_lname");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_lname));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_lname));
             }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(Original_dateOfBirth));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(Original_dateOfBirth));
             if ((Original_homePhone == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_homePhone));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_homePhone));
             }
             if ((Original_Address1 == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Address1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Address1));
             }
             if ((Original_Address2 == null)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_Address2));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Address2));
             }
             if ((Original_City == null)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_City));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_City));
             }
             if ((Original_State == null)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_State));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_State));
             }
             if ((Original_PostalCode == null)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_PostalCode));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_PostalCode));
             }
             if ((Original_gender == null)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_gender));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_gender));
             }
-            this.Adapter.UpdateCommand.Parameters[31].Value = ((int)(employeeID));
+            if ((Original_admin == null)) {
+                throw new global::System.ArgumentNullException("Original_admin");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_admin));
+            }
+            this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(employeeID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8291,6 +8349,7 @@ SELECT employeeID, fname, middleInitial, lname, dateOfBirth, homePhone, Address1
                     string State, 
                     string PostalCode, 
                     string gender, 
+                    string admin, 
                     int Original_employeeID, 
                     string Original_fname, 
                     string Original_middleInitial, 
@@ -8302,8 +8361,9 @@ SELECT employeeID, fname, middleInitial, lname, dateOfBirth, homePhone, Address1
                     string Original_City, 
                     string Original_State, 
                     string Original_PostalCode, 
-                    string Original_gender) {
-            return this.Update(fname, middleInitial, lname, dateOfBirth, homePhone, Address1, Address2, City, State, PostalCode, gender, Original_employeeID, Original_fname, Original_middleInitial, Original_lname, Original_dateOfBirth, Original_homePhone, Original_Address1, Original_Address2, Original_City, Original_State, Original_PostalCode, Original_gender, Original_employeeID);
+                    string Original_gender, 
+                    string Original_admin) {
+            return this.Update(fname, middleInitial, lname, dateOfBirth, homePhone, Address1, Address2, City, State, PostalCode, gender, admin, Original_employeeID, Original_fname, Original_middleInitial, Original_lname, Original_dateOfBirth, Original_homePhone, Original_Address1, Original_Address2, Original_City, Original_State, Original_PostalCode, Original_gender, Original_admin, Original_employeeID);
         }
     }
     

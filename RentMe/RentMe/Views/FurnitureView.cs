@@ -31,8 +31,11 @@ namespace RentMe.Views
         {
             // TODO: This line of code loads data into the 'rentMeDataSet.Store_item' table. You can move, or remove it, as needed.
             this.store_itemTableAdapter.Fill(this.rentMeDataSet.Store_item);
+<<<<<<< Updated upstream
             // TODO: This line of code loads data into the 'rentMeDataSet.FurnitureDetails' table. You can move, or remove it, as needed.
             //this.furnitureDetailsTableAdapter.Fill(this.rentMeDataSet.FurnitureDetails);
+=======
+>>>>>>> Stashed changes
             // TODO: This line of code loads data into the 'rentMeDataSet.Furniture' table. You can move, or remove it, as needed.
             this.furnitureTableAdapter.Fill(this.rentMeDataSet.Furniture);
             DisableControls();
