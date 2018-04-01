@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RentMe.Models;
+using RentMe.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +14,8 @@ namespace RentMe.Views
 {
     public partial class CustomerView : Form
     {
-
+        private Member member;
+        private MemberController memController;
         MenuView menuScreen = new MenuView();
         public CustomerView()
         {
@@ -24,12 +27,12 @@ namespace RentMe.Views
         private void CustomerView_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'rentMeDataSet.Gender' table. You can move, or remove it, as needed.
-            this.genderTableAdapter.Fill(this.rentMeDataSet.Gender);
+            //this.genderTableAdapter.Fill(this.rentMeDataSet.Gender);
             lblStateInfo.Text = "";
             // TODO: This line of code loads data into the 'rentMeDataSet.States' table. You can move, or remove it, as needed.
-            this.statesTableAdapter.Fill(this.rentMeDataSet.States);
+            //this.statesTableAdapter.Fill(this.rentMeDataSet.States);
             // TODO: This line of code loads data into the 'rentMeDataSet.Streets' table. You can move, or remove it, as needed.
-            this.streetsTableAdapter.Fill(this.rentMeDataSet.Streets);
+            //this.streetsTableAdapter.Fill(this.rentMeDataSet.Streets);
             cboState.SelectedIndex = -1;
             cboStreetType.SelectedIndex = -1;
             cboGender.SelectedIndex = -1;
@@ -140,6 +143,42 @@ namespace RentMe.Views
             btnRestart.Enabled = true;
             btnAdd.Text = "Update";
             btnSearch.Text = "Search Again";
+            if (Validator.IsPresent(txtFirstName) && Validator.IsPresent(txtLastName))
+            {
+                try
+                {
+                    member.fname = txtFirstName.Text;
+                    member.lname = txtLastName.Text;
+                    this.GetMemberByName(member.fname, member.lname);
+                    this.DisplayMember();
+                } catch (Exception)
+                {
+                    MessageBox.Show("No member found by that name. " +
+                        "Please try again.", "Member Not Found");
+                }
+
+            }
+            else if (Validator.IsPresent(mtxtHomePhone) && Validator.IsPhoneNumber(mtxtHomePhone))
+            {
+                try
+                {
+                    member.homePhone = mtxtHomePhone.Text;
+                    this.GetMemberByPhone(member.homePhone);
+                    this.DisplayMember();
+                } catch (Exception)
+                {
+                    MessageBox.Show("No member found by that phone number. " +
+                    "Please try again.", "Member Not Found");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("No search criteria entered. " +
+                       "Please try again.", "Member Not Found");
+                return;
+            }
+            
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -227,5 +266,54 @@ namespace RentMe.Views
             lblState.Text = "";
             lblGender.Text = "";
         }
+        private void GetMemberByName(string firstName, string lastName)
+        {
+            try
+            {
+                member = this.memController.GetMemberByName(firstName, lastName);
+                if (member == null)
+                    MessageBox.Show("No member found with this name. " +
+                        "Please try again.", "Member Not Found");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        private void GetMemberByPhone(string phoneNumber)
+        {
+            try
+            {
+                member = this.memController.GetMemberByPhone(phoneNumber);
+                if (member == null)
+                    MessageBox.Show("No member found with this phone number. " +
+                        "Please try again.", "Member Not Found");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        private void DisplayMember()
+        {
+            txtFirstName.Text = member.fname;
+            txtMiddleInitial.Text = member.middleInitial;
+            txtLastName.Text = member.lname;
+            //mtxtStreetNumber.Text = member.streetNumber;
+            //txtStreetName.Text = member.streetName;
+            txtCity.Text = member.City;
+            cboState.Text = member.State;
+            mtxtZipCode.Text = member.PostalCode;
+            mtxtHomePhone.Text = member.homePhone;
+            mtxtDOB.Text = member.dateOfBirth.ToString();
+            cboGender.Text = member.gender;
+        }
     }
 }
+
+
+
