@@ -45,8 +45,6 @@
             this.btnRestart = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.lblLoggedIn = new System.Windows.Forms.Label();
-            this.lblUser = new System.Windows.Forms.Label();
             this.lblGender = new System.Windows.Forms.Label();
             this.lblStreetInfo = new System.Windows.Forms.Label();
             this.lblStateInfo = new System.Windows.Forms.Label();
@@ -241,26 +239,6 @@
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // lblLoggedIn
-            // 
-            this.lblLoggedIn.AutoSize = true;
-            this.lblLoggedIn.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoggedIn.Location = new System.Drawing.Point(21, 74);
-            this.lblLoggedIn.Name = "lblLoggedIn";
-            this.lblLoggedIn.Size = new System.Drawing.Size(71, 14);
-            this.lblLoggedIn.TabIndex = 79;
-            this.lblLoggedIn.Text = "lblLoggedIn";
-            // 
-            // lblUser
-            // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.Location = new System.Drawing.Point(18, 56);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(80, 14);
-            this.lblUser.TabIndex = 78;
-            this.lblUser.Text = "Logged In User";
             // 
             // lblGender
             // 
@@ -631,8 +609,6 @@
             this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.lblLoggedIn);
-            this.Controls.Add(this.lblUser);
             this.Controls.Add(this.lblGender);
             this.Controls.Add(this.lblStreetInfo);
             this.Controls.Add(this.lblStateInfo);
@@ -668,7 +644,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "EmployeeView";
             this.Text = "EmployeeView";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EmployeeView_FormClosing);
             this.Load += new System.EventHandler(this.EmployeeView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.navEmployee)).EndInit();
             this.navEmployee.ResumeLayout(false);
@@ -700,8 +675,6 @@
         private System.Windows.Forms.Button btnRestart;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Label lblLoggedIn;
-        private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label lblGender;
         private System.Windows.Forms.Label lblStreetInfo;
         private System.Windows.Forms.Label lblStateInfo;

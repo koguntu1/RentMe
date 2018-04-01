@@ -65,19 +65,17 @@
             this.LeftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
             this.navFurniture = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.lblLoggedIn = new System.Windows.Forms.Label();
-            this.lblUser = new System.Windows.Forms.Label();
             categoryLabel = new System.Windows.Forms.Label();
             styleLabel = new System.Windows.Forms.Label();
             dailyRateLabel = new System.Windows.Forms.Label();
@@ -133,6 +131,36 @@
             fineRateLabel.Size = new System.Drawing.Size(147, 19);
             fineRateLabel.TabIndex = 8;
             fineRateLabel.Text = "Daily Late Fine Rate:";
+            // 
+            // lblItemID
+            // 
+            lblItemID.AutoSize = true;
+            lblItemID.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            lblItemID.Location = new System.Drawing.Point(392, 108);
+            lblItemID.Name = "lblItemID";
+            lblItemID.Size = new System.Drawing.Size(62, 19);
+            lblItemID.TabIndex = 53;
+            lblItemID.Text = "Item ID:";
+            // 
+            // furnitureDescrptionLabel
+            // 
+            furnitureDescrptionLabel.AutoSize = true;
+            furnitureDescrptionLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            furnitureDescrptionLabel.Location = new System.Drawing.Point(17, 163);
+            furnitureDescrptionLabel.Name = "furnitureDescrptionLabel";
+            furnitureDescrptionLabel.Size = new System.Drawing.Size(86, 19);
+            furnitureDescrptionLabel.TabIndex = 0;
+            furnitureDescrptionLabel.Text = "Descrption:";
+            // 
+            // lblFurnitureID
+            // 
+            lblFurnitureID.AutoSize = true;
+            lblFurnitureID.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            lblFurnitureID.Location = new System.Drawing.Point(17, 116);
+            lblFurnitureID.Name = "lblFurnitureID";
+            lblFurnitureID.Size = new System.Drawing.Size(95, 19);
+            lblFurnitureID.TabIndex = 51;
+            lblFurnitureID.Text = "Furniture ID:";
             // 
             // rentMeDataSet
             // 
@@ -289,16 +317,6 @@
             // 
             this.store_itemTableAdapter.ClearBeforeFill = true;
             // 
-            // lblItemID
-            // 
-            lblItemID.AutoSize = true;
-            lblItemID.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            lblItemID.Location = new System.Drawing.Point(392, 108);
-            lblItemID.Name = "lblItemID";
-            lblItemID.Size = new System.Drawing.Size(62, 19);
-            lblItemID.TabIndex = 53;
-            lblItemID.Text = "Item ID:";
-            // 
             // cboItemID
             // 
             this.cboItemID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.store_itemBindingSource, "itemID", true));
@@ -340,26 +358,6 @@
             this.mtxtFineRate.Name = "mtxtFineRate";
             this.mtxtFineRate.Size = new System.Drawing.Size(100, 27);
             this.mtxtFineRate.TabIndex = 57;
-            // 
-            // furnitureDescrptionLabel
-            // 
-            furnitureDescrptionLabel.AutoSize = true;
-            furnitureDescrptionLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            furnitureDescrptionLabel.Location = new System.Drawing.Point(17, 163);
-            furnitureDescrptionLabel.Name = "furnitureDescrptionLabel";
-            furnitureDescrptionLabel.Size = new System.Drawing.Size(86, 19);
-            furnitureDescrptionLabel.TabIndex = 0;
-            furnitureDescrptionLabel.Text = "Descrption:";
-            // 
-            // lblFurnitureID
-            // 
-            lblFurnitureID.AutoSize = true;
-            lblFurnitureID.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            lblFurnitureID.Location = new System.Drawing.Point(17, 116);
-            lblFurnitureID.Name = "lblFurnitureID";
-            lblFurnitureID.Size = new System.Drawing.Size(95, 19);
-            lblFurnitureID.TabIndex = 51;
-            lblFurnitureID.Text = "Furniture ID:";
             // 
             // BottomToolStripPanel
             // 
@@ -425,6 +423,31 @@
             this.navFurniture.TabIndex = 58;
             this.navFurniture.Text = "bindingNavigator1";
             // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            // 
             // bindingNavigatorMoveFirstItem
             // 
             this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -457,16 +480,9 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -489,54 +505,14 @@
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            // 
-            // lblLoggedIn
-            // 
-            this.lblLoggedIn.AutoSize = true;
-            this.lblLoggedIn.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoggedIn.Location = new System.Drawing.Point(18, 46);
-            this.lblLoggedIn.Name = "lblLoggedIn";
-            this.lblLoggedIn.Size = new System.Drawing.Size(71, 14);
-            this.lblLoggedIn.TabIndex = 60;
-            this.lblLoggedIn.Text = "lblLoggedIn";
-            // 
-            // lblUser
-            // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.Location = new System.Drawing.Point(15, 28);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(80, 14);
-            this.lblUser.TabIndex = 59;
-            this.lblUser.Text = "Logged In User";
             // 
             // FurnitureView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 531);
-            this.Controls.Add(this.lblLoggedIn);
-            this.Controls.Add(this.lblUser);
             this.Controls.Add(this.navFurniture);
             this.Controls.Add(this.mtxtFineRate);
             this.Controls.Add(this.mtxtDailyRate);
@@ -561,7 +537,6 @@
             this.Controls.Add(fineRateLabel);
             this.Name = "FurnitureView";
             this.Text = "SearchFurnitureView";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FurnitureView_FormClosing);
             this.Load += new System.EventHandler(this.SearchFurnitureView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).EndInit();
@@ -617,7 +592,5 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.Label lblLoggedIn;
-        private System.Windows.Forms.Label lblUser;
     }
 }

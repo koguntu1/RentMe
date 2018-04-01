@@ -145,7 +145,6 @@ namespace RentMe.Views
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
-            menuScreen.Show();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -227,34 +226,6 @@ namespace RentMe.Views
             lblStreetType.Text = "";
             lblState.Text = "";
             lblGender.Text = "";
-        }
-
-        private void CustomerView_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (e.CloseReason == CloseReason.WindowsShutDown)
-            {
-                return;
-            }
-            else
-            {
-
-                
-                if (menuScreen.Enabled)
-                {
-
-                    if (menuScreen.IsDisposed)
-                    {
-                        menuScreen = new MenuView();
-                        menuScreen.StartPosition = FormStartPosition.CenterScreen;
-                        menuScreen.Show();
-                    }
-                    else
-                    {
-                        menuScreen.StartPosition = FormStartPosition.CenterScreen;
-                        menuScreen.Show();
-                    }
-                }
-            }
         }
     }
 }

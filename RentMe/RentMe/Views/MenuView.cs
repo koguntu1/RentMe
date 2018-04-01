@@ -46,11 +46,13 @@ namespace RentMe.Views
                     if (loginScreen.IsDisposed)
                     {
                         loginScreen = new LoginView();
+                        loginScreen.MdiParent = this.MdiParent;
                         loginScreen.StartPosition = FormStartPosition.CenterScreen;
                         loginScreen.Show();
                     }
                     else
                     {
+                        loginScreen.MdiParent = this.MdiParent;
                         loginScreen.StartPosition = FormStartPosition.CenterScreen;
                         loginScreen.Show();
                     }
@@ -68,11 +70,13 @@ namespace RentMe.Views
                 if (customer.IsDisposed)
                 {
                     customer = new CustomerView();
+                    customer.MdiParent = this.MdiParent;
                     customer.StartPosition = FormStartPosition.CenterScreen;
                     customer.Show();
                 }
                 else
                 {
+                    customer.MdiParent = this.MdiParent;
                     customer.StartPosition = FormStartPosition.CenterScreen;
                     customer.Show();
                 }
@@ -96,11 +100,13 @@ namespace RentMe.Views
                 if (furniture.IsDisposed)
                 {
                     furniture = new FurnitureView();
+                    furniture.MdiParent = this.MdiParent;
                     furniture.StartPosition = FormStartPosition.CenterScreen;
                     furniture.Show();
                 }
                 else
                 {
+                    furniture.MdiParent = this.MdiParent;
                     furniture.StartPosition = FormStartPosition.CenterScreen;
                     furniture.Show();
                 }
@@ -118,11 +124,13 @@ namespace RentMe.Views
                 if (password.IsDisposed)
                 {
                     password = new ChangePasswordView();
+                    password.MdiParent = this.MdiParent;
                     password.StartPosition = FormStartPosition.CenterScreen;
                     password.Show();
                 }
                 else
                 {
+                    password.MdiParent = this.MdiParent;
                     password.StartPosition = FormStartPosition.CenterScreen;
                     password.Show();
                 }
@@ -140,11 +148,13 @@ namespace RentMe.Views
                 if (employee.IsDisposed)
                 {
                     employee = new EmployeeView();
+                    employee.MdiParent = this.MdiParent;
                     employee.StartPosition = FormStartPosition.CenterScreen;
                     employee.Show();
                 }
                 else
                 {
+                    employee.MdiParent = this.MdiParent;
                     employee.StartPosition = FormStartPosition.CenterScreen;
                     employee.Show();
                 }
@@ -160,11 +170,13 @@ namespace RentMe.Views
                 if (loginScreen.IsDisposed)
                 {
                     loginScreen = new LoginView();
+                    loginScreen.MdiParent = this.MdiParent;
                     loginScreen.StartPosition = FormStartPosition.CenterScreen;
                     loginScreen.Show();
                 }
                 else
                 {
+                    loginScreen.MdiParent = this.MdiParent;
                     loginScreen.StartPosition = FormStartPosition.CenterScreen;
                     loginScreen.Show();
                 }

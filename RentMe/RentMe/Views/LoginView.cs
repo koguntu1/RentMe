@@ -19,38 +19,12 @@ namespace RentMe.Views
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            MenuView menuForm = new MenuView();
-            if (menuForm.Enabled)
-            {
-                
-
-                if (menuForm.IsDisposed)
-                {
-                    menuForm = new MenuView();
-                    menuForm.StartPosition = FormStartPosition.CenterScreen;
-                    menuForm.Show();
-                    this.Close();
-                }
-                else
-                {
-                    menuForm.StartPosition = FormStartPosition.CenterScreen;
-                    menuForm.Show();
-                    
-                }
-                this.Hide();
-            }
-            
+            this.Close();         
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
-            System.Environment.Exit(1);
-        }
-
-        private void LoginView_FormClosed(object sender, FormClosingEventArgs e)
-        {
-            System.Environment.Exit(1);
         }
     }
 }

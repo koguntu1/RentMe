@@ -46,32 +46,6 @@ namespace RentMe.Views
 
         }
 
-        private void FurnitureView_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (e.CloseReason == CloseReason.WindowsShutDown)
-            {
-                return;
-            }
-            else
-            {
-                if (menuScreen.Enabled)
-                {
-
-                    if (menuScreen.IsDisposed)
-                    {
-                        menuScreen = new MenuView();
-                        menuScreen.StartPosition = FormStartPosition.CenterScreen;
-                        menuScreen.Show();
-                    }
-                    else
-                    {
-                        menuScreen.StartPosition = FormStartPosition.CenterScreen;
-                        menuScreen.Show();
-                    }
-                }
-            }
-        }
-
         private void EnableControls()
         {
             foreach (Control ctrl in this.Controls)
@@ -137,21 +111,7 @@ namespace RentMe.Views
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
-            if (menuScreen.Enabled)
-            {
 
-                if (menuScreen.IsDisposed)
-                {
-                    menuScreen = new MenuView();
-                    menuScreen.StartPosition = FormStartPosition.CenterScreen;
-                    menuScreen.Show();
-                }
-                else
-                {
-                    menuScreen.StartPosition = FormStartPosition.CenterScreen;
-                    menuScreen.Show();
-                }
-            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

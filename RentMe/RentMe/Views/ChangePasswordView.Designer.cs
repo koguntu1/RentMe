@@ -189,7 +189,6 @@
             this.Controls.Add(this.lblPassword);
             this.Name = "ChangePasswordView";
             this.Text = "ChangePasswordView";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChangePasswordView_FormClosing);
             this.Load += new System.EventHandler(this.ChangePasswordView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

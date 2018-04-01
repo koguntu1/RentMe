@@ -89,6 +89,12 @@
     <Compile Include="Views\LoginView.Designer.cs">
       <DependentUpon>LoginView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MDIView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MDIView.Designer.cs">
+      <DependentUpon>MDIView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\MenuView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MDIView.resx">
+      <DependentUpon>MDIView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MenuView.resx">
       <DependentUpon>MenuView.cs</DependentUpon>

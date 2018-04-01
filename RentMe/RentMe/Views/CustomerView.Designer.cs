@@ -71,9 +71,7 @@
             this.lblStreetInfo = new System.Windows.Forms.Label();
             this.genderTableAdapter = new RentMe.RentMeDataSetTableAdapters.GenderTableAdapter();
             this.lblGender = new System.Windows.Forms.Label();
-            this.lblUser = new System.Windows.Forms.Label();
             this.memberBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lblLoggedIn = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnRestart = new System.Windows.Forms.Button();
@@ -480,30 +478,10 @@
             this.lblGender.TabIndex = 38;
             this.lblGender.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lblUser
-            // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.Location = new System.Drawing.Point(18, 42);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(80, 14);
-            this.lblUser.TabIndex = 39;
-            this.lblUser.Text = "Logged In User";
-            // 
             // memberBindingSource
             // 
             this.memberBindingSource.DataMember = "Member";
             this.memberBindingSource.DataSource = this.rentMeDataSet;
-            // 
-            // lblLoggedIn
-            // 
-            this.lblLoggedIn.AutoSize = true;
-            this.lblLoggedIn.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoggedIn.Location = new System.Drawing.Point(21, 60);
-            this.lblLoggedIn.Name = "lblLoggedIn";
-            this.lblLoggedIn.Size = new System.Drawing.Size(71, 14);
-            this.lblLoggedIn.TabIndex = 40;
-            this.lblLoggedIn.Text = "lblLoggedIn";
             // 
             // btnAdd
             // 
@@ -664,8 +642,6 @@
             this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.lblLoggedIn);
-            this.Controls.Add(this.lblUser);
             this.Controls.Add(this.lblGender);
             this.Controls.Add(this.lblStreetInfo);
             this.Controls.Add(this.lblStateInfo);
@@ -701,7 +677,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "CustomerView";
             this.Text = "CustomerRegistrationView";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CustomerView_FormClosing);
             this.Load += new System.EventHandler(this.CustomerView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.streetsBindingSource)).EndInit();
@@ -760,9 +735,7 @@
         private System.Windows.Forms.BindingSource genderBindingSource;
         private RentMeDataSetTableAdapters.GenderTableAdapter genderTableAdapter;
         private System.Windows.Forms.Label lblGender;
-        private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.BindingSource memberBindingSource;
-        private System.Windows.Forms.Label lblLoggedIn;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnRestart;
