@@ -42,7 +42,6 @@
             this.furnitureTableAdapter = new RentMe.RentMeDataSetTableAdapters.FurnitureTableAdapter();
             this.tableAdapterManager = new RentMe.RentMeDataSetTableAdapters.TableAdapterManager();
             this.furnitureDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.furnitureDetailsTableAdapter = new RentMe.RentMeDataSetTableAdapters.FurnitureDetailsTableAdapter();
             this.txtFurnitureDescrption = new System.Windows.Forms.TextBox();
             this.txtCategory = new System.Windows.Forms.TextBox();
             this.txtStyle = new System.Windows.Forms.TextBox();
@@ -199,10 +198,6 @@
             // 
             this.furnitureDetailsBindingSource.DataMember = "FurnitureDetails";
             this.furnitureDetailsBindingSource.DataSource = this.rentMeDataSet;
-            // 
-            // furnitureDetailsTableAdapter
-            // 
-            this.furnitureDetailsTableAdapter.ClearBeforeFill = true;
             // 
             // txtFurnitureDescrption
             // 
@@ -540,7 +535,6 @@
             this.Load += new System.EventHandler(this.SearchFurnitureView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.furnitureDetailsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.store_itemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navFurniture)).EndInit();
@@ -558,7 +552,6 @@
         private RentMeDataSetTableAdapters.FurnitureTableAdapter furnitureTableAdapter;
         private RentMeDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingSource furnitureDetailsBindingSource;
-        private RentMeDataSetTableAdapters.FurnitureDetailsTableAdapter furnitureDetailsTableAdapter;
         private System.Windows.Forms.TextBox txtFurnitureDescrption;
         private System.Windows.Forms.TextBox txtCategory;
         private System.Windows.Forms.TextBox txtStyle;

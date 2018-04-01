@@ -9,19 +9,18 @@ using System.Threading.Tasks;
 
 namespace RentMe.DAL
 {
-    class LoginDAL
+    class StyleDAL
     {
-        public static Login GetLogin(string userID, string password)
+        public static Style GetStyle(int styleID)
         {
-            Login login = new Login();
+            Style style = new Style();
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string selectstatement =
-                "SELECT password, employeeID, userID " +
-                "FROM login " +
-                "WHERE userID = @userID AND password = @password";
+                "SELECT styleID, description " +
+                "FROM style " +
+                "WHERE styleID = @styleID";
             SqlCommand selectCommand = new SqlCommand(selectstatement, connection);
-            selectCommand.Parameters.AddWithValue("@userID", userID);
-            selectCommand.Parameters.AddWithValue("@password", password);
+            selectCommand.Parameters.AddWithValue("@styleID", styleID);
             try
             {
                 connection.Open();
@@ -29,15 +28,13 @@ namespace RentMe.DAL
                     selectCommand.ExecuteReader(CommandBehavior.SingleRow);
                 if (reader.Read())
                 {
-                    login.login1 = reader["userID"].ToString();
-                    login.password = reader["password"].ToString();
-                    login.employeeID = Convert.ToInt32(reader["employeeID"].ToString());
-                    
+                    style.styleID = Convert.ToInt32(reader["styleID"].ToString());
+                    style.description = reader["description"].ToString();
 
                 }
                 else
                 {
-                    login = null;
+                    style = null;
                 }
                 reader.Close();
             }
@@ -49,8 +46,7 @@ namespace RentMe.DAL
             {
                 connection.Close();
             }
-            return login;
+            return style;
         }
-
     }
 }

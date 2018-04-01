@@ -45,6 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="DAL\CategoryDAL.cs" />
+    <Compile Include="DAL\EmployeeDAL.cs" />
+    <Compile Include="DAL\FurnitureDAL.cs" />
+    <Compile Include="DAL\LoginDAL.cs" />
+    <Compile Include="DAL\MemberDAL.cs" />
+    <Compile Include="DAL\RentalItemDAL.cs" />
+    <Compile Include="DAL\RentalTransactionDAL.cs" />
+    <Compile Include="DAL\RentMeDBConnection.cs" />
+    <Compile Include="DAL\ReturnTransactionDAL.cs" />
+    <Compile Include="DAL\Store_ItemDAL.cs" />
+    <Compile Include="DAL\StyleDAL.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Furniture.cs" />
