@@ -115,7 +115,8 @@ namespace RentMe.Views
 
         private void menuLogout_Click(object sender, EventArgs e)
         {
-           
+
+            DisposeAllInActiveForms();
             MenuStrip ms = (MenuStrip)this.Controls["menuStrip1"];
             ToolStripMenuItem lt = (ToolStripMenuItem)ms.Items["login"];
             lt.Visible = false;
@@ -142,6 +143,20 @@ namespace RentMe.Views
             }
 
             //mt.DropDownItems["form2ToolStripMenuItem"].Enabled = true;
+        }
+
+        public void DisposeAllInActiveForms()
+        {
+
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (!frm.Focused)
+                {
+                    frm.Visible = false;
+                    frm.Dispose();
+                }
+            }
+
         }
 
         private void addUpdateEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
