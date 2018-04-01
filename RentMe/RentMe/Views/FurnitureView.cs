@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RentMe.Controller;
 
 namespace RentMe.Views
 {
     public partial class FurnitureView : Form
     {
 
+        private FurnitureController inController;
         MenuView menuScreen = new MenuView();
         public FurnitureView()
         {
@@ -107,7 +109,6 @@ namespace RentMe.Views
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
-
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -120,6 +121,8 @@ namespace RentMe.Views
             // ---------------------
             btnRestart.Enabled = true;
             btnExit.Enabled = true;
+
+
         }
 
         private void btnRestart_Click(object sender, EventArgs e)

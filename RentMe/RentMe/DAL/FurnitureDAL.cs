@@ -16,8 +16,13 @@ namespace RentMe.DAL
             Furniture furniture = new Furniture();
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string selectstatement =
-                "SELECT furnitureID, description, styleID, categoryID, fine_Rate, daily_Rate " +
-                "FROM furniture " +
+                "SELECT f.furnitureID, f.description, c.description as category, s.description as style, f.fine_Rate, f.daily_Rate " +
+                "FROM dbo.furniture f INNER JOIN dbo.store_item i" +
+                "ON f.furnitureID = i.furnitureID INNER JOIN" +
+                "dbo.style s" +
+                "ON f.styleID = s.styleID INNER JOIN" +
+                "dbo.category c" +
+                "ON f.categoryID = c.categoryID " +
                 "WHERE furnitureID = @furnitureID";
             SqlCommand selectCommand = new SqlCommand(selectstatement, connection);
             selectCommand.Parameters.AddWithValue("@furnitureID", furnitureID);

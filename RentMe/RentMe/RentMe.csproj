@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\FurnitureController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="DAL\CategoryDAL.cs" />
     <Compile Include="DAL\EmployeeDAL.cs" />
