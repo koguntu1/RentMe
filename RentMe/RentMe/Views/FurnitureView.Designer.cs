@@ -42,10 +42,6 @@
             this.furnitureTableAdapter = new RentMe.RentMeDataSetTableAdapters.FurnitureTableAdapter();
             this.tableAdapterManager = new RentMe.RentMeDataSetTableAdapters.TableAdapterManager();
             this.furnitureDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-<<<<<<< HEAD
-=======
-            //this.furnitureDetailsTableAdapter = new RentMe.RentMeDataSetTableAdapters.FurnitureDetailsTableAdapter();
->>>>>>> diane/mdiview
             this.txtFurnitureDescrption = new System.Windows.Forms.TextBox();
             this.txtCategory = new System.Windows.Forms.TextBox();
             this.txtStyle = new System.Windows.Forms.TextBox();
@@ -202,16 +198,6 @@
             // 
             this.furnitureDetailsBindingSource.DataMember = "FurnitureDetails";
             this.furnitureDetailsBindingSource.DataSource = this.rentMeDataSet;
-            // 
-<<<<<<< HEAD
-=======
-            // furnitureDetailsTableAdapter
-            // 
-            //this.furnitureDetailsTableAdapter.ClearBeforeFill = true;
-            // 
->>>>>>> diane/mdiview
-            // txtFurnitureDescrption
-            // 
             this.txtFurnitureDescrption.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.furnitureDetailsBindingSource, "furnitureDescrption", true));
             this.txtFurnitureDescrption.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFurnitureDescrption.Location = new System.Drawing.Point(148, 160);
@@ -546,10 +532,6 @@
             this.Load += new System.EventHandler(this.SearchFurnitureView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).EndInit();
-<<<<<<< HEAD
-=======
-            //((System.ComponentModel.ISupportInitialize)(this.furnitureDetailsBindingSource)).EndInit();
->>>>>>> diane/mdiview
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.store_itemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navFurniture)).EndInit();
@@ -567,10 +549,6 @@
         private RentMeDataSetTableAdapters.FurnitureTableAdapter furnitureTableAdapter;
         private RentMeDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingSource furnitureDetailsBindingSource;
-<<<<<<< HEAD
-=======
-        //private RentMeDataSetTableAdapters.FurnitureDetailsTableAdapter furnitureDetailsTableAdapter;
->>>>>>> diane/mdiview
         private System.Windows.Forms.TextBox txtFurnitureDescrption;
         private System.Windows.Forms.TextBox txtCategory;
         private System.Windows.Forms.TextBox txtStyle;
