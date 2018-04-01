@@ -1,0 +1,11 @@
+EmployeeID,fname,middleInitial,lname,dateOfBirth,homePhone,Address1,Address2,City,State,PostalCode,gender,admin
+1,Ling,M,Xiayou,1/5/1985,7705658842,1382 Stonemill Road,,Atlanta,GA,30083,F,N
+2,Louis ,K,Szekely,5/22/1970,7185623145,222 Jet Upper Lane,,New York City,NY,10006,M,N
+3,Josie,F,Rizal,1/30/1990,3102535698,154 Butterfly Drive,,Los Angeles,CA,90004,F,N
+4,Terry,L,Bogard,3/15/1971,5014678951,55 Buster Drive,,Little Rock,AR,72201,M,Y
+5,Leandra,E,Lo,6/22/1982,3146469552,1243 Snake Edge,APT 201,St. Louis,MO,63101,M,N
+6,Lisa,M,Trevor,7/3/1953,7736898522,989 Arklay Place,,Chicago,IL,60601,F,Y
+7,David,A,Hayter,2/6/1969,3108521465,77 Solid Drive,,Santa Monica,CA,90291,M,N
+8,Richard,J,Grayson,9/28/1940,9077854563,5233 Robin Court,BLDG 3,Juneau,AK,99802,M,N
+9,Walter,C,Kovacs,3/21/1940,7185236644,14 Rorschach Way,APT 18,New York City,NY,10002,M,N
+10,Harry,R,Mason,12/24/1983,3042187899,23 Toluca Lane,,Huntington,WV,25025,M,N
