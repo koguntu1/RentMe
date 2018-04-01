@@ -9,19 +9,18 @@ using System.Threading.Tasks;
 
 namespace RentMe.DAL
 {
-    class LoginDAL
+    class RentalItemDAL
     {
-        public static Login GetLogin(string userID, string password)
+        public static RentalItem GetRentalItem(int rentalItemID)
         {
-            Login login = new Login();
+            RentalItem rentalItem = new RentalItem();
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string selectstatement =
-                "SELECT password, employeeID, userID " +
-                "FROM login " +
-                "WHERE userID = @userID AND password = @password";
+                "SELECT rentalItemID, rentalTransactionID, itemID, quantity " +
+                "FROM rentalItem " +
+                "WHERE rentalItemID = @rentalItemID";
             SqlCommand selectCommand = new SqlCommand(selectstatement, connection);
-            selectCommand.Parameters.AddWithValue("@userID", userID);
-            selectCommand.Parameters.AddWithValue("@password", password);
+            selectCommand.Parameters.AddWithValue("@rentalItemID", rentalItemID);
             try
             {
                 connection.Open();
@@ -29,15 +28,15 @@ namespace RentMe.DAL
                     selectCommand.ExecuteReader(CommandBehavior.SingleRow);
                 if (reader.Read())
                 {
-                    login.login1 = reader["userID"].ToString();
-                    login.password = reader["password"].ToString();
-                    login.employeeID = Convert.ToInt32(reader["employeeID"].ToString());
-                    
+                    rentalItem.rentalItemID = Convert.ToInt32(reader["rentalItemID"].ToString());
+                    rentalItem.rentalTransactionID = Convert.ToInt32(reader["rentalTransactionID"].ToString());
+                    rentalItem.itemID = Convert.ToInt32(reader["itemID"].ToString());
+                    rentalItem.quantity = Convert.ToInt32(reader["quantity"].ToString());
 
                 }
                 else
                 {
-                    login = null;
+                    rentalItem = null;
                 }
                 reader.Close();
             }
@@ -49,8 +48,7 @@ namespace RentMe.DAL
             {
                 connection.Close();
             }
-            return login;
+            return rentalItem;
         }
-
     }
 }

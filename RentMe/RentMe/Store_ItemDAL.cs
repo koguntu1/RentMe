@@ -9,19 +9,18 @@ using System.Threading.Tasks;
 
 namespace RentMe.DAL
 {
-    class LoginDAL
+    class Store_ItemDAL
     {
-        public static Login GetLogin(string userID, string password)
+        public static Store_item GetStore_item(int itemID)
         {
-            Login login = new Login();
+            Store_item store_item = new Store_item();
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string selectstatement =
-                "SELECT password, employeeID, userID " +
-                "FROM login " +
-                "WHERE userID = @userID AND password = @password";
+                "SELECT itemID, furnitureID " +
+                "FROM store_item " +
+                "WHERE itemID = @itemID";
             SqlCommand selectCommand = new SqlCommand(selectstatement, connection);
-            selectCommand.Parameters.AddWithValue("@userID", userID);
-            selectCommand.Parameters.AddWithValue("@password", password);
+            selectCommand.Parameters.AddWithValue("@itemID", itemID);
             try
             {
                 connection.Open();
@@ -29,15 +28,13 @@ namespace RentMe.DAL
                     selectCommand.ExecuteReader(CommandBehavior.SingleRow);
                 if (reader.Read())
                 {
-                    login.login1 = reader["userID"].ToString();
-                    login.password = reader["password"].ToString();
-                    login.employeeID = Convert.ToInt32(reader["employeeID"].ToString());
-                    
+                    store_item.itemID = Convert.ToInt32(reader["itemID"].ToString());
+                    store_item.furnitureID = Convert.ToInt32(reader["furnitureID"].ToString());
 
                 }
                 else
                 {
-                    login = null;
+                    store_item = null;
                 }
                 reader.Close();
             }
@@ -49,8 +46,7 @@ namespace RentMe.DAL
             {
                 connection.Close();
             }
-            return login;
+            return store_item;
         }
-
     }
 }

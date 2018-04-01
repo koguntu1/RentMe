@@ -198,9 +198,6 @@
             //
             this.furnitureDetailsBindingSource.DataMember = "FurnitureDetails";
             this.furnitureDetailsBindingSource.DataSource = this.rentMeDataSet;
-            //
-            // txtFurnitureDescrption
-            //
             this.txtFurnitureDescrption.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.furnitureDetailsBindingSource, "furnitureDescrption", true));
             this.txtFurnitureDescrption.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFurnitureDescrption.Location = new System.Drawing.Point(148, 160);
