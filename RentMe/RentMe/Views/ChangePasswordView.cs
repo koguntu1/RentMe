@@ -10,16 +10,18 @@ using System.Windows.Forms;
 
 namespace RentMe.Views
 {
-    public partial class LoginView : Form
-    { 
-            public LoginView()
+    public partial class ChangePasswordView : Form
+    {
+
+        MenuView menuScreen = new MenuView();
+        public ChangePasswordView()
         {
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void ChangePasswordView_Load(object sender, EventArgs e)
         {
-            this.Close();         
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)

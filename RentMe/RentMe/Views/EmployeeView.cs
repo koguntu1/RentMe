@@ -10,22 +10,20 @@ using System.Windows.Forms;
 
 namespace RentMe.Views
 {
-    public partial class CustomerView : Form
+    public partial class EmployeeView : Form
     {
-
         MenuView menuScreen = new MenuView();
-        public CustomerView()
+        public EmployeeView()
         {
             InitializeComponent();
 
 
         }
 
-        private void CustomerView_Load(object sender, EventArgs e)
+        private void EmployeeView_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'rentMeDataSet.Gender' table. You can move, or remove it, as needed.
             this.genderTableAdapter.Fill(this.rentMeDataSet.Gender);
-            lblStateInfo.Text = "";
             // TODO: This line of code loads data into the 'rentMeDataSet.States' table. You can move, or remove it, as needed.
             this.statesTableAdapter.Fill(this.rentMeDataSet.States);
             // TODO: This line of code loads data into the 'rentMeDataSet.Streets' table. You can move, or remove it, as needed.

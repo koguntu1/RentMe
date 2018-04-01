@@ -31,10 +31,12 @@
             this.lblLoggedIn = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
             this.btnAddCustomer = new System.Windows.Forms.Button();
-            this.btnSearchCustomer = new System.Windows.Forms.Button();
             this.btnSearchFurniture = new System.Windows.Forms.Button();
             this.btnChangePassword = new System.Windows.Forms.Button();
             this.btnSearchEmployee = new System.Windows.Forms.Button();
+            this.grpEmployee = new System.Windows.Forms.GroupBox();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.grpEmployee.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblLoggedIn
@@ -60,40 +62,29 @@
             // btnAddCustomer
             // 
             this.btnAddCustomer.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCustomer.Location = new System.Drawing.Point(64, 61);
+            this.btnAddCustomer.Location = new System.Drawing.Point(24, 61);
             this.btnAddCustomer.Name = "btnAddCustomer";
-            this.btnAddCustomer.Size = new System.Drawing.Size(176, 33);
+            this.btnAddCustomer.Size = new System.Drawing.Size(245, 33);
             this.btnAddCustomer.TabIndex = 43;
-            this.btnAddCustomer.Text = "Add Customer";
+            this.btnAddCustomer.Text = "Customer Maintenance";
             this.btnAddCustomer.UseVisualStyleBackColor = true;
             this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
-            // 
-            // btnSearchCustomer
-            // 
-            this.btnSearchCustomer.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchCustomer.Location = new System.Drawing.Point(64, 103);
-            this.btnSearchCustomer.Name = "btnSearchCustomer";
-            this.btnSearchCustomer.Size = new System.Drawing.Size(176, 33);
-            this.btnSearchCustomer.TabIndex = 44;
-            this.btnSearchCustomer.Text = "Search Customer";
-            this.btnSearchCustomer.UseVisualStyleBackColor = true;
-            this.btnSearchCustomer.Click += new System.EventHandler(this.btnSearchCustomer_Click);
             // 
             // btnSearchFurniture
             // 
             this.btnSearchFurniture.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchFurniture.Location = new System.Drawing.Point(64, 145);
+            this.btnSearchFurniture.Location = new System.Drawing.Point(24, 100);
             this.btnSearchFurniture.Name = "btnSearchFurniture";
-            this.btnSearchFurniture.Size = new System.Drawing.Size(176, 33);
+            this.btnSearchFurniture.Size = new System.Drawing.Size(245, 33);
             this.btnSearchFurniture.TabIndex = 45;
-            this.btnSearchFurniture.Text = "Search Furniture";
+            this.btnSearchFurniture.Text = "Furniture Maintenance";
             this.btnSearchFurniture.UseVisualStyleBackColor = true;
             this.btnSearchFurniture.Click += new System.EventHandler(this.btnSearchFurniture_Click);
             // 
             // btnChangePassword
             // 
             this.btnChangePassword.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangePassword.Location = new System.Drawing.Point(64, 187);
+            this.btnChangePassword.Location = new System.Drawing.Point(31, 22);
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.Size = new System.Drawing.Size(176, 33);
             this.btnChangePassword.TabIndex = 46;
@@ -104,7 +95,7 @@
             // btnSearchEmployee
             // 
             this.btnSearchEmployee.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchEmployee.Location = new System.Drawing.Point(64, 226);
+            this.btnSearchEmployee.Location = new System.Drawing.Point(31, 61);
             this.btnSearchEmployee.Name = "btnSearchEmployee";
             this.btnSearchEmployee.Size = new System.Drawing.Size(176, 33);
             this.btnSearchEmployee.TabIndex = 47;
@@ -112,21 +103,45 @@
             this.btnSearchEmployee.UseVisualStyleBackColor = true;
             this.btnSearchEmployee.Click += new System.EventHandler(this.btnSearchEmployee_Click);
             // 
+            // grpEmployee
+            // 
+            this.grpEmployee.Controls.Add(this.btnChangePassword);
+            this.grpEmployee.Controls.Add(this.btnSearchEmployee);
+            this.grpEmployee.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpEmployee.Location = new System.Drawing.Point(24, 151);
+            this.grpEmployee.Name = "grpEmployee";
+            this.grpEmployee.Size = new System.Drawing.Size(245, 100);
+            this.grpEmployee.TabIndex = 48;
+            this.grpEmployee.TabStop = false;
+            this.grpEmployee.Text = "Employee Maintenance";
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Location = new System.Drawing.Point(58, 268);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(176, 33);
+            this.btnLogout.TabIndex = 49;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // MenuView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 281);
-            this.Controls.Add(this.btnSearchEmployee);
-            this.Controls.Add(this.btnChangePassword);
+            this.ClientSize = new System.Drawing.Size(284, 313);
+            this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.grpEmployee);
             this.Controls.Add(this.btnSearchFurniture);
-            this.Controls.Add(this.btnSearchCustomer);
             this.Controls.Add(this.btnAddCustomer);
             this.Controls.Add(this.lblLoggedIn);
             this.Controls.Add(this.lblUser);
             this.Name = "MenuView";
             this.Text = "Menu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuView_FormClosing);
             this.Load += new System.EventHandler(this.MenuView_Load);
+            this.grpEmployee.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,9 +152,10 @@
         private System.Windows.Forms.Label lblLoggedIn;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Button btnAddCustomer;
-        private System.Windows.Forms.Button btnSearchCustomer;
         private System.Windows.Forms.Button btnSearchFurniture;
         private System.Windows.Forms.Button btnChangePassword;
         private System.Windows.Forms.Button btnSearchEmployee;
+        private System.Windows.Forms.GroupBox grpEmployee;
+        private System.Windows.Forms.Button btnLogout;
     }
 }

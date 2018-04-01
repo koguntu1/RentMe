@@ -45,17 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\CategoryDAL.cs" />
-    <Compile Include="DAL\EmployeeDAL.cs" />
-    <Compile Include="DAL\FurnitureDAL.cs" />
-    <Compile Include="DAL\LoginDAL.cs" />
-    <Compile Include="DAL\MemberDAL.cs" />
-    <Compile Include="DAL\RentalItemDAL.cs" />
-    <Compile Include="DAL\RentalTransactionDAL.cs" />
-    <Compile Include="DAL\RentMeDBConnection.cs" />
-    <Compile Include="DAL\ReturnTransactionDAL.cs" />
-    <Compile Include="DAL\Store_ItemDAL.cs" />
-    <Compile Include="DAL\StyleDAL.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Furniture.cs" />
@@ -76,17 +65,47 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RentMeDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Views\CustomerRegistrationView.cs">
+    <Compile Include="Views\ChangePasswordView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\CustomerRegistrationView.Designer.cs">
-      <DependentUpon>CustomerRegistrationView.cs</DependentUpon>
+    <Compile Include="Views\ChangePasswordView.Designer.cs">
+      <DependentUpon>ChangePasswordView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CustomerView.Designer.cs">
+      <DependentUpon>CustomerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EmployeeView.Designer.cs">
+      <DependentUpon>EmployeeView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\LoginView.Designer.cs">
       <DependentUpon>LoginView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MDIView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MDIView.Designer.cs">
+      <DependentUpon>MDIView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MenuView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MenuView.Designer.cs">
+      <DependentUpon>MenuView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FurnitureView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FurnitureView.Designer.cs">
+      <DependentUpon>FurnitureView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -98,11 +117,26 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\CustomerRegistrationView.resx">
-      <DependentUpon>CustomerRegistrationView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\ChangePasswordView.resx">
+      <DependentUpon>ChangePasswordView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomerView.resx">
+      <DependentUpon>CustomerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EmployeeView.resx">
+      <DependentUpon>EmployeeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MDIView.resx">
+      <DependentUpon>MDIView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MenuView.resx">
+      <DependentUpon>MenuView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FurnitureView.resx">
+      <DependentUpon>FurnitureView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -132,6 +166,5 @@
     <None Include="Resources\2018-03-27_13-08-06.gif" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
