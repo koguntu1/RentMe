@@ -23,6 +23,27 @@ namespace RentMe.Views
 
         }
 
+        private void disableControls()
+        {
+
+        }
+
+        private void enableControls()
+        {
+            Form frm = (Form)this.MdiParent;
+            MenuStrip ms = (MenuStrip)frm.Controls["menuStrip1"];
+            ToolStripMenuItem lt = (ToolStripMenuItem)ms.Items["login"];
+            lt.Visible = true;
+            lt.Text = "Welcome " + txtLogin.Text;
+
+
+            ToolStripMenuItem mt = (ToolStripMenuItem)ms.Items["maintenanceToolStripMenuItem"];
+            mt.Enabled = true;
+            ToolStripMenuItem et = (ToolStripMenuItem)ms.Items["employeeToolStripMenuItem"];
+            et.Enabled = true;
+            //mt.DropDownItems["form2ToolStripMenuItem"].Enabled = true;
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (txtLogin.Text == "")
@@ -50,6 +71,10 @@ namespace RentMe.Views
                 {
                     if (lgCont.isValidLogin(txtLogin.Text, textBox2.Text))
                     {
+                        this.enableControls();
+                        
+                       
+                       
                         this.Close();
                     }
                     else
@@ -70,7 +95,8 @@ namespace RentMe.Views
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.MdiParent.Close();
+           
         }
     }
 }

@@ -115,7 +115,33 @@ namespace RentMe.Views
 
         private void menuLogout_Click(object sender, EventArgs e)
         {
+           
+            MenuStrip ms = (MenuStrip)this.Controls["menuStrip1"];
+            ToolStripMenuItem lt = (ToolStripMenuItem)ms.Items["login"];
+            lt.Visible = false;
+           
 
+
+            ToolStripMenuItem mt = (ToolStripMenuItem)ms.Items["maintenanceToolStripMenuItem"];
+            mt.Enabled = false;
+            ToolStripMenuItem et = (ToolStripMenuItem)ms.Items["employeeToolStripMenuItem"];
+            et.Enabled = false;
+            if (loginForm.IsDisposed)
+            {
+                loginForm = new LoginView();
+                loginForm.MdiParent = this;
+                loginForm.StartPosition = FormStartPosition.CenterScreen;
+                loginForm.Show();
+            }
+            else
+            {
+                loginForm.MdiParent = this;
+                loginForm.StartPosition = FormStartPosition.CenterScreen;
+                loginForm.Show();
+
+            }
+
+            //mt.DropDownItems["form2ToolStripMenuItem"].Enabled = true;
         }
 
         private void addUpdateEmployeeToolStripMenuItem_Click(object sender, EventArgs e)

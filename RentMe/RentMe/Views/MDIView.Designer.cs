@@ -38,7 +38,7 @@
             this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addUpdateEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtLoggedIn = new System.Windows.Forms.ToolStripTextBox();
+            this.login = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,10 +48,10 @@
             this.tsFile,
             this.maintenanceToolStripMenuItem,
             this.employeeToolStripMenuItem,
-            this.txtLoggedIn});
+            this.login});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(804, 31);
+            this.menuStrip1.Size = new System.Drawing.Size(804, 27);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -62,20 +62,20 @@
             this.menuExit});
             this.tsFile.Font = new System.Drawing.Font("Calibri", 12F);
             this.tsFile.Name = "tsFile";
-            this.tsFile.Size = new System.Drawing.Size(44, 27);
+            this.tsFile.Size = new System.Drawing.Size(44, 23);
             this.tsFile.Text = "&File";
             // 
             // menuLogout
             // 
             this.menuLogout.Name = "menuLogout";
-            this.menuLogout.Size = new System.Drawing.Size(152, 24);
+            this.menuLogout.Size = new System.Drawing.Size(122, 24);
             this.menuLogout.Text = "&Logout";
             this.menuLogout.Click += new System.EventHandler(this.menuLogout_Click);
             // 
             // menuExit
             // 
             this.menuExit.Name = "menuExit";
-            this.menuExit.Size = new System.Drawing.Size(152, 24);
+            this.menuExit.Size = new System.Drawing.Size(122, 24);
             this.menuExit.Text = "&Exit";
             this.menuExit.Click += new System.EventHandler(this.menuExit_Click);
             // 
@@ -84,9 +84,10 @@
             this.maintenanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.customerToolStripMenuItem,
             this.furnitureToolStripMenuItem});
+            this.maintenanceToolStripMenuItem.Enabled = false;
             this.maintenanceToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F);
             this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
-            this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(106, 27);
+            this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(106, 23);
             this.maintenanceToolStripMenuItem.Text = "&Maintenance";
             // 
             // customerToolStripMenuItem
@@ -108,9 +109,10 @@
             this.employeeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.changePasswordToolStripMenuItem,
             this.addUpdateEmployeeToolStripMenuItem});
+            this.employeeToolStripMenuItem.Enabled = false;
             this.employeeToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F);
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(84, 27);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(84, 23);
             this.employeeToolStripMenuItem.Text = "&Employee";
             // 
             // changePasswordToolStripMenuItem
@@ -127,13 +129,13 @@
             this.addUpdateEmployeeToolStripMenuItem.Text = "Add/Update E&mployee";
             this.addUpdateEmployeeToolStripMenuItem.Click += new System.EventHandler(this.addUpdateEmployeeToolStripMenuItem_Click);
             // 
-            // txtLoggedIn
+            // login
             // 
-            this.txtLoggedIn.Enabled = false;
-            this.txtLoggedIn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.txtLoggedIn.Name = "txtLoggedIn";
-            this.txtLoggedIn.Size = new System.Drawing.Size(100, 27);
-            this.txtLoggedIn.Text = "Logged In";
+            this.login.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.login.Name = "login";
+            this.login.Size = new System.Drawing.Size(79, 23);
+            this.login.Text = "Login_label";
+            this.login.Visible = false;
             // 
             // MDIView
             // 
@@ -166,6 +168,6 @@
         private System.Windows.Forms.ToolStripMenuItem employeeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addUpdateEmployeeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripTextBox txtLoggedIn;
+        private System.Windows.Forms.ToolStripMenuItem login;
     }
 }
