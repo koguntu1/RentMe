@@ -335,9 +335,39 @@ namespace RentMe.Views
                        Validator.IsPhoneNumber(mtxtHomePhone);
         }
 
+        private void PutMemberData(Member member)
+        {
+            member.fname = txtFirstName.Text;
+            member.middleInitial = txtMiddleInitial.Text;
+            member.lname = txtLastName.Text;
+            //member.streetNumber = mtxtStreetNumber.Text;
+            //member.streetName = txtStreetName.Text;
+            member.City = txtCity.Text;
+            member.State = cboState.Text;
+            member.PostalCode = mtxtZipCode.Text;
+            member.homePhone = mtxtHomePhone.Text;
+            member.dateOfBirth = Convert.ToDateTime(mtxtDOB.Text);
+            member.gender = cboGender.Text;
+        }
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-
+            if (IsValidData())
+            {
+                member = new Member();
+                this.PutMemberData(member);
+                try
+                {
+                    member.memberID = memController.AddMember(member);
+                    MessageBox.Show("Member successfully added.");
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+            }
         }
     }
 }

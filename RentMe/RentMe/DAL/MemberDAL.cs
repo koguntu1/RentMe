@@ -110,5 +110,44 @@ namespace RentMe.DAL
             }
             return member;
         }
+
+        public static int AddMember(Member member)
+        {
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string insertStatement =
+                "INSERT Member " +
+                  "(fname, middleInitial, lname, dateOfBirth, gender, homePhone, Address1, Address2, City, State, PostalCode) " +
+                "VALUES (@fname, @middleInitial, @lname, @dateOfBirth, @gender, @homePhone, @Address1, @Address2, @City, @State, @PostalCode)";
+            SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
+            insertCommand.Parameters.AddWithValue("@fname", member.fname);
+            insertCommand.Parameters.AddWithValue("@middleInitial", member.middleInitial);
+            insertCommand.Parameters.AddWithValue("@lname", member.lname);
+            insertCommand.Parameters.AddWithValue("@dateOfBirth", member.dateOfBirth);
+            insertCommand.Parameters.AddWithValue("@gender", member.gender);
+            insertCommand.Parameters.AddWithValue("@homePhone", member.homePhone);
+            insertCommand.Parameters.AddWithValue("@Address1", member.Address1);
+            insertCommand.Parameters.AddWithValue("@Address2", member.Address2);
+            insertCommand.Parameters.AddWithValue("@City", member.City);
+            insertCommand.Parameters.AddWithValue("@State", member.State);
+            insertCommand.Parameters.AddWithValue("@PostalCode", member.PostalCode);
+            try
+            {
+                connection.Open();
+                insertCommand.ExecuteNonQuery();
+                string selectStatement =
+                    "SELECT IDENT_CURRENT('Members') FROM Members";
+                SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+                int memberID = Convert.ToInt32(selectCommand.ExecuteScalar());
+                return memberID;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

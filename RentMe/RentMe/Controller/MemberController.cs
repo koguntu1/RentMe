@@ -23,5 +23,10 @@ namespace RentMe.Controller
         {
             return MemberDAL.GetMemberByPhone(phoneNumber);
         }
+
+        public int AddMember(Member member)
+        {
+            return MemberDAL.AddMember(member);
+        }
     }
 }
