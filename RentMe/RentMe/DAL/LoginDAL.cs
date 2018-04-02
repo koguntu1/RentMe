@@ -52,5 +52,64 @@ namespace RentMe.DAL
             return login;
         }
 
+        public static bool updatePassword(string username, string newpass)
+        {
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string updateStament = "update Login set password= @newpassword where userID = @username";
+            SqlCommand updateCommand = new SqlCommand(updateStament, connection);
+            updateCommand.Parameters.AddWithValue("@username", username);
+            updateCommand.Parameters.AddWithValue("@newpassword", newpass);
+            try
+            {
+                connection.Open();
+                int count = updateCommand.ExecuteNonQuery();
+                if (count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public static bool checkCurrentPassword(string username, string password)
+        {
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string selectStament = "select password from Login where userID = @username and password = @password";
+            SqlCommand selectCommand = new SqlCommand(selectStament, connection);
+            selectCommand.Parameters.AddWithValue("@username", username);
+            selectCommand.Parameters.AddWithValue("@password", password);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = selectCommand.ExecuteReader(CommandBehavior.SingleRow);
+                bool result = false;
+                if (reader.Read())
+                {
+                    result = true;
+                }
+                else
+                {
+                    result = false;
+                }
+                reader.Close();
+                return result;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
     }
 }
