@@ -263,3 +263,9 @@ __pycache__/
 
 # Old files
 *.old
+
+# CSV files
+**/*.csv
+
+#XLSX files
+*.xls*

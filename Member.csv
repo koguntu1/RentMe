@@ -1,11 +1,11 @@
-memberID,fname,middleInitial,lname,dateOfBirth,homePhone,Address1,Address2,City,State,PostalCode,gender
-1,Ryu,T,Hayabusa,6/15/1980,7758954621,63 Gaiden Court,,Reno,NV,89501,M
-2,Simon,M,Belmont,9/12/1988,9861347778,11 Castle Court,,Boise,ID,83703,M
-3,Dahlia,L,Gillespie,4/30/1976,6178956442,243 Silent Way,,Jackson,TN,37014,F
-4,Alisa,K,Bosconovitch,1/1/1993,2079441325,1313 N. Main Street,APT 34,Bar Harbor,ME,04005,F
-5,Ellen,C,Ripley,10/8/1949,7186459822,23 Nostromo Way,,Manhattan,NY,10008,F
-6,Jack,E,Skellington,11/11/1988,8025564511,1555 Hollow Place,,Essex,VT,05001,F
-7,Holly,P,Gennaro,3/25/1948,9477897855,21 Nakatomi Plaza,BLDG 5,Allenton,MI,48002,F
-8,Nina,R ,Williams,6/19/1989,9475213122,132 Ivory Lane,,Lansing,MI,48002,F
-9,Julia,F,Chang,1/22/1991,3076452235,188 Lutador Lane,APT 101,Cheyenne,WY,82001,F
-10,Kazumi ,T,Mishima,7/30/1972,3033366453,1021 Tiger Drive,,Aurora,CO,80019,F
+fname,middleInitial,lname,dateOfBirth,homePhone,Address1,Address2,City,State,PostalCode,gender
+Ryu,T,Hayabusa,6/15/1980,7758954621,63 Gaiden Court,,Reno,NV,89501,M
+Simon,M,Belmont,9/12/1988,9861347778,11 Castle Court,,Boise,ID,83703,M
+Dahlia,L,Gillespie,4/30/1976,6178956442,243 Silent Way,,Jackson,TN,37014,F
+Alisa,K,Bosconovitch,1/1/1993,2079441325,1313 N. Main Street,APT 34,Bar Harbor,ME,4005,F
+Ellen,C,Ripley,10/8/1949,7186459822,23 Nostromo Way,,Manhattan,NY,10008,F
+Jack,E,Skellington,11/11/1988,8025564511,1555 Hollow Place,,Essex,VT,5001,F
+Holly,P,Gennaro,3/25/1948,9477897855,21 Nakatomi Plaza,BLDG 5,Allenton,MI,48002,F
+Nina,R ,Williams,6/19/1989,9475213122,132 Ivory Lane,,Lansing,MI,48002,F
+Julia,F,Chang,1/22/1991,3076452235,188 Lutador Lane,APT 101,Cheyenne,WY,82001,F
+Kazumi ,T,Mishima,7/30/1972,3033366453,1021 Tiger Drive,,Aurora,CO,80019,F
