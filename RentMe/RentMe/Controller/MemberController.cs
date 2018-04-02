@@ -28,5 +28,10 @@ namespace RentMe.Controller
         {
             return MemberDAL.AddMember(member);
         }
+
+        public bool UpdateMember(Member oldMember, Member newMember)
+        {
+            return MemberDAL.UpdateMember(oldMember, newMember);
+        }
     }
 }

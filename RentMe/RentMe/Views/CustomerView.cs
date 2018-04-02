@@ -142,7 +142,6 @@ namespace RentMe.Views
             btnExit.Enabled = true;
             btnSearch.Enabled = true;
             btnRestart.Enabled = true;
-            btnAdd.Text = "Update";
             btnSearch.Text = "Search Again";
             if (txtFirstName.Text != "" && txtLastName.Text != "")
             {
@@ -152,6 +151,7 @@ namespace RentMe.Views
                     member.lname = txtLastName.Text;
                     this.GetMemberByName(member.fname, member.lname);
                     this.DisplayMember();
+                    btnAdd.Text = "Update";
                 } catch (Exception)
                 {
                     MessageBox.Show("No member found by that name. " +
@@ -167,6 +167,7 @@ namespace RentMe.Views
                     member.homePhone = mtxtHomePhone.Text;
                     this.GetMemberByPhone(member.homePhone);
                     this.DisplayMember();
+                    btnAdd.Text = "Update";
                 } catch (Exception)
                 {
                     MessageBox.Show("No member found by that phone number. " +
@@ -198,6 +199,35 @@ namespace RentMe.Views
             btnAdd.Enabled = false;
             btnSearch.Enabled = false;
             btnRestart.Enabled = true;
+            if (btnAdd.Text.Equals("Update"))
+            {
+                btnAdd.Text = "Add";
+                if (IsValidData())
+                {
+                    Member newMember = new Member();
+                    newMember.memberID = member.memberID;
+                    this.PutMemberData(newMember);
+                    try
+                    {
+                        if (!memController.UpdateMember(member, newMember))
+                        {
+                            MessageBox.Show("Another user has updated or " +
+                                "deleted that member.", "Database Error");
+                            this.DialogResult = DialogResult.Retry;
+                        }
+                        else
+                        {
+                            member = newMember;
+                            this.DialogResult = DialogResult.OK;
+                            MessageBox.Show("Member has been updated.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, ex.GetType().ToString());
+                    }
+                }
+            }
         }
 
         private void EnableControls()

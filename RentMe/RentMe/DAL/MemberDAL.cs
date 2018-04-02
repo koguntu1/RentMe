@@ -149,5 +149,62 @@ namespace RentMe.DAL
                 connection.Close();
             }
         }
+
+        public static bool UpdateMember(Member oldMember, Member newMember)
+        {
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string updateStatement =
+                "UPDATE Members SET " +
+                  "memberID = @NewmemberID, " +
+                  "fname = @Newfname, " +
+                  "middleInitial = @middleInitial " +
+                  "lname = @Newlname, " +
+                  "dateOfBirth = @NewdateOfBirth, " +
+                  "gender = @Newgender " +
+                  "homePhone = @NewhomePhone, " +
+                  "Address1 = @NewAddress1, " +
+                  "Address2 = @NewAddress2 " +
+                  "City = @NewCity, " +
+                  "State = @NewState, " +
+                  "PostalCode = @NewPostalCode " +
+                "WHERE memberID = @OldmemberID " +
+                  "AND fname = @Oldfname " +
+                  "AND middleInitial = @OldmiddleInitial " +
+                  "AND lname = @Oldlname";
+            SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
+            updateCommand.Parameters.AddWithValue("@NewmemberID", newMember.memberID);
+            updateCommand.Parameters.AddWithValue("@Newfname", newMember.fname);
+            updateCommand.Parameters.AddWithValue("@NewmiddleInitial", newMember.middleInitial);
+            updateCommand.Parameters.AddWithValue("@Newlname", newMember.lname);
+            updateCommand.Parameters.AddWithValue("@NewdateOfBirth", newMember.dateOfBirth);
+            updateCommand.Parameters.AddWithValue("@Newgender", newMember.gender);
+            updateCommand.Parameters.AddWithValue("@NewhomePhone", newMember.homePhone);
+            updateCommand.Parameters.AddWithValue("@NewAddress1", newMember.Address1);
+            updateCommand.Parameters.AddWithValue("@NewAddress2", newMember.Address2);
+            updateCommand.Parameters.AddWithValue("@NewCity", newMember.City);
+            updateCommand.Parameters.AddWithValue("@NewState", newMember.State);
+            updateCommand.Parameters.AddWithValue("@NewPostalCode", newMember.PostalCode);
+            updateCommand.Parameters.AddWithValue("@OldmemberID", oldMember.memberID);
+            updateCommand.Parameters.AddWithValue("@Oldfname", oldMember.fname);
+            updateCommand.Parameters.AddWithValue("@OldmiddleInitial", oldMember.middleInitial);
+            updateCommand.Parameters.AddWithValue("@Oldlname", oldMember.lname);
+            try
+            {
+                connection.Open();
+                int count = updateCommand.ExecuteNonQuery();
+                if (count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }
