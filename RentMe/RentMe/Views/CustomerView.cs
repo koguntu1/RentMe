@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RentMe.Models;
+using RentMe.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +14,13 @@ namespace RentMe.Views
 {
     public partial class CustomerView : Form
     {
-
+        private Member member;
+        private MemberController memController;
         MenuView menuScreen = new MenuView();
         public CustomerView()
         {
             InitializeComponent();
+            memController = new MemberController();
 
 
         }
@@ -24,12 +28,12 @@ namespace RentMe.Views
         private void CustomerView_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'rentMeDataSet.Gender' table. You can move, or remove it, as needed.
-            this.genderTableAdapter.Fill(this.rentMeDataSet.Gender);
+            //this.genderTableAdapter.Fill(this.rentMeDataSet.Gender);
             lblStateInfo.Text = "";
             // TODO: This line of code loads data into the 'rentMeDataSet.States' table. You can move, or remove it, as needed.
-            this.statesTableAdapter.Fill(this.rentMeDataSet.States);
+            //this.statesTableAdapter.Fill(this.rentMeDataSet.States);
             // TODO: This line of code loads data into the 'rentMeDataSet.Streets' table. You can move, or remove it, as needed.
-            this.streetsTableAdapter.Fill(this.rentMeDataSet.Streets);
+            //this.streetsTableAdapter.Fill(this.rentMeDataSet.Streets);
             cboState.SelectedIndex = -1;
             cboStreetType.SelectedIndex = -1;
             cboGender.SelectedIndex = -1;
@@ -138,8 +142,50 @@ namespace RentMe.Views
             btnExit.Enabled = true;
             btnSearch.Enabled = true;
             btnRestart.Enabled = true;
-            btnAdd.Text = "Update";
             btnSearch.Text = "Search Again";
+            if (txtFirstName.Text != "" && txtLastName.Text != "")
+            {
+                try
+                {
+                    member.fname = txtFirstName.Text;
+                    member.lname = txtLastName.Text;
+                    this.GetMemberByName(member.fname, member.lname);
+                    this.DisplayMember();
+                    btnAdd.Text = "Update";
+                } catch (Exception)
+                {
+                    MessageBox.Show("No member found by that name. " +
+                        "Please try again.", "Member Not Found");
+                }
+
+            }
+            else if (mtxtHomePhone.MaskCompleted)
+            {
+                try
+                {
+                    Validator.IsPhoneNumber(mtxtHomePhone);
+                    member.homePhone = mtxtHomePhone.Text;
+                    this.GetMemberByPhone(member.homePhone);
+                    this.DisplayMember();
+                    btnAdd.Text = "Update";
+                } catch (Exception)
+                {
+                    MessageBox.Show("No member found by that phone number. " +
+                    "Please try again.", "Member Not Found");
+
+                }
+
+
+                
+
+            }
+            else
+            {
+                MessageBox.Show("Search criteria incomplete. " +
+                       "Please try again.", "Member Not Found");
+                return;
+            }
+            
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -153,6 +199,35 @@ namespace RentMe.Views
             btnAdd.Enabled = false;
             btnSearch.Enabled = false;
             btnRestart.Enabled = true;
+            if (btnAdd.Text.Equals("Update"))
+            {
+                btnAdd.Text = "Add";
+                if (IsValidData())
+                {
+                    Member newMember = new Member();
+                    newMember.memberID = member.memberID;
+                    this.PutMemberData(newMember);
+                    try
+                    {
+                        if (!memController.UpdateMember(member, newMember))
+                        {
+                            MessageBox.Show("Another user has updated or " +
+                                "deleted that member.", "Database Error");
+                            this.DialogResult = DialogResult.Retry;
+                        }
+                        else
+                        {
+                            member = newMember;
+                            this.DialogResult = DialogResult.OK;
+                            MessageBox.Show("Member has been updated.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, ex.GetType().ToString());
+                    }
+                }
+            }
         }
 
         private void EnableControls()
@@ -227,5 +302,105 @@ namespace RentMe.Views
             lblState.Text = "";
             lblGender.Text = "";
         }
+        private void GetMemberByName(string firstName, string lastName)
+        {
+            try
+            {
+                member = this.memController.GetMemberByName(firstName, lastName);
+                if (member == null)
+                    MessageBox.Show("No member found with this name. " +
+                        "Please try again.", "Member Not Found");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        private void GetMemberByPhone(string phoneNumber)
+        {
+            try
+            {
+                member = this.memController.GetMemberByPhone(phoneNumber);
+                if (member == null)
+                    MessageBox.Show("No member found with this phone number. " +
+                        "Please try again.", "Member Not Found");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        private void DisplayMember()
+        {
+            txtFirstName.Text = member.fname;
+            txtMiddleInitial.Text = member.middleInitial;
+            txtLastName.Text = member.lname;
+            //mtxtStreetNumber.Text = member.streetNumber;
+            //txtStreetName.Text = member.streetName;
+            txtCity.Text = member.City;
+            cboState.Text = member.State;
+            mtxtZipCode.Text = member.PostalCode;
+            mtxtHomePhone.Text = member.homePhone;
+            mtxtDOB.Text = member.dateOfBirth.ToString();
+            cboGender.Text = member.gender;
+        }
+
+        private bool IsValidData()
+        {
+            return     Validator.IsPresent(txtFirstName) &&
+                       Validator.IsPresent(txtMiddleInitial) &&
+                       Validator.IsPresent(txtLastName) &&
+                       Validator.IsPresent(mtxtStreetNumber) &&
+                       Validator.IsPresent(txtStreetName) &&
+                       Validator.IsPresent(txtCity) &&
+                       Validator.IsPresent(cboState) &&
+                       Validator.IsPresent(mtxtZipCode) &&
+                       Validator.IsPresent(mtxtHomePhone) &&
+                       Validator.IsPresent(mtxtDOB) &&
+                       Validator.IsPresent(cboGender) &&
+                       Validator.IsPhoneNumber(mtxtHomePhone);
+        }
+
+        private void PutMemberData(Member member)
+        {
+            member.fname = txtFirstName.Text;
+            member.middleInitial = txtMiddleInitial.Text;
+            member.lname = txtLastName.Text;
+            //member.streetNumber = mtxtStreetNumber.Text;
+            //member.streetName = txtStreetName.Text;
+            member.City = txtCity.Text;
+            member.State = cboState.Text;
+            member.PostalCode = mtxtZipCode.Text;
+            member.homePhone = mtxtHomePhone.Text;
+            member.dateOfBirth = Convert.ToDateTime(mtxtDOB.Text);
+            member.gender = cboGender.Text;
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (IsValidData())
+            {
+                member = new Member();
+                this.PutMemberData(member);
+                try
+                {
+                    member.memberID = memController.AddMember(member);
+                    MessageBox.Show("Member successfully added.");
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+            }
+        }
     }
 }
+
+
+
