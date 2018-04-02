@@ -135,6 +135,7 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(240, 27);
             this.txtFirstName.TabIndex = 1;
+            this.txtFirstName.Tag = "First Name";
             // 
             // txtLastName
             // 
@@ -143,6 +144,7 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(240, 27);
             this.txtLastName.TabIndex = 3;
+            this.txtLastName.Tag = "Last Name";
             // 
             // lblLastName
             // 
@@ -171,6 +173,7 @@
             this.txtStreetName.Name = "txtStreetName";
             this.txtStreetName.Size = new System.Drawing.Size(318, 27);
             this.txtStreetName.TabIndex = 5;
+            this.txtStreetName.Tag = "Street Name";
             // 
             // lblStreetName
             // 
@@ -193,6 +196,7 @@
             this.cboStreetType.Name = "cboStreetType";
             this.cboStreetType.Size = new System.Drawing.Size(119, 27);
             this.cboStreetType.TabIndex = 6;
+            this.cboStreetType.Tag = "Street Type";
             this.cboStreetType.ValueMember = "abbreviation";
             this.cboStreetType.SelectedIndexChanged += new System.EventHandler(this.cboStreetType_SelectedIndexChanged);
             // 
@@ -223,6 +227,7 @@
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(331, 27);
             this.txtCity.TabIndex = 8;
+            this.txtCity.Tag = "City";
             // 
             // lblCity
             // 
@@ -265,6 +270,7 @@
             this.cboState.Name = "cboState";
             this.cboState.Size = new System.Drawing.Size(106, 27);
             this.cboState.TabIndex = 9;
+            this.cboState.Tag = "State";
             this.cboState.ValueMember = "abbreviation";
             this.cboState.SelectedIndexChanged += new System.EventHandler(this.cboState_SelectedIndexChanged);
             // 
@@ -290,6 +296,7 @@
             this.txtAddress2.Name = "txtAddress2";
             this.txtAddress2.Size = new System.Drawing.Size(568, 27);
             this.txtAddress2.TabIndex = 7;
+            this.txtAddress2.Tag = "Additional Address Information";
             // 
             // lblAddress2
             // 
@@ -308,6 +315,7 @@
             this.txtMiddleInitial.Name = "txtMiddleInitial";
             this.txtMiddleInitial.Size = new System.Drawing.Size(76, 27);
             this.txtMiddleInitial.TabIndex = 2;
+            this.txtMiddleInitial.Tag = "MI";
             // 
             // label4
             // 
@@ -340,6 +348,7 @@
             this.cboGender.Name = "cboGender";
             this.cboGender.Size = new System.Drawing.Size(106, 27);
             this.cboGender.TabIndex = 12;
+            this.cboGender.Tag = "Gender";
             this.cboGender.ValueMember = "gender";
             this.cboGender.SelectedIndexChanged += new System.EventHandler(this.cboGender_SelectedIndexChanged);
             // 
@@ -366,6 +375,7 @@
             this.mtxtStreetNumber.Name = "mtxtStreetNumber";
             this.mtxtStreetNumber.Size = new System.Drawing.Size(119, 27);
             this.mtxtStreetNumber.TabIndex = 4;
+            this.mtxtStreetNumber.Tag = "Street Number";
             this.mtxtStreetNumber.ValidatingType = typeof(int);
             // 
             // mtxtZipCode
@@ -376,6 +386,7 @@
             this.mtxtZipCode.Name = "mtxtZipCode";
             this.mtxtZipCode.Size = new System.Drawing.Size(119, 27);
             this.mtxtZipCode.TabIndex = 10;
+            this.mtxtZipCode.Tag = "Zip Code";
             // 
             // mtxtHomePhone
             // 
@@ -385,6 +396,7 @@
             this.mtxtHomePhone.Name = "mtxtHomePhone";
             this.mtxtHomePhone.Size = new System.Drawing.Size(331, 27);
             this.mtxtHomePhone.TabIndex = 11;
+            this.mtxtHomePhone.Tag = "Home Phone Number";
             // 
             // mtxtDOB
             // 
@@ -394,6 +406,7 @@
             this.mtxtDOB.Name = "mtxtDOB";
             this.mtxtDOB.Size = new System.Drawing.Size(332, 27);
             this.mtxtDOB.TabIndex = 13;
+            this.mtxtDOB.Tag = "Date of Birth";
             this.mtxtDOB.ValidatingType = typeof(System.DateTime);
             // 
             // btnSubmit
@@ -405,6 +418,7 @@
             this.btnSubmit.TabIndex = 14;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // btnExit
             // 

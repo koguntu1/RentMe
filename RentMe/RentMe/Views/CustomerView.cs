@@ -20,6 +20,7 @@ namespace RentMe.Views
         public CustomerView()
         {
             InitializeComponent();
+            memController = new MemberController();
 
 
         }
@@ -143,7 +144,7 @@ namespace RentMe.Views
             btnRestart.Enabled = true;
             btnAdd.Text = "Update";
             btnSearch.Text = "Search Again";
-            if (Validator.IsPresent(txtFirstName) && Validator.IsPresent(txtLastName))
+            if (txtFirstName.Text != "" && txtLastName.Text != "")
             {
                 try
                 {
@@ -158,10 +159,11 @@ namespace RentMe.Views
                 }
 
             }
-            else if (Validator.IsPresent(mtxtHomePhone) && Validator.IsPhoneNumber(mtxtHomePhone))
+            else if (mtxtHomePhone.MaskCompleted)
             {
                 try
                 {
+                    Validator.IsPhoneNumber(mtxtHomePhone);
                     member.homePhone = mtxtHomePhone.Text;
                     this.GetMemberByPhone(member.homePhone);
                     this.DisplayMember();
@@ -169,12 +171,16 @@ namespace RentMe.Views
                 {
                     MessageBox.Show("No member found by that phone number. " +
                     "Please try again.", "Member Not Found");
+
                 }
+
+
+                
 
             }
             else
             {
-                MessageBox.Show("No search criteria entered. " +
+                MessageBox.Show("Search criteria incomplete. " +
                        "Please try again.", "Member Not Found");
                 return;
             }
@@ -311,6 +317,27 @@ namespace RentMe.Views
             mtxtHomePhone.Text = member.homePhone;
             mtxtDOB.Text = member.dateOfBirth.ToString();
             cboGender.Text = member.gender;
+        }
+
+        private bool IsValidData()
+        {
+            return     Validator.IsPresent(txtFirstName) &&
+                       Validator.IsPresent(txtMiddleInitial) &&
+                       Validator.IsPresent(txtLastName) &&
+                       Validator.IsPresent(mtxtStreetNumber) &&
+                       Validator.IsPresent(txtStreetName) &&
+                       Validator.IsPresent(txtCity) &&
+                       Validator.IsPresent(cboState) &&
+                       Validator.IsPresent(mtxtZipCode) &&
+                       Validator.IsPresent(mtxtHomePhone) &&
+                       Validator.IsPresent(mtxtDOB) &&
+                       Validator.IsPresent(cboGender) &&
+                       Validator.IsPhoneNumber(mtxtHomePhone);
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

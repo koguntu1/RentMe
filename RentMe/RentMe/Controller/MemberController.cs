@@ -10,6 +10,10 @@ namespace RentMe.Controller
 {
     class MemberController
     {
+        public MemberController()
+        {
+
+        }
         public Member GetMemberByName(string firstName, string lastName)
         {
             return MemberDAL.GetMemberByName(firstName, lastName);

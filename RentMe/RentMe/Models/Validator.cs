@@ -16,6 +16,7 @@ namespace RentMe.Models
                 TextBox textBox = (TextBox)control;
                 if (textBox.Text == "")
                 {
+                    MessageBox.Show(textBox.Tag.ToString() + " is a required field.");
                     textBox.Focus();
                     return false;
                 }
@@ -29,6 +30,7 @@ namespace RentMe.Models
                 ComboBox comboBox = (ComboBox)control;
                 if (comboBox.SelectedIndex == -1)
                 {
+                    MessageBox.Show(comboBox.Tag.ToString() + " is a required field.");
                     comboBox.Focus();
                     return false;
                 }
@@ -50,6 +52,8 @@ namespace RentMe.Models
             }
             catch (FormatException)
             {
+                MessageBox.Show(textBox.Tag.ToString() + " must be in this format: " +
+                    "(999) 999-9999");
                 textBox.Focus();
                 return false;
             }
