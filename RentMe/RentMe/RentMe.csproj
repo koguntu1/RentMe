@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Controller\FurnitureController.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\MemberController.cs" />
     <Compile Include="DAL\CategoryDAL.cs" />
     <Compile Include="DAL\EmployeeDAL.cs" />
     <Compile Include="DAL\FurnitureDAL.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Models\ReturnTransaction.cs" />
     <Compile Include="Models\Store_item.cs" />
     <Compile Include="Models\Style.cs" />
+    <Compile Include="Models\Validator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RentMeDataSet.cs">
