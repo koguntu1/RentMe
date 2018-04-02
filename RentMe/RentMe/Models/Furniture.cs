@@ -20,7 +20,7 @@ namespace RentMe.Models
         public string style { get; set; }
         public string category { get; set; }
         public int itemID { get; set; }
-        public int categoryID { get; set; }
+        public string categoryID { get; set; }
         public decimal fine_Rate { get; set; }
         public decimal daily_Rate { get; set; }
     

@@ -29,21 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label categoryLabel;
-            System.Windows.Forms.Label styleLabel;
-            System.Windows.Forms.Label dailyRateLabel;
-            System.Windows.Forms.Label fineRateLabel;
             System.Windows.Forms.Label lblItemID;
-            System.Windows.Forms.Label furnitureDescrptionLabel;
             System.Windows.Forms.Label lblFurnitureID;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FurnitureView));
-            this.rentMeDataSet = new RentMe.RentMeDataSet();
-            this.furnitureBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.furnitureTableAdapter = new RentMe.RentMeDataSetTableAdapters.FurnitureTableAdapter();
-            this.tableAdapterManager = new RentMe.RentMeDataSetTableAdapters.TableAdapterManager();
-            this.txtFurnitureDescrption = new System.Windows.Forms.TextBox();
-            this.txtCategory = new System.Windows.Forms.TextBox();
-            this.txtStyle = new System.Windows.Forms.TextBox();
+            System.Windows.Forms.Label descriptionLabel;
+            System.Windows.Forms.Label descriptionLabel1;
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnRestart = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -51,103 +40,54 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.lblFurnitureInfo = new System.Windows.Forms.Label();
-            this.store_itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.store_itemTableAdapter = new RentMe.RentMeDataSetTableAdapters.Store_itemTableAdapter();
             this.cboItemID = new System.Windows.Forms.ComboBox();
+            this.store_itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rentMeDataSet = new RentMe.RentMeDataSet();
             this.cboFurnitureID = new System.Windows.Forms.ComboBox();
-            this.mtxtDailyRate = new System.Windows.Forms.MaskedTextBox();
-            this.mtxtFineRate = new System.Windows.Forms.MaskedTextBox();
+            this.furnitureBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.TopToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.LeftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
-            this.navFurniture = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            categoryLabel = new System.Windows.Forms.Label();
-            styleLabel = new System.Windows.Forms.Label();
-            dailyRateLabel = new System.Windows.Forms.Label();
-            fineRateLabel = new System.Windows.Forms.Label();
+            this.furnitureTableAdapter = new RentMe.RentMeDataSetTableAdapters.FurnitureTableAdapter();
+            this.tableAdapterManager = new RentMe.RentMeDataSetTableAdapters.TableAdapterManager();
+            this.store_itemTableAdapter = new RentMe.RentMeDataSetTableAdapters.Store_itemTableAdapter();
+            this.styleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.styleTableAdapter = new RentMe.RentMeDataSetTableAdapters.StyleTableAdapter();
+            this.cboStyle = new System.Windows.Forms.ComboBox();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoryTableAdapter = new RentMe.RentMeDataSetTableAdapters.CategoryTableAdapter();
+            this.cboCategory = new System.Windows.Forms.ComboBox();
+            this.lvFurniture = new System.Windows.Forms.ListView();
+            this.columnFurnitureID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnStyle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnRentalRate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnFineRate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnItemID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             lblItemID = new System.Windows.Forms.Label();
-            furnitureDescrptionLabel = new System.Windows.Forms.Label();
             lblFurnitureID = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).BeginInit();
+            descriptionLabel = new System.Windows.Forms.Label();
+            descriptionLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.store_itemBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.navFurniture)).BeginInit();
-            this.navFurniture.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.styleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // categoryLabel
-            // 
-            categoryLabel.AutoSize = true;
-            categoryLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            categoryLabel.Location = new System.Drawing.Point(12, 314);
-            categoryLabel.Name = "categoryLabel";
-            categoryLabel.Size = new System.Drawing.Size(74, 19);
-            categoryLabel.TabIndex = 2;
-            categoryLabel.Text = "Category:";
-            // 
-            // styleLabel
-            // 
-            styleLabel.AutoSize = true;
-            styleLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            styleLabel.Location = new System.Drawing.Point(12, 373);
-            styleLabel.Name = "styleLabel";
-            styleLabel.Size = new System.Drawing.Size(47, 19);
-            styleLabel.TabIndex = 4;
-            styleLabel.Text = "Style:";
-            // 
-            // dailyRateLabel
-            // 
-            dailyRateLabel.AutoSize = true;
-            dailyRateLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dailyRateLabel.Location = new System.Drawing.Point(12, 253);
-            dailyRateLabel.Name = "dailyRateLabel";
-            dailyRateLabel.Size = new System.Drawing.Size(130, 19);
-            dailyRateLabel.TabIndex = 6;
-            dailyRateLabel.Text = "Daily Rental Rate:";
-            // 
-            // fineRateLabel
-            // 
-            fineRateLabel.AutoSize = true;
-            fineRateLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            fineRateLabel.Location = new System.Drawing.Point(330, 256);
-            fineRateLabel.Name = "fineRateLabel";
-            fineRateLabel.Size = new System.Drawing.Size(147, 19);
-            fineRateLabel.TabIndex = 8;
-            fineRateLabel.Text = "Daily Late Fine Rate:";
             // 
             // lblItemID
             // 
             lblItemID.AutoSize = true;
             lblItemID.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            lblItemID.Location = new System.Drawing.Point(392, 108);
+            lblItemID.Location = new System.Drawing.Point(371, 113);
             lblItemID.Name = "lblItemID";
             lblItemID.Size = new System.Drawing.Size(62, 19);
             lblItemID.TabIndex = 53;
             lblItemID.Text = "Item ID:";
-            // 
-            // furnitureDescrptionLabel
-            // 
-            furnitureDescrptionLabel.AutoSize = true;
-            furnitureDescrptionLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            furnitureDescrptionLabel.Location = new System.Drawing.Point(17, 163);
-            furnitureDescrptionLabel.Name = "furnitureDescrptionLabel";
-            furnitureDescrptionLabel.Size = new System.Drawing.Size(86, 19);
-            furnitureDescrptionLabel.TabIndex = 0;
-            furnitureDescrptionLabel.Text = "Descrption:";
             // 
             // lblFurnitureID
             // 
@@ -159,65 +99,25 @@
             lblFurnitureID.TabIndex = 51;
             lblFurnitureID.Text = "Furniture ID:";
             // 
-            // rentMeDataSet
+            // descriptionLabel
             // 
-            this.rentMeDataSet.DataSetName = "RentMeDataSet";
-            this.rentMeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            descriptionLabel.AutoSize = true;
+            descriptionLabel.Font = new System.Drawing.Font("Calibri", 12F);
+            descriptionLabel.Location = new System.Drawing.Point(68, 160);
+            descriptionLabel.Name = "descriptionLabel";
+            descriptionLabel.Size = new System.Drawing.Size(44, 19);
+            descriptionLabel.TabIndex = 58;
+            descriptionLabel.Text = "Style:";
             // 
-            // furnitureBindingSource
+            // descriptionLabel1
             // 
-            this.furnitureBindingSource.DataMember = "Furniture";
-            this.furnitureBindingSource.DataSource = this.rentMeDataSet;
-            // 
-            // furnitureTableAdapter
-            // 
-            this.furnitureTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CategoryTableAdapter = null;
-            this.tableAdapterManager.EmployeeTableAdapter = null;
-            this.tableAdapterManager.FurnitureTableAdapter = this.furnitureTableAdapter;
-            this.tableAdapterManager.GenderTableAdapter = null;
-            this.tableAdapterManager.LoginTableAdapter = null;
-            this.tableAdapterManager.MemberTableAdapter = null;
-            this.tableAdapterManager.Rental_return_transactionTableAdapter = null;
-            this.tableAdapterManager.Rental_transactionTableAdapter = null;
-            this.tableAdapterManager.RentalTableAdapter = null;
-            this.tableAdapterManager.StatesTableAdapter = null;
-            this.tableAdapterManager.Store_itemTableAdapter = null;
-            this.tableAdapterManager.StreetsTableAdapter = null;
-            this.tableAdapterManager.StyleTableAdapter = null;
-            this.tableAdapterManager.TransactionsTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = RentMe.RentMeDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // txtFurnitureDescrption
-            // 
-            this.txtFurnitureDescrption.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFurnitureDescrption.Location = new System.Drawing.Point(148, 160);
-            this.txtFurnitureDescrption.Multiline = true;
-            this.txtFurnitureDescrption.Name = "txtFurnitureDescrption";
-            this.txtFurnitureDescrption.Size = new System.Drawing.Size(431, 70);
-            this.txtFurnitureDescrption.TabIndex = 1;
-            // 
-            // txtCategory
-            // 
-            this.txtCategory.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCategory.Location = new System.Drawing.Point(148, 311);
-            this.txtCategory.Multiline = true;
-            this.txtCategory.Name = "txtCategory";
-            this.txtCategory.Size = new System.Drawing.Size(431, 39);
-            this.txtCategory.TabIndex = 3;
-            // 
-            // txtStyle
-            // 
-            this.txtStyle.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStyle.Location = new System.Drawing.Point(148, 373);
-            this.txtStyle.Multiline = true;
-            this.txtStyle.Name = "txtStyle";
-            this.txtStyle.Size = new System.Drawing.Size(431, 42);
-            this.txtStyle.TabIndex = 5;
+            descriptionLabel1.AutoSize = true;
+            descriptionLabel1.Font = new System.Drawing.Font("Calibri", 12F);
+            descriptionLabel1.Location = new System.Drawing.Point(362, 165);
+            descriptionLabel1.Name = "descriptionLabel1";
+            descriptionLabel1.Size = new System.Drawing.Size(71, 19);
+            descriptionLabel1.TabIndex = 59;
+            descriptionLabel1.Text = "Category:";
             // 
             // pictureBox1
             // 
@@ -293,56 +193,50 @@
             this.lblFurnitureInfo.Text = "Furniture Information";
             this.lblFurnitureInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // cboItemID
+            // 
+            this.cboItemID.AllowDrop = true;
+            this.cboItemID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.store_itemBindingSource, "itemID", true));
+            this.cboItemID.DataSource = this.store_itemBindingSource;
+            this.cboItemID.DisplayMember = "itemID";
+            this.cboItemID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboItemID.Font = new System.Drawing.Font("Calibri", 12F);
+            this.cboItemID.FormattingEnabled = true;
+            this.cboItemID.Location = new System.Drawing.Point(439, 108);
+            this.cboItemID.Name = "cboItemID";
+            this.cboItemID.Size = new System.Drawing.Size(121, 27);
+            this.cboItemID.TabIndex = 54;
+            this.cboItemID.ValueMember = "itemID";
+            // 
             // store_itemBindingSource
             // 
             this.store_itemBindingSource.DataMember = "Store_item";
             this.store_itemBindingSource.DataSource = this.rentMeDataSet;
             // 
-            // store_itemTableAdapter
+            // rentMeDataSet
             // 
-            this.store_itemTableAdapter.ClearBeforeFill = true;
-            // 
-            // cboItemID
-            // 
-            this.cboItemID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.store_itemBindingSource, "itemID", true));
-            this.cboItemID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboItemID.Font = new System.Drawing.Font("Calibri", 12F);
-            this.cboItemID.FormattingEnabled = true;
-            this.cboItemID.Location = new System.Drawing.Point(458, 105);
-            this.cboItemID.Name = "cboItemID";
-            this.cboItemID.Size = new System.Drawing.Size(121, 27);
-            this.cboItemID.TabIndex = 54;
+            this.rentMeDataSet.DataSetName = "RentMeDataSet";
+            this.rentMeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // cboFurnitureID
             // 
+            this.cboFurnitureID.AllowDrop = true;
             this.cboFurnitureID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.furnitureBindingSource, "furnitureID", true));
+            this.cboFurnitureID.DataSource = this.furnitureBindingSource;
+            this.cboFurnitureID.DisplayMember = "furnitureID";
             this.cboFurnitureID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFurnitureID.Font = new System.Drawing.Font("Calibri", 12F);
             this.cboFurnitureID.FormattingEnabled = true;
-            this.cboFurnitureID.Location = new System.Drawing.Point(148, 111);
+            this.cboFurnitureID.Location = new System.Drawing.Point(118, 116);
             this.cboFurnitureID.Name = "cboFurnitureID";
             this.cboFurnitureID.Size = new System.Drawing.Size(121, 27);
             this.cboFurnitureID.TabIndex = 55;
+            this.cboFurnitureID.ValueMember = "furnitureID";
             // 
-            // mtxtDailyRate
+            // furnitureBindingSource
             // 
-            this.mtxtDailyRate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.furnitureBindingSource, "daily_Rate", true));
-            this.mtxtDailyRate.Font = new System.Drawing.Font("Calibri", 12F);
-            this.mtxtDailyRate.Location = new System.Drawing.Point(148, 248);
-            this.mtxtDailyRate.Mask = "$ 99990.00";
-            this.mtxtDailyRate.Name = "mtxtDailyRate";
-            this.mtxtDailyRate.Size = new System.Drawing.Size(100, 27);
-            this.mtxtDailyRate.TabIndex = 56;
-            // 
-            // mtxtFineRate
-            // 
-            this.mtxtFineRate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.furnitureBindingSource, "fine_Rate", true));
-            this.mtxtFineRate.Font = new System.Drawing.Font("Calibri", 12F);
-            this.mtxtFineRate.Location = new System.Drawing.Point(479, 250);
-            this.mtxtFineRate.Mask = "$ 99990.99";
-            this.mtxtFineRate.Name = "mtxtFineRate";
-            this.mtxtFineRate.Size = new System.Drawing.Size(100, 27);
-            this.mtxtFineRate.TabIndex = 57;
+            this.furnitureBindingSource.DataMember = "Furniture";
+            this.furnitureBindingSource.DataSource = this.rentMeDataSet;
             // 
             // BottomToolStripPanel
             // 
@@ -380,127 +274,141 @@
             // 
             this.ContentPanel.Size = new System.Drawing.Size(150, 150);
             // 
-            // navFurniture
+            // furnitureTableAdapter
             // 
-            this.navFurniture.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.navFurniture.CountItem = this.bindingNavigatorCountItem;
-            this.navFurniture.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.navFurniture.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem});
-            this.navFurniture.Location = new System.Drawing.Point(0, 0);
-            this.navFurniture.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.navFurniture.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.navFurniture.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.navFurniture.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.navFurniture.Name = "navFurniture";
-            this.navFurniture.PositionItem = this.bindingNavigatorPositionItem;
-            this.navFurniture.Size = new System.Drawing.Size(624, 25);
-            this.navFurniture.TabIndex = 58;
-            this.navFurniture.Text = "bindingNavigator1";
+            this.furnitureTableAdapter.ClearBeforeFill = true;
             // 
-            // bindingNavigatorAddNewItem
+            // tableAdapterManager
             // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CategoryTableAdapter = null;
+            this.tableAdapterManager.EmployeeTableAdapter = null;
+            this.tableAdapterManager.FurnitureTableAdapter = this.furnitureTableAdapter;
+            this.tableAdapterManager.GenderTableAdapter = null;
+            this.tableAdapterManager.LoginTableAdapter = null;
+            this.tableAdapterManager.MemberTableAdapter = null;
+            this.tableAdapterManager.Rental_return_transactionTableAdapter = null;
+            this.tableAdapterManager.Rental_transactionTableAdapter = null;
+            this.tableAdapterManager.RentalTableAdapter = null;
+            this.tableAdapterManager.StatesTableAdapter = null;
+            this.tableAdapterManager.Store_itemTableAdapter = null;
+            this.tableAdapterManager.StreetsTableAdapter = null;
+            this.tableAdapterManager.StyleTableAdapter = null;
+            this.tableAdapterManager.TransactionsTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = RentMe.RentMeDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // bindingNavigatorCountItem
+            // store_itemTableAdapter
             // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            this.store_itemTableAdapter.ClearBeforeFill = true;
             // 
-            // bindingNavigatorDeleteItem
+            // styleBindingSource
             // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.styleBindingSource.DataMember = "Style";
+            this.styleBindingSource.DataSource = this.rentMeDataSet;
             // 
-            // bindingNavigatorMoveFirstItem
+            // styleTableAdapter
             // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            this.styleTableAdapter.ClearBeforeFill = true;
             // 
-            // bindingNavigatorMovePreviousItem
+            // cboStyle
             // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            this.cboStyle.AllowDrop = true;
+            this.cboStyle.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.styleBindingSource, "description", true));
+            this.cboStyle.DataSource = this.styleBindingSource;
+            this.cboStyle.DisplayMember = "description";
+            this.cboStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboStyle.Font = new System.Drawing.Font("Calibri", 12F);
+            this.cboStyle.FormattingEnabled = true;
+            this.cboStyle.Location = new System.Drawing.Point(118, 165);
+            this.cboStyle.Name = "cboStyle";
+            this.cboStyle.Size = new System.Drawing.Size(121, 27);
+            this.cboStyle.TabIndex = 59;
+            this.cboStyle.ValueMember = "styleID";
             // 
-            // bindingNavigatorSeparator
+            // categoryBindingSource
             // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            this.categoryBindingSource.DataMember = "Category";
+            this.categoryBindingSource.DataSource = this.rentMeDataSet;
             // 
-            // bindingNavigatorPositionItem
+            // categoryTableAdapter
             // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
+            this.categoryTableAdapter.ClearBeforeFill = true;
             // 
-            // bindingNavigatorSeparator1
+            // cboCategory
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.cboCategory.AllowDrop = true;
+            this.cboCategory.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.categoryBindingSource, "description", true));
+            this.cboCategory.DataSource = this.categoryBindingSource;
+            this.cboCategory.DisplayMember = "description";
+            this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCategory.Font = new System.Drawing.Font("Calibri", 12F);
+            this.cboCategory.FormattingEnabled = true;
+            this.cboCategory.Location = new System.Drawing.Point(439, 162);
+            this.cboCategory.Name = "cboCategory";
+            this.cboCategory.Size = new System.Drawing.Size(121, 27);
+            this.cboCategory.TabIndex = 62;
+            this.cboCategory.ValueMember = "categoryID";
             // 
-            // bindingNavigatorMoveNextItem
+            // lvFurniture
             // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
+            this.lvFurniture.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnFurnitureID,
+            this.columnDescription,
+            this.columnItemID,
+            this.columnCategory,
+            this.columnStyle,
+            this.columnRentalRate,
+            this.columnFineRate});
+            this.lvFurniture.Font = new System.Drawing.Font("Calibri", 11F);
+            this.lvFurniture.Location = new System.Drawing.Point(18, 198);
+            this.lvFurniture.Name = "lvFurniture";
+            this.lvFurniture.Size = new System.Drawing.Size(694, 246);
+            this.lvFurniture.TabIndex = 63;
+            this.lvFurniture.UseCompatibleStateImageBehavior = false;
+            this.lvFurniture.View = System.Windows.Forms.View.Details;
             // 
-            // bindingNavigatorMoveLastItem
+            // columnFurnitureID
             // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
+            this.columnFurnitureID.Text = "FurnitureID";
             // 
-            // bindingNavigatorSeparator2
+            // columnDescription
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.columnDescription.Text = "Description";
+            // 
+            // columnCategory
+            // 
+            this.columnCategory.DisplayIndex = 2;
+            this.columnCategory.Text = "Category";
+            // 
+            // columnStyle
+            // 
+            this.columnStyle.DisplayIndex = 3;
+            this.columnStyle.Text = "Style";
+            // 
+            // columnRentalRate
+            // 
+            this.columnRentalRate.DisplayIndex = 4;
+            this.columnRentalRate.Text = "Daily Rate";
+            // 
+            // columnFineRate
+            // 
+            this.columnFineRate.DisplayIndex = 5;
+            this.columnFineRate.Text = "Daily Late Fee";
+            // 
+            // columnItemID
+            // 
+            this.columnItemID.Text = "ItemID";
             // 
             // FurnitureView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 531);
-            this.Controls.Add(this.navFurniture);
-            this.Controls.Add(this.mtxtFineRate);
-            this.Controls.Add(this.mtxtDailyRate);
+            this.ClientSize = new System.Drawing.Size(743, 531);
+            this.Controls.Add(this.lvFurniture);
+            this.Controls.Add(this.cboCategory);
+            this.Controls.Add(descriptionLabel1);
+            this.Controls.Add(descriptionLabel);
+            this.Controls.Add(this.cboStyle);
             this.Controls.Add(this.cboFurnitureID);
             this.Controls.Add(lblItemID);
             this.Controls.Add(this.cboItemID);
@@ -512,24 +420,15 @@
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(furnitureDescrptionLabel);
-            this.Controls.Add(this.txtFurnitureDescrption);
-            this.Controls.Add(categoryLabel);
-            this.Controls.Add(this.txtCategory);
-            this.Controls.Add(styleLabel);
-            this.Controls.Add(this.txtStyle);
-            this.Controls.Add(dailyRateLabel);
-            this.Controls.Add(fineRateLabel);
             this.Name = "FurnitureView";
             this.Text = "SearchFurnitureView";
             this.Load += new System.EventHandler(this.SearchFurnitureView_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.store_itemBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.navFurniture)).EndInit();
-            this.navFurniture.ResumeLayout(false);
-            this.navFurniture.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.styleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -541,9 +440,6 @@
         private System.Windows.Forms.BindingSource furnitureBindingSource;
         private RentMeDataSetTableAdapters.FurnitureTableAdapter furnitureTableAdapter;
         private RentMeDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.TextBox txtFurnitureDescrption;
-        private System.Windows.Forms.TextBox txtCategory;
-        private System.Windows.Forms.TextBox txtStyle;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnRestart;
         private System.Windows.Forms.Button btnSearch;
@@ -555,24 +451,24 @@
         private RentMeDataSetTableAdapters.Store_itemTableAdapter store_itemTableAdapter;
         private System.Windows.Forms.ComboBox cboItemID;
         private System.Windows.Forms.ComboBox cboFurnitureID;
-        private System.Windows.Forms.MaskedTextBox mtxtDailyRate;
-        private System.Windows.Forms.MaskedTextBox mtxtFineRate;
         private System.Windows.Forms.ToolStripPanel BottomToolStripPanel;
         private System.Windows.Forms.ToolStripPanel TopToolStripPanel;
         private System.Windows.Forms.ToolStripPanel RightToolStripPanel;
         private System.Windows.Forms.ToolStripPanel LeftToolStripPanel;
         private System.Windows.Forms.ToolStripContentPanel ContentPanel;
-        private System.Windows.Forms.BindingNavigator navFurniture;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+        private System.Windows.Forms.BindingSource styleBindingSource;
+        private RentMeDataSetTableAdapters.StyleTableAdapter styleTableAdapter;
+        private System.Windows.Forms.ComboBox cboStyle;
+        private System.Windows.Forms.BindingSource categoryBindingSource;
+        private RentMeDataSetTableAdapters.CategoryTableAdapter categoryTableAdapter;
+        private System.Windows.Forms.ComboBox cboCategory;
+        private System.Windows.Forms.ListView lvFurniture;
+        private System.Windows.Forms.ColumnHeader columnFurnitureID;
+        private System.Windows.Forms.ColumnHeader columnDescription;
+        private System.Windows.Forms.ColumnHeader columnCategory;
+        private System.Windows.Forms.ColumnHeader columnStyle;
+        private System.Windows.Forms.ColumnHeader columnRentalRate;
+        private System.Windows.Forms.ColumnHeader columnFineRate;
+        private System.Windows.Forms.ColumnHeader columnItemID;
     }
 }
