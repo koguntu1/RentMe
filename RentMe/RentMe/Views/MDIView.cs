@@ -120,13 +120,19 @@ namespace RentMe.Views
             MenuStrip ms = (MenuStrip)this.Controls["menuStrip1"];
             ToolStripMenuItem lt = (ToolStripMenuItem)ms.Items["login"];
             lt.Visible = false;
-           
+
 
 
             ToolStripMenuItem mt = (ToolStripMenuItem)ms.Items["maintenanceToolStripMenuItem"];
             mt.Enabled = false;
             ToolStripMenuItem et = (ToolStripMenuItem)ms.Items["employeeToolStripMenuItem"];
             et.Enabled = false;
+
+            if (et.DropDownItems["addUpdateEmployeeToolStripMenuItem"].Enabled)
+            {
+                et.DropDownItems["addUpdateEmployeeToolStripMenuItem"].Enabled = false;
+            }
+
             if (loginForm.IsDisposed)
             {
                 loginForm = new LoginView();

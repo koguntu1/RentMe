@@ -11,13 +11,14 @@ using RentMe.Controller;
 
 namespace RentMe.Views
 {
-   
+
+
     public partial class LoginView : Form
     {
         private LoginController lgCont;
-            public LoginView()
+        public LoginView()
         {
-           
+
             InitializeComponent();
             lgCont = new LoginController();
 
@@ -34,14 +35,27 @@ namespace RentMe.Views
             MenuStrip ms = (MenuStrip)frm.Controls["menuStrip1"];
             ToolStripMenuItem lt = (ToolStripMenuItem)ms.Items["login"];
             lt.Visible = true;
-            lt.Text = "Welcome " + txtLogin.Text;
+            lt.Text = txtLogin.Text;
+
 
 
             ToolStripMenuItem mt = (ToolStripMenuItem)ms.Items["maintenanceToolStripMenuItem"];
             mt.Enabled = true;
             ToolStripMenuItem et = (ToolStripMenuItem)ms.Items["employeeToolStripMenuItem"];
             et.Enabled = true;
-            //mt.DropDownItems["form2ToolStripMenuItem"].Enabled = true;
+            try
+            {
+                if (lgCont.IsAdminRole(txtLogin.Text, textBox2.Text))
+                {
+                    et.DropDownItems["addUpdateEmployeeToolStripMenuItem"].Enabled = true;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -65,16 +79,17 @@ namespace RentMe.Views
                 textBox2.Focus();
 
             }
-            if ((txtLogin.Text != "" && textBox2.Text != "")) {
+            if ((txtLogin.Text != "" && textBox2.Text != ""))
+            {
 
                 try
                 {
                     if (lgCont.isValidLogin(txtLogin.Text, textBox2.Text))
                     {
                         this.enableControls();
-                        
-                       
-                       
+
+
+
                         this.Close();
                     }
                     else
@@ -90,13 +105,13 @@ namespace RentMe.Views
                 }
 
             }
-                    
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.MdiParent.Close();
-           
+
         }
     }
 }

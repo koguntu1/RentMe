@@ -86,6 +86,7 @@
             this.btnSubmit.TabIndex = 16;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // lblCurrentPassword
             // 
@@ -121,8 +122,8 @@
             // 
             this.mtxtCurrentPassword.Font = new System.Drawing.Font("Calibri", 11F);
             this.mtxtCurrentPassword.Location = new System.Drawing.Point(233, 100);
-            this.mtxtCurrentPassword.Mask = "&&&&&&&&CCCCCCCCCCCC";
             this.mtxtCurrentPassword.Name = "mtxtCurrentPassword";
+            this.mtxtCurrentPassword.PasswordChar = '*';
             this.mtxtCurrentPassword.Size = new System.Drawing.Size(154, 25);
             this.mtxtCurrentPassword.TabIndex = 21;
             this.ttPassword.SetToolTip(this.mtxtCurrentPassword, "8-20 Characters Required");
@@ -131,8 +132,8 @@
             // 
             this.mtxtNewPassword.Font = new System.Drawing.Font("Calibri", 11F);
             this.mtxtNewPassword.Location = new System.Drawing.Point(233, 131);
-            this.mtxtNewPassword.Mask = "&&&&&&&&CCCCCCCCCCCC";
             this.mtxtNewPassword.Name = "mtxtNewPassword";
+            this.mtxtNewPassword.PasswordChar = '*';
             this.mtxtNewPassword.Size = new System.Drawing.Size(154, 25);
             this.mtxtNewPassword.TabIndex = 22;
             // 
@@ -140,8 +141,8 @@
             // 
             this.mtxtConfirmPassword.Font = new System.Drawing.Font("Calibri", 11F);
             this.mtxtConfirmPassword.Location = new System.Drawing.Point(233, 164);
-            this.mtxtConfirmPassword.Mask = "&&&&&&&&CCCCCCCCCCCC";
             this.mtxtConfirmPassword.Name = "mtxtConfirmPassword";
+            this.mtxtConfirmPassword.PasswordChar = '*';
             this.mtxtConfirmPassword.Size = new System.Drawing.Size(154, 25);
             this.mtxtConfirmPassword.TabIndex = 23;
             // 
