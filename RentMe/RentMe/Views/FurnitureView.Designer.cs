@@ -41,7 +41,6 @@
             this.furnitureBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.furnitureTableAdapter = new RentMe.RentMeDataSetTableAdapters.FurnitureTableAdapter();
             this.tableAdapterManager = new RentMe.RentMeDataSetTableAdapters.TableAdapterManager();
-            this.furnitureDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtFurnitureDescrption = new System.Windows.Forms.TextBox();
             this.txtCategory = new System.Windows.Forms.TextBox();
             this.txtStyle = new System.Windows.Forms.TextBox();
@@ -84,7 +83,6 @@
             lblFurnitureID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.furnitureDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.store_itemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navFurniture)).BeginInit();
@@ -194,14 +192,8 @@
             this.tableAdapterManager.TransactionsTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = RentMe.RentMeDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // furnitureDetailsBindingSource
-            // 
-            this.furnitureDetailsBindingSource.DataMember = "FurnitureDetails";
-            this.furnitureDetailsBindingSource.DataSource = this.rentMeDataSet;
-            // 
             // txtFurnitureDescrption
             // 
-            this.txtFurnitureDescrption.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.furnitureDetailsBindingSource, "furnitureDescrption", true));
             this.txtFurnitureDescrption.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFurnitureDescrption.Location = new System.Drawing.Point(148, 160);
             this.txtFurnitureDescrption.Multiline = true;
@@ -211,7 +203,6 @@
             // 
             // txtCategory
             // 
-            this.txtCategory.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.furnitureDetailsBindingSource, "category", true));
             this.txtCategory.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCategory.Location = new System.Drawing.Point(148, 311);
             this.txtCategory.Multiline = true;
@@ -221,7 +212,6 @@
             // 
             // txtStyle
             // 
-            this.txtStyle.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.furnitureDetailsBindingSource, "style", true));
             this.txtStyle.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStyle.Location = new System.Drawing.Point(148, 373);
             this.txtStyle.Multiline = true;
@@ -535,7 +525,6 @@
             this.Load += new System.EventHandler(this.SearchFurnitureView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.furnitureDetailsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.store_itemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navFurniture)).EndInit();
@@ -552,7 +541,6 @@
         private System.Windows.Forms.BindingSource furnitureBindingSource;
         private RentMeDataSetTableAdapters.FurnitureTableAdapter furnitureTableAdapter;
         private RentMeDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingSource furnitureDetailsBindingSource;
         private System.Windows.Forms.TextBox txtFurnitureDescrption;
         private System.Windows.Forms.TextBox txtCategory;
         private System.Windows.Forms.TextBox txtStyle;

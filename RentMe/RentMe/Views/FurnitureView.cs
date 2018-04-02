@@ -122,6 +122,16 @@ namespace RentMe.Views
             btnRestart.Enabled = true;
             btnExit.Enabled = true;
 
+            int furnitureID = 0;
+            int itemID = 0;
+            string category = "";
+            string style = "";
+            furnitureID = Convert.ToInt32(cboFurnitureID.SelectedValue);
+            itemID = Convert.ToInt32(cboItemID.SelectedValue);
+            category = '%' + txtCategory.Text + '%';
+            style = '%' + txtStyle.Text + '%';
+
+
 
         }
 
