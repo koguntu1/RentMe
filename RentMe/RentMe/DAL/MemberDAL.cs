@@ -16,7 +16,7 @@ namespace RentMe.DAL
             Member member = new Member();
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string selectstatement =
-                "SELECT memberID, fname, middleInitial, lname, dateOfBirth, gender, Address1, Address2, City, State, PostalCode " +
+                "SELECT memberID, fname, middleInitial, lname, dateOfBirth, gender, homePhone, Address1, Address2, City, State, PostalCode " +
                 "FROM member " +
                 "WHERE fname = @fname " +
                 "AND lname = @lname";
@@ -39,9 +39,9 @@ namespace RentMe.DAL
                     member.homePhone = reader["homePhone"].ToString();
                     member.Address1 = reader["Address1"].ToString();
                     member.Address2 = reader["Address2"].ToString();
-                    member.homePhone = reader["City"].ToString();
-                    member.homePhone = reader["State"].ToString();
-                    member.homePhone = reader["PostalCode"].ToString();
+                    member.City = reader["City"].ToString();
+                    member.State = reader["State"].ToString();
+                    member.PostalCode = reader["PostalCode"].ToString();
 
 
                 }
@@ -88,9 +88,9 @@ namespace RentMe.DAL
                     member.homePhone = reader["homePhone"].ToString();
                     member.Address1 = reader["Address1"].ToString();
                     member.Address2 = reader["Address2"].ToString();
-                    member.homePhone = reader["City"].ToString();
-                    member.homePhone = reader["State"].ToString();
-                    member.homePhone = reader["PostalCode"].ToString();
+                    member.City = reader["City"].ToString();
+                    member.State = reader["State"].ToString();
+                    member.PostalCode = reader["PostalCode"].ToString();
 
 
                 }
@@ -135,7 +135,7 @@ namespace RentMe.DAL
                 connection.Open();
                 insertCommand.ExecuteNonQuery();
                 string selectStatement =
-                    "SELECT IDENT_CURRENT('Members') FROM Members";
+                    "SELECT IDENT_CURRENT('Member') FROM Member";
                 SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
                 int memberID = Convert.ToInt32(selectCommand.ExecuteScalar());
                 return memberID;
