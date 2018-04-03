@@ -124,6 +124,7 @@
             // 
             // addUpdateEmployeeToolStripMenuItem
             // 
+            this.addUpdateEmployeeToolStripMenuItem.Enabled = false;
             this.addUpdateEmployeeToolStripMenuItem.Name = "addUpdateEmployeeToolStripMenuItem";
             this.addUpdateEmployeeToolStripMenuItem.Size = new System.Drawing.Size(223, 24);
             this.addUpdateEmployeeToolStripMenuItem.Text = "Add/Update E&mployee";

@@ -14,13 +14,12 @@ namespace RentMe.Views
     {
         CustomerView customer = new CustomerView();
         FurnitureView furniture = new FurnitureView();
-        ChangePasswordView password;// = new ChangePasswordView();
+        ChangePasswordView password = new ChangePasswordView();
         LoginView loginForm = new LoginView();
         EmployeeView employee = new EmployeeView();
         public MDIView()
         {
             InitializeComponent();
-            //password = new ChangePasswordView(user);
         }
 
         private void MDIView_Load(object sender, EventArgs e)
@@ -48,7 +47,7 @@ namespace RentMe.Views
 
         private void customerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
 
             if (customer.Enabled)
             {
@@ -93,35 +92,23 @@ namespace RentMe.Views
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string[] user = login.Text.Split(' ');
-            if (password == null)
-            {
-               
 
-                password = new ChangePasswordView(user[1]);
-                password.MdiParent = this;
-                //password.StartPosition = FormStartPosition.CenterScreen;
-                password.Show();
-            }
-            else
+            if (password.Enabled)
             {
-                if (password.Enabled)
+
+
+                if (password.IsDisposed)
                 {
-
-
-                    if (password.IsDisposed)
-                    {
-                        password = new ChangePasswordView(user[1]);
-                        password.MdiParent = this;
-                        //password.StartPosition = FormStartPosition.CenterScreen;
-                        password.Show();
-                    }
-                    else
-                    {
-                        password.MdiParent = this;
-                        //password.StartPosition = FormStartPosition.CenterScreen;
-                        password.Show();
-                    }
+                    password = new ChangePasswordView();
+                    password.MdiParent = this;
+                    //password.StartPosition = FormStartPosition.CenterScreen;
+                    password.Show();
+                }
+                else
+                {
+                    password.MdiParent = this;
+                    //password.StartPosition = FormStartPosition.CenterScreen;
+                    password.Show();
                 }
             }
         }
@@ -133,13 +120,19 @@ namespace RentMe.Views
             MenuStrip ms = (MenuStrip)this.Controls["menuStrip1"];
             ToolStripMenuItem lt = (ToolStripMenuItem)ms.Items["login"];
             lt.Visible = false;
-           
+
 
 
             ToolStripMenuItem mt = (ToolStripMenuItem)ms.Items["maintenanceToolStripMenuItem"];
             mt.Enabled = false;
             ToolStripMenuItem et = (ToolStripMenuItem)ms.Items["employeeToolStripMenuItem"];
             et.Enabled = false;
+
+            if (et.DropDownItems["addUpdateEmployeeToolStripMenuItem"].Enabled)
+            {
+                et.DropDownItems["addUpdateEmployeeToolStripMenuItem"].Enabled = false;
+            }
+
             if (loginForm.IsDisposed)
             {
                 loginForm = new LoginView();
