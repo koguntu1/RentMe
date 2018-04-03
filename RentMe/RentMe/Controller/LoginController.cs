@@ -30,24 +30,59 @@ namespace RentMe.Controller
             catch (Exception ex)
             {
                 throw ex;
-            }      
-            
+            }
+
         }
 
-        public bool updatePassword(string username, string newPass)
+        public bool IsAdminRole(string username, string password)
         {
-            if (LoginDAL.updatePassword(username, newPass))
-                return true;
-            else
-                return false;
+            try
+            {
+
+
+                return LoginDAL.GetRole(username, password);
+
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
 
-        public bool checkCurrentPassword(string username, string password)
+        public string GetLoginPassword(string username)
         {
-            if (LoginDAL.checkCurrentPassword(username, password))
-                return true;
-            else
-                return false;
+            try
+            {
+                String password = LoginDAL.GetLoginPassword(username);
+
+                return password;
+
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public bool SetLoginPassword(string userID, string oldPassword, string newPassword)
+        {
+            try
+            {
+
+
+                return LoginDAL.SetLoginPassword(userID, oldPassword, newPassword);
+
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }
