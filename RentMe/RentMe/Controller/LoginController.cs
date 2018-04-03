@@ -33,5 +33,21 @@ namespace RentMe.Controller
             }      
             
         }
+
+        public bool updatePassword(string username, string newPass)
+        {
+            if (LoginDAL.updatePassword(username, newPass))
+                return true;
+            else
+                return false;
+        }
+
+        public bool checkCurrentPassword(string username, string password)
+        {
+            if (LoginDAL.checkCurrentPassword(username, password))
+                return true;
+            else
+                return false;
+        }
     }
 }

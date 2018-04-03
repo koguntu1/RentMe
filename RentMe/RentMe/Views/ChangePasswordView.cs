@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RentMe.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,9 +15,14 @@ namespace RentMe.Views
     {
 
         MenuView menuScreen = new MenuView();
-        public ChangePasswordView()
+        string username = "";
+        LoginController loginController;
+        public ChangePasswordView(string user)
         {
             InitializeComponent();
+            loginController = new LoginController();
+            username = user;
+            lblLoggedIn.Text = username;
         }
 
         private void ChangePasswordView_Load(object sender, EventArgs e)
@@ -27,6 +33,42 @@ namespace RentMe.Views
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!loginController.checkCurrentPassword(username, mtxtCurrentPassword.Text))
+                {
+                    MessageBox.Show("Enter wrong current password. " +
+                            "Please try again.", "Incorrect password");
+                }
+                else
+                {
+                    if(mtxtNewPassword.Text != mtxtConfirmPassword.Text)
+                    {
+                        MessageBox.Show("Confirm password not match with new password. " +
+                            "Please try again.", "Do not match password");
+                    }
+                    else
+                    {
+                        if(loginController.updatePassword(username, mtxtNewPassword.Text))
+                        {
+                            MessageBox.Show("Update password successfull. ", "Updated password");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Update password unsuccessfull. ", "Updated password");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
         }
     }
 }

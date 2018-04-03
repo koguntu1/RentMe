@@ -11,38 +11,51 @@ namespace RentMe.DAL
 {
     class FurnitureDAL
     {
-        public static List<Furniture> GetFurniture(int furnitureID, int itemID, string category, string style)
+        public static List<Furniture> GetFurniture(int furnitureID, int itemID, int categoryID, int styleID)
         {
             List<Furniture> furnitureList = new List<Furniture>();
             string selectStatement =
-                "SELECT f.furnitureID, f.description, c.description as category, s.description as style, f.fine_Rate, f.daily_Rate " +
-                "FROM dbo.furniture f INNER JOIN dbo.store_item i" +
-                "ON f.furnitureID = i.furnitureID INNER JOIN" +
-                "dbo.style s" +
-                "ON f.styleID = s.styleID INNER JOIN" +
-                "dbo.category c" +
+                "SELECT f.furnitureID, f.description, i.itemID, c.description as category, s.description as style, f.fine_Rate, f.daily_Rate " +
+                "FROM dbo.furniture f INNER JOIN dbo.store_item i " +
+                "ON f.furnitureID = i.furnitureID INNER JOIN " +
+                "dbo.style s " +
+                "ON f.styleID = s.styleID INNER JOIN " +
+                "dbo.category c " +
                 "ON f.categoryID = c.categoryID " +
-                "WHERE ";
+                "WHERE (";
             if (furnitureID != 0)
             {
-                selectStatement = selectStatement + "f.furnitureID = " + furnitureID + " OR ";
+                selectStatement = selectStatement + "f.furnitureID = " + furnitureID;
             }
 
-            if (itemID != 0)
+            if (itemID != 0 && furnitureID == 0)
             {
-                selectStatement = selectStatement + "i.itemID = " + itemID + " OR ";
+                selectStatement = selectStatement + "i.itemID = " + itemID;
             }
-
-            if (!category.Equals(""))
+            else if (itemID != 0 && furnitureID != 0)
             {
-                selectStatement = selectStatement + "c.description LIKE " + category + " OR ";
+                selectStatement = selectStatement + " OR i.itemID = " + itemID;
             }
 
-            if (!style.Equals(""))
+            if (categoryID != 0 && furnitureID == 0 && itemID == 0)
             {
-                selectStatement = selectStatement + "s.description LIKE " + category;
+                selectStatement = selectStatement + "c.categoryID = " + categoryID;
+            }
+            else if (categoryID != 0 && (furnitureID != 0 || itemID != 0))
+            {
+                selectStatement = selectStatement + " OR c.categoryID = " + categoryID;
             }
 
+            if (styleID != 0 && furnitureID == 0 && itemID == 0 && categoryID == 0)
+            {
+                selectStatement = selectStatement + "s.styleID = " + styleID;
+            }
+            else if (styleID != 0 && (furnitureID != 0 || itemID != 0 || categoryID != 0))
+            {
+                selectStatement = selectStatement + " OR s.styleID = " + styleID;
+            }
+
+            selectStatement = selectStatement + ")";
 
             try
             {

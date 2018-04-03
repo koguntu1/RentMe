@@ -10,9 +10,9 @@ namespace RentMe.Controller
 {
     class FurnitureController
     {
-        public List<Furniture> GetFurniture(int furnitureID, int itemID, string category, string style)
+        public List<Furniture> GetFurniture(int furnitureID, int itemID, int categoryID, int styleID)
         {
-            return FurnitureDAL.GetFurniture(furnitureID, itemID, category, style);
+            return FurnitureDAL.GetFurniture(furnitureID, itemID, categoryID, styleID);
         }
     }
 }
