@@ -7,17 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RentMe.Controller;
+using RentMe.Models;
 
 namespace RentMe.Views
 {
     public partial class EmployeeView : Form
     {
         MenuView menuScreen = new MenuView();
+        EmployeeController inController;
+        Employee employee;
         public EmployeeView()
         {
             InitializeComponent();
-
-
+            inController = new EmployeeController();
+            employee = null;
         }
 
         private void EmployeeView_Load(object sender, EventArgs e)
@@ -28,26 +32,19 @@ namespace RentMe.Views
             this.statesTableAdapter.Fill(this.rentMeDataSet.States);
             // TODO: This line of code loads data into the 'rentMeDataSet.Streets' table. You can move, or remove it, as needed.
             this.streetsTableAdapter.Fill(this.rentMeDataSet.Streets);
-            cboState.SelectedIndex = -1;
-            cboStreetType.SelectedIndex = -1;
-            cboGender.SelectedIndex = -1;
+            // TODO: This line of code loads data into the 'rentMeDataSet.Employee' table. You can move, or remove it, as needed.
+            //this.employeeTableAdapter.Fill(this.rentMeDataSet.Employee);
             DisableControls();
-            txtFirstName.Enabled = true;
-            txtLastName.Enabled = true;
-            mtxtHomePhone.Enabled = true;
             btnSearch.Enabled = true;
             btnAdd.Enabled = true;
             btnExit.Enabled = true;
+            txtFname.Enabled = true;
+            txtLname.Enabled = true;
+            mtxtHomePhone.Enabled = true;
+            cboState.SelectedIndex = -1;
+            cboGender.SelectedIndex = -1;
+            cboAdmin.SelectedIndex = -1;
 
-
-            // Add corrected code for user that is logged into system
-            //lblUser.Text = fname + " " + middleinitial + ". " + lname;
-
-        }
-
-        private void cboState_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            displayState();
         }
 
         private void displayState()
@@ -73,39 +70,6 @@ namespace RentMe.Views
             }
 
         }
-
-        private void displayStreet()
-        {
-            if (cboStreetType.SelectedIndex == -1)
-            {
-                lblStreetInfo.Text = "";
-            }
-            else
-            {
-                DataRowView drv = (DataRowView)cboStreetType.SelectedItem;
-                string streetType = drv["name"].ToString();
-
-                if (streetType != null)
-                {
-                    lblStreetInfo.Text = streetType;
-                }
-                else
-                {
-                    lblStreetInfo.Text = "";
-                }
-            }
-        }
-
-        private void cboStreetType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            displayStreet();
-        }
-
-        private void cboGender_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            displayGender();
-        }
-
         private void displayGender()
         {
 
@@ -131,15 +95,81 @@ namespace RentMe.Views
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            DisableControls();
-            btnAdd.Enabled = true;
-            btnExit.Enabled = true;
-            btnSearch.Enabled = true;
+            mtxtHomePhone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             btnRestart.Enabled = true;
-            btnAdd.Text = "Update";
-            btnSearch.Text = "Search Again";
+            try
+            {
+
+
+                if ((!txtFname.Text.Equals("") && !txtLname.Equals("")) || !mtxtHomePhone.Text.Equals("") )
+                {
+                    if ((!txtFname.Text.Equals("") && !txtLname.Equals("")))
+                    {
+                        employee = inController.GetEmployeeByName(txtFname.Text.ToString().ToUpper(), txtLname.Text.ToString().ToUpper());
+                    }
+                    
+                    if (!mtxtHomePhone.Text.Equals(""))
+                    {
+                        employee = inController.GetEmployeeByPhone(mtxtHomePhone.Text);
+                    }
+
+                    DisplayEmployee(employee);
+
+                    DisableControls();
+                    btnAdd.Enabled = true;
+                    btnExit.Enabled = true;
+                    btnSearch.Enabled = true;
+                    btnRestart.Enabled = true;
+                    btnAdd.Text = "Update";
+                    btnSearch.Text = "Search Again";
+                }
+                else
+                {
+                    MessageBox.Show("You must enter a name or phone number.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No results found. Please try again.");
+            }
         }
 
+
+
+        private void DisplayEmployee(Employee employee)
+        {
+            txtFname.Text = employee.fname.ToString();
+            txtMI.Text = employee.middleInitial.ToString();
+            txtLname.Text = employee.lname.ToString();
+            txtAddress1.Text = employee.Address1.ToString();
+            txtAddress2.Text = employee.Address2.ToString();
+            txtCity.Text = employee.City.ToString();
+            cboState.SelectedValue = employee.State.ToString();
+            mtxtZip.Text = employee.PostalCode.ToString();
+            mtxtHomePhone.Text = employee.homePhone.ToString();
+            tpBirthDate.Text = employee.dateOfBirth.ToString();
+            cboGender.SelectedValue = employee.gender.ToString();
+            cboAdmin.Text = employee.admin.ToString();
+        }
+
+        private void PutEmployee(Employee employee)
+        {
+            employee.fname = txtFname.Text;
+            employee.fname = txtFname.Text;
+            employee.middleInitial = txtMI.Text;
+            employee.lname = txtLname.Text;
+            employee.Address1 = txtAddress1.Text;
+            employee.Address2 = txtAddress2.Text;
+            employee.City = txtCity.Text;
+            employee.State = cboState.SelectedValue.ToString();
+            mtxtZip.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            employee.PostalCode = mtxtZip.Text;
+            mtxtHomePhone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            employee.homePhone = mtxtHomePhone.Text;
+            employee.dateOfBirth = tpBirthDate.Value;
+            employee.gender = cboGender.SelectedValue.ToString();
+            employee.admin = cboAdmin.Text;
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -176,6 +206,11 @@ namespace RentMe.Views
                 {
                     ((Button)ctrl).Enabled = true;
                 }
+
+                if (ctrl is DateTimePicker)
+                {
+                    ((DateTimePicker)ctrl).Enabled = true;
+                }
             }
         }
 
@@ -202,28 +237,108 @@ namespace RentMe.Views
                 {
                     ((Button)ctrl).Enabled = false;
                 }
+
+                if (ctrl is DateTimePicker)
+                {
+                    ((DateTimePicker)ctrl).Enabled = false;
+                }
+            }
+        }
+
+        private void ClearFields()
+        {
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is TextBox)
+                {
+                    ((TextBox)ctrl).Text = "";
+                }
+
+                if (ctrl is ComboBox)
+                {
+                    ((ComboBox)ctrl).SelectedIndex = -1;
+                }
+
+                if (ctrl is MaskedTextBox)
+                {
+                    ((MaskedTextBox)ctrl).Text = "";
+                }
+
+                if (ctrl is DateTimePicker)
+                {
+                    ((DateTimePicker)ctrl).Text = "";
+                }
             }
         }
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
             DisableControls();
-            txtFirstName.Enabled = true;
-            txtFirstName.Text = "";
-            txtLastName.Enabled = true;
-            txtLastName.Text = "";
+            txtFname.Enabled = true;
+            txtLname.Enabled = true;
             mtxtHomePhone.Enabled = true;
-            mtxtHomePhone.Text = "";
             btnSearch.Enabled = true;
             btnAdd.Enabled = true;
             btnAdd.Text = "Add";
             btnExit.Enabled = true;
-            cboStreetType.SelectedIndex = -1;
-            cboState.SelectedIndex = -1;
-            cboGender.SelectedIndex = -1;
-            lblStreetType.Text = "";
-            lblState.Text = "";
-            lblGender.Text = "";
+            ClearFields();
+        }
+
+        private void cboState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            displayState();
+        }
+
+        private void cboGender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            displayGender();
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            Employee newEmployee = new Employee();
+            
+            try
+            {
+                if (btnAdd.Text == "Add")
+                {
+                    this.PutEmployee(newEmployee);
+                    this.inController.AddEmployee(newEmployee);
+                    MessageBox.Show("Employee successfully added");
+                    DisableControls();
+                    btnAdd.Enabled = true;
+                    btnAdd.Text = "Update";
+                    btnRestart.Enabled = true;
+                    btnExit.Enabled = true;
+                }
+
+                if (btnAdd.Text == "Update")
+                {
+                    this.PutEmployee(newEmployee);
+                    newEmployee.employeeID = employee.employeeID;
+                    if (!inController.UpdateEmployee(employee, newEmployee))
+                    {
+                        MessageBox.Show("Another user has updated or " +
+                            "deleted that employee.", "Database Error");
+                        this.DialogResult = DialogResult.Retry;
+                    }
+                    else
+                    {
+                        employee = newEmployee;
+                        this.DialogResult = DialogResult.OK;
+                        MessageBox.Show("Member has been updated.");
+                        DisableControls();
+                        btnRestart.Enabled = true;
+                        btnAdd.Enabled = true;
+                        btnExit.Enabled = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+ 
         }
     }
 }

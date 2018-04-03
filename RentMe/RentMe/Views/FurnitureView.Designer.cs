@@ -62,11 +62,11 @@
             this.lvFurniture = new System.Windows.Forms.ListView();
             this.columnFurnitureID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnItemID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnStyle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnRentalRate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnFineRate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnItemID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             lblItemID = new System.Windows.Forms.Label();
             lblFurnitureID = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
@@ -351,6 +351,7 @@
             // 
             // lvFurniture
             // 
+            this.lvFurniture.AllowDrop = true;
             this.lvFurniture.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnFurnitureID,
             this.columnDescription,
@@ -375,29 +376,25 @@
             // 
             this.columnDescription.Text = "Description";
             // 
+            // columnItemID
+            // 
+            this.columnItemID.Text = "ItemID";
+            // 
             // columnCategory
             // 
-            this.columnCategory.DisplayIndex = 2;
             this.columnCategory.Text = "Category";
             // 
             // columnStyle
             // 
-            this.columnStyle.DisplayIndex = 3;
             this.columnStyle.Text = "Style";
             // 
             // columnRentalRate
             // 
-            this.columnRentalRate.DisplayIndex = 4;
             this.columnRentalRate.Text = "Daily Rate";
             // 
             // columnFineRate
             // 
-            this.columnFineRate.DisplayIndex = 5;
             this.columnFineRate.Text = "Daily Late Fee";
-            // 
-            // columnItemID
-            // 
-            this.columnItemID.Text = "ItemID";
             // 
             // FurnitureView
             // 
