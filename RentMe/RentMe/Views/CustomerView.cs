@@ -207,31 +207,6 @@ namespace RentMe.Views
             if (btnAdd.Text.Equals("Update"))
             {
                 btnAdd.Text = "Add";
-                if (IsValidData())
-                {
-                    Member newMember = new Member();
-                    newMember.memberID = member.memberID;
-                    this.PutMemberData(newMember);
-                    try
-                    {
-                        if (!memController.UpdateMember(member, newMember))
-                        {
-                            MessageBox.Show("Another user has updated or " +
-                                "deleted that member.", "Database Error");
-                            this.DialogResult = DialogResult.Retry;
-                        }
-                        else
-                        {
-                            member = newMember;
-                            this.DialogResult = DialogResult.OK;
-                            MessageBox.Show("Member has been updated.");
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, ex.GetType().ToString());
-                    }
-                }
             }
         }
 
@@ -362,17 +337,35 @@ namespace RentMe.Views
 
         private bool IsValidData()
         {
-            return     Validator.IsPresent(txtFirstName) &&
-                       Validator.IsPresent(txtMiddleInitial) &&
-                       Validator.IsPresent(txtLastName) &&
-                       Validator.IsPresent(txtAddress) &&
-                       Validator.IsPresent(txtCity) &&
-                       Validator.IsPresent(cboState) &&
-                       Validator.IsPresent(mtxtZipCode) &&
-                       Validator.IsPresent(mtxtHomePhone) &&
-                       Validator.IsPresent(mtxtDOB) &&
-                       Validator.IsPresent(cboGender) &&
-                       Validator.IsPhoneNumber(mtxtHomePhone);
+            
+
+
+
+               if  (Validator.IsPresent(txtFirstName) &&
+                           Validator.IsPresent(txtMiddleInitial) &&
+                           Validator.IsPresent(txtLastName) &&
+                           Validator.IsPresent(txtAddress) &&
+                           Validator.IsPresent(txtCity) &&
+                           Validator.IsPresent(cboState) &&
+                           Validator.IsPresent(mtxtZipCode) &&
+                           Validator.IsPresent(mtxtHomePhone) &&
+                           Validator.IsPresent(mtxtDOB) &&
+                           Validator.IsPresent(cboGender) &&
+                           Validator.IsPhoneNumber(mtxtHomePhone))
+                {
+                 if (mtxtHomePhone.MaskCompleted && mtxtZipCode.MaskCompleted && mtxtDOB.MaskCompleted)
+                    {
+                        return true;
+
+                     }
+                 else
+                     {
+                    MessageBox.Show("All fields must be completed. " +
+                      "Please try again.", "Fields not completed.");
+                     }
+                }
+            
+            return false;
         }
 
         private void PutMemberData(Member member)
@@ -392,22 +385,49 @@ namespace RentMe.Views
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (IsValidData())
-            {
-                member = new Member();
-                this.PutMemberData(member);
-                try
+            
+                if (IsValidData())
                 {
-                    member.memberID = memController.AddMember(member);
-                    MessageBox.Show("Member successfully added.");
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+                    Member newMember = new Member();
+                    newMember.memberID = member.memberID;
+                    this.PutMemberData(newMember);
+                    try
+                    {
+                        if (!memController.UpdateMember(member, newMember))
+                        {
+                            MessageBox.Show("Another user has updated or " +
+                                "deleted that member.", "Database Error");
+                            this.DialogResult = DialogResult.Retry;
+                        }
+                        else
+                        {
+                            member = newMember;
+                            this.DialogResult = DialogResult.OK;
+                            MessageBox.Show("Member has been updated.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, ex.GetType().ToString());
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, ex.GetType().ToString());
-                }
-            }
+            
+            //if (IsValidData())
+            //{
+            //    member = new Member();
+            //    this.PutMemberData(member);
+            //    try
+            //    {
+            //        member.memberID = memController.AddMember(member);
+            //        MessageBox.Show("Member successfully added.");
+            //        this.DialogResult = DialogResult.OK;
+            //        this.Close();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message, ex.GetType().ToString());
+            //    }
+            //}
         }
     }
 }

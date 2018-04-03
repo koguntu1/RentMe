@@ -154,16 +154,15 @@ namespace RentMe.DAL
         {
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string updateStatement =
-                "UPDATE Members SET " +
-                  "memberID = @NewmemberID, " +
+                "UPDATE Member SET " +
                   "fname = @Newfname, " +
-                  "middleInitial = @middleInitial " +
+                  "middleInitial = @NewmiddleInitial, " +
                   "lname = @Newlname, " +
                   "dateOfBirth = @NewdateOfBirth, " +
-                  "gender = @Newgender " +
+                  "gender = @Newgender, " +
                   "homePhone = @NewhomePhone, " +
                   "Address1 = @NewAddress1, " +
-                  "Address2 = @NewAddress2 " +
+                  "Address2 = @NewAddress2, " +
                   "City = @NewCity, " +
                   "State = @NewState, " +
                   "PostalCode = @NewPostalCode " +
@@ -172,7 +171,6 @@ namespace RentMe.DAL
                   "AND middleInitial = @OldmiddleInitial " +
                   "AND lname = @Oldlname";
             SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
-            updateCommand.Parameters.AddWithValue("@NewmemberID", newMember.memberID);
             updateCommand.Parameters.AddWithValue("@Newfname", newMember.fname);
             updateCommand.Parameters.AddWithValue("@NewmiddleInitial", newMember.middleInitial);
             updateCommand.Parameters.AddWithValue("@Newlname", newMember.lname);
