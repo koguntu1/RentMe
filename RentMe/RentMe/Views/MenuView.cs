@@ -116,14 +116,15 @@ namespace RentMe.Views
 
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
-            ChangePasswordView password = new ChangePasswordView();
+            string username = "";
+            ChangePasswordView password = new ChangePasswordView(username);
             if (password.Enabled)
             {
 
 
                 if (password.IsDisposed)
                 {
-                    password = new ChangePasswordView();
+                    password = new ChangePasswordView(username);
                     password.MdiParent = this.MdiParent;
                     password.StartPosition = FormStartPosition.CenterScreen;
                     password.Show();
