@@ -58,5 +58,21 @@ namespace RentMe.Models
                 return false;
             }
         }
+
+        public static bool IsDate(MaskedTextBox textBox)
+        {
+            
+            try
+            {
+                DateTime.Parse(textBox.Text);
+                return true;
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show(textBox.Tag.ToString() + " is not a valid date.");
+                textBox.Focus();
+                return false;
+            }
+        }
     }
 }
