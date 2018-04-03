@@ -47,7 +47,7 @@ namespace RentMe.Views
 
         private void customerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
 
             if (customer.Enabled)
             {
@@ -92,7 +92,7 @@ namespace RentMe.Views
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
             if (password.Enabled)
             {
 
