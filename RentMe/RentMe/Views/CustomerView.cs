@@ -204,10 +204,6 @@ namespace RentMe.Views
             btnAdd.Enabled = false;
             btnSearch.Enabled = false;
             btnRestart.Enabled = true;
-            if (btnAdd.Text.Equals("Update"))
-            {
-                btnAdd.Text = "Add";
-            }
         }
 
         private void EnableControls()
@@ -293,9 +289,6 @@ namespace RentMe.Views
             try
             {
                 member = this.memController.GetMemberByName(firstName, lastName);
-                if (member == null)
-                    MessageBox.Show("No member found with this name. " +
-                        "Please try again.", "Member Not Found");
 
             }
             catch (Exception ex)
@@ -309,9 +302,6 @@ namespace RentMe.Views
             try
             {
                 member = this.memController.GetMemberByPhone(phoneNumber);
-                if (member == null)
-                    MessageBox.Show("No member found with this phone number. " +
-                        "Please try again.", "Member Not Found");
 
             }
             catch (Exception ex)
@@ -351,7 +341,8 @@ namespace RentMe.Views
                            Validator.IsPresent(mtxtHomePhone) &&
                            Validator.IsPresent(mtxtDOB) &&
                            Validator.IsPresent(cboGender) &&
-                           Validator.IsPhoneNumber(mtxtHomePhone))
+                           Validator.IsPhoneNumber(mtxtHomePhone) &&
+                           Validator.IsDate(mtxtDOB))
                 {
                  if (mtxtHomePhone.MaskCompleted && mtxtZipCode.MaskCompleted && mtxtDOB.MaskCompleted)
                     {
@@ -386,7 +377,7 @@ namespace RentMe.Views
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             
-                if (IsValidData())
+                if (btnAdd.Text == "Update" && IsValidData())
                 {
                     Member newMember = new Member();
                     newMember.memberID = member.memberID;
@@ -404,30 +395,29 @@ namespace RentMe.Views
                             member = newMember;
                             this.DialogResult = DialogResult.OK;
                             MessageBox.Show("Member has been updated.");
+                            this.Close();
                         }
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, ex.GetType().ToString());
                     }
+                } else if (btnAdd.Text == "Add" && IsValidData())
+            {
+                member = new Member();
+                this.PutMemberData(member);
+                try
+                {
+                    member.memberID = memController.AddMember(member);
+                    MessageBox.Show("Member successfully added.");
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
-            
-            //if (IsValidData())
-            //{
-            //    member = new Member();
-            //    this.PutMemberData(member);
-            //    try
-            //    {
-            //        member.memberID = memController.AddMember(member);
-            //        MessageBox.Show("Member successfully added.");
-            //        this.DialogResult = DialogResult.OK;
-            //        this.Close();
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show(ex.Message, ex.GetType().ToString());
-            //    }
-            //}
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+            }
         }
     }
 }
