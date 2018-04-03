@@ -16,11 +16,12 @@ namespace RentMe.Views
     {
         MenuView menuScreen = new MenuView();
         EmployeeController inController;
+        Employee employee;
         public EmployeeView()
         {
             InitializeComponent();
             inController = new EmployeeController();
-
+            employee = null;
         }
 
         private void EmployeeView_Load(object sender, EventArgs e)
@@ -94,7 +95,6 @@ namespace RentMe.Views
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            Employee employee = null;
             mtxtHomePhone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             btnRestart.Enabled = true;
             try
@@ -113,18 +113,7 @@ namespace RentMe.Views
                         employee = inController.GetEmployeeByPhone(mtxtHomePhone.Text);
                     }
 
-                    txtFname.Text = employee.fname.ToString();
-                    txtMI.Text = employee.middleInitial.ToString();
-                    txtLname.Text = employee.lname.ToString();
-                    txtAddress1.Text = employee.Address1.ToString();
-                    txtAddress2.Text = employee.Address2.ToString();
-                    txtCity.Text = employee.City.ToString();
-                    cboState.SelectedValue = employee.State.ToString();
-                    mtxtZip.Text = employee.PostalCode.ToString();
-                    mtxtHomePhone.Text = employee.homePhone.ToString();
-                    tpBirthDate.Text = employee.dateOfBirth.ToString();
-                    cboGender.SelectedValue = employee.gender.ToString();
-                    cboAdmin.Text = employee.admin.ToString();
+                    DisplayEmployee(employee);
 
                     DisableControls();
                     btnAdd.Enabled = true;
@@ -145,6 +134,42 @@ namespace RentMe.Views
             }
         }
 
+
+
+        private void DisplayEmployee(Employee employee)
+        {
+            txtFname.Text = employee.fname.ToString();
+            txtMI.Text = employee.middleInitial.ToString();
+            txtLname.Text = employee.lname.ToString();
+            txtAddress1.Text = employee.Address1.ToString();
+            txtAddress2.Text = employee.Address2.ToString();
+            txtCity.Text = employee.City.ToString();
+            cboState.SelectedValue = employee.State.ToString();
+            mtxtZip.Text = employee.PostalCode.ToString();
+            mtxtHomePhone.Text = employee.homePhone.ToString();
+            tpBirthDate.Text = employee.dateOfBirth.ToString();
+            cboGender.SelectedValue = employee.gender.ToString();
+            cboAdmin.Text = employee.admin.ToString();
+        }
+
+        private void PutEmployee(Employee employee)
+        {
+            employee.fname = txtFname.Text;
+            employee.fname = txtFname.Text;
+            employee.middleInitial = txtMI.Text;
+            employee.lname = txtLname.Text;
+            employee.Address1 = txtAddress1.Text;
+            employee.Address2 = txtAddress2.Text;
+            employee.City = txtCity.Text;
+            employee.State = cboState.SelectedValue.ToString();
+            mtxtZip.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            employee.PostalCode = mtxtZip.Text;
+            mtxtHomePhone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            employee.homePhone = mtxtHomePhone.Text;
+            employee.dateOfBirth = tpBirthDate.Value;
+            employee.gender = cboGender.SelectedValue.ToString();
+            employee.admin = cboAdmin.Text;
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -259,14 +284,6 @@ namespace RentMe.Views
             ClearFields();
         }
 
-        //private void employeeBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        //{
-        //    this.Validate();
-        //    this.employeeBindingSource.EndEdit();
-        //    this.tableAdapterManager.UpdateAll(this.rentMeDataSet);
-
-        //}
-
         private void cboState_SelectedIndexChanged(object sender, EventArgs e)
         {
             displayState();
@@ -275,6 +292,53 @@ namespace RentMe.Views
         private void cboGender_SelectedIndexChanged(object sender, EventArgs e)
         {
             displayGender();
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            Employee newEmployee = new Employee();
+            
+            try
+            {
+                if (btnAdd.Text == "Add")
+                {
+                    this.PutEmployee(newEmployee);
+                    this.inController.AddEmployee(newEmployee);
+                    MessageBox.Show("Employee successfully added");
+                    DisableControls();
+                    btnAdd.Enabled = true;
+                    btnAdd.Text = "Update";
+                    btnRestart.Enabled = true;
+                    btnExit.Enabled = true;
+                }
+
+                if (btnAdd.Text == "Update")
+                {
+                    this.PutEmployee(newEmployee);
+                    newEmployee.employeeID = employee.employeeID;
+                    if (!inController.UpdateEmployee(employee, newEmployee))
+                    {
+                        MessageBox.Show("Another user has updated or " +
+                            "deleted that employee.", "Database Error");
+                        this.DialogResult = DialogResult.Retry;
+                    }
+                    else
+                    {
+                        employee = newEmployee;
+                        this.DialogResult = DialogResult.OK;
+                        MessageBox.Show("Member has been updated.");
+                        DisableControls();
+                        btnRestart.Enabled = true;
+                        btnAdd.Enabled = true;
+                        btnExit.Enabled = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+ 
         }
     }
 }

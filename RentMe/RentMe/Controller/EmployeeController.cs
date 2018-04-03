@@ -24,14 +24,14 @@ namespace RentMe.Controller
             return EmployeeDAL.GetEmployeeByPhone(phoneNumber);
         }
 
-        //public int AddEmployee(Employee Employee)
-        //{
-        //    return EmployeeDAL.AddEmployee(Employee);
-        //}
+        public int AddEmployee(Employee Employee)
+        {
+            return EmployeeDAL.AddEmployee(Employee);
+        }
 
-        //public bool UpdateEmployee(Employee oldEmployee, Employee newEmployee)
-        //{
-        //    return EmployeeDAL.UpdateEmployee(oldEmployee, newEmployee);
-        //}
+        public bool UpdateEmployee(Employee oldEmployee, Employee newEmployee)
+        {
+            return EmployeeDAL.UpdateEmployee(oldEmployee, newEmployee);
+        }
     }
 }

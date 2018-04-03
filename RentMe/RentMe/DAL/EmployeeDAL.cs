@@ -111,5 +111,113 @@ namespace RentMe.DAL
             }
             return employee;
         }
+
+        public static int AddEmployee(Employee employee)
+        {
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string insertStatement =
+                "INSERT Employee " +
+                  "(fname, middleInitial, lname, dateOfBirth, gender, homePhone, Address1, Address2, City, State, PostalCode, admin) " +
+                "VALUES (@fname, @middleInitial, @lname, @dateOfBirth, @gender, @homePhone, @Address1, @Address2, @City, @State, @PostalCode, @admin)";
+            SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
+            insertCommand.Parameters.AddWithValue("@fname", employee.fname);
+            insertCommand.Parameters.AddWithValue("@middleInitial", employee.middleInitial);
+            insertCommand.Parameters.AddWithValue("@lname", employee.lname);
+            insertCommand.Parameters.AddWithValue("@dateOfBirth", employee.dateOfBirth);
+            insertCommand.Parameters.AddWithValue("@gender", employee.gender);
+            insertCommand.Parameters.AddWithValue("@homePhone", employee.homePhone);
+            insertCommand.Parameters.AddWithValue("@Address1", employee.Address1);
+            insertCommand.Parameters.AddWithValue("@Address2", employee.Address2);
+            insertCommand.Parameters.AddWithValue("@City", employee.City);
+            insertCommand.Parameters.AddWithValue("@State", employee.State);
+            insertCommand.Parameters.AddWithValue("@PostalCode", employee.PostalCode);
+            insertCommand.Parameters.AddWithValue("@admin", employee.admin);
+            try
+            {
+                connection.Open();
+                insertCommand.ExecuteNonQuery();
+                string selectStatement =
+                    "SELECT IDENT_CURRENT('Employee') FROM Employee";
+                SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+                int employeeID = Convert.ToInt32(selectCommand.ExecuteScalar());
+                return employeeID;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public static bool UpdateEmployee(Employee oldEmployee, Employee newEmployee)
+        {
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string updateStatement =
+                "UPDATE Employee SET " +
+                  "fname = @Newfname, " +
+                  "middleInitial = @NewmiddleInitial, " +
+                  "lname = @Newlname, " +
+                  "dateOfBirth = @NewdateOfBirth, " +
+                  "gender = @Newgender, " +
+                  "homePhone = @NewhomePhone, " +
+                  "Address1 = @NewAddress1, " +
+                  "Address2 = @NewAddress2, " +
+                  "City = @NewCity, " +
+                  "State = @NewState, " +
+                  "PostalCode = @NewPostalCode, " +
+                  "Admin = @NewAdmin " +
+                "WHERE employeeID = @OldemployeeID " +
+                "AND fname = @Oldfname AND middleInitial = @OldmiddleInitial AND lname = @Oldlname " +
+                "AND homePhone = @OldhomePhone AND city = @Oldcity AND state = @Oldstate " +
+                "AND PostalCode = @OldPostalCode AND Admin = @OldAdmin AND dateOfBirth = @OlddateOfBirth";
+            SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
+            updateCommand.Parameters.AddWithValue("@Newfname", newEmployee.fname);
+            updateCommand.Parameters.AddWithValue("@NewmiddleInitial", newEmployee.middleInitial);
+            updateCommand.Parameters.AddWithValue("@Newlname", newEmployee.lname);
+            updateCommand.Parameters.AddWithValue("@NewdateOfBirth", newEmployee.dateOfBirth);
+            updateCommand.Parameters.AddWithValue("@Newgender", newEmployee.gender);
+            updateCommand.Parameters.AddWithValue("@NewhomePhone", newEmployee.homePhone);
+            updateCommand.Parameters.AddWithValue("@NewAddress1", newEmployee.Address1);
+            updateCommand.Parameters.AddWithValue("@NewAddress2", newEmployee.Address2);
+            updateCommand.Parameters.AddWithValue("@NewCity", newEmployee.City);
+            updateCommand.Parameters.AddWithValue("@NewState", newEmployee.State);
+            updateCommand.Parameters.AddWithValue("@NewPostalCode", newEmployee.PostalCode);
+            updateCommand.Parameters.AddWithValue("@NewAdmin", newEmployee.admin);
+            updateCommand.Parameters.AddWithValue("@OldemployeeID", oldEmployee.employeeID);
+            updateCommand.Parameters.AddWithValue("@Oldfname", oldEmployee.fname);
+            updateCommand.Parameters.AddWithValue("@OldmiddleInitial", oldEmployee.middleInitial);
+            updateCommand.Parameters.AddWithValue("@Oldlname", oldEmployee.lname);
+            updateCommand.Parameters.AddWithValue("@OlddateOfBirth", oldEmployee.dateOfBirth);
+            updateCommand.Parameters.AddWithValue("@Oldgender", oldEmployee.gender);
+            updateCommand.Parameters.AddWithValue("@OldhomePhone", oldEmployee.homePhone);
+            updateCommand.Parameters.AddWithValue("@OldAddress1", oldEmployee.Address1);
+            updateCommand.Parameters.AddWithValue("@OldAddress2", oldEmployee.Address2);
+            updateCommand.Parameters.AddWithValue("@OldCity", oldEmployee.City);
+            updateCommand.Parameters.AddWithValue("@OldState", oldEmployee.State);
+            updateCommand.Parameters.AddWithValue("@OldPostalCode", oldEmployee.PostalCode);
+            updateCommand.Parameters.AddWithValue("@OldAdmin", oldEmployee.admin);
+            try
+            {
+                connection.Open();
+                int count = updateCommand.ExecuteNonQuery();
+                if (count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
+
+
 }

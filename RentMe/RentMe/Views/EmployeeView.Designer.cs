@@ -215,10 +215,10 @@
             // btnRestart
             // 
             this.btnRestart.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestart.Location = new System.Drawing.Point(262, 382);
+            this.btnRestart.Location = new System.Drawing.Point(386, 382);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(91, 31);
-            this.btnRestart.TabIndex = 82;
+            this.btnRestart.TabIndex = 16;
             this.btnRestart.Text = "Restart";
             this.btnRestart.UseVisualStyleBackColor = true;
             this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
@@ -229,7 +229,7 @@
             this.btnSearch.Location = new System.Drawing.Point(24, 382);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(91, 31);
-            this.btnSearch.TabIndex = 81;
+            this.btnSearch.TabIndex = 13;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -240,7 +240,7 @@
             this.btnAdd.Location = new System.Drawing.Point(143, 382);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(91, 31);
-            this.btnAdd.TabIndex = 80;
+            this.btnAdd.TabIndex = 14;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -251,7 +251,7 @@
             this.btnExit.Location = new System.Drawing.Point(500, 382);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(91, 31);
-            this.btnExit.TabIndex = 65;
+            this.btnExit.TabIndex = 17;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -259,12 +259,13 @@
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(381, 382);
+            this.btnSubmit.Location = new System.Drawing.Point(268, 382);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(91, 31);
-            this.btnSubmit.TabIndex = 64;
+            this.btnSubmit.TabIndex = 15;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // lblEmployee
             // 
@@ -338,7 +339,7 @@
             this.txtFname.Location = new System.Drawing.Point(131, 101);
             this.txtFname.Name = "txtFname";
             this.txtFname.Size = new System.Drawing.Size(125, 27);
-            this.txtFname.TabIndex = 86;
+            this.txtFname.TabIndex = 1;
             // 
             // txtMI
             // 
@@ -347,7 +348,7 @@
             this.txtMI.Location = new System.Drawing.Point(315, 101);
             this.txtMI.Name = "txtMI";
             this.txtMI.Size = new System.Drawing.Size(44, 27);
-            this.txtMI.TabIndex = 88;
+            this.txtMI.TabIndex = 2;
             // 
             // txtLname
             // 
@@ -356,7 +357,7 @@
             this.txtLname.Location = new System.Drawing.Point(454, 101);
             this.txtLname.Name = "txtLname";
             this.txtLname.Size = new System.Drawing.Size(125, 27);
-            this.txtLname.TabIndex = 90;
+            this.txtLname.TabIndex = 3;
             // 
             // tpBirthDate
             // 
@@ -364,8 +365,8 @@
             this.tpBirthDate.Font = new System.Drawing.Font("Calibri", 12F);
             this.tpBirthDate.Location = new System.Drawing.Point(128, 329);
             this.tpBirthDate.Name = "tpBirthDate";
-            this.tpBirthDate.Size = new System.Drawing.Size(203, 27);
-            this.tpBirthDate.TabIndex = 92;
+            this.tpBirthDate.Size = new System.Drawing.Size(281, 27);
+            this.tpBirthDate.TabIndex = 11;
             // 
             // txtAddress1
             // 
@@ -374,7 +375,7 @@
             this.txtAddress1.Location = new System.Drawing.Point(128, 147);
             this.txtAddress1.Name = "txtAddress1";
             this.txtAddress1.Size = new System.Drawing.Size(451, 27);
-            this.txtAddress1.TabIndex = 96;
+            this.txtAddress1.TabIndex = 4;
             // 
             // txtAddress2
             // 
@@ -383,7 +384,7 @@
             this.txtAddress2.Location = new System.Drawing.Point(128, 190);
             this.txtAddress2.Name = "txtAddress2";
             this.txtAddress2.Size = new System.Drawing.Size(451, 27);
-            this.txtAddress2.TabIndex = 98;
+            this.txtAddress2.TabIndex = 5;
             // 
             // txtCity
             // 
@@ -392,7 +393,7 @@
             this.txtCity.Location = new System.Drawing.Point(128, 235);
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(200, 27);
-            this.txtCity.TabIndex = 100;
+            this.txtCity.TabIndex = 6;
             // 
             // cboGender
             // 
@@ -405,7 +406,7 @@
             this.cboGender.Location = new System.Drawing.Point(479, 280);
             this.cboGender.Name = "cboGender";
             this.cboGender.Size = new System.Drawing.Size(100, 27);
-            this.cboGender.TabIndex = 106;
+            this.cboGender.TabIndex = 10;
             this.cboGender.ValueMember = "gender";
             this.cboGender.SelectedIndexChanged += new System.EventHandler(this.cboGender_SelectedIndexChanged);
             // 
@@ -426,7 +427,7 @@
             this.cboAdmin.Location = new System.Drawing.Point(479, 332);
             this.cboAdmin.Name = "cboAdmin";
             this.cboAdmin.Size = new System.Drawing.Size(100, 27);
-            this.cboAdmin.TabIndex = 108;
+            this.cboAdmin.TabIndex = 12;
             // 
             // cboState
             // 
@@ -439,7 +440,7 @@
             this.cboState.Location = new System.Drawing.Point(386, 235);
             this.cboState.Name = "cboState";
             this.cboState.Size = new System.Drawing.Size(48, 27);
-            this.cboState.TabIndex = 109;
+            this.cboState.TabIndex = 7;
             this.cboState.ValueMember = "abbreviation";
             this.cboState.SelectedIndexChanged += new System.EventHandler(this.cboState_SelectedIndexChanged);
             // 
@@ -456,7 +457,7 @@
             this.mtxtZip.Mask = "00000-9999";
             this.mtxtZip.Name = "mtxtZip";
             this.mtxtZip.Size = new System.Drawing.Size(100, 27);
-            this.mtxtZip.TabIndex = 110;
+            this.mtxtZip.TabIndex = 8;
             // 
             // mtxtHomePhone
             // 
@@ -466,7 +467,7 @@
             this.mtxtHomePhone.Mask = "(999) 000-0000";
             this.mtxtHomePhone.Name = "mtxtHomePhone";
             this.mtxtHomePhone.Size = new System.Drawing.Size(200, 27);
-            this.mtxtHomePhone.TabIndex = 111;
+            this.mtxtHomePhone.TabIndex = 9;
             // 
             // streetsBindingSource
             // 
