@@ -36,13 +36,10 @@
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.lblLastName = new System.Windows.Forms.Label();
-            this.lblStreetNumber = new System.Windows.Forms.Label();
-            this.txtStreetName = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.lblStreetName = new System.Windows.Forms.Label();
-            this.cboStreetType = new System.Windows.Forms.ComboBox();
             this.streetsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rentMeDataSet = new RentMe.RentMeDataSet();
-            this.lblStreetType = new System.Windows.Forms.Label();
             this.txtCity = new System.Windows.Forms.TextBox();
             this.lblCity = new System.Windows.Forms.Label();
             this.lblZipCode = new System.Windows.Forms.Label();
@@ -58,7 +55,6 @@
             this.cboGender = new System.Windows.Forms.ComboBox();
             this.genderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label9 = new System.Windows.Forms.Label();
-            this.mtxtStreetNumber = new System.Windows.Forms.MaskedTextBox();
             this.mtxtZipCode = new System.Windows.Forms.MaskedTextBox();
             this.mtxtHomePhone = new System.Windows.Forms.MaskedTextBox();
             this.mtxtDOB = new System.Windows.Forms.MaskedTextBox();
@@ -67,8 +63,6 @@
             this.streetsTableAdapter = new RentMe.RentMeDataSetTableAdapters.StreetsTableAdapter();
             this.statesTableAdapter = new RentMe.RentMeDataSetTableAdapters.StatesTableAdapter();
             this.tableAdapterManager = new RentMe.RentMeDataSetTableAdapters.TableAdapterManager();
-            this.lblStateInfo = new System.Windows.Forms.Label();
-            this.lblStreetInfo = new System.Windows.Forms.Label();
             this.genderTableAdapter = new RentMe.RentMeDataSetTableAdapters.GenderTableAdapter();
             this.lblGender = new System.Windows.Forms.Label();
             this.memberBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -88,6 +82,8 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.memberTableAdapter = new RentMe.RentMeDataSetTableAdapters.MemberTableAdapter();
+            this.lblStreetInfo = new System.Windows.Forms.Label();
+            this.lblStateInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.streetsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).BeginInit();
@@ -156,49 +152,24 @@
             this.lblLastName.TabIndex = 8;
             this.lblLastName.Text = "Last Name";
             // 
-            // lblStreetNumber
+            // txtAddress
             // 
-            this.lblStreetNumber.AutoSize = true;
-            this.lblStreetNumber.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStreetNumber.Location = new System.Drawing.Point(18, 168);
-            this.lblStreetNumber.Name = "lblStreetNumber";
-            this.lblStreetNumber.Size = new System.Drawing.Size(111, 19);
-            this.lblStreetNumber.TabIndex = 10;
-            this.lblStreetNumber.Text = "Street Number";
-            // 
-            // txtStreetName
-            // 
-            this.txtStreetName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStreetName.Location = new System.Drawing.Point(147, 190);
-            this.txtStreetName.Name = "txtStreetName";
-            this.txtStreetName.Size = new System.Drawing.Size(318, 27);
-            this.txtStreetName.TabIndex = 5;
-            this.txtStreetName.Tag = "Street Name";
+            this.txtAddress.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.Location = new System.Drawing.Point(22, 190);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(443, 27);
+            this.txtAddress.TabIndex = 5;
+            this.txtAddress.Tag = "Address";
             // 
             // lblStreetName
             // 
             this.lblStreetName.AutoSize = true;
             this.lblStreetName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStreetName.Location = new System.Drawing.Point(143, 168);
+            this.lblStreetName.Location = new System.Drawing.Point(18, 167);
             this.lblStreetName.Name = "lblStreetName";
-            this.lblStreetName.Size = new System.Drawing.Size(95, 19);
+            this.lblStreetName.Size = new System.Drawing.Size(63, 19);
             this.lblStreetName.TabIndex = 12;
-            this.lblStreetName.Text = "Street Name";
-            // 
-            // cboStreetType
-            // 
-            this.cboStreetType.DataSource = this.streetsBindingSource;
-            this.cboStreetType.DisplayMember = "abbreviation";
-            this.cboStreetType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStreetType.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboStreetType.FormattingEnabled = true;
-            this.cboStreetType.Location = new System.Drawing.Point(471, 190);
-            this.cboStreetType.Name = "cboStreetType";
-            this.cboStreetType.Size = new System.Drawing.Size(119, 27);
-            this.cboStreetType.TabIndex = 6;
-            this.cboStreetType.Tag = "Street Type";
-            this.cboStreetType.ValueMember = "abbreviation";
-            this.cboStreetType.SelectedIndexChanged += new System.EventHandler(this.cboStreetType_SelectedIndexChanged);
+            this.lblStreetName.Text = "Address";
             // 
             // streetsBindingSource
             // 
@@ -209,16 +180,6 @@
             // 
             this.rentMeDataSet.DataSetName = "RentMeDataSet";
             this.rentMeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // lblStreetType
-            // 
-            this.lblStreetType.AutoSize = true;
-            this.lblStreetType.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStreetType.Location = new System.Drawing.Point(467, 167);
-            this.lblStreetType.Name = "lblStreetType";
-            this.lblStreetType.Size = new System.Drawing.Size(88, 19);
-            this.lblStreetType.TabIndex = 15;
-            this.lblStreetType.Text = "Street Type";
             // 
             // txtCity
             // 
@@ -367,22 +328,11 @@
             this.label9.TabIndex = 35;
             this.label9.Text = "Date of Birth";
             // 
-            // mtxtStreetNumber
-            // 
-            this.mtxtStreetNumber.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtxtStreetNumber.Location = new System.Drawing.Point(22, 190);
-            this.mtxtStreetNumber.Mask = "000000";
-            this.mtxtStreetNumber.Name = "mtxtStreetNumber";
-            this.mtxtStreetNumber.Size = new System.Drawing.Size(119, 27);
-            this.mtxtStreetNumber.TabIndex = 4;
-            this.mtxtStreetNumber.Tag = "Street Number";
-            this.mtxtStreetNumber.ValidatingType = typeof(int);
-            // 
             // mtxtZipCode
             // 
             this.mtxtZipCode.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtxtZipCode.Location = new System.Drawing.Point(471, 291);
-            this.mtxtZipCode.Mask = "00000-9999";
+            this.mtxtZipCode.Mask = "00000";
             this.mtxtZipCode.Name = "mtxtZipCode";
             this.mtxtZipCode.Size = new System.Drawing.Size(119, 27);
             this.mtxtZipCode.TabIndex = 10;
@@ -458,26 +408,6 @@
             this.tableAdapterManager.StyleTableAdapter = null;
             this.tableAdapterManager.TransactionsTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = RentMe.RentMeDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // lblStateInfo
-            // 
-            this.lblStateInfo.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStateInfo.Location = new System.Drawing.Point(180, 325);
-            this.lblStateInfo.Name = "lblStateInfo";
-            this.lblStateInfo.Size = new System.Drawing.Size(285, 15);
-            this.lblStateInfo.TabIndex = 36;
-            this.lblStateInfo.Text = "lblStateInfo";
-            this.lblStateInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblStreetInfo
-            // 
-            this.lblStreetInfo.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStreetInfo.Location = new System.Drawing.Point(305, 221);
-            this.lblStreetInfo.Name = "lblStreetInfo";
-            this.lblStreetInfo.Size = new System.Drawing.Size(285, 15);
-            this.lblStreetInfo.TabIndex = 37;
-            this.lblStreetInfo.Text = "lblStreetInfo";
-            this.lblStreetInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // genderTableAdapter
             // 
@@ -647,6 +577,26 @@
             // 
             this.memberTableAdapter.ClearBeforeFill = true;
             // 
+            // lblStreetInfo
+            // 
+            this.lblStreetInfo.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStreetInfo.Location = new System.Drawing.Point(305, 221);
+            this.lblStreetInfo.Name = "lblStreetInfo";
+            this.lblStreetInfo.Size = new System.Drawing.Size(285, 15);
+            this.lblStreetInfo.TabIndex = 37;
+            this.lblStreetInfo.Text = "lblStreetInfo";
+            this.lblStreetInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblStateInfo
+            // 
+            this.lblStateInfo.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStateInfo.Location = new System.Drawing.Point(180, 325);
+            this.lblStateInfo.Name = "lblStateInfo";
+            this.lblStateInfo.Size = new System.Drawing.Size(285, 15);
+            this.lblStateInfo.TabIndex = 36;
+            this.lblStateInfo.Text = "lblStateInfo";
+            this.lblStateInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // CustomerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -664,7 +614,6 @@
             this.Controls.Add(this.mtxtDOB);
             this.Controls.Add(this.mtxtHomePhone);
             this.Controls.Add(this.mtxtZipCode);
-            this.Controls.Add(this.mtxtStreetNumber);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cboGender);
@@ -678,11 +627,8 @@
             this.Controls.Add(this.lblZipCode);
             this.Controls.Add(this.txtCity);
             this.Controls.Add(this.lblCity);
-            this.Controls.Add(this.lblStreetType);
-            this.Controls.Add(this.cboStreetType);
-            this.Controls.Add(this.txtStreetName);
+            this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.lblStreetName);
-            this.Controls.Add(this.lblStreetNumber);
             this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.txtFirstName);
@@ -714,11 +660,8 @@
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Label lblLastName;
-        private System.Windows.Forms.Label lblStreetNumber;
-        private System.Windows.Forms.TextBox txtStreetName;
+        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label lblStreetName;
-        private System.Windows.Forms.ComboBox cboStreetType;
-        private System.Windows.Forms.Label lblStreetType;
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.Label lblCity;
         private System.Windows.Forms.Label lblZipCode;
@@ -732,7 +675,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cboGender;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.MaskedTextBox mtxtStreetNumber;
         private System.Windows.Forms.MaskedTextBox mtxtZipCode;
         private System.Windows.Forms.MaskedTextBox mtxtHomePhone;
         private System.Windows.Forms.MaskedTextBox mtxtDOB;
@@ -744,8 +686,6 @@
         private System.Windows.Forms.BindingSource statesBindingSource;
         private RentMeDataSetTableAdapters.StatesTableAdapter statesTableAdapter;
         private RentMeDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.Label lblStateInfo;
-        private System.Windows.Forms.Label lblStreetInfo;
         private System.Windows.Forms.BindingSource genderBindingSource;
         private RentMeDataSetTableAdapters.GenderTableAdapter genderTableAdapter;
         private System.Windows.Forms.Label lblGender;
@@ -766,5 +706,7 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private RentMeDataSetTableAdapters.MemberTableAdapter memberTableAdapter;
+        private System.Windows.Forms.Label lblStreetInfo;
+        private System.Windows.Forms.Label lblStateInfo;
     }
 }

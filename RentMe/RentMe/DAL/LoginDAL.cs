@@ -32,7 +32,7 @@ namespace RentMe.DAL
                     login.login1 = reader["userID"].ToString();
                     login.password = reader["password"].ToString();
                     login.employeeID = Convert.ToInt32(reader["employeeID"].ToString());
-                    
+
 
                 }
                 else
@@ -52,21 +52,114 @@ namespace RentMe.DAL
             return login;
         }
 
-        public static bool updatePassword(string username, string newpass)
+        public static string GetLoginPassword(string userID)
+        {
+            string password;
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string selectstatement =
+                "SELECT password " +
+                "FROM login " +
+                "WHERE userID = @userID";
+            SqlCommand selectCommand = new SqlCommand(selectstatement, connection);
+            selectCommand.Parameters.AddWithValue("@userID", userID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader =
+                    selectCommand.ExecuteReader(CommandBehavior.SingleRow);
+                if (reader.Read())
+                {
+
+                    password = reader["password"].ToString();
+
+                }
+                else
+                {
+                    password = null;
+                }
+                reader.Close();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return password;
+        }
+
+        public static bool GetRole(string userID, string password)
+        {
+            string role;
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string selectstatement =
+                "SELECT e.admin " +
+                 "FROM Employee e " +
+                 "INNER JOIN Login l " +
+                 "on e.employeeID = l.loginID " +
+                 "WHERE l.loginID IN(SELECT loginID from Login WHERE userID = @userID AND password = @password)";
+
+            SqlCommand selectCommand = new SqlCommand(selectstatement, connection);
+            selectCommand.Parameters.AddWithValue("@userID", userID);
+            selectCommand.Parameters.AddWithValue("@password", password);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader =
+                    selectCommand.ExecuteReader(CommandBehavior.SingleRow);
+                if (reader.Read())
+                {
+
+                    role = reader["admin"].ToString();
+
+                }
+                else
+                {
+                    role = "N";
+                }
+                reader.Close();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            if (role == "Y")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool SetLoginPassword(string userID, string oldPassword, string newPassword)
         {
             SqlConnection connection = RentMeDBConnection.GetConnection();
-            string updateStament = "update Login set password= @newpassword where userID = @username";
-            SqlCommand updateCommand = new SqlCommand(updateStament, connection);
-            updateCommand.Parameters.AddWithValue("@username", username);
-            updateCommand.Parameters.AddWithValue("@newpassword", newpass);
+            string updatestatement =
+                "UPDATE login SET " +
+                "password = @newPassword " +
+                "WHERE userID = @userID AND password = @oldPassword";
+            SqlCommand updateCommand = new SqlCommand(updatestatement, connection);
+            updateCommand.Parameters.AddWithValue("@userID", userID);
+            updateCommand.Parameters.AddWithValue("@newPassword", newPassword);
+            updateCommand.Parameters.AddWithValue("@oldPassword", oldPassword);
             try
             {
                 connection.Open();
                 int count = updateCommand.ExecuteNonQuery();
                 if (count > 0)
                     return true;
-                else
-                    return false;
+                else return false;
             }
             catch (SqlException ex)
             {
@@ -76,39 +169,7 @@ namespace RentMe.DAL
             {
                 connection.Close();
             }
-        }
 
-        public static bool checkCurrentPassword(string username, string password)
-        {
-            SqlConnection connection = RentMeDBConnection.GetConnection();
-            string selectStament = "select password from Login where userID = @username and password = @password";
-            SqlCommand selectCommand = new SqlCommand(selectStament, connection);
-            selectCommand.Parameters.AddWithValue("@username", username);
-            selectCommand.Parameters.AddWithValue("@password", password);
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = selectCommand.ExecuteReader(CommandBehavior.SingleRow);
-                bool result = false;
-                if (reader.Read())
-                {
-                    result = true;
-                }
-                else
-                {
-                    result = false;
-                }
-                reader.Close();
-                return result;
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
-            }
         }
 
     }

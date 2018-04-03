@@ -28,14 +28,14 @@ namespace RentMe.Views
         private void CustomerView_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'rentMeDataSet.Gender' table. You can move, or remove it, as needed.
-            //this.genderTableAdapter.Fill(this.rentMeDataSet.Gender);
+            this.genderTableAdapter.Fill(this.rentMeDataSet.Gender);
             lblStateInfo.Text = "";
             // TODO: This line of code loads data into the 'rentMeDataSet.States' table. You can move, or remove it, as needed.
-            //this.statesTableAdapter.Fill(this.rentMeDataSet.States);
+            this.statesTableAdapter.Fill(this.rentMeDataSet.States);
             // TODO: This line of code loads data into the 'rentMeDataSet.Streets' table. You can move, or remove it, as needed.
             //this.streetsTableAdapter.Fill(this.rentMeDataSet.Streets);
             cboState.SelectedIndex = -1;
-            cboStreetType.SelectedIndex = -1;
+            //cboStreetType.SelectedIndex = -1;
             cboGender.SelectedIndex = -1;
             DisableControls();
             txtFirstName.Enabled = true;
@@ -80,32 +80,33 @@ namespace RentMe.Views
 
         }
 
-        private void displayStreet()
-        {
-            if (cboStreetType.SelectedIndex == -1)
-            {
-                lblStreetInfo.Text = "";
-            }
-            else
-            {
-                DataRowView drv = (DataRowView)cboStreetType.SelectedItem;
-                string streetType = drv["name"].ToString();
+    
+        //private void displayStreet()
+        //{
+        //    if (cboStreetType.SelectedIndex == -1)
+        //    {
+        //        lblStreetInfo.Text = "";
+        //    }
+        //    else
+        //    {
+        //        DataRowView drv = (DataRowView)cboStreetType.SelectedItem;
+        //        string streetType = drv["name"].ToString();
 
-                if (streetType != null)
-                {
-                    lblStreetInfo.Text = streetType;
-                }
-                else
-                {
-                    lblStreetInfo.Text = "";
-                }
-            }
-        }
+        //        if (streetType != null)
+        //        {
+        //            lblStreetInfo.Text = streetType;
+        //        }
+        //        else
+        //        {
+        //            lblStreetInfo.Text = "";
+        //        }
+        //    }
+        //}
 
-        private void cboStreetType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            displayStreet();
-        }
+        //private void cboStreetType_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    displayStreet();
+        //}
 
         private void cboGender_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -146,15 +147,16 @@ namespace RentMe.Views
             if (txtFirstName.Text != "" && txtLastName.Text != "")
             {
                 try
-                {
+                 {
+                    member = new Member();
                     member.fname = txtFirstName.Text;
                     member.lname = txtLastName.Text;
                     this.GetMemberByName(member.fname, member.lname);
                     this.DisplayMember();
                     btnAdd.Text = "Update";
                 } catch (Exception)
-                {
-                    MessageBox.Show("No member found by that name. " +
+               {
+                   MessageBox.Show("No member found by that name. " +
                         "Please try again.", "Member Not Found");
                 }
 
@@ -163,11 +165,14 @@ namespace RentMe.Views
             {
                 try
                 {
-                    Validator.IsPhoneNumber(mtxtHomePhone);
-                    member.homePhone = mtxtHomePhone.Text;
-                    this.GetMemberByPhone(member.homePhone);
-                    this.DisplayMember();
-                    btnAdd.Text = "Update";
+                    if (Validator.IsPhoneNumber(mtxtHomePhone))
+                    {
+                        member = new Member();
+                        member.homePhone = mtxtHomePhone.Text.Replace(".", "").Replace("(", "").Replace("_", "").Replace(")", "").Replace("-", "").Replace(" ", "");
+                        this.GetMemberByPhone(member.homePhone);
+                        this.DisplayMember();
+                        btnAdd.Text = "Update";
+                    }
                 } catch (Exception)
                 {
                     MessageBox.Show("No member found by that phone number. " +
@@ -289,16 +294,22 @@ namespace RentMe.Views
             txtFirstName.Text = "";
             txtLastName.Enabled = true;
             txtLastName.Text = "";
+            txtAddress.Text = "";
+            txtAddress2.Text = "";
+            mtxtZipCode.Text = "";
+            txtCity.Text = "";
+            txtMiddleInitial.Text = "";
+            mtxtDOB.Text = "";
             mtxtHomePhone.Enabled = true;
             mtxtHomePhone.Text = "";
             btnSearch.Enabled = true;
             btnAdd.Enabled = true;
             btnAdd.Text = "Add";
             btnExit.Enabled = true;
-            cboStreetType.SelectedIndex = -1;
+            //cboStreetType.SelectedIndex = -1;
             cboState.SelectedIndex = -1;
             cboGender.SelectedIndex = -1;
-            lblStreetType.Text = "";
+            //lblStreetType.Text = "";
             lblState.Text = "";
             lblGender.Text = "";
         }
@@ -339,13 +350,13 @@ namespace RentMe.Views
             txtFirstName.Text = member.fname;
             txtMiddleInitial.Text = member.middleInitial;
             txtLastName.Text = member.lname;
-            //mtxtStreetNumber.Text = member.streetNumber;
-            //txtStreetName.Text = member.streetName;
+            txtAddress.Text = member.Address1;
+            txtAddress2.Text = member.Address2;
             txtCity.Text = member.City;
-            cboState.Text = member.State;
+            cboState.SelectedIndex = cboState.FindString(member.State);
             mtxtZipCode.Text = member.PostalCode;
             mtxtHomePhone.Text = member.homePhone;
-            mtxtDOB.Text = member.dateOfBirth.ToString();
+            mtxtDOB.Text = member.dateOfBirth.ToString("MM-dd-yyyy");
             cboGender.Text = member.gender;
         }
 
@@ -354,8 +365,7 @@ namespace RentMe.Views
             return     Validator.IsPresent(txtFirstName) &&
                        Validator.IsPresent(txtMiddleInitial) &&
                        Validator.IsPresent(txtLastName) &&
-                       Validator.IsPresent(mtxtStreetNumber) &&
-                       Validator.IsPresent(txtStreetName) &&
+                       Validator.IsPresent(txtAddress) &&
                        Validator.IsPresent(txtCity) &&
                        Validator.IsPresent(cboState) &&
                        Validator.IsPresent(mtxtZipCode) &&
@@ -370,8 +380,8 @@ namespace RentMe.Views
             member.fname = txtFirstName.Text;
             member.middleInitial = txtMiddleInitial.Text;
             member.lname = txtLastName.Text;
-            //member.streetNumber = mtxtStreetNumber.Text;
-            //member.streetName = txtStreetName.Text;
+            member.Address1 = txtAddress.Text;
+            member.Address2 = txtAddress2.Text;
             member.City = txtCity.Text;
             member.State = cboState.Text;
             member.PostalCode = mtxtZipCode.Text;
