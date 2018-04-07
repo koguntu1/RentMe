@@ -313,7 +313,6 @@ namespace RentMe.Views
         private void DisplayMember()
         {
             txtFirstName.Text = member.fname;
-            txtMiddleInitial.Text = member.middleInitial;
             txtLastName.Text = member.lname;
             txtAddress.Text = member.Address1;
             txtAddress2.Text = member.Address2;
@@ -332,7 +331,6 @@ namespace RentMe.Views
 
 
                if  (Validator.IsPresent(txtFirstName) &&
-                           Validator.IsPresent(txtMiddleInitial) &&
                            Validator.IsPresent(txtLastName) &&
                            Validator.IsPresent(txtAddress) &&
                            Validator.IsPresent(txtCity) &&
@@ -369,7 +367,7 @@ namespace RentMe.Views
             member.City = txtCity.Text;
             member.State = cboState.Text;
             member.PostalCode = mtxtZipCode.Text;
-            member.homePhone = mtxtHomePhone.Text;
+            member.homePhone = mtxtHomePhone.Text.Replace(".", "").Replace("(", "").Replace("_", "").Replace(")", "").Replace("-", "").Replace(" ", "");
             member.dateOfBirth = Convert.ToDateTime(mtxtDOB.Text);
             member.gender = cboGender.Text;
         }
