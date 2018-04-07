@@ -332,7 +332,6 @@ namespace RentMe.Views
 
 
                if  (Validator.IsPresent(txtFirstName) &&
-                           Validator.IsPresent(txtMiddleInitial) &&
                            Validator.IsPresent(txtLastName) &&
                            Validator.IsPresent(txtAddress) &&
                            Validator.IsPresent(txtCity) &&
