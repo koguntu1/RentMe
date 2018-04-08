@@ -11,6 +11,42 @@ namespace RentMe.DAL
 {
     class FurnitureDAL
     {
+        public static List<Furniture> GetFurnitureList()
+        {
+            List<Furniture> furnitureList = new List<Furniture>();
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT * FROM Furniture ORDER BY furnitureID";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = selectCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    Furniture furniture = new Furniture();
+                    furniture.FurnitureID = (int)reader["furnitureID"];
+                    furniture.Description = reader["description"].ToString();
+                    furnitureList.Add(furniture);
+                }
+                //add an empty Category
+                Furniture furnitureEmpty = new Furniture();
+                furnitureEmpty.FurnitureID = -1;
+                furnitureEmpty.Description = "";
+                furnitureList.Add(furnitureEmpty);
+                reader.Close();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return furnitureList;
+        }
+
         public static List<Furniture> GetFurniture(int furnitureID, int itemID, int categoryID, int styleID)
         {
             List<Furniture> furnitureList = new List<Furniture>();
@@ -156,5 +192,86 @@ namespace RentMe.DAL
             //}
             return furnitureList;
         }
+
+
+        public static int AddFurniture(Furniture furniture)
+        {
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string insertStatement =
+                "INSERT Furniture " +
+                  "(description, styleID, categoryID, fine_Rate, daily_Rate) " +
+                "VALUES (@description, @styleID, @categoryID, @fine_Rate, @daily_Rate)";
+            SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
+            insertCommand.Parameters.AddWithValue("@description", furniture.Description);
+            insertCommand.Parameters.AddWithValue("@styleID", furniture.StyleID);
+            insertCommand.Parameters.AddWithValue("@categoryID", furniture.CategoryID);
+            insertCommand.Parameters.AddWithValue("@fine_Rate", furniture.Fine_Rate);
+            insertCommand.Parameters.AddWithValue("@daily_Rate", furniture.Daily_Rate);
+            try
+            {
+                connection.Open();
+                insertCommand.ExecuteNonQuery();
+                string selectStatement =
+                    "SELECT IDENT_CURRENT('Furniture') FROM Furniture";
+                SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+                int funitureID = Convert.ToInt32(selectCommand.ExecuteScalar());
+                return funitureID;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public static bool UpdateFurniture(Furniture oldFurniture, Furniture newFurniture)
+        {
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string updateStatement =
+                "UPDATE Furniture SET " +
+                  "description = @NewDescription, " +
+                  "styleID = @NewStyleID, " +
+                  "categoryID = @NewCategoryID, " +
+                  "fine_Rate = @Newfine_Rate, " +
+                  "daily_Rate = @Newdaily_Rate " +
+                "WHERE furnitureID = @OldfurnitureID " +
+                "AND description = @Olddescription AND styleID = @OldstyleID AND categoryID = @OldcategoryID " +
+                "AND fine_Rate = @Oldfine_Rate AND daily_Rate = @Olddaily_Rate";
+            SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
+            updateCommand.Parameters.AddWithValue("@NewDescription", newFurniture.Description);
+            updateCommand.Parameters.AddWithValue("@NewStyleID", newFurniture.StyleID);
+            updateCommand.Parameters.AddWithValue("@NewCategoryID", newFurniture.CategoryID);
+            updateCommand.Parameters.AddWithValue("@Newfine_Rate", newFurniture.Fine_Rate);
+            updateCommand.Parameters.AddWithValue("@Newdaily_Rate", newFurniture.Daily_Rate);
+            
+            updateCommand.Parameters.AddWithValue("@OldfurnitureID", oldFurniture.FurnitureID);
+            updateCommand.Parameters.AddWithValue("@Olddescription", oldFurniture.Description);
+            updateCommand.Parameters.AddWithValue("@OldstyleID", oldFurniture.StyleID);
+            updateCommand.Parameters.AddWithValue("@OldcategoryID", oldFurniture.CategoryID);
+            updateCommand.Parameters.AddWithValue("@Oldfine_Rate", oldFurniture.Fine_Rate);
+            updateCommand.Parameters.AddWithValue("@Olddaily_Rate", oldFurniture.Daily_Rate);
+            try
+            {
+                connection.Open();
+                int count = updateCommand.ExecuteNonQuery();
+                if (count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
     }
 }

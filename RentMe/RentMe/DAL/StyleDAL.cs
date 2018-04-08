@@ -11,6 +11,42 @@ namespace RentMe.DAL
 {
     class StyleDAL
     {
+        public static List<Style> GetStyleList()
+        {
+            List<Style> styleList = new List<Style>();
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT * FROM Style ORDER BY styleID";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = selectCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    Style style = new Style();
+                    style.styleID = (int)reader["styleID"];
+                    style.description = reader["description"].ToString();
+                    styleList.Add(style);
+                }
+                //add an empty Style
+                Style styleEmpty = new Style();
+                styleEmpty.styleID = -1;
+                styleEmpty.description = "";
+                styleList.Add(styleEmpty);
+                reader.Close();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return styleList;
+        }
+
         public static Style GetStyle(int styleID)
         {
             Style style = new Style();

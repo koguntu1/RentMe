@@ -36,9 +36,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnRestart = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnAddFurniture = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnAddItem = new System.Windows.Forms.Button();
             this.lblFurnitureInfo = new System.Windows.Forms.Label();
             this.cboItemID = new System.Windows.Forms.ComboBox();
             this.store_itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -116,7 +116,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::RentMe.Properties.Resources._2018_03_27_13_08_06;
-            this.pictureBox1.Location = new System.Drawing.Point(246, 28);
+            this.pictureBox1.Location = new System.Drawing.Point(307, 18);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(157, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -126,10 +126,10 @@
             // btnRestart
             // 
             this.btnRestart.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestart.Location = new System.Drawing.Point(256, 471);
+            this.btnRestart.Location = new System.Drawing.Point(486, 471);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(91, 31);
-            this.btnRestart.TabIndex = 48;
+            this.btnRestart.TabIndex = 9;
             this.btnRestart.Text = "Restart";
             this.btnRestart.UseVisualStyleBackColor = true;
             this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
@@ -140,47 +140,49 @@
             this.btnSearch.Location = new System.Drawing.Point(18, 471);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(91, 31);
-            this.btnSearch.TabIndex = 47;
+            this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // btnAdd
+            // btnAddFurniture
             // 
-            this.btnAdd.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(137, 471);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(91, 31);
-            this.btnAdd.TabIndex = 46;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAddFurniture.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddFurniture.Location = new System.Drawing.Point(149, 471);
+            this.btnAddFurniture.Name = "btnAddFurniture";
+            this.btnAddFurniture.Size = new System.Drawing.Size(147, 31);
+            this.btnAddFurniture.TabIndex = 6;
+            this.btnAddFurniture.Text = "Add Furniture";
+            this.btnAddFurniture.UseVisualStyleBackColor = true;
+            this.btnAddFurniture.Click += new System.EventHandler(this.btnAddFurniture_Click);
             // 
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(494, 471);
+            this.btnExit.Location = new System.Drawing.Point(616, 471);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(91, 31);
-            this.btnExit.TabIndex = 45;
+            this.btnExit.TabIndex = 8;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // btnSubmit
+            // btnAddItem
             // 
-            this.btnSubmit.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(375, 471);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(91, 31);
-            this.btnSubmit.TabIndex = 44;
-            this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnAddItem.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddItem.Location = new System.Drawing.Point(332, 471);
+            this.btnAddItem.Name = "btnAddItem";
+            this.btnAddItem.Size = new System.Drawing.Size(111, 31);
+            this.btnAddItem.TabIndex = 7;
+            this.btnAddItem.Text = "Add Item";
+            this.btnAddItem.UseVisualStyleBackColor = true;
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
             // lblFurnitureInfo
             // 
             this.lblFurnitureInfo.AutoSize = true;
             this.lblFurnitureInfo.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFurnitureInfo.Location = new System.Drawing.Point(171, 61);
+            this.lblFurnitureInfo.Location = new System.Drawing.Point(232, 51);
             this.lblFurnitureInfo.Name = "lblFurnitureInfo";
             this.lblFurnitureInfo.Size = new System.Drawing.Size(306, 39);
             this.lblFurnitureInfo.TabIndex = 49;
@@ -199,7 +201,7 @@
             this.cboItemID.Location = new System.Drawing.Point(439, 108);
             this.cboItemID.Name = "cboItemID";
             this.cboItemID.Size = new System.Drawing.Size(121, 27);
-            this.cboItemID.TabIndex = 54;
+            this.cboItemID.TabIndex = 2;
             this.cboItemID.ValueMember = "itemID";
             // 
             // store_itemBindingSource
@@ -224,7 +226,7 @@
             this.cboFurnitureID.Location = new System.Drawing.Point(118, 116);
             this.cboFurnitureID.Name = "cboFurnitureID";
             this.cboFurnitureID.Size = new System.Drawing.Size(121, 27);
-            this.cboFurnitureID.TabIndex = 55;
+            this.cboFurnitureID.TabIndex = 1;
             this.cboFurnitureID.ValueMember = "furnitureID";
             // 
             // furnitureBindingSource
@@ -316,7 +318,7 @@
             this.cboStyle.Location = new System.Drawing.Point(118, 165);
             this.cboStyle.Name = "cboStyle";
             this.cboStyle.Size = new System.Drawing.Size(121, 27);
-            this.cboStyle.TabIndex = 59;
+            this.cboStyle.TabIndex = 3;
             this.cboStyle.ValueMember = "styleID";
             // 
             // categoryBindingSource
@@ -340,7 +342,7 @@
             this.cboCategory.Location = new System.Drawing.Point(439, 162);
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(121, 27);
-            this.cboCategory.TabIndex = 62;
+            this.cboCategory.TabIndex = 4;
             this.cboCategory.ValueMember = "categoryID";
             // 
             // dataGridViewFurniture
@@ -350,6 +352,7 @@
             this.dataGridViewFurniture.Name = "dataGridViewFurniture";
             this.dataGridViewFurniture.Size = new System.Drawing.Size(853, 236);
             this.dataGridViewFurniture.TabIndex = 64;
+            this.dataGridViewFurniture.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFurniture_CellContentClick);
             // 
             // FurnitureView
             // 
@@ -368,9 +371,9 @@
             this.Controls.Add(this.lblFurnitureInfo);
             this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnAddFurniture);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.pictureBox1);
             this.Name = "FurnitureView";
             this.Text = "SearchFurnitureView";
@@ -396,9 +399,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnRestart;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnAddFurniture;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnAddItem;
         private System.Windows.Forms.Label lblFurnitureInfo;
         private System.Windows.Forms.BindingSource store_itemBindingSource;
         private RentMeDataSetTableAdapters.Store_itemTableAdapter store_itemTableAdapter;

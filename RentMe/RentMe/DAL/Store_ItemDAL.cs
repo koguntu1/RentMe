@@ -48,5 +48,36 @@ namespace RentMe.DAL
             }
             return store_item;
         }
+
+
+        public static int AddStoreItem(Store_item storeItem)
+        {
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string insertStatement =
+                "INSERT Store_item " +
+                  "(furnitureID) " +
+                "VALUES (@furnitureID)";
+            SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
+            insertCommand.Parameters.AddWithValue("@furnitureID", storeItem.furnitureID);
+            try
+            {
+                connection.Open();
+                insertCommand.ExecuteNonQuery();
+                string selectStatement =
+                    "SELECT IDENT_CURRENT('Store_item') FROM Store_item";
+                SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+                int itemID = Convert.ToInt32(selectCommand.ExecuteScalar());
+                return itemID;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
     }
 }
