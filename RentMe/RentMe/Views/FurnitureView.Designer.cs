@@ -59,14 +59,7 @@
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoryTableAdapter = new RentMe.RentMeDataSetTableAdapters.CategoryTableAdapter();
             this.cboCategory = new System.Windows.Forms.ComboBox();
-            this.lvFurniture = new System.Windows.Forms.ListView();
-            this.columnFurnitureID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnItemID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnStyle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnRentalRate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnFineRate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dataGridViewFurniture = new System.Windows.Forms.DataGridView();
             lblItemID = new System.Windows.Forms.Label();
             lblFurnitureID = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
@@ -77,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.styleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFurniture)).BeginInit();
             this.SuspendLayout();
             // 
             // lblItemID
@@ -349,59 +343,20 @@
             this.cboCategory.TabIndex = 62;
             this.cboCategory.ValueMember = "categoryID";
             // 
-            // lvFurniture
+            // dataGridViewFurniture
             // 
-            this.lvFurniture.AllowDrop = true;
-            this.lvFurniture.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnFurnitureID,
-            this.columnDescription,
-            this.columnItemID,
-            this.columnCategory,
-            this.columnStyle,
-            this.columnRentalRate,
-            this.columnFineRate});
-            this.lvFurniture.Font = new System.Drawing.Font("Calibri", 11F);
-            this.lvFurniture.Location = new System.Drawing.Point(18, 198);
-            this.lvFurniture.Name = "lvFurniture";
-            this.lvFurniture.Size = new System.Drawing.Size(694, 246);
-            this.lvFurniture.TabIndex = 63;
-            this.lvFurniture.UseCompatibleStateImageBehavior = false;
-            this.lvFurniture.View = System.Windows.Forms.View.Details;
-            // 
-            // columnFurnitureID
-            // 
-            this.columnFurnitureID.Text = "FurnitureID";
-            // 
-            // columnDescription
-            // 
-            this.columnDescription.Text = "Description";
-            // 
-            // columnItemID
-            // 
-            this.columnItemID.Text = "ItemID";
-            // 
-            // columnCategory
-            // 
-            this.columnCategory.Text = "Category";
-            // 
-            // columnStyle
-            // 
-            this.columnStyle.Text = "Style";
-            // 
-            // columnRentalRate
-            // 
-            this.columnRentalRate.Text = "Daily Rate";
-            // 
-            // columnFineRate
-            // 
-            this.columnFineRate.Text = "Daily Late Fee";
+            this.dataGridViewFurniture.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFurniture.Location = new System.Drawing.Point(18, 217);
+            this.dataGridViewFurniture.Name = "dataGridViewFurniture";
+            this.dataGridViewFurniture.Size = new System.Drawing.Size(853, 236);
+            this.dataGridViewFurniture.TabIndex = 64;
             // 
             // FurnitureView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(743, 531);
-            this.Controls.Add(this.lvFurniture);
+            this.ClientSize = new System.Drawing.Size(889, 517);
+            this.Controls.Add(this.dataGridViewFurniture);
             this.Controls.Add(this.cboCategory);
             this.Controls.Add(descriptionLabel1);
             this.Controls.Add(descriptionLabel);
@@ -426,6 +381,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.furnitureBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.styleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFurniture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -459,13 +415,6 @@
         private System.Windows.Forms.BindingSource categoryBindingSource;
         private RentMeDataSetTableAdapters.CategoryTableAdapter categoryTableAdapter;
         private System.Windows.Forms.ComboBox cboCategory;
-        private System.Windows.Forms.ListView lvFurniture;
-        private System.Windows.Forms.ColumnHeader columnFurnitureID;
-        private System.Windows.Forms.ColumnHeader columnDescription;
-        private System.Windows.Forms.ColumnHeader columnCategory;
-        private System.Windows.Forms.ColumnHeader columnStyle;
-        private System.Windows.Forms.ColumnHeader columnRentalRate;
-        private System.Windows.Forms.ColumnHeader columnFineRate;
-        private System.Windows.Forms.ColumnHeader columnItemID;
+        private System.Windows.Forms.DataGridView dataGridViewFurniture;
     }
 }

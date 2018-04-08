@@ -133,19 +133,19 @@ namespace RentMe.Views
                     furnitureList = this.inController.GetFurniture(furnitureID, itemID, categoryID, styleID);
                     if (furnitureList.Count > 0)
                     {
-                        Furniture furniture;
-                        for (int i = 0; i < furnitureList.Count; i++)
-                        {
-                            furniture = furnitureList[i];
-                            lvFurniture.Items.Add(furniture.furnitureID.ToString());
-                            lvFurniture.Items[i].SubItems.Add(furniture.description.ToString());
-                            lvFurniture.Items[i].SubItems.Add(furniture.itemID.ToString());
-                            lvFurniture.Items[i].SubItems.Add(furniture.style.ToString());
-                            lvFurniture.Items[i].SubItems.Add(furniture.category.ToString());
-                            lvFurniture.Items[i].SubItems.Add(furniture.daily_Rate.ToString());
-                            lvFurniture.Items[i].SubItems.Add(furniture.fine_Rate.ToString());
-                        }
-                        lvFurniture.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                        //Furniture furniture;
+                        //for (int i = 0; i < furnitureList.Count; i++)
+                        //{
+                        //    furniture = furnitureList[i];
+                        //    lvFurniture.Items.Add(furniture.FurnitureID.ToString());
+                        //    lvFurniture.Items[i].SubItems.Add(furniture.Description.ToString());
+                        //    lvFurniture.Items[i].SubItems.Add(furniture.ItemID.ToString());
+                        //    lvFurniture.Items[i].SubItems.Add(furniture.Style.ToString());
+                        //    lvFurniture.Items[i].SubItems.Add(furniture.Category.ToString());
+                        //    lvFurniture.Items[i].SubItems.Add(furniture.Daily_Rate.ToString());
+                        //    lvFurniture.Items[i].SubItems.Add(furniture.Fine_Rate.ToString());
+                        //}
+                        //lvFurniture.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
                         DisableControls();
                         btnAdd.Text = "Update";
                         // change to true for next iteration
@@ -154,6 +154,28 @@ namespace RentMe.Views
                         // ---------------------
                         btnRestart.Enabled = true;
                         btnExit.Enabled = true;
+
+                        //begin for grid data
+                        dataGridViewFurniture.AutoGenerateColumns = true;
+                        dataGridViewFurniture.AutoResizeColumns();// = true;
+                        dataGridViewFurniture.DataSource = furnitureList;
+                        //hiden some columns
+                        dataGridViewFurniture.Columns[2].Visible = false;
+                        dataGridViewFurniture.Columns[6].Visible = false;
+                        dataGridViewFurniture.Columns[9].Visible = false;
+                        //add buton to data grid
+                        DataGridViewButtonColumn SelectButton = new DataGridViewButtonColumn();
+                        SelectButton.Name = "";
+                        SelectButton.Text = "Detail";
+                        SelectButton.UseColumnTextForButtonValue = true;
+                        if (dataGridViewFurniture.Columns["Detail"] == null)
+                        {
+                            dataGridViewFurniture.Columns.Insert(10, SelectButton);
+                        }
+
+                        //end for grid data
+
+
                     }
                     else
                     {
@@ -184,7 +206,10 @@ namespace RentMe.Views
             cboStyle.SelectedIndex = -1;
             cboCategory.Enabled = true;
             cboCategory.SelectedIndex = -1;
-            lvFurniture.Items.Clear();
+            dataGridViewFurniture.Columns.RemoveAt(10);
+            dataGridViewFurniture.DataSource = null;
+            dataGridViewFurniture.Rows.Clear();
+            dataGridViewFurniture.Refresh();
             btnSearch.Enabled = true;
             btnAdd.Text = "Add";
             //btnAdd.Enabled = true;  Add next iteration

@@ -367,7 +367,9 @@ namespace RentMe.Views
             member.Address2 = txtAddress2.Text;
             member.City = txtCity.Text;
             member.State = cboState.Text;
+            mtxtZipCode.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             member.PostalCode = mtxtZipCode.Text;
+            mtxtHomePhone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             member.homePhone = mtxtHomePhone.Text;
             member.dateOfBirth = Convert.ToDateTime(mtxtDOB.Text);
             member.gender = cboGender.Text;
