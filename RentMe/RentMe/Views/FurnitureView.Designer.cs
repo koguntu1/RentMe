@@ -77,9 +77,10 @@
             // 
             lblItemID.AutoSize = true;
             lblItemID.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            lblItemID.Location = new System.Drawing.Point(371, 113);
+            lblItemID.Location = new System.Drawing.Point(495, 139);
+            lblItemID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblItemID.Name = "lblItemID";
-            lblItemID.Size = new System.Drawing.Size(62, 19);
+            lblItemID.Size = new System.Drawing.Size(77, 24);
             lblItemID.TabIndex = 53;
             lblItemID.Text = "Item ID:";
             // 
@@ -87,9 +88,10 @@
             // 
             lblFurnitureID.AutoSize = true;
             lblFurnitureID.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            lblFurnitureID.Location = new System.Drawing.Point(17, 116);
+            lblFurnitureID.Location = new System.Drawing.Point(23, 143);
+            lblFurnitureID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblFurnitureID.Name = "lblFurnitureID";
-            lblFurnitureID.Size = new System.Drawing.Size(95, 19);
+            lblFurnitureID.Size = new System.Drawing.Size(117, 24);
             lblFurnitureID.TabIndex = 51;
             lblFurnitureID.Text = "Furniture ID:";
             // 
@@ -97,9 +99,10 @@
             // 
             descriptionLabel.AutoSize = true;
             descriptionLabel.Font = new System.Drawing.Font("Calibri", 12F);
-            descriptionLabel.Location = new System.Drawing.Point(68, 160);
+            descriptionLabel.Location = new System.Drawing.Point(91, 197);
+            descriptionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             descriptionLabel.Name = "descriptionLabel";
-            descriptionLabel.Size = new System.Drawing.Size(44, 19);
+            descriptionLabel.Size = new System.Drawing.Size(55, 24);
             descriptionLabel.TabIndex = 58;
             descriptionLabel.Text = "Style:";
             // 
@@ -107,16 +110,18 @@
             // 
             descriptionLabel1.AutoSize = true;
             descriptionLabel1.Font = new System.Drawing.Font("Calibri", 12F);
-            descriptionLabel1.Location = new System.Drawing.Point(362, 165);
+            descriptionLabel1.Location = new System.Drawing.Point(483, 203);
+            descriptionLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             descriptionLabel1.Name = "descriptionLabel1";
-            descriptionLabel1.Size = new System.Drawing.Size(71, 19);
+            descriptionLabel1.Size = new System.Drawing.Size(89, 24);
             descriptionLabel1.TabIndex = 59;
             descriptionLabel1.Text = "Category:";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::RentMe.Properties.Resources._2018_03_27_13_08_06;
-            this.pictureBox1.Location = new System.Drawing.Point(307, 18);
+            this.pictureBox1.Location = new System.Drawing.Point(409, 22);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(157, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -126,9 +131,10 @@
             // btnRestart
             // 
             this.btnRestart.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestart.Location = new System.Drawing.Point(486, 471);
+            this.btnRestart.Location = new System.Drawing.Point(648, 580);
+            this.btnRestart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRestart.Name = "btnRestart";
-            this.btnRestart.Size = new System.Drawing.Size(91, 31);
+            this.btnRestart.Size = new System.Drawing.Size(121, 38);
             this.btnRestart.TabIndex = 9;
             this.btnRestart.Text = "Restart";
             this.btnRestart.UseVisualStyleBackColor = true;
@@ -137,9 +143,10 @@
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(18, 471);
+            this.btnSearch.Location = new System.Drawing.Point(24, 580);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(91, 31);
+            this.btnSearch.Size = new System.Drawing.Size(121, 38);
             this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -148,9 +155,10 @@
             // btnAddFurniture
             // 
             this.btnAddFurniture.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddFurniture.Location = new System.Drawing.Point(149, 471);
+            this.btnAddFurniture.Location = new System.Drawing.Point(199, 580);
+            this.btnAddFurniture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddFurniture.Name = "btnAddFurniture";
-            this.btnAddFurniture.Size = new System.Drawing.Size(147, 31);
+            this.btnAddFurniture.Size = new System.Drawing.Size(196, 38);
             this.btnAddFurniture.TabIndex = 6;
             this.btnAddFurniture.Text = "Add Furniture";
             this.btnAddFurniture.UseVisualStyleBackColor = true;
@@ -159,9 +167,10 @@
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(616, 471);
+            this.btnExit.Location = new System.Drawing.Point(821, 580);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(91, 31);
+            this.btnExit.Size = new System.Drawing.Size(121, 38);
             this.btnExit.TabIndex = 8;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -170,9 +179,10 @@
             // btnAddItem
             // 
             this.btnAddItem.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddItem.Location = new System.Drawing.Point(332, 471);
+            this.btnAddItem.Location = new System.Drawing.Point(443, 580);
+            this.btnAddItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(111, 31);
+            this.btnAddItem.Size = new System.Drawing.Size(148, 38);
             this.btnAddItem.TabIndex = 7;
             this.btnAddItem.Text = "Add Item";
             this.btnAddItem.UseVisualStyleBackColor = true;
@@ -182,9 +192,10 @@
             // 
             this.lblFurnitureInfo.AutoSize = true;
             this.lblFurnitureInfo.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFurnitureInfo.Location = new System.Drawing.Point(232, 51);
+            this.lblFurnitureInfo.Location = new System.Drawing.Point(309, 63);
+            this.lblFurnitureInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFurnitureInfo.Name = "lblFurnitureInfo";
-            this.lblFurnitureInfo.Size = new System.Drawing.Size(306, 39);
+            this.lblFurnitureInfo.Size = new System.Drawing.Size(383, 49);
             this.lblFurnitureInfo.TabIndex = 49;
             this.lblFurnitureInfo.Text = "Furniture Information";
             this.lblFurnitureInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -198,9 +209,10 @@
             this.cboItemID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboItemID.Font = new System.Drawing.Font("Calibri", 12F);
             this.cboItemID.FormattingEnabled = true;
-            this.cboItemID.Location = new System.Drawing.Point(439, 108);
+            this.cboItemID.Location = new System.Drawing.Point(585, 133);
+            this.cboItemID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboItemID.Name = "cboItemID";
-            this.cboItemID.Size = new System.Drawing.Size(121, 27);
+            this.cboItemID.Size = new System.Drawing.Size(160, 32);
             this.cboItemID.TabIndex = 2;
             this.cboItemID.ValueMember = "itemID";
             // 
@@ -223,9 +235,10 @@
             this.cboFurnitureID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFurnitureID.Font = new System.Drawing.Font("Calibri", 12F);
             this.cboFurnitureID.FormattingEnabled = true;
-            this.cboFurnitureID.Location = new System.Drawing.Point(118, 116);
+            this.cboFurnitureID.Location = new System.Drawing.Point(157, 143);
+            this.cboFurnitureID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboFurnitureID.Name = "cboFurnitureID";
-            this.cboFurnitureID.Size = new System.Drawing.Size(121, 27);
+            this.cboFurnitureID.Size = new System.Drawing.Size(160, 32);
             this.cboFurnitureID.TabIndex = 1;
             this.cboFurnitureID.ValueMember = "furnitureID";
             // 
@@ -315,9 +328,10 @@
             this.cboStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStyle.Font = new System.Drawing.Font("Calibri", 12F);
             this.cboStyle.FormattingEnabled = true;
-            this.cboStyle.Location = new System.Drawing.Point(118, 165);
+            this.cboStyle.Location = new System.Drawing.Point(157, 203);
+            this.cboStyle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboStyle.Name = "cboStyle";
-            this.cboStyle.Size = new System.Drawing.Size(121, 27);
+            this.cboStyle.Size = new System.Drawing.Size(160, 32);
             this.cboStyle.TabIndex = 3;
             this.cboStyle.ValueMember = "styleID";
             // 
@@ -339,26 +353,28 @@
             this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategory.Font = new System.Drawing.Font("Calibri", 12F);
             this.cboCategory.FormattingEnabled = true;
-            this.cboCategory.Location = new System.Drawing.Point(439, 162);
+            this.cboCategory.Location = new System.Drawing.Point(585, 199);
+            this.cboCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboCategory.Name = "cboCategory";
-            this.cboCategory.Size = new System.Drawing.Size(121, 27);
+            this.cboCategory.Size = new System.Drawing.Size(160, 32);
             this.cboCategory.TabIndex = 4;
             this.cboCategory.ValueMember = "categoryID";
             // 
             // dataGridViewFurniture
             // 
             this.dataGridViewFurniture.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewFurniture.Location = new System.Drawing.Point(18, 217);
+            this.dataGridViewFurniture.Location = new System.Drawing.Point(24, 267);
+            this.dataGridViewFurniture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridViewFurniture.Name = "dataGridViewFurniture";
-            this.dataGridViewFurniture.Size = new System.Drawing.Size(853, 236);
+            this.dataGridViewFurniture.Size = new System.Drawing.Size(1137, 290);
             this.dataGridViewFurniture.TabIndex = 64;
             this.dataGridViewFurniture.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFurniture_CellContentClick);
             // 
             // FurnitureView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(889, 517);
+            this.ClientSize = new System.Drawing.Size(1185, 636);
             this.Controls.Add(this.dataGridViewFurniture);
             this.Controls.Add(this.cboCategory);
             this.Controls.Add(descriptionLabel1);
@@ -375,6 +391,7 @@
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FurnitureView";
             this.Text = "SearchFurnitureView";
             this.Load += new System.EventHandler(this.SearchFurnitureView_Load);

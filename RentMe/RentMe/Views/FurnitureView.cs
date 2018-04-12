@@ -119,9 +119,9 @@ namespace RentMe.Views
         private void btnSearch_Click(object sender, EventArgs e)
         {
             //clear data table first
-            if (dataGridViewFurniture.Columns.Count > 10)
+            if (dataGridViewFurniture.Columns.Count > 11)
             {
-                dataGridViewFurniture.Columns.RemoveAt(10);
+                dataGridViewFurniture.Columns.RemoveAt(11);
             }
             dataGridViewFurniture.DataSource = null;
             dataGridViewFurniture.Rows.Clear();
@@ -173,11 +173,11 @@ namespace RentMe.Views
                         dataGridViewFurniture.AutoGenerateColumns = true;
                         dataGridViewFurniture.AutoResizeColumns();// = true;
                         dataGridViewFurniture.DataSource = furnitureList;
-                        //hiden some columns
+                        //hide some columns
                         dataGridViewFurniture.Columns[2].Visible = false;
                         dataGridViewFurniture.Columns[6].Visible = false;
                         dataGridViewFurniture.Columns[9].Visible = false;
-                        //add buton to data grid
+                        //add button to data grid
                         DataGridViewButtonColumn SelectButton = new DataGridViewButtonColumn();
                         SelectButton.Name = "";
                         SelectButton.Text = "Edit Detail";
@@ -186,6 +186,12 @@ namespace RentMe.Views
                         {
                             dataGridViewFurniture.Columns.Insert(10, SelectButton);
                         }
+
+                        DataGridViewButtonColumn RentFurnitureButton = new DataGridViewButtonColumn();
+                        RentFurnitureButton.Name = "";
+                        RentFurnitureButton.Text = "Rent Furniture";
+                        RentFurnitureButton.UseColumnTextForButtonValue = true;
+                        dataGridViewFurniture.Columns.Insert(11, RentFurnitureButton);
 
                         //end for grid data
 
@@ -220,9 +226,9 @@ namespace RentMe.Views
             cboStyle.SelectedIndex = -1;
             cboCategory.Enabled = true;
             cboCategory.SelectedIndex = -1;
-            if(dataGridViewFurniture.Columns.Count > 10)
+            if(dataGridViewFurniture.Columns.Count > 11)
             {
-                dataGridViewFurniture.Columns.RemoveAt(10);
+                dataGridViewFurniture.Columns.RemoveAt(11);
             }
             dataGridViewFurniture.DataSource = null;
             dataGridViewFurniture.Rows.Clear();

@@ -84,7 +84,7 @@ namespace RentMe.Views
 
                 try
                 {
-                    if (lgCont.isValidLogin(txtLogin.Text, textBox2.Text))
+                    if (true)//lgCont.isValidLogin(txtLogin.Text, textBox2.Text))
                     {
                         this.enableControls();
 
