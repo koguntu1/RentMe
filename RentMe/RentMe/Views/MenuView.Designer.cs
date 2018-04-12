@@ -117,7 +117,6 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnLogout.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.Location = new System.Drawing.Point(58, 268);
             this.btnLogout.Name = "btnLogout";
@@ -129,10 +128,8 @@
             // 
             // MenuView
             // 
-            this.AcceptButton = this.btnChangePassword;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnLogout;
             this.ClientSize = new System.Drawing.Size(284, 313);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.grpEmployee);

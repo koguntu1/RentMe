@@ -17,6 +17,8 @@ namespace RentMe.Views
         ChangePasswordView password = new ChangePasswordView();
         LoginView loginForm = new LoginView();
         EmployeeView employee = new EmployeeView();
+        RentView rentView = new RentView();
+        ItemReturnView itemReturnView = new ItemReturnView();
         public MDIView()
         {
             InitializeComponent();
@@ -195,6 +197,46 @@ namespace RentMe.Views
         private void menuExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void rentItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rentView.Enabled)
+            {
+
+                if (rentView.IsDisposed)
+                {
+                    rentView = new RentView();
+                    rentView.MdiParent = this;
+                    //customer.StartPosition = FormStartPosition.CenterScreen;
+                    rentView.Show();
+                }
+                else
+                {
+                    rentView.MdiParent = this;
+                    //customer.StartPosition = FormStartPosition.CenterScreen;
+                    rentView.Show();
+                }
+            }
+        }
+
+        private void returnItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (itemReturnView.Enabled)
+            {
+
+                if (itemReturnView.IsDisposed)
+                {
+                    itemReturnView = new ItemReturnView();
+                    itemReturnView.MdiParent = this;
+                    itemReturnView.Show();
+                }
+                else
+                {
+                    itemReturnView.MdiParent = this;
+                    itemReturnView.Show();
+                }
+            }
         }
     }
 }

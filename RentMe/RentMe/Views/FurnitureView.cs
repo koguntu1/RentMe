@@ -40,8 +40,11 @@ namespace RentMe.Views
             cboStyle.SelectedIndex = -1;
             cboCategory.Enabled = true;
             cboCategory.SelectedIndex = -1;
+            btnSearch.Text = "Search";
             btnSearch.Enabled = true;
-            btnRestart.Enabled = true;
+            btnRestart.Enabled = false;
+            btnAddItem.Enabled = true;
+            btnAddFurniture.Enabled = true;
             btnExit.Enabled = true;
 
         }
@@ -115,6 +118,16 @@ namespace RentMe.Views
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            //clear data table first
+            if (dataGridViewFurniture.Columns.Count > 10)
+            {
+                dataGridViewFurniture.Columns.RemoveAt(10);
+            }
+            dataGridViewFurniture.DataSource = null;
+            dataGridViewFurniture.Rows.Clear();
+            dataGridViewFurniture.Refresh();
+
+
             int furnitureID = 0;
             int itemID = 0;
             int categoryID = 0;
@@ -133,27 +146,50 @@ namespace RentMe.Views
                     furnitureList = this.inController.GetFurniture(furnitureID, itemID, categoryID, styleID);
                     if (furnitureList.Count > 0)
                     {
-                        Furniture furniture;
-                        for (int i = 0; i < furnitureList.Count; i++)
-                        {
-                            furniture = furnitureList[i];
-                            lvFurniture.Items.Add(furniture.furnitureID.ToString());
-                            lvFurniture.Items[i].SubItems.Add(furniture.description.ToString());
-                            lvFurniture.Items[i].SubItems.Add(furniture.itemID.ToString());
-                            lvFurniture.Items[i].SubItems.Add(furniture.style.ToString());
-                            lvFurniture.Items[i].SubItems.Add(furniture.category.ToString());
-                            lvFurniture.Items[i].SubItems.Add(furniture.daily_Rate.ToString());
-                            lvFurniture.Items[i].SubItems.Add(furniture.fine_Rate.ToString());
-                        }
-                        lvFurniture.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                        //Furniture furniture;
+                        //for (int i = 0; i < furnitureList.Count; i++)
+                        //{
+                        //    furniture = furnitureList[i];
+                        //    lvFurniture.Items.Add(furniture.FurnitureID.ToString());
+                        //    lvFurniture.Items[i].SubItems.Add(furniture.Description.ToString());
+                        //    lvFurniture.Items[i].SubItems.Add(furniture.ItemID.ToString());
+                        //    lvFurniture.Items[i].SubItems.Add(furniture.Style.ToString());
+                        //    lvFurniture.Items[i].SubItems.Add(furniture.Category.ToString());
+                        //    lvFurniture.Items[i].SubItems.Add(furniture.Daily_Rate.ToString());
+                        //    lvFurniture.Items[i].SubItems.Add(furniture.Fine_Rate.ToString());
+                        //}
+                        //lvFurniture.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
                         DisableControls();
-                        btnAdd.Text = "Update";
+                        btnSearch.Text = "Refresh";
+                        btnSearch.Enabled = true;
                         // change to true for next iteration
-                        btnAdd.Enabled = false;
-                        btnSubmit.Enabled = false;
+                        btnAddFurniture.Enabled = true;
+                        btnAddItem.Enabled = true;
                         // ---------------------
                         btnRestart.Enabled = true;
                         btnExit.Enabled = true;
+
+                        //begin for grid data
+                        dataGridViewFurniture.AutoGenerateColumns = true;
+                        dataGridViewFurniture.AutoResizeColumns();// = true;
+                        dataGridViewFurniture.DataSource = furnitureList;
+                        //hiden some columns
+                        dataGridViewFurniture.Columns[2].Visible = false;
+                        dataGridViewFurniture.Columns[6].Visible = false;
+                        dataGridViewFurniture.Columns[9].Visible = false;
+                        //add buton to data grid
+                        DataGridViewButtonColumn SelectButton = new DataGridViewButtonColumn();
+                        SelectButton.Name = "";
+                        SelectButton.Text = "Edit Detail";
+                        SelectButton.UseColumnTextForButtonValue = true;
+                        if (dataGridViewFurniture.Columns["Edit Detail"] == null)
+                        {
+                            dataGridViewFurniture.Columns.Insert(10, SelectButton);
+                        }
+
+                        //end for grid data
+
+
                     }
                     else
                     {
@@ -184,12 +220,63 @@ namespace RentMe.Views
             cboStyle.SelectedIndex = -1;
             cboCategory.Enabled = true;
             cboCategory.SelectedIndex = -1;
-            lvFurniture.Items.Clear();
+            if(dataGridViewFurniture.Columns.Count > 10)
+            {
+                dataGridViewFurniture.Columns.RemoveAt(10);
+            }
+            dataGridViewFurniture.DataSource = null;
+            dataGridViewFurniture.Rows.Clear();
+            dataGridViewFurniture.Refresh();
             btnSearch.Enabled = true;
-            btnAdd.Text = "Add";
-            //btnAdd.Enabled = true;  Add next iteration
+            btnSearch.Text = "Search";
+            btnAddFurniture.Enabled = true;
+            btnAddItem.Enabled = true;
+           
             btnRestart.Enabled = true;
             btnExit.Enabled = true;
+        }
+
+        private void dataGridViewFurniture_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == 10)
+                {
+                    DataGridViewRow row = this.dataGridViewFurniture.Rows[e.RowIndex];
+                    Furniture furniture = new Furniture();
+                    furniture.Category = row.Cells["Category"].Value.ToString();
+                    furniture.StyleID = (int)row.Cells["StyleID"].Value;
+                    furniture.Style = row.Cells["Style"].Value.ToString();
+                    furniture.Description = row.Cells["Description"].Value.ToString();
+                    furniture.CategoryID = (int)row.Cells["CategoryID"].Value;
+                    furniture.category = null;
+                    furniture.ItemID = (int)row.Cells["ItemID"].Value;
+                    furniture.FurnitureID = (int)row.Cells["FurnitureID"].Value;
+                    furniture.Fine_Rate = Convert.ToDecimal(row.Cells["Fine_Rate"].Value.ToString());
+                    furniture.Daily_Rate = Convert.ToDecimal(row.Cells["Daily_Rate"].Value.ToString());
+                    //int invoiceID = (int)row.Cells["InvoiceID"].Value;
+                    //frmLineItem frmLineItem = new frmLineItem(invoiceID);
+                    //frmLineItem.Show();
+                    AddUpdateFurnitureView addUpdateFurnitureView = new AddUpdateFurnitureView(true, furniture);
+                    addUpdateFurnitureView.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        private void btnAddFurniture_Click(object sender, EventArgs e)
+        {
+            AddUpdateFurnitureView addUpdateFurnitureView = new AddUpdateFurnitureView(false, null);
+            addUpdateFurnitureView.Show();
+        }
+
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+            AddItemView addItemView = new AddItemView();
+            addItemView.Show();
         }
     }
 }

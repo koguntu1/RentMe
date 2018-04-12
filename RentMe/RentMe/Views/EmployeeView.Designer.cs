@@ -247,7 +247,6 @@
             // 
             // btnExit
             // 
-            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Location = new System.Drawing.Point(500, 382);
             this.btnExit.Name = "btnExit";
@@ -497,10 +496,8 @@
             // 
             // EmployeeView
             // 
-            this.AcceptButton = this.btnSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(630, 440);
             this.Controls.Add(this.lblGender);
             this.Controls.Add(this.lblStateInfo);

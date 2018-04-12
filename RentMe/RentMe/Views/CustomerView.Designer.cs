@@ -372,7 +372,6 @@
             // 
             // btnExit
             // 
-            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Location = new System.Drawing.Point(498, 472);
             this.btnExit.Name = "btnExit";
@@ -600,10 +599,8 @@
             // 
             // CustomerView
             // 
-            this.AcceptButton = this.btnSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(604, 531);
             this.Controls.Add(this.navCustomer);
             this.Controls.Add(this.btnRestart);

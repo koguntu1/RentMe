@@ -39,6 +39,9 @@
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addUpdateEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.login = new System.Windows.Forms.ToolStripMenuItem();
+            this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rentItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.returnItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +51,8 @@
             this.tsFile,
             this.maintenanceToolStripMenuItem,
             this.employeeToolStripMenuItem,
-            this.login});
+            this.login,
+            this.actionsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(804, 27);
@@ -138,6 +142,30 @@
             this.login.Text = "Login_label";
             this.login.Visible = false;
             // 
+            // actionsToolStripMenuItem
+            // 
+            this.actionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rentItemsToolStripMenuItem,
+            this.returnItemsToolStripMenuItem});
+            this.actionsToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F);
+            this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
+            this.actionsToolStripMenuItem.Size = new System.Drawing.Size(69, 23);
+            this.actionsToolStripMenuItem.Text = "Actions";
+            // 
+            // rentItemsToolStripMenuItem
+            // 
+            this.rentItemsToolStripMenuItem.Name = "rentItemsToolStripMenuItem";
+            this.rentItemsToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
+            this.rentItemsToolStripMenuItem.Text = "Rent Items";
+            this.rentItemsToolStripMenuItem.Click += new System.EventHandler(this.rentItemsToolStripMenuItem_Click);
+            // 
+            // returnItemsToolStripMenuItem
+            // 
+            this.returnItemsToolStripMenuItem.Name = "returnItemsToolStripMenuItem";
+            this.returnItemsToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
+            this.returnItemsToolStripMenuItem.Text = "Return Items";
+            this.returnItemsToolStripMenuItem.Click += new System.EventHandler(this.returnItemsToolStripMenuItem_Click);
+            // 
             // MDIView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,5 +198,8 @@
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addUpdateEmployeeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem login;
+        private System.Windows.Forms.ToolStripMenuItem actionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rentItemsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem returnItemsToolStripMenuItem;
     }
 }
