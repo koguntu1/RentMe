@@ -48,6 +48,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -60,10 +61,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CategoryController.cs" />
     <Compile Include="Controller\FurnitureController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\EmployeeController.cs" />
     <Compile Include="Controller\MemberController.cs" />
+    <Compile Include="Controller\StoreItemController.cs" />
+    <Compile Include="Controller\StyleController.cs" />
     <Compile Include="DAL\CategoryDAL.cs" />
     <Compile Include="DAL\EmployeeDAL.cs" />
     <Compile Include="DAL\FurnitureDAL.cs" />
@@ -85,7 +89,19 @@
     <Compile Include="Models\ReturnTransaction.cs" />
     <Compile Include="Models\Store_item.cs" />
     <Compile Include="Models\Style.cs" />
-    <Compile Include="Models\Validator.cs" />
+    <Compile Include="Views\AddItemView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddItemView.Designer.cs">
+      <DependentUpon>AddItemView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddUpdateFurnitureView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddUpdateFurnitureView.Designer.cs">
+      <DependentUpon>AddUpdateFurnitureView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Validator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RentMeDataSet.cs">
@@ -148,6 +164,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\AddItemView.resx">
+      <DependentUpon>AddItemView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddUpdateFurnitureView.resx">
+      <DependentUpon>AddUpdateFurnitureView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ChangePasswordView.resx">
       <DependentUpon>ChangePasswordView.cs</DependentUpon>
     </EmbeddedResource>
