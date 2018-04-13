@@ -168,6 +168,7 @@
             this.memberReportToolStripMenuItem.Name = "memberReportToolStripMenuItem";
             this.memberReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
             this.memberReportToolStripMenuItem.Text = "&Member Report";
+            this.memberReportToolStripMenuItem.Click += new System.EventHandler(this.memberReportToolStripMenuItem_Click);
             // 
             // rentalReportToolStripMenuItem
             // 

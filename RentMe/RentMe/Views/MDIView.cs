@@ -18,6 +18,7 @@ namespace RentMe.Views
         LoginView loginForm = new LoginView();
         EmployeeView employee = new EmployeeView();
         EmployeeReportView employeeReport = new EmployeeReportView();
+        MemberReportView memberReport = new MemberReportView();
         public MDIView()
         {
             InitializeComponent();
@@ -208,14 +209,36 @@ namespace RentMe.Views
                 {
                     employeeReport = new EmployeeReportView();
                     employeeReport.MdiParent = this;
-                    //employee.StartPosition = FormStartPosition.CenterScreen;
+                    //employeeReport.StartPosition = FormStartPosition.CenterScreen;
                     employeeReport.Show();
                 }
                 else
                 {
                     employeeReport.MdiParent = this;
-                    //employee.StartPosition = FormStartPosition.CenterScreen;
+                    //employeeReport.StartPosition = FormStartPosition.CenterScreen;
                     employeeReport.Show();
+                }
+            }
+        }
+
+        private void memberReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (memberReport.Enabled)
+            {
+
+
+                if (memberReport.IsDisposed)
+                {
+                    memberReport = new MemberReportView();
+                    memberReport.MdiParent = this;
+                    //memberReport.StartPosition = FormStartPosition.CenterScreen;
+                    memberReport.Show();
+                }
+                else
+                {
+                    memberReport.MdiParent = this;
+                    //memberReport.StartPosition = FormStartPosition.CenterScreen;
+                    memberReport.Show();
                 }
             }
         }

@@ -128,6 +128,12 @@
     <Compile Include="Views\EmployeeReportView.Designer.cs">
       <DependentUpon>EmployeeReportView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MemberReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MemberReportView.Designer.cs">
+      <DependentUpon>MemberReportView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Validator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -192,6 +198,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reports\EmployeeReport.rdlc" />
+    <EmbeddedResource Include="Reports\MemberReport.rdlc" />
     <EmbeddedResource Include="Views\AddItemView.resx">
       <DependentUpon>AddItemView.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MDIView.resx">
       <DependentUpon>MDIView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MemberReportView.resx">
+      <DependentUpon>MemberReportView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MenuView.resx">
       <DependentUpon>MenuView.cs</DependentUpon>
