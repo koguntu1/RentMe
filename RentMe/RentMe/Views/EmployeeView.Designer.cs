@@ -41,6 +41,7 @@
             System.Windows.Forms.Label stateLabel;
             System.Windows.Forms.Label postalCodeLabel;
             System.Windows.Forms.Label homePhoneLabel;
+            System.Windows.Forms.Label userIDLabel;
             this.btnRestart = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -72,6 +73,12 @@
             this.streetsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblStateInfo = new System.Windows.Forms.Label();
             this.lblGender = new System.Windows.Forms.Label();
+            this.loginBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.loginTableAdapter = new RentMe.RentMeDataSetTableAdapters.LoginTableAdapter();
+            this.txtUserID = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.btnChangePassword = new System.Windows.Forms.Button();
             fnameLabel = new System.Windows.Forms.Label();
             middleInitialLabel = new System.Windows.Forms.Label();
             lnameLabel = new System.Windows.Forms.Label();
@@ -84,12 +91,14 @@
             stateLabel = new System.Windows.Forms.Label();
             postalCodeLabel = new System.Windows.Forms.Label();
             homePhoneLabel = new System.Windows.Forms.Label();
+            userIDLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.streetsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // fnameLabel
@@ -212,13 +221,23 @@
             homePhoneLabel.TabIndex = 110;
             homePhoneLabel.Text = "Home Phone:";
             // 
+            // userIDLabel
+            // 
+            userIDLabel.AutoSize = true;
+            userIDLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            userIDLabel.Location = new System.Drawing.Point(45, 382);
+            userIDLabel.Name = "userIDLabel";
+            userIDLabel.Size = new System.Drawing.Size(61, 19);
+            userIDLabel.TabIndex = 113;
+            userIDLabel.Text = "User ID:";
+            // 
             // btnRestart
             // 
             this.btnRestart.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestart.Location = new System.Drawing.Point(386, 382);
+            this.btnRestart.Location = new System.Drawing.Point(387, 464);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(91, 31);
-            this.btnRestart.TabIndex = 16;
+            this.btnRestart.TabIndex = 18;
             this.btnRestart.Text = "Restart";
             this.btnRestart.UseVisualStyleBackColor = true;
             this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
@@ -226,10 +245,10 @@
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(24, 382);
+            this.btnSearch.Location = new System.Drawing.Point(25, 464);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(91, 31);
-            this.btnSearch.TabIndex = 13;
+            this.btnSearch.TabIndex = 15;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -237,10 +256,10 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(143, 382);
+            this.btnAdd.Location = new System.Drawing.Point(144, 464);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(91, 31);
-            this.btnAdd.TabIndex = 14;
+            this.btnAdd.TabIndex = 16;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -248,10 +267,10 @@
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(500, 382);
+            this.btnExit.Location = new System.Drawing.Point(501, 464);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(91, 31);
-            this.btnExit.TabIndex = 17;
+            this.btnExit.TabIndex = 19;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -259,10 +278,10 @@
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(268, 382);
+            this.btnSubmit.Location = new System.Drawing.Point(269, 464);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(91, 31);
-            this.btnSubmit.TabIndex = 15;
+            this.btnSubmit.TabIndex = 17;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
@@ -494,11 +513,64 @@
             this.lblGender.TabIndex = 113;
             this.lblGender.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // loginBindingSource
+            // 
+            this.loginBindingSource.DataMember = "fk_Login_Employee";
+            this.loginBindingSource.DataSource = this.employeeBindingSource;
+            // 
+            // loginTableAdapter
+            // 
+            this.loginTableAdapter.ClearBeforeFill = true;
+            // 
+            // txtUserID
+            // 
+            this.txtUserID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.loginBindingSource, "userID", true));
+            this.txtUserID.Font = new System.Drawing.Font("Calibri", 12F);
+            this.txtUserID.Location = new System.Drawing.Point(128, 374);
+            this.txtUserID.Name = "txtUserID";
+            this.txtUserID.Size = new System.Drawing.Size(100, 27);
+            this.txtUserID.TabIndex = 13;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.loginBindingSource, "password", true));
+            this.txtPassword.Font = new System.Drawing.Font("Calibri", 12F);
+            this.txtPassword.Location = new System.Drawing.Point(373, 374);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(100, 27);
+            this.txtPassword.TabIndex = 14;
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.lblPassword.Location = new System.Drawing.Point(283, 382);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(78, 19);
+            this.lblPassword.TabIndex = 114;
+            this.lblPassword.Text = "Password:";
+            // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePassword.Location = new System.Drawing.Point(70, 407);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(158, 31);
+            this.btnChangePassword.TabIndex = 115;
+            this.btnChangePassword.Text = "Change Password";
+            this.btnChangePassword.UseVisualStyleBackColor = true;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+            // 
             // EmployeeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 440);
+            this.ClientSize = new System.Drawing.Size(630, 519);
+            this.Controls.Add(this.btnChangePassword);
+            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(userIDLabel);
+            this.Controls.Add(this.txtUserID);
             this.Controls.Add(this.lblGender);
             this.Controls.Add(this.lblStateInfo);
             this.Controls.Add(homePhoneLabel);
@@ -541,6 +613,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.genderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.streetsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.loginBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -578,5 +651,11 @@
         private System.Windows.Forms.BindingSource genderBindingSource;
         private System.Windows.Forms.Label lblStateInfo;
         private System.Windows.Forms.Label lblGender;
+        private System.Windows.Forms.BindingSource loginBindingSource;
+        private RentMeDataSetTableAdapters.LoginTableAdapter loginTableAdapter;
+        private System.Windows.Forms.TextBox txtUserID;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Button btnChangePassword;
     }
 }

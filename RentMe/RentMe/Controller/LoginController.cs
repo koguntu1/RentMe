@@ -85,6 +85,12 @@ namespace RentMe.Controller
 
         }
 
+        public string EncryptPassword(string text)
+        {
+            string password = Encrypt(text);
+            return password;
+        }
+
         private static string Encrypt(string text)
         {
             byte[] hashBytes = Encoding.UTF8.GetBytes(ConfigurationManager.AppSettings["hash"]);
