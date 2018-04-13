@@ -26,8 +26,6 @@ namespace RentMe.Models
         public string State { get; set; }
         public string PostalCode { get; set; }
         public string admin { get; set; }
-        public string login { get; set; }
-        public string password { get; set; }
     
     }
 }

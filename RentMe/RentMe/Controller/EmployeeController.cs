@@ -33,10 +33,5 @@ namespace RentMe.Controller
         {
             return EmployeeDAL.UpdateEmployee(oldEmployee, newEmployee);
         }
-
-        public bool UpdateEmployeePassword(Employee employee, string password)
-        {
-            return EmployeeDAL.UpdateEmployeePassword(employee, password);
-        }
     }
 }

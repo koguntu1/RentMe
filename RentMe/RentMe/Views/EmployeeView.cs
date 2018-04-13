@@ -16,20 +16,16 @@ namespace RentMe.Views
     {
         MenuView menuScreen = new MenuView();
         EmployeeController inController;
-        LoginController loginController;
         Employee employee;
         public EmployeeView()
         {
             InitializeComponent();
             inController = new EmployeeController();
-            loginController = new LoginController();
             employee = null;
         }
 
         private void EmployeeView_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'rentMeDataSet.Login' table. You can move, or remove it, as needed.
-            this.loginTableAdapter.Fill(this.rentMeDataSet.Login);
             // TODO: This line of code loads data into the 'rentMeDataSet.Gender' table. You can move, or remove it, as needed.
             this.genderTableAdapter.Fill(this.rentMeDataSet.Gender);
             // TODO: This line of code loads data into the 'rentMeDataSet.States' table. You can move, or remove it, as needed.
@@ -45,8 +41,6 @@ namespace RentMe.Views
             txtFname.Enabled = true;
             txtLname.Enabled = true;
             mtxtHomePhone.Enabled = true;
-            txtPassword.Visible = false;
-            lblPassword.Visible = false;
             cboState.SelectedIndex = -1;
             cboGender.SelectedIndex = -1;
             cboAdmin.SelectedIndex = -1;
@@ -126,9 +120,6 @@ namespace RentMe.Views
                     btnExit.Enabled = true;
                     btnSearch.Enabled = true;
                     btnRestart.Enabled = true;
-                    btnChangePassword.Enabled = true;
-                    txtPassword.Visible = false;
-                    lblPassword.Visible = false;
                     btnAdd.Text = "Update";
                     btnSearch.Text = "Search Again";
                 }
@@ -159,7 +150,6 @@ namespace RentMe.Views
             tpBirthDate.Text = employee.dateOfBirth.ToString();
             cboGender.SelectedValue = employee.gender.ToString();
             cboAdmin.Text = employee.admin.ToString();
-            txtUserID.Text = employee.login.ToString();
         }
 
         private void PutEmployee(Employee employee)
@@ -179,8 +169,6 @@ namespace RentMe.Views
             employee.dateOfBirth = tpBirthDate.Value;
             employee.gender = cboGender.SelectedValue.ToString();
             employee.admin = cboAdmin.Text;
-            employee.login = txtUserID.Text;
-            employee.password = loginController.EncryptPassword(txtPassword.Text);
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -190,22 +178,9 @@ namespace RentMe.Views
         private void btnAdd_Click(object sender, EventArgs e)
         {
             EnableControls();
-            if (btnAdd.Text == "Add")
-            {
-                txtUserID.Enabled = true;
-                txtPassword.Visible = true;
-                lblPassword.Visible = true;
-            }
-            else
-            {
-                txtUserID.Enabled = false;
-                txtPassword.Visible = false;
-                lblPassword.Visible = false;
-            }
             btnAdd.Enabled = false;
             btnSearch.Enabled = false;
             btnRestart.Enabled = true;
-
         }
 
         private void EnableControls()
@@ -294,9 +269,6 @@ namespace RentMe.Views
                     ((DateTimePicker)ctrl).Text = "";
                 }
             }
-
-            lblGender.Text = "";
-            lblStateInfo.Text = "";
         }
 
         private void btnRestart_Click(object sender, EventArgs e)
@@ -309,8 +281,6 @@ namespace RentMe.Views
             btnAdd.Enabled = true;
             btnAdd.Text = "Add";
             btnExit.Enabled = true;
-            txtPassword.Visible = false;
-            lblPassword.Visible = false;
             ClearFields();
         }
 
@@ -340,11 +310,9 @@ namespace RentMe.Views
                     btnAdd.Text = "Update";
                     btnRestart.Enabled = true;
                     btnExit.Enabled = true;
-                    txtPassword.Visible = false;
-                    lblPassword.Visible = false;
                 }
 
-                else if (btnAdd.Text == "Update")
+                if (btnAdd.Text == "Update")
                 {
                     this.PutEmployee(newEmployee);
                     newEmployee.employeeID = employee.employeeID;
@@ -363,8 +331,6 @@ namespace RentMe.Views
                         btnRestart.Enabled = true;
                         btnAdd.Enabled = true;
                         btnExit.Enabled = true;
-                        txtPassword.Visible = false;
-                        lblPassword.Visible = false;
                     }
                 }
             }
@@ -373,76 +339,6 @@ namespace RentMe.Views
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
  
-        }
-
-        private void btnChangePassword_Click(object sender, EventArgs e)
-        {
-            if (btnChangePassword.Text == "Change Password")
-            {
-                lblPassword.Visible = true;
-                txtPassword.Visible = true;
-                txtPassword.Enabled = true;
-                btnSearch.Enabled = false;
-                btnAdd.Enabled = false;
-                btnChangePassword.Text = "Update Password";
-            }
-            else if (btnChangePassword.Text == "Update Password")
-            {
-                string password = loginController.EncryptPassword(txtPassword.Text);
-                try
-                {
-                    if (inController.UpdateEmployeePassword(employee, password))
-                    {
-                        MessageBox.Show("Employee password updated. Please make a note of it.");
-                        btnChangePassword.Text = "Change Password";
-                        DisableControls();
-                        txtFname.Enabled = true;
-                        txtLname.Enabled = true;
-                        mtxtHomePhone.Enabled = true;
-                        btnSearch.Enabled = true;
-                        btnAdd.Enabled = true;
-                        btnAdd.Text = "Add";
-                        btnExit.Enabled = true;
-                        txtPassword.Visible = false;
-                        lblPassword.Visible = false;
-                        ClearFields();
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Unable to update password.");
-                        btnChangePassword.Text = "Change Password";
-                        DisableControls();
-                        txtFname.Enabled = true;
-                        txtLname.Enabled = true;
-                        mtxtHomePhone.Enabled = true;
-                        btnSearch.Enabled = true;
-                        btnAdd.Enabled = true;
-                        btnAdd.Text = "Add";
-                        btnExit.Enabled = true;
-                        txtPassword.Visible = false;
-                        lblPassword.Visible = false;
-                        ClearFields();
-                    }
-                    
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Unable to update password.");
-                    btnChangePassword.Text = "Change Password";
-                    DisableControls();
-                    txtFname.Enabled = true;
-                    txtLname.Enabled = true;
-                    mtxtHomePhone.Enabled = true;
-                    btnSearch.Enabled = true;
-                    btnAdd.Enabled = true;
-                    btnAdd.Text = "Add";
-                    btnExit.Enabled = true;
-                    txtPassword.Visible = false;
-                    lblPassword.Visible = false;
-                    ClearFields();
-                }
-            }
         }
     }
 }

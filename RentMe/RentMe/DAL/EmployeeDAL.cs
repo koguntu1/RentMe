@@ -16,11 +16,9 @@ namespace RentMe.DAL
             Employee employee = new Employee();
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string selectstatement =
-                "SELECT e.employeeID, e.fname, e.middleInitial, e.lname, e.dateOfBirth, e.gender, e.homePhone, " +
-                "e.Address1, e.Address2, e.City, e.State, e.PostalCode, e.Admin, l.userID " +
-                "FROM employee e INNER JOIN login l " +
-                "ON l.employeeID = e.employeeID " +
-                "WHERE UPPER(e.fname) = @firstName AND UPPER(e.lname) = @lastName";
+                "SELECT employeeID, fname, middleInitial, lname, dateOfBirth, gender, homePhone, Address1, Address2, City, State, PostalCode, Admin " +
+                "FROM employee " +
+                "WHERE UPPER(fname) = @firstName AND UPPER(lname) = @lastName";
             SqlCommand selectCommand = new SqlCommand(selectstatement, connection);
             selectCommand.Parameters.AddWithValue("@firstName", firstName);
             selectCommand.Parameters.AddWithValue("@lastName", lastName);
@@ -44,7 +42,8 @@ namespace RentMe.DAL
                     employee.State = reader["State"].ToString();
                     employee.PostalCode = reader["PostalCode"].ToString();
                     employee.admin = reader["Admin"].ToString();
-                    employee.login = reader["userID"].ToString();
+
+
                 }
                 else
                 {
@@ -68,11 +67,9 @@ namespace RentMe.DAL
             Employee employee = new Employee();
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string selectstatement =
-                "SELECT e.employeeID, e.fname, e.middleInitial, e.lname, e.dateOfBirth, e.gender, e.homePhone, " +
-                "e.Address1, e.Address2, e.City, e.State, e.PostalCode, e.Admin, l.userID " +
-                "FROM employee e INNER JOIN login l " +
-                "ON l.employeeID = e.employeeID " +
-                "WHERE e.homePhone = @phone";
+                "SELECT employeeID, fname, middleInitial, lname, dateOfBirth, gender, homePhone, Address1, Address2, City, State, PostalCode, Admin " +
+                "FROM employee " +
+                "WHERE homePhone = @phone";
             SqlCommand selectCommand = new SqlCommand(selectstatement, connection);
             selectCommand.Parameters.AddWithValue("@phone", phoneNumber);
             try
@@ -95,7 +92,6 @@ namespace RentMe.DAL
                     employee.State = reader["State"].ToString();
                     employee.PostalCode = reader["PostalCode"].ToString();
                     employee.admin = reader["admin"].ToString();
-                    employee.login = reader["userID"].ToString();
 
 
                 }
@@ -116,38 +112,8 @@ namespace RentMe.DAL
             return employee;
         }
 
-        public static bool UpdateEmployeePassword(Employee employee, string password)
-        {
-            SqlConnection connection = RentMeDBConnection.GetConnection();
-            string updateStatement =
-                "UPDATE Login " +
-                "SET password = @password " +
-                "WHERE employeeID = @employeeID";
-            SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
-            updateCommand.Parameters.AddWithValue("@password", password);
-            updateCommand.Parameters.AddWithValue("@employeeID", employee.employeeID);
-            try
-            {
-                connection.Open();
-                int count = updateCommand.ExecuteNonQuery();
-                if (count > 0)
-                    return true;
-                else
-                    return false;
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
-
         public static int AddEmployee(Employee employee)
         {
-            int employeeID = 0;
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string insertStatement =
                 "INSERT Employee " +
@@ -173,40 +139,8 @@ namespace RentMe.DAL
                 string selectStatement =
                     "SELECT IDENT_CURRENT('Employee') FROM Employee";
                 SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
-                employeeID = Convert.ToInt32(selectCommand.ExecuteScalar());
+                int employeeID = Convert.ToInt32(selectCommand.ExecuteScalar());
                 return employeeID;
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
-                AddLogin(employee, employeeID);
-            }
-        }
-
-        public static int AddLogin(Employee employee, int employeeID)
-        {
-            SqlConnection connection = RentMeDBConnection.GetConnection();
-            string insertStatement =
-                "INSERT Login " +
-                  "(userID, password, employeeID) " +
-                "VALUES (@login, @password, @employeeID)";
-            SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
-            insertCommand.Parameters.AddWithValue("@login", employee.login);
-            insertCommand.Parameters.AddWithValue("@password", employee.password);
-            insertCommand.Parameters.AddWithValue("@employeeID", employeeID);
-            try
-            {
-                connection.Open();
-                insertCommand.ExecuteNonQuery();
-                string selectStatement =
-                    "SELECT IDENT_CURRENT('Login') FROM Login";
-                SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
-                int loginID = Convert.ToInt32(selectCommand.ExecuteScalar());
-                return loginID;
             }
             catch (SqlException ex)
             {

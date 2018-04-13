@@ -567,17 +567,7 @@
             this.AcceptButton = this.btnSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(630, 519);
-            this.Controls.Add(this.btnChangePassword);
-            this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(userIDLabel);
-            this.Controls.Add(this.txtUserID);
-=======
-            this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(630, 440);
->>>>>>> Added acceptbutton to enhance easy of use
             this.Controls.Add(this.lblGender);
             this.Controls.Add(this.lblStateInfo);
             this.Controls.Add(homePhoneLabel);
