@@ -43,11 +43,22 @@ namespace RentMe.Views
             mt.Enabled = true;
             ToolStripMenuItem et = (ToolStripMenuItem)ms.Items["employeeToolStripMenuItem"];
             et.Enabled = true;
+            ToolStripMenuItem rt = (ToolStripMenuItem)ms.Items["adminReportsToolStripMenuItem"];
             try
             {
                 if (lgCont.IsAdminRole(txtLogin.Text, textBox2.Text))
                 {
                     et.DropDownItems["addUpdateEmployeeToolStripMenuItem"].Enabled = true;
+                    et.DropDownItems["addUpdateEmployeeToolStripMenuItem"].Visible = true;
+                    rt.Enabled = true;
+                    rt.Visible = true;
+                }
+                else
+                {
+                    et.DropDownItems["addUpdateEmployeeToolStripMenuItem"].Enabled = false;
+                    et.DropDownItems["addUpdateEmployeeToolStripMenuItem"].Visible = false;
+                    rt.Enabled = false;
+                    rt.Visible = false;
                 }
             }
             catch (Exception e)

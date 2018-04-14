@@ -39,6 +39,11 @@
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addUpdateEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.login = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.employeeReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.memberReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rentalReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.returnReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rentItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.returnItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,6 +57,7 @@
             this.maintenanceToolStripMenuItem,
             this.employeeToolStripMenuItem,
             this.login,
+            this.adminReportsToolStripMenuItem,
             this.actionsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -142,6 +148,43 @@
             this.login.Text = "Login_label";
             this.login.Visible = false;
             // 
+            // adminReportsToolStripMenuItem
+            // 
+            this.adminReportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.employeeReportToolStripMenuItem,
+            this.memberReportToolStripMenuItem,
+            this.rentalReportToolStripMenuItem,
+            this.returnReportToolStripMenuItem});
+            this.adminReportsToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F);
+            this.adminReportsToolStripMenuItem.Name = "adminReportsToolStripMenuItem";
+            this.adminReportsToolStripMenuItem.Size = new System.Drawing.Size(116, 23);
+            this.adminReportsToolStripMenuItem.Text = "Admin &Reports";
+            // 
+            // employeeReportToolStripMenuItem
+            // 
+            this.employeeReportToolStripMenuItem.Name = "employeeReportToolStripMenuItem";
+            this.employeeReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
+            this.employeeReportToolStripMenuItem.Text = "&Employee Report";
+            this.employeeReportToolStripMenuItem.Click += new System.EventHandler(this.employeeReportToolStripMenuItem_Click);
+            // 
+            // memberReportToolStripMenuItem
+            // 
+            this.memberReportToolStripMenuItem.Name = "memberReportToolStripMenuItem";
+            this.memberReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
+            this.memberReportToolStripMenuItem.Text = "&Member Report";
+            // 
+            // rentalReportToolStripMenuItem
+            // 
+            this.rentalReportToolStripMenuItem.Name = "rentalReportToolStripMenuItem";
+            this.rentalReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
+            this.rentalReportToolStripMenuItem.Text = "&Rental Report";
+            // 
+            // returnReportToolStripMenuItem
+            // 
+            this.returnReportToolStripMenuItem.Name = "returnReportToolStripMenuItem";
+            this.returnReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
+            this.returnReportToolStripMenuItem.Text = "Re&turn Report";
+            // 
             // actionsToolStripMenuItem
             // 
             this.actionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -198,6 +241,11 @@
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addUpdateEmployeeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem login;
+        private System.Windows.Forms.ToolStripMenuItem adminReportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem employeeReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem memberReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rentalReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem returnReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem actionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rentItemsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem returnItemsToolStripMenuItem;
