@@ -14,6 +14,12 @@ namespace RentMe.Controller
         {
 
         }
+
+        public List<Employee> GetemployeeList()
+        {
+            return EmployeeDAL.GetemployeeList();
+        }
+
         public Employee GetEmployeeByName(string firstName, string lastName)
         {
             return EmployeeDAL.GetEmployeeByName(firstName, lastName);

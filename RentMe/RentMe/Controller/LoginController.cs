@@ -119,7 +119,6 @@ namespace RentMe.Controller
             memoryStream.Close();
 
             cryptoStream.Close();
-            //string passwordencrypted = Convert.ToBase64String(cipherTextBytes);
             return Convert.ToBase64String(cipherTextBytes);
         }
         

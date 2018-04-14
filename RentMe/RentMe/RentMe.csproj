@@ -85,6 +85,7 @@
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\EmployeeController.cs" />
     <Compile Include="Controller\MemberController.cs" />
+    <Compile Include="Controller\RentalController.cs" />
     <Compile Include="Controller\StoreItemController.cs" />
     <Compile Include="Controller\StyleController.cs" />
     <Compile Include="DAL\CategoryDAL.cs" />
@@ -134,11 +135,23 @@
     <Compile Include="Views\ItemReturnView.Designer.cs">
       <DependentUpon>ItemReturnView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\RentalHistoryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RentalHistoryView.Designer.cs">
+      <DependentUpon>RentalHistoryView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\RentView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\RentView.Designer.cs">
       <DependentUpon>RentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReturnHistoryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ReturnHistoryView.Designer.cs">
+      <DependentUpon>ReturnHistoryView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Validator.cs" />
     <Compile Include="Program.cs" />
@@ -237,8 +250,14 @@
     <EmbeddedResource Include="Views\FurnitureView.resx">
       <DependentUpon>FurnitureView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\RentalHistoryView.resx">
+      <DependentUpon>RentalHistoryView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\RentView.resx">
       <DependentUpon>RentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ReturnHistoryView.resx">
+      <DependentUpon>ReturnHistoryView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

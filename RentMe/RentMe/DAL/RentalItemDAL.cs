@@ -50,5 +50,146 @@ namespace RentMe.DAL
             }
             return rentalItem;
         }
+
+
+        public static DataSet GetRentHistory(int employeeID, int memberID, DateTime fromDate, DateTime toDate)
+        {
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT Employee.fname as 'employee firstname', Employee.lname as 'employee lastname', Member.fname as 'customer firstname', Member.lname as 'customer lastname', " +
+                "Rental.rentalID, Rental.rental_date, Rental.return_date, Store_item.furnitureID, Furniture.description, Rental_transaction.transactionID, " +
+                "Transactions.amount " +
+                "from Rental, Member, Store_item, Furniture, Rental_transaction, Transactions, Employee where " +
+                "(Rental.memberID = Member.memberID and Rental.itemID = Store_item.itemID and " +
+                "Store_item.furnitureID = Furniture.furnitureID and Rental.rentalID = Rental_transaction.rentalID " +
+                "and Rental_transaction.transactionID = Transactions.transactionID and Transactions.employeeID = Employee.employeeID  ";
+                 
+            if (employeeID > 0 )
+            {
+                if (memberID > 0)
+                {
+                    selectStatement = selectStatement + " and Employee.employeeID = @employeeID and Member.memberID = @memberID" +
+                        " and (Rental.rental_date between @fromDate and @toDate))";
+                }
+                else
+                {
+                    selectStatement = selectStatement + " and Employee.employeeID" +
+                        " and (Rental.rental_date between @fromDate and @toDate))";
+                }
+            }
+            else if(employeeID < 0 && memberID > 0 )
+            {
+                selectStatement = selectStatement + " and Member.memberID = @memberID" +
+                        " and (Rental.rental_date between @fromDate and @toDate))";
+            }
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+            selectCommand.Parameters.AddWithValue("@fromDate", fromDate);
+            selectCommand.Parameters.AddWithValue("@toDate", toDate);
+            if(memberID > 0)
+            {
+                selectCommand.Parameters.AddWithValue("@memberID", memberID);
+            }
+
+            if(employeeID > 0)
+            {
+                selectCommand.Parameters.AddWithValue("@employeeID", employeeID);
+            }
+
+            //dataAdapter.SelectCommand = selectCommand;
+            // Populate a new data table
+            DataSet dataSet = new DataSet();
+            try
+            {
+                connection.Open();
+                SqlDataReader sdr = selectCommand.ExecuteReader();
+                dataSet.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                dataSet.Tables.Add("RentalHistory");
+
+                //Load DataReader into the DataTable.
+                dataSet.Tables[0].Load(sdr);
+
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dataSet;
+        }
+
+
+        public static DataSet GetReturnHistory(int employeeID, int memberID, DateTime fromDate, DateTime toDate)
+        {
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT Employee.fname as 'employee firstname', Employee.lname as 'employee lastname', Member.fname as 'customer firstname', Member.lname as 'customer lastname', " +
+                "Rental.rentalID, Rental.rental_date, Rental.return_date, Store_item.furnitureID, Furniture.description, Rental_return_transaction.transactionID, " +
+                "Transactions.amount " +
+                "from Rental, Member, Store_item, Furniture, Rental_return_transaction, Transactions, Employee where " +
+                "(Rental.memberID = Member.memberID and Rental.itemID = Store_item.itemID and " +
+                "Store_item.furnitureID = Furniture.furnitureID and Rental.rentalID = Rental_return_transaction.rentalID " +
+                "and Rental_return_transaction.transactionID = Transactions.transactionID and Transactions.employeeID = Employee.employeeID  ";
+
+            if (employeeID > 0)
+            {
+                if (memberID > 0)
+                {
+                    selectStatement = selectStatement + " and Employee.employeeID = @employeeID and Member.memberID = @memberID" +
+                        " and (Rental.rental_date between @fromDate and @toDate) and (Rental.return_date is not null))";
+                }
+                else
+                {
+                    selectStatement = selectStatement + " and Employee.employeeID" +
+                        " and (Rental.rental_date between @fromDate and @toDate) and (Rental.return_date is not null))";
+                }
+            }
+            else if (employeeID < 0 && memberID > 0)
+            {
+                selectStatement = selectStatement + " and Member.memberID = @memberID" +
+                        " and (Rental.rental_date between @fromDate and @toDate) and (Rental.return_date is not null))";
+            }
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+            selectCommand.Parameters.AddWithValue("@fromDate", fromDate);
+            selectCommand.Parameters.AddWithValue("@toDate", toDate);
+            if (memberID > 0)
+            {
+                selectCommand.Parameters.AddWithValue("@memberID", memberID);
+            }
+
+            if (employeeID > 0)
+            {
+                selectCommand.Parameters.AddWithValue("@employeeID", employeeID);
+            }
+
+            //dataAdapter.SelectCommand = selectCommand;
+            // Populate a new data table
+            DataSet dataSet = new DataSet();
+            try
+            {
+                connection.Open();
+                SqlDataReader sdr = selectCommand.ExecuteReader();
+                dataSet.Locale = System.Globalization.CultureInfo.InvariantCulture;
+                dataSet.Tables.Add("ReturnHistory");
+
+                //Load DataReader into the DataTable.
+                dataSet.Tables[0].Load(sdr);
+
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dataSet;
+        }
+
     }
 }

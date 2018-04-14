@@ -20,6 +20,8 @@ namespace RentMe.Views
         EmployeeReportView employeeReport = new EmployeeReportView();
         RentView rentView = new RentView();
         ItemReturnView itemReturnView = new ItemReturnView();
+        RentalHistoryView rentalHistoryView = new RentalHistoryView();
+        ReturnHistoryView returnHistoryView = new ReturnHistoryView();
         public MDIView()
         {
             InitializeComponent();
@@ -258,6 +260,44 @@ namespace RentMe.Views
                 {
                     itemReturnView.MdiParent = this;
                     itemReturnView.Show();
+                }
+            }
+        }
+
+        private void rentalItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rentalHistoryView.Enabled)
+            {
+
+                if (rentalHistoryView.IsDisposed)
+                {
+                    rentalHistoryView = new RentalHistoryView();
+                    rentalHistoryView.MdiParent = this;
+                    rentalHistoryView.Show();
+                }
+                else
+                {
+                    rentalHistoryView.MdiParent = this;
+                    rentalHistoryView.Show();
+                }
+            }
+        }
+
+        private void returnItemsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (returnHistoryView.Enabled)
+            {
+
+                if (returnHistoryView.IsDisposed)
+                {
+                    returnHistoryView = new ReturnHistoryView();
+                    returnHistoryView.MdiParent = this;
+                    returnHistoryView.Show();
+                }
+                else
+                {
+                    returnHistoryView.MdiParent = this;
+                    returnHistoryView.Show();
                 }
             }
         }

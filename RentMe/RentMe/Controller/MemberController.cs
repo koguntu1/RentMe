@@ -14,6 +14,12 @@ namespace RentMe.Controller
         {
 
         }
+
+        public List<Member> GetMemberList()
+        {
+            return MemberDAL.GetMemberList();
+        }
+
         public Member GetMemberByName(string firstName, string lastName)
         {
             return MemberDAL.GetMemberByName(firstName, lastName);
