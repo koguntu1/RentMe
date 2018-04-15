@@ -31,8 +31,8 @@
             System.Windows.Forms.Label fnameLabel;
             System.Windows.Forms.Label lnameLabel;
             System.Windows.Forms.Label homePhoneLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.employeeDataGridView = new System.Windows.Forms.DataGridView();
             this.txtFname = new System.Windows.Forms.TextBox();
             this.txtLname = new System.Windows.Forms.TextBox();
@@ -88,23 +88,23 @@
             this.employeeDataGridView.AllowUserToAddRows = false;
             this.employeeDataGridView.AllowUserToDeleteRows = false;
             this.employeeDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.employeeDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.employeeDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.employeeDataGridView.ColumnHeadersHeight = 50;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.employeeDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.employeeDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.employeeDataGridView.Location = new System.Drawing.Point(12, 199);
             this.employeeDataGridView.Name = "employeeDataGridView";
             this.employeeDataGridView.ReadOnly = true;
@@ -119,7 +119,8 @@
             this.txtFname.Location = new System.Drawing.Point(190, 113);
             this.txtFname.Name = "txtFname";
             this.txtFname.Size = new System.Drawing.Size(201, 27);
-            this.txtFname.TabIndex = 3;
+            this.txtFname.TabIndex = 0;
+            this.txtFname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EmployeeView_KeyPress);
             // 
             // txtLname
             // 
@@ -129,6 +130,7 @@
             this.txtLname.Name = "txtLname";
             this.txtLname.Size = new System.Drawing.Size(210, 27);
             this.txtLname.TabIndex = 5;
+            this.txtLname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EmployeeView_KeyPress);
             // 
             // mtxtHomePhone
             // 
@@ -139,6 +141,7 @@
             this.mtxtHomePhone.Name = "mtxtHomePhone";
             this.mtxtHomePhone.Size = new System.Drawing.Size(199, 27);
             this.mtxtHomePhone.TabIndex = 7;
+            this.mtxtHomePhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EmployeeView_KeyPress);
             // 
             // btnSearch
             // 
@@ -183,7 +186,7 @@
             this.btnRestart.Location = new System.Drawing.Point(492, 473);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(91, 31);
-            this.btnRestart.TabIndex = 21;
+            this.btnRestart.TabIndex = 19;
             this.btnRestart.Text = "Restart";
             this.btnRestart.UseVisualStyleBackColor = true;
             this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);

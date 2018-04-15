@@ -71,6 +71,31 @@ namespace RentMe.Views
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+
+            LoginUser();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.MdiParent.Close();
+
+        }
+
+        private void LoginView_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                LoginUser();
+            }
+        }
+
+        private void LoginUser()
+        {
             if (txtLogin.Text == "")
 
             {
@@ -116,13 +141,6 @@ namespace RentMe.Views
                 }
 
             }
-
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.MdiParent.Close();
-
         }
     }
 }

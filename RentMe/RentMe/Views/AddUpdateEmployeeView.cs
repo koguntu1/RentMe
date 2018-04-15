@@ -156,8 +156,29 @@ namespace RentMe.Views
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            AddUpdateEmployee();
+        }
+
+        private void AddUpdateEmployeeView_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                AddUpdateEmployee();
+            }
+        }
+
+        private void ChangePassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                ChangePassword();
+            }
+        }
+
+        private void AddUpdateEmployee()
+        {
             Employee newEmployee = new Employee();
-            
+
             try
             {
                 if (!update)
@@ -195,7 +216,7 @@ namespace RentMe.Views
                     {
                         this.DialogResult = DialogResult.OK;
                         MessageBox.Show("Employee " + newEmployee.fname + " " + newEmployee.lname + " updated.");
-                        
+
                     }
                 }
             }
@@ -203,7 +224,6 @@ namespace RentMe.Views
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
- 
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)
@@ -274,6 +294,10 @@ namespace RentMe.Views
             foreach (Control c in this.Controls)
             {
                 c.Enabled = enabled;
+                if (c is Label)
+                {
+                    ((Label)c).Enabled = true;
+                }
             }
         }
     }

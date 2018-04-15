@@ -34,6 +34,20 @@ namespace RentMe.Views
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+
+            SearchEmployee();
+        }
+
+        private void EmployeeView_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                SearchEmployee();
+            }
+        }
+
+        private void SearchEmployee()
+        {
             mtxtHomePhone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             btnRestart.Enabled = true;
             try
@@ -51,7 +65,7 @@ namespace RentMe.Views
 
                     if (!mtxtHomePhone.Text.Equals(""))
                     {
-                        
+
                         employeeList = employeeController.GetEmployeeByPhone(phoneNumber);
                     }
 
@@ -71,7 +85,6 @@ namespace RentMe.Views
             {
                 MessageBox.Show("No results found. Please try again.");
             }
-            
         }
         private void DisplayEmployee(Employee employee)
         {
@@ -117,6 +130,8 @@ namespace RentMe.Views
                     i += c.Width;
                 }
                 employeeDataGridView.Width = i + employeeDataGridView.RowHeadersWidth + 2;
+                employeeDataGridView.Focus();
+                employeeDataGridView.CurrentCell = employeeDataGridView.Rows[0].Cells[0];
             }
 
         }

@@ -55,6 +55,7 @@
             this.txtLogin.TabIndex = 0;
             this.txtLogin.Tag = "Enter your username";
             this.ttLogin.SetToolTip(this.txtLogin, "Enter your username");
+            this.txtLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // loginLabel
             // 
@@ -85,6 +86,7 @@
             this.textBox2.Size = new System.Drawing.Size(214, 27);
             this.textBox2.TabIndex = 2;
             this.ttLogin.SetToolTip(this.textBox2, "Enter your password");
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // ttLogin
             // 
@@ -133,6 +135,7 @@
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // btnExit
             // 
@@ -161,6 +164,8 @@
             this.Controls.Add(this.txtLogin);
             this.Name = "LoginView";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.LoginView_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

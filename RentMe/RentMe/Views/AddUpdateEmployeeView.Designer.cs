@@ -300,7 +300,8 @@
             this.txtFname.Location = new System.Drawing.Point(131, 101);
             this.txtFname.Name = "txtFname";
             this.txtFname.Size = new System.Drawing.Size(125, 27);
-            this.txtFname.TabIndex = 1;
+            this.txtFname.TabIndex = 0;
+            this.txtFname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddUpdateEmployeeView_KeyPress);
             // 
             // txtMI
             // 
@@ -310,6 +311,7 @@
             this.txtMI.Name = "txtMI";
             this.txtMI.Size = new System.Drawing.Size(44, 27);
             this.txtMI.TabIndex = 2;
+            this.txtMI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddUpdateEmployeeView_KeyPress);
             // 
             // txtLname
             // 
@@ -319,6 +321,7 @@
             this.txtLname.Name = "txtLname";
             this.txtLname.Size = new System.Drawing.Size(125, 27);
             this.txtLname.TabIndex = 3;
+            this.txtLname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddUpdateEmployeeView_KeyPress);
             // 
             // tpBirthDate
             // 
@@ -328,6 +331,7 @@
             this.tpBirthDate.Name = "tpBirthDate";
             this.tpBirthDate.Size = new System.Drawing.Size(281, 27);
             this.tpBirthDate.TabIndex = 11;
+            this.tpBirthDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddUpdateEmployeeView_KeyPress);
             // 
             // txtAddress1
             // 
@@ -337,6 +341,7 @@
             this.txtAddress1.Name = "txtAddress1";
             this.txtAddress1.Size = new System.Drawing.Size(451, 27);
             this.txtAddress1.TabIndex = 4;
+            this.txtAddress1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddUpdateEmployeeView_KeyPress);
             // 
             // txtAddress2
             // 
@@ -346,6 +351,7 @@
             this.txtAddress2.Name = "txtAddress2";
             this.txtAddress2.Size = new System.Drawing.Size(451, 27);
             this.txtAddress2.TabIndex = 5;
+            this.txtAddress2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddUpdateEmployeeView_KeyPress);
             // 
             // txtCity
             // 
@@ -355,6 +361,7 @@
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(200, 27);
             this.txtCity.TabIndex = 6;
+            this.txtCity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddUpdateEmployeeView_KeyPress);
             // 
             // genderBindingSource
             // 
@@ -370,6 +377,7 @@
             this.mtxtZip.Name = "mtxtZip";
             this.mtxtZip.Size = new System.Drawing.Size(100, 27);
             this.mtxtZip.TabIndex = 8;
+            this.mtxtZip.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddUpdateEmployeeView_KeyPress);
             // 
             // mtxtHomePhone
             // 
@@ -380,6 +388,7 @@
             this.mtxtHomePhone.Name = "mtxtHomePhone";
             this.mtxtHomePhone.Size = new System.Drawing.Size(200, 27);
             this.mtxtHomePhone.TabIndex = 9;
+            this.mtxtHomePhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddUpdateEmployeeView_KeyPress);
             // 
             // lblStateInfo
             // 
@@ -413,6 +422,7 @@
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.Size = new System.Drawing.Size(100, 27);
             this.txtUserID.TabIndex = 13;
+            this.txtUserID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddUpdateEmployeeView_KeyPress);
             // 
             // loginBindingSource
             // 
@@ -427,6 +437,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(100, 27);
             this.txtPassword.TabIndex = 14;
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ChangePassword_KeyPress);
             // 
             // lblPassword
             // 
@@ -485,6 +496,7 @@
             this.cboState.TabIndex = 7;
             this.cboState.ValueMember = "abbreviation";
             this.cboState.SelectedIndexChanged += new System.EventHandler(this.cboState_SelectedIndexChanged);
+            this.cboState.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddUpdateEmployeeView_KeyPress);
             // 
             // cboGender
             // 
@@ -499,6 +511,7 @@
             this.cboGender.TabIndex = 10;
             this.cboGender.ValueMember = "gender";
             this.cboGender.SelectedIndexChanged += new System.EventHandler(this.cboGender_SelectedIndexChanged);
+            this.cboGender.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddUpdateEmployeeView_KeyPress);
             // 
             // cboAdmin
             // 
@@ -512,6 +525,7 @@
             this.cboAdmin.Name = "cboAdmin";
             this.cboAdmin.Size = new System.Drawing.Size(50, 27);
             this.cboAdmin.TabIndex = 12;
+            this.cboAdmin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddUpdateEmployeeView_KeyPress);
             // 
             // AddUpdateEmployeeView
             // 
