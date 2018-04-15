@@ -77,7 +77,7 @@
             // 
             lblItemID.AutoSize = true;
             lblItemID.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            lblItemID.Location = new System.Drawing.Point(371, 113);
+            lblItemID.Location = new System.Drawing.Point(535, 113);
             lblItemID.Name = "lblItemID";
             lblItemID.Size = new System.Drawing.Size(62, 19);
             lblItemID.TabIndex = 53;
@@ -87,7 +87,7 @@
             // 
             lblFurnitureID.AutoSize = true;
             lblFurnitureID.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            lblFurnitureID.Location = new System.Drawing.Point(17, 116);
+            lblFurnitureID.Location = new System.Drawing.Point(76, 119);
             lblFurnitureID.Name = "lblFurnitureID";
             lblFurnitureID.Size = new System.Drawing.Size(95, 19);
             lblFurnitureID.TabIndex = 51;
@@ -96,27 +96,27 @@
             // descriptionLabel
             // 
             descriptionLabel.AutoSize = true;
-            descriptionLabel.Font = new System.Drawing.Font("Calibri", 12F);
-            descriptionLabel.Location = new System.Drawing.Point(68, 160);
+            descriptionLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            descriptionLabel.Location = new System.Drawing.Point(124, 173);
             descriptionLabel.Name = "descriptionLabel";
-            descriptionLabel.Size = new System.Drawing.Size(44, 19);
+            descriptionLabel.Size = new System.Drawing.Size(47, 19);
             descriptionLabel.TabIndex = 58;
             descriptionLabel.Text = "Style:";
             // 
             // descriptionLabel1
             // 
             descriptionLabel1.AutoSize = true;
-            descriptionLabel1.Font = new System.Drawing.Font("Calibri", 12F);
-            descriptionLabel1.Location = new System.Drawing.Point(362, 165);
+            descriptionLabel1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            descriptionLabel1.Location = new System.Drawing.Point(535, 173);
             descriptionLabel1.Name = "descriptionLabel1";
-            descriptionLabel1.Size = new System.Drawing.Size(71, 19);
+            descriptionLabel1.Size = new System.Drawing.Size(74, 19);
             descriptionLabel1.TabIndex = 59;
             descriptionLabel1.Text = "Category:";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::RentMe.Properties.Resources._2018_03_27_13_08_06;
-            this.pictureBox1.Location = new System.Drawing.Point(307, 18);
+            this.pictureBox1.Location = new System.Drawing.Point(378, 9);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(157, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -126,7 +126,7 @@
             // btnRestart
             // 
             this.btnRestart.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestart.Location = new System.Drawing.Point(486, 471);
+            this.btnRestart.Location = new System.Drawing.Point(607, 471);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(91, 31);
             this.btnRestart.TabIndex = 9;
@@ -148,7 +148,7 @@
             // btnAddFurniture
             // 
             this.btnAddFurniture.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddFurniture.Location = new System.Drawing.Point(149, 471);
+            this.btnAddFurniture.Location = new System.Drawing.Point(189, 471);
             this.btnAddFurniture.Name = "btnAddFurniture";
             this.btnAddFurniture.Size = new System.Drawing.Size(147, 31);
             this.btnAddFurniture.TabIndex = 6;
@@ -159,7 +159,7 @@
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(616, 471);
+            this.btnExit.Location = new System.Drawing.Point(778, 471);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(91, 31);
             this.btnExit.TabIndex = 8;
@@ -170,7 +170,7 @@
             // btnAddItem
             // 
             this.btnAddItem.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddItem.Location = new System.Drawing.Point(332, 471);
+            this.btnAddItem.Location = new System.Drawing.Point(416, 471);
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(111, 31);
             this.btnAddItem.TabIndex = 7;
@@ -182,7 +182,7 @@
             // 
             this.lblFurnitureInfo.AutoSize = true;
             this.lblFurnitureInfo.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFurnitureInfo.Location = new System.Drawing.Point(232, 51);
+            this.lblFurnitureInfo.Location = new System.Drawing.Point(303, 42);
             this.lblFurnitureInfo.Name = "lblFurnitureInfo";
             this.lblFurnitureInfo.Size = new System.Drawing.Size(306, 39);
             this.lblFurnitureInfo.TabIndex = 49;
@@ -198,7 +198,7 @@
             this.cboItemID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboItemID.Font = new System.Drawing.Font("Calibri", 12F);
             this.cboItemID.FormattingEnabled = true;
-            this.cboItemID.Location = new System.Drawing.Point(439, 108);
+            this.cboItemID.Location = new System.Drawing.Point(616, 110);
             this.cboItemID.Name = "cboItemID";
             this.cboItemID.Size = new System.Drawing.Size(121, 27);
             this.cboItemID.TabIndex = 2;
@@ -223,7 +223,7 @@
             this.cboFurnitureID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFurnitureID.Font = new System.Drawing.Font("Calibri", 12F);
             this.cboFurnitureID.FormattingEnabled = true;
-            this.cboFurnitureID.Location = new System.Drawing.Point(118, 116);
+            this.cboFurnitureID.Location = new System.Drawing.Point(189, 116);
             this.cboFurnitureID.Name = "cboFurnitureID";
             this.cboFurnitureID.Size = new System.Drawing.Size(121, 27);
             this.cboFurnitureID.TabIndex = 1;
@@ -315,7 +315,7 @@
             this.cboStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStyle.Font = new System.Drawing.Font("Calibri", 12F);
             this.cboStyle.FormattingEnabled = true;
-            this.cboStyle.Location = new System.Drawing.Point(118, 165);
+            this.cboStyle.Location = new System.Drawing.Point(189, 170);
             this.cboStyle.Name = "cboStyle";
             this.cboStyle.Size = new System.Drawing.Size(121, 27);
             this.cboStyle.TabIndex = 3;
@@ -339,7 +339,7 @@
             this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategory.Font = new System.Drawing.Font("Calibri", 12F);
             this.cboCategory.FormattingEnabled = true;
-            this.cboCategory.Location = new System.Drawing.Point(439, 162);
+            this.cboCategory.Location = new System.Drawing.Point(616, 170);
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(121, 27);
             this.cboCategory.TabIndex = 4;
@@ -406,7 +406,6 @@
         private System.Windows.Forms.BindingSource store_itemBindingSource;
         private RentMeDataSetTableAdapters.Store_itemTableAdapter store_itemTableAdapter;
         private System.Windows.Forms.ComboBox cboItemID;
-        private System.Windows.Forms.ComboBox cboFurnitureID;
         private System.Windows.Forms.ToolStripPanel BottomToolStripPanel;
         private System.Windows.Forms.ToolStripPanel TopToolStripPanel;
         private System.Windows.Forms.ToolStripPanel RightToolStripPanel;
@@ -419,5 +418,6 @@
         private RentMeDataSetTableAdapters.CategoryTableAdapter categoryTableAdapter;
         private System.Windows.Forms.ComboBox cboCategory;
         private System.Windows.Forms.DataGridView dataGridViewFurniture;
+        private System.Windows.Forms.ComboBox cboFurnitureID;
     }
 }

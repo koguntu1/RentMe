@@ -44,6 +44,7 @@
             this.memberReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rentalReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.returnReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.furnitureReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -147,10 +148,11 @@
             // adminReportsToolStripMenuItem
             // 
             this.adminReportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.employeeReportToolStripMenuItem,
-            this.memberReportToolStripMenuItem,
+            this.furnitureReportToolStripMenuItem,
             this.rentalReportToolStripMenuItem,
-            this.returnReportToolStripMenuItem});
+            this.returnReportToolStripMenuItem,
+            this.memberReportToolStripMenuItem,
+            this.employeeReportToolStripMenuItem});
             this.adminReportsToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F);
             this.adminReportsToolStripMenuItem.Name = "adminReportsToolStripMenuItem";
             this.adminReportsToolStripMenuItem.Size = new System.Drawing.Size(116, 23);
@@ -168,6 +170,7 @@
             this.memberReportToolStripMenuItem.Name = "memberReportToolStripMenuItem";
             this.memberReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
             this.memberReportToolStripMenuItem.Text = "&Member Report";
+            this.memberReportToolStripMenuItem.Click += new System.EventHandler(this.memberReportToolStripMenuItem_Click);
             // 
             // rentalReportToolStripMenuItem
             // 
@@ -180,6 +183,13 @@
             this.returnReportToolStripMenuItem.Name = "returnReportToolStripMenuItem";
             this.returnReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
             this.returnReportToolStripMenuItem.Text = "Re&turn Report";
+            // 
+            // furnitureReportToolStripMenuItem
+            // 
+            this.furnitureReportToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.furnitureReportToolStripMenuItem.Name = "furnitureReportToolStripMenuItem";
+            this.furnitureReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
+            this.furnitureReportToolStripMenuItem.Text = "&Furniture Report";
             // 
             // MDIView
             // 
@@ -218,5 +228,6 @@
         private System.Windows.Forms.ToolStripMenuItem memberReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rentalReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem returnReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem furnitureReportToolStripMenuItem;
     }
 }

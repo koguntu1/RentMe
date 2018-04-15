@@ -14,7 +14,7 @@ namespace RentMe.Views
     public partial class ChangePasswordView : Form
     {
         String userID;
-        MenuView menuScreen = new MenuView();
+        //MenuView menuScreen = new MenuView();
         private LoginController lgCont;
         public ChangePasswordView()
         {

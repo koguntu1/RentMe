@@ -14,12 +14,12 @@ namespace RentMe.Controller
         {
 
         }
-        public Employee GetEmployeeByName(string firstName, string lastName)
+        public List<Employee> GetEmployeeByName(string employeeName)
         {
-            return EmployeeDAL.GetEmployeeByName(firstName, lastName);
+            return EmployeeDAL.GetEmployeeByName(employeeName);
         }
 
-        public Employee GetEmployeeByPhone(string phoneNumber)
+        public List<Employee> GetEmployeeByPhone(string phoneNumber)
         {
             return EmployeeDAL.GetEmployeeByPhone(phoneNumber);
         }
