@@ -17,7 +17,7 @@ namespace RentMe.Views
 
         private FurnitureController inController;
         List<Furniture> furnitureList;
-        MenuView menuScreen = new MenuView();
+        //MenuView menuScreen = new MenuView();
         public FurnitureView()
         {
             InitializeComponent();
