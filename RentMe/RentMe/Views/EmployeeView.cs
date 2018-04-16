@@ -7,120 +7,73 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RentMe.Controller;
 using RentMe.Models;
+using RentMe.Controller;
+
 
 namespace RentMe.Views
 {
     public partial class EmployeeView : Form
     {
-        MenuView menuScreen = new MenuView();
-        EmployeeController inController;
+
         Employee employee;
+        List<Employee> employeeList;
+        EmployeeController employeeController;
         public EmployeeView()
         {
             InitializeComponent();
-            inController = new EmployeeController();
-            employee = null;
+            employee = new Employee();
+            employeeController = new EmployeeController();
+            employeeList = new List<Employee>();
         }
 
         private void EmployeeView_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'rentMeDataSet.Gender' table. You can move, or remove it, as needed.
-            this.genderTableAdapter.Fill(this.rentMeDataSet.Gender);
-            // TODO: This line of code loads data into the 'rentMeDataSet.States' table. You can move, or remove it, as needed.
-            this.statesTableAdapter.Fill(this.rentMeDataSet.States);
-            // TODO: This line of code loads data into the 'rentMeDataSet.Streets' table. You can move, or remove it, as needed.
-            this.streetsTableAdapter.Fill(this.rentMeDataSet.Streets);
-            // TODO: This line of code loads data into the 'rentMeDataSet.Employee' table. You can move, or remove it, as needed.
-            //this.employeeTableAdapter.Fill(this.rentMeDataSet.Employee);
-            DisableControls();
-            btnSearch.Enabled = true;
-            btnAdd.Enabled = true;
-            btnExit.Enabled = true;
-            txtFname.Enabled = true;
-            txtLname.Enabled = true;
-            mtxtHomePhone.Enabled = true;
-            cboState.SelectedIndex = -1;
-            cboGender.SelectedIndex = -1;
-            cboAdmin.SelectedIndex = -1;
 
-        }
-
-        private void displayState()
-        {
-
-            if (cboState.SelectedIndex == -1)
-            {
-                lblStateInfo.Text = "";
-            }
-            else
-            {
-                DataRowView drv = (DataRowView)cboState.SelectedItem;
-                string stateName = drv["name"].ToString() + ", " + drv["country"].ToString();
-
-                if (stateName != null)
-                {
-                    lblStateInfo.Text = stateName;
-                }
-                else
-                {
-                    lblStateInfo.Text = "";
-                }
-            }
-
-        }
-        private void displayGender()
-        {
-
-            if (cboGender.SelectedIndex == -1)
-            {
-                cboGender.Text = "";
-            }
-            else
-            {
-                DataRowView drv = (DataRowView)cboGender.SelectedItem;
-                string genderType = drv["description"].ToString();
-
-                if (genderType != null)
-                {
-                    lblGender.Text = genderType;
-                }
-                else
-                {
-                    lblGender.Text = "";
-                }
-            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+            SearchEmployee();
+        }
+
+        private void EmployeeView_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                SearchEmployee();
+            }
+        }
+
+        private void SearchEmployee()
         {
             mtxtHomePhone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             btnRestart.Enabled = true;
             try
             {
-
-
-                if ((!txtFname.Text.Equals("") && !txtLname.Equals("")) || !mtxtHomePhone.Text.Equals("") )
+                mtxtHomePhone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                String employeeName = ("%" + txtFname.Text.ToString().ToUpper() + "%" + txtLname.Text.ToString().ToUpper() + "%");
+                String phoneNumber = ("%" + mtxtHomePhone.Text.ToString() + "%");
+                if (!employeeName.Equals("%%%") || !mtxtHomePhone.Text.Equals(""))
                 {
-                    if ((!txtFname.Text.Equals("") && !txtLname.Equals("")))
+                    if ((!txtFname.Text.Equals("") || !txtLname.Equals("")))
                     {
-                        employee = inController.GetEmployeeByName(txtFname.Text.ToString().ToUpper(), txtLname.Text.ToString().ToUpper());
+
+                        employeeList = employeeController.GetEmployeeByName(employeeName);
                     }
-                    
+
                     if (!mtxtHomePhone.Text.Equals(""))
                     {
-                        employee = inController.GetEmployeeByPhone(mtxtHomePhone.Text);
+
+                        employeeList = employeeController.GetEmployeeByPhone(phoneNumber);
                     }
 
                     DisplayEmployee(employee);
-
-                    DisableControls();
                     btnAdd.Enabled = true;
                     btnExit.Enabled = true;
                     btnSearch.Enabled = true;
                     btnRestart.Enabled = true;
-                    btnAdd.Text = "Update";
                     btnSearch.Text = "Search Again";
                 }
                 else
@@ -133,212 +86,123 @@ namespace RentMe.Views
                 MessageBox.Show("No results found. Please try again.");
             }
         }
-
-
-
         private void DisplayEmployee(Employee employee)
         {
-            txtFname.Text = employee.fname.ToString();
-            txtMI.Text = employee.middleInitial.ToString();
-            txtLname.Text = employee.lname.ToString();
-            txtAddress1.Text = employee.Address1.ToString();
-            txtAddress2.Text = employee.Address2.ToString();
-            txtCity.Text = employee.City.ToString();
-            cboState.SelectedValue = employee.State.ToString();
-            mtxtZip.Text = employee.PostalCode.ToString();
-            mtxtHomePhone.Text = employee.homePhone.ToString();
-            tpBirthDate.Text = employee.dateOfBirth.ToString();
-            cboGender.SelectedValue = employee.gender.ToString();
-            cboAdmin.Text = employee.admin.ToString();
-        }
 
-        private void PutEmployee(Employee employee)
-        {
-            employee.fname = txtFname.Text;
-            employee.fname = txtFname.Text;
-            employee.middleInitial = txtMI.Text;
-            employee.lname = txtLname.Text;
-            employee.Address1 = txtAddress1.Text;
-            employee.Address2 = txtAddress2.Text;
-            employee.City = txtCity.Text;
-            employee.State = cboState.SelectedValue.ToString();
-            mtxtZip.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-            employee.PostalCode = mtxtZip.Text;
-            mtxtHomePhone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-            employee.homePhone = mtxtHomePhone.Text;
-            employee.dateOfBirth = tpBirthDate.Value;
-            employee.gender = cboGender.SelectedValue.ToString();
-            employee.admin = cboAdmin.Text;
-        }
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            EnableControls();
-            btnAdd.Enabled = false;
-            btnSearch.Enabled = false;
-            btnRestart.Enabled = true;
-        }
-
-        private void EnableControls()
-        {
-            foreach (Control ctrl in this.Controls)
+            if (employeeList.Count == 0)
             {
-                if (ctrl is TextBox)
-                {
-                    ((TextBox)ctrl).Enabled = true;
-                }
-
-                if (ctrl is ComboBox)
-                {
-                    ((ComboBox)ctrl).Enabled = true;
-                }
-
-                if (ctrl is MaskedTextBox)
-                {
-                    ((MaskedTextBox)ctrl).Enabled = true;
-                }
-
-                if (ctrl is Button)
-                {
-                    ((Button)ctrl).Enabled = true;
-                }
-
-                if (ctrl is DateTimePicker)
-                {
-                    ((DateTimePicker)ctrl).Enabled = true;
-                }
+                MessageBox.Show("No results. Please search again.");
+                ClearForm();
             }
-        }
-
-        private void DisableControls()
-        {
-            foreach (Control ctrl in this.Controls)
+            else
             {
-                if (ctrl is TextBox)
+                BindingList<Employee> bindingEmployeeList = new BindingList<Employee>(employeeList);
+                employeeDataGridView.DataSource = bindingEmployeeList;
+                employeeDataGridView.AutoGenerateColumns = true;
+                employeeDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
+                employeeDataGridView.Columns["password"].Visible = false;
+                employeeDataGridView.Columns["password"].HeaderText = "";
+                employeeDataGridView.Columns["employeeID"].HeaderText = "Employee ID";
+                employeeDataGridView.Columns["fname"].HeaderText = "First Name";
+                employeeDataGridView.Columns["middleInitial"].HeaderText = "MI";
+                employeeDataGridView.Columns["lname"].HeaderText = "Last Name";
+                employeeDataGridView.Columns["Address1"].HeaderText = "Address";
+                employeeDataGridView.Columns["Address2"].HeaderText = "Address, cont.";
+                employeeDataGridView.Columns["dateOfBirth"].HeaderText = "Birth Date";
+                employeeDataGridView.Columns["gender"].HeaderText = "Gender";
+                employeeDataGridView.Columns["admin"].HeaderText = "Admin";
+                employeeDataGridView.Columns["homePhone"].HeaderText = "Phone Number";
+                employeeDataGridView.Columns["login"].HeaderText = "User ID";
+                employeeDataGridView.Columns["dateOfBirth"].DefaultCellStyle.Format = "MM/dd/yyyy";
+                employeeDataGridView.Columns["homePhone"].DefaultCellStyle.Format = "(###) ###-####";
+                editButton.HeaderText = "Edit Employee";
+                editButton.Text = "Edit Employee";
+                editButton.Name = "editButton";
+                editButton.UseColumnTextForButtonValue = true;
+                if (employeeDataGridView.Columns["editButton"] == null)
                 {
-                    ((TextBox)ctrl).Enabled = false;
+                    employeeDataGridView.Columns.Insert(0, editButton);
                 }
-
-                if (ctrl is ComboBox)
+                int i = 0;
+                foreach (DataGridViewColumn c in employeeDataGridView.Columns)
                 {
-                    ((ComboBox)ctrl).Enabled = false;
+                    i += c.Width;
                 }
-
-                if (ctrl is MaskedTextBox)
-                {
-                    ((MaskedTextBox)ctrl).Enabled = false;
-                }
-
-                if (ctrl is Button)
-                {
-                    ((Button)ctrl).Enabled = false;
-                }
-
-                if (ctrl is DateTimePicker)
-                {
-                    ((DateTimePicker)ctrl).Enabled = false;
-                }
+                employeeDataGridView.Width = i + employeeDataGridView.RowHeadersWidth + 2;
+                employeeDataGridView.Focus();
+                employeeDataGridView.CurrentCell = employeeDataGridView.Rows[0].Cells[0];
             }
+
         }
 
-        private void ClearFields()
+        private void employeeDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (Control ctrl in this.Controls)
-            {
-                if (ctrl is TextBox)
-                {
-                    ((TextBox)ctrl).Text = "";
-                }
-
-                if (ctrl is ComboBox)
-                {
-                    ((ComboBox)ctrl).SelectedIndex = -1;
-                }
-
-                if (ctrl is MaskedTextBox)
-                {
-                    ((MaskedTextBox)ctrl).Text = "";
-                }
-
-                if (ctrl is DateTimePicker)
-                {
-                    ((DateTimePicker)ctrl).Text = "";
-                }
-            }
-        }
-
-        private void btnRestart_Click(object sender, EventArgs e)
-        {
-            DisableControls();
-            txtFname.Enabled = true;
-            txtLname.Enabled = true;
-            mtxtHomePhone.Enabled = true;
-            btnSearch.Enabled = true;
-            btnAdd.Enabled = true;
-            btnAdd.Text = "Add";
-            btnExit.Enabled = true;
-            ClearFields();
-        }
-
-        private void cboState_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            displayState();
-        }
-
-        private void cboGender_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            displayGender();
-        }
-
-        private void btnSubmit_Click(object sender, EventArgs e)
-        {
-            Employee newEmployee = new Employee();
-            
             try
             {
-                if (btnAdd.Text == "Add")
+                if (e.ColumnIndex == 0)
                 {
-                    this.PutEmployee(newEmployee);
-                    this.inController.AddEmployee(newEmployee);
-                    MessageBox.Show("Employee successfully added");
-                    DisableControls();
-                    btnAdd.Enabled = true;
-                    btnAdd.Text = "Update";
-                    btnRestart.Enabled = true;
-                    btnExit.Enabled = true;
-                }
-
-                if (btnAdd.Text == "Update")
-                {
-                    this.PutEmployee(newEmployee);
-                    newEmployee.employeeID = employee.employeeID;
-                    if (!inController.UpdateEmployee(employee, newEmployee))
-                    {
-                        MessageBox.Show("Another user has updated or " +
-                            "deleted that employee.", "Database Error");
-                        this.DialogResult = DialogResult.Retry;
-                    }
-                    else
-                    {
-                        employee = newEmployee;
-                        this.DialogResult = DialogResult.OK;
-                        MessageBox.Show("Member has been updated.");
-                        DisableControls();
-                        btnRestart.Enabled = true;
-                        btnAdd.Enabled = true;
-                        btnExit.Enabled = true;
-                    }
+                    DataGridViewRow row = this.employeeDataGridView.Rows[e.RowIndex];
+                    Employee employee = new Employee();
+                    employee.employeeID = Convert.ToInt32(row.Cells["employeeID"].Value.ToString());
+                    employee.fname = row.Cells["fname"].Value.ToString();
+                    employee.middleInitial = row.Cells["middleInitial"].Value.ToString();
+                    employee.lname = row.Cells["lname"].Value.ToString();
+                    employee.Address1 = row.Cells["Address1"].Value.ToString();
+                    employee.Address2 = row.Cells["Address2"].Value.ToString();
+                    employee.City = row.Cells["City"].Value.ToString();
+                    employee.State = row.Cells["State"].Value.ToString();
+                    employee.PostalCode = row.Cells["PostalCode"].Value.ToString();
+                    employee.gender = row.Cells["gender"].Value.ToString();
+                    employee.admin = row.Cells["admin"].Value.ToString();
+                    employee.login = row.Cells["login"].Value.ToString();
+                    employee.dateOfBirth = Convert.ToDateTime(row.Cells["dateOfBirth"].Value.ToString());
+                    employee.homePhone = row.Cells["homePhone"].Value.ToString();
+                    AddUpdateEmployeeView addUpdateEmployeeView = new AddUpdateEmployeeView(true, employee);
+                    addUpdateEmployeeView.Show();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
- 
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddUpdateEmployeeView addUpdateEmployeeView = new AddUpdateEmployeeView(false, null);
+            addUpdateEmployeeView.Show();
+            addUpdateEmployeeView.Refresh();
+        }
+
+        private void btnRestart_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+        }
+
+        private void ClearForm()
+        {
+            employeeDataGridView.DataSource = null;
+            employeeDataGridView.Columns.Clear();
+            employeeDataGridView.Rows.Clear();
+            employeeDataGridView.Refresh();
+            foreach (var c in this.Controls)
+            {
+                if (c is TextBox)
+                {
+                    ((TextBox)c).Text = String.Empty;
+                }
+
+                if (c is MaskedTextBox)
+                {
+                    ((MaskedTextBox)c).Text = String.Empty;
+                }
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

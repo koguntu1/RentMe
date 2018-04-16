@@ -17,6 +17,8 @@ namespace RentMe.Views
         ChangePasswordView password = new ChangePasswordView();
         LoginView loginForm = new LoginView();
         EmployeeView employee = new EmployeeView();
+        EmployeeReportView employeeReport = new EmployeeReportView();
+        MemberReportView memberReport = new MemberReportView();
         public MDIView()
         {
             InitializeComponent();
@@ -195,6 +197,50 @@ namespace RentMe.Views
         private void menuExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void employeeReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (employeeReport.Enabled)
+            {
+
+
+                if (employeeReport.IsDisposed)
+                {
+                    employeeReport = new EmployeeReportView();
+                    employeeReport.MdiParent = this;
+                    //employeeReport.StartPosition = FormStartPosition.CenterScreen;
+                    employeeReport.Show();
+                }
+                else
+                {
+                    employeeReport.MdiParent = this;
+                    //employeeReport.StartPosition = FormStartPosition.CenterScreen;
+                    employeeReport.Show();
+                }
+            }
+        }
+
+        private void memberReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (memberReport.Enabled)
+            {
+
+
+                if (memberReport.IsDisposed)
+                {
+                    memberReport = new MemberReportView();
+                    memberReport.MdiParent = this;
+                    //memberReport.StartPosition = FormStartPosition.CenterScreen;
+                    memberReport.Show();
+                }
+                else
+                {
+                    memberReport.MdiParent = this;
+                    //memberReport.StartPosition = FormStartPosition.CenterScreen;
+                    memberReport.Show();
+                }
+            }
         }
     }
 }

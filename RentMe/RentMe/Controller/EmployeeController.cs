@@ -14,12 +14,12 @@ namespace RentMe.Controller
         {
 
         }
-        public Employee GetEmployeeByName(string firstName, string lastName)
+        public List<Employee> GetEmployeeByName(string employeeName)
         {
-            return EmployeeDAL.GetEmployeeByName(firstName, lastName);
+            return EmployeeDAL.GetEmployeeByName(employeeName);
         }
 
-        public Employee GetEmployeeByPhone(string phoneNumber)
+        public List<Employee> GetEmployeeByPhone(string phoneNumber)
         {
             return EmployeeDAL.GetEmployeeByPhone(phoneNumber);
         }
@@ -32,6 +32,11 @@ namespace RentMe.Controller
         public bool UpdateEmployee(Employee oldEmployee, Employee newEmployee)
         {
             return EmployeeDAL.UpdateEmployee(oldEmployee, newEmployee);
+        }
+
+        public bool UpdateEmployeePassword(Employee employee, string password)
+        {
+            return EmployeeDAL.UpdateEmployeePassword(employee, password);
         }
     }
 }

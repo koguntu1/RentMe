@@ -140,14 +140,14 @@ namespace RentMe.Views
 
         private void btnSearchEmployee_Click(object sender, EventArgs e)
         {
-            EmployeeView employee = new EmployeeView();
+            AddUpdateEmployeeView employee = new AddUpdateEmployeeView();
             if (employee.Enabled)
             {
 
 
                 if (employee.IsDisposed)
                 {
-                    employee = new EmployeeView();
+                    employee = new AddUpdateEmployeeView();
                     employee.MdiParent = this.MdiParent;
                     employee.StartPosition = FormStartPosition.CenterScreen;
                     employee.Show();

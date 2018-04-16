@@ -16,7 +16,7 @@ namespace RentMe.Views
     {
         private Member member;
         private MemberController memController;
-        MenuView menuScreen = new MenuView();
+        //MenuView menuScreen = new MenuView();
         public CustomerView()
         {
             InitializeComponent();

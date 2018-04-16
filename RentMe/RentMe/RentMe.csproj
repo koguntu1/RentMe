@@ -47,7 +47,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -88,6 +108,8 @@
     <Compile Include="Models\ReturnTransaction.cs" />
     <Compile Include="Models\Store_item.cs" />
     <Compile Include="Models\Style.cs" />
+    <Compile Include="Reports\Reports.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Views\AddItemView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +127,24 @@
     </Compile>
     <Compile Include="Views\RentFurnitureForm.Designer.cs">
       <DependentUpon>RentFurnitureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EmployeeReportView.Designer.cs">
+      <DependentUpon>EmployeeReportView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmployeeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EmployeeView.Designer.cs">
+      <DependentUpon>EmployeeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MemberReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MemberReportView.Designer.cs">
+      <DependentUpon>MemberReportView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Validator.cs" />
     <Compile Include="Program.cs" />
@@ -129,11 +169,11 @@
     <Compile Include="Views\CustomerView.Designer.cs">
       <DependentUpon>CustomerView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\EmployeeView.cs">
+    <Compile Include="Views\AddUpdateEmployeeView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\EmployeeView.Designer.cs">
-      <DependentUpon>EmployeeView.cs</DependentUpon>
+    <Compile Include="Views\AddUpdateEmployeeView.Designer.cs">
+      <DependentUpon>AddUpdateEmployeeView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.cs">
       <SubType>Form</SubType>
@@ -146,12 +186,6 @@
     </Compile>
     <Compile Include="Views\MDIView.Designer.cs">
       <DependentUpon>MDIView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MenuView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\MenuView.Designer.cs">
-      <DependentUpon>MenuView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FurnitureView.cs">
       <SubType>Form</SubType>
@@ -169,6 +203,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\EmployeeReport.rdlc" />
+    <EmbeddedResource Include="Reports\MemberReport.rdlc" />
     <EmbeddedResource Include="Views\AddItemView.resx">
       <DependentUpon>AddItemView.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,6 +217,12 @@
     <EmbeddedResource Include="Views\CustomerView.resx">
       <DependentUpon>CustomerView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\EmployeeReportView.resx">
+      <DependentUpon>EmployeeReportView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddUpdateEmployeeView.resx">
+      <DependentUpon>AddUpdateEmployeeView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\EmployeeView.resx">
       <DependentUpon>EmployeeView.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,8 +232,8 @@
     <EmbeddedResource Include="Views\MDIView.resx">
       <DependentUpon>MDIView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\MenuView.resx">
-      <DependentUpon>MenuView.cs</DependentUpon>
+    <EmbeddedResource Include="Views\MemberReportView.resx">
+      <DependentUpon>MemberReportView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FurnitureView.resx">
       <DependentUpon>FurnitureView.cs</DependentUpon>
@@ -199,6 +241,7 @@
     <EmbeddedResource Include="Views\RentFurnitureForm.resx">
       <DependentUpon>RentFurnitureForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -238,6 +281,22 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

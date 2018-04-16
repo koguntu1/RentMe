@@ -90,6 +90,7 @@
             lblFurnitureID.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             lblFurnitureID.Location = new System.Drawing.Point(23, 143);
             lblFurnitureID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+
             lblFurnitureID.Name = "lblFurnitureID";
             lblFurnitureID.Size = new System.Drawing.Size(117, 24);
             lblFurnitureID.TabIndex = 51;
@@ -120,6 +121,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::RentMe.Properties.Resources._2018_03_27_13_08_06;
+
             this.pictureBox1.Location = new System.Drawing.Point(409, 22);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
@@ -423,7 +425,6 @@
         private System.Windows.Forms.BindingSource store_itemBindingSource;
         private RentMeDataSetTableAdapters.Store_itemTableAdapter store_itemTableAdapter;
         private System.Windows.Forms.ComboBox cboItemID;
-        private System.Windows.Forms.ComboBox cboFurnitureID;
         private System.Windows.Forms.ToolStripPanel BottomToolStripPanel;
         private System.Windows.Forms.ToolStripPanel TopToolStripPanel;
         private System.Windows.Forms.ToolStripPanel RightToolStripPanel;
@@ -436,5 +437,6 @@
         private RentMeDataSetTableAdapters.CategoryTableAdapter categoryTableAdapter;
         private System.Windows.Forms.ComboBox cboCategory;
         private System.Windows.Forms.DataGridView dataGridViewFurniture;
+        private System.Windows.Forms.ComboBox cboFurnitureID;
     }
 }

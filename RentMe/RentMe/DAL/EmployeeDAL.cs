@@ -11,43 +11,41 @@ namespace RentMe.DAL
 {
     class EmployeeDAL
     {
-        public static Employee GetEmployeeByName(string firstName, string lastName)
+        public static List<Employee> GetEmployeeByName(string employeeName)
         {
-            Employee employee = new Employee();
+            
+            List<Employee> employeeList = new List<Employee>();
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string selectstatement =
-                "SELECT employeeID, fname, middleInitial, lname, dateOfBirth, gender, homePhone, Address1, Address2, City, State, PostalCode, Admin " +
-                "FROM employee " +
-                "WHERE UPPER(fname) = @firstName AND UPPER(lname) = @lastName";
+                "SELECT e.employeeID, e.fname, e.middleInitial, e.lname, e.dateOfBirth, e.homePhone, " +
+                "e.Address1, e.Address2, e.City, e.State, e.PostalCode, e.gender, e.Admin, l.userID " +
+                "FROM employee e LEFT OUTER JOIN login l " +
+                "ON e.employeeID = l.employeeID " +
+                "WHERE UPPER(e.fname) + UPPER(e.lname) LIKE @employeeName";
             SqlCommand selectCommand = new SqlCommand(selectstatement, connection);
-            selectCommand.Parameters.AddWithValue("@firstName", firstName);
-            selectCommand.Parameters.AddWithValue("@lastName", lastName);
+            selectCommand.Parameters.AddWithValue("@employeeName", employeeName);
             try
             {
                 connection.Open();
-                SqlDataReader reader =
-                    selectCommand.ExecuteReader(CommandBehavior.SingleRow);
-                if (reader.Read())
+                SqlDataReader reader = selectCommand.ExecuteReader();
+                while (reader.Read())
                 {
+                    Employee employee = new Employee();
                     employee.employeeID = Convert.ToInt32(reader["employeeID"].ToString());
                     employee.fname = reader["fname"].ToString();
                     employee.middleInitial = reader["middleInitial"].ToString();
                     employee.lname = reader["lname"].ToString();
                     employee.dateOfBirth = (DateTime)reader["dateOfBirth"];
-                    employee.gender = reader["gender"].ToString();
                     employee.homePhone = reader["homePhone"].ToString();
                     employee.Address1 = reader["Address1"].ToString();
                     employee.Address2 = reader["Address2"].ToString();
                     employee.City = reader["City"].ToString();
                     employee.State = reader["State"].ToString();
                     employee.PostalCode = reader["PostalCode"].ToString();
+                    employee.gender = reader["gender"].ToString();
                     employee.admin = reader["Admin"].ToString();
-
-
-                }
-                else
-                {
-                    employee = null;
+                    employee.login = reader["userID"].ToString();
+                    employeeList.Add(employee);
                 }
                 reader.Close();
             }
@@ -59,45 +57,47 @@ namespace RentMe.DAL
             {
                 connection.Close();
             }
-            return employee;
+            return employeeList;
         }
 
-        public static Employee GetEmployeeByPhone(string phoneNumber)
+        public static List<Employee> GetEmployeeByPhone(string phoneNumber)
         {
-            Employee employee = new Employee();
+            
+            List<Employee> employeeList = new List<Employee>();
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string selectstatement =
-                "SELECT employeeID, fname, middleInitial, lname, dateOfBirth, gender, homePhone, Address1, Address2, City, State, PostalCode, Admin " +
-                "FROM employee " +
-                "WHERE homePhone = @phone";
+                "SELECT e.employeeID, e.fname, e.middleInitial, e.lname, e.dateOfBirth, e.homePhone, " +
+                "e.Address1, e.Address2, e.City, e.State, e.PostalCode, e.gender, e.Admin, l.userID " +
+                "FROM employee e LEFT OUTER JOIN login l " +
+                "ON l.employeeID = e.employeeID " +
+                "WHERE e.homePhone LIKE @phone";
             SqlCommand selectCommand = new SqlCommand(selectstatement, connection);
             selectCommand.Parameters.AddWithValue("@phone", phoneNumber);
             try
             {
                 connection.Open();
                 SqlDataReader reader =
-                    selectCommand.ExecuteReader(CommandBehavior.SingleRow);
-                if (reader.Read())
+                    selectCommand.ExecuteReader();
+                while (reader.Read())
                 {
+                    Employee employee = new Employee();
                     employee.employeeID = Convert.ToInt32(reader["employeeID"].ToString());
                     employee.fname = reader["fname"].ToString();
                     employee.middleInitial = reader["middleInitial"].ToString();
                     employee.lname = reader["lname"].ToString();
                     employee.dateOfBirth = (DateTime)reader["dateOfBirth"];
-                    employee.gender = reader["gender"].ToString();
                     employee.homePhone = reader["homePhone"].ToString();
                     employee.Address1 = reader["Address1"].ToString();
                     employee.Address2 = reader["Address2"].ToString();
                     employee.City = reader["City"].ToString();
                     employee.State = reader["State"].ToString();
                     employee.PostalCode = reader["PostalCode"].ToString();
-                    employee.admin = reader["admin"].ToString();
+                    employee.gender = reader["gender"].ToString();
+                    employee.admin = reader["Admin"].ToString();
+                    employee.login = reader["userID"].ToString();
+                    employeeList.Add(employee);
 
 
-                }
-                else
-                {
-                    employee = null;
                 }
                 reader.Close();
             }
@@ -109,11 +109,41 @@ namespace RentMe.DAL
             {
                 connection.Close();
             }
-            return employee;
+            return employeeList;
+        }
+
+        public static bool UpdateEmployeePassword(Employee employee, string password)
+        {
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string updateStatement =
+                "UPDATE Login " +
+                "SET password = @password " +
+                "WHERE employeeID = @employeeID";
+            SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
+            updateCommand.Parameters.AddWithValue("@password", password);
+            updateCommand.Parameters.AddWithValue("@employeeID", employee.employeeID);
+            try
+            {
+                connection.Open();
+                int count = updateCommand.ExecuteNonQuery();
+                if (count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static int AddEmployee(Employee employee)
         {
+            int employeeID = 0;
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string insertStatement =
                 "INSERT Employee " +
@@ -139,8 +169,40 @@ namespace RentMe.DAL
                 string selectStatement =
                     "SELECT IDENT_CURRENT('Employee') FROM Employee";
                 SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
-                int employeeID = Convert.ToInt32(selectCommand.ExecuteScalar());
+                employeeID = Convert.ToInt32(selectCommand.ExecuteScalar());
                 return employeeID;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                AddLogin(employee, employeeID);
+            }
+        }
+
+        public static int AddLogin(Employee employee, int employeeID)
+        {
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string insertStatement =
+                "INSERT Login " +
+                  "(userID, password, employeeID) " +
+                "VALUES (@login, @password, @employeeID)";
+            SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
+            insertCommand.Parameters.AddWithValue("@login", employee.login);
+            insertCommand.Parameters.AddWithValue("@password", employee.password);
+            insertCommand.Parameters.AddWithValue("@employeeID", employeeID);
+            try
+            {
+                connection.Open();
+                insertCommand.ExecuteNonQuery();
+                string selectStatement =
+                    "SELECT IDENT_CURRENT('Login') FROM Login";
+                SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+                int loginID = Convert.ToInt32(selectCommand.ExecuteScalar());
+                return loginID;
             }
             catch (SqlException ex)
             {
@@ -169,10 +231,10 @@ namespace RentMe.DAL
                   "State = @NewState, " +
                   "PostalCode = @NewPostalCode, " +
                   "Admin = @NewAdmin " +
-                "WHERE employeeID = @OldemployeeID " +
-                "AND fname = @Oldfname AND middleInitial = @OldmiddleInitial AND lname = @Oldlname " +
-                "AND homePhone = @OldhomePhone AND city = @Oldcity AND state = @Oldstate " +
-                "AND PostalCode = @OldPostalCode AND Admin = @OldAdmin AND dateOfBirth = @OlddateOfBirth";
+                "WHERE employeeID = @OldemployeeID "; //+
+                //"AND fname = @Oldfname AND middleInitial = @OldmiddleInitial AND lname = @Oldlname " +
+                //"AND homePhone = @OldhomePhone AND city = @Oldcity AND state = @Oldstate " +
+                //"AND PostalCode = @OldPostalCode AND Admin = @OldAdmin AND dateOfBirth = @OlddateOfBirth";
             SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
             updateCommand.Parameters.AddWithValue("@Newfname", newEmployee.fname);
             updateCommand.Parameters.AddWithValue("@NewmiddleInitial", newEmployee.middleInitial);
@@ -187,24 +249,46 @@ namespace RentMe.DAL
             updateCommand.Parameters.AddWithValue("@NewPostalCode", newEmployee.PostalCode);
             updateCommand.Parameters.AddWithValue("@NewAdmin", newEmployee.admin);
             updateCommand.Parameters.AddWithValue("@OldemployeeID", oldEmployee.employeeID);
-            updateCommand.Parameters.AddWithValue("@Oldfname", oldEmployee.fname);
-            updateCommand.Parameters.AddWithValue("@OldmiddleInitial", oldEmployee.middleInitial);
-            updateCommand.Parameters.AddWithValue("@Oldlname", oldEmployee.lname);
-            updateCommand.Parameters.AddWithValue("@OlddateOfBirth", oldEmployee.dateOfBirth);
-            updateCommand.Parameters.AddWithValue("@Oldgender", oldEmployee.gender);
-            updateCommand.Parameters.AddWithValue("@OldhomePhone", oldEmployee.homePhone);
-            updateCommand.Parameters.AddWithValue("@OldAddress1", oldEmployee.Address1);
-            updateCommand.Parameters.AddWithValue("@OldAddress2", oldEmployee.Address2);
-            updateCommand.Parameters.AddWithValue("@OldCity", oldEmployee.City);
-            updateCommand.Parameters.AddWithValue("@OldState", oldEmployee.State);
-            updateCommand.Parameters.AddWithValue("@OldPostalCode", oldEmployee.PostalCode);
-            updateCommand.Parameters.AddWithValue("@OldAdmin", oldEmployee.admin);
+            //updateCommand.Parameters.AddWithValue("@Oldfname", oldEmployee.fname);
+            //updateCommand.Parameters.AddWithValue("@OldmiddleInitial", oldEmployee.middleInitial);
+            //updateCommand.Parameters.AddWithValue("@Oldlname", oldEmployee.lname);
+            //updateCommand.Parameters.AddWithValue("@OlddateOfBirth", oldEmployee.dateOfBirth);
+            //updateCommand.Parameters.AddWithValue("@Oldgender", oldEmployee.gender);
+            //updateCommand.Parameters.AddWithValue("@OldhomePhone", oldEmployee.homePhone);
+            //updateCommand.Parameters.AddWithValue("@OldAddress1", oldEmployee.Address1);
+            //updateCommand.Parameters.AddWithValue("@OldAddress2", oldEmployee.Address2);
+            //updateCommand.Parameters.AddWithValue("@OldCity", oldEmployee.City);
+            //updateCommand.Parameters.AddWithValue("@OldState", oldEmployee.State);
+            //updateCommand.Parameters.AddWithValue("@OldPostalCode", oldEmployee.PostalCode);
+            //updateCommand.Parameters.AddWithValue("@OldAdmin", oldEmployee.admin);
             try
             {
                 connection.Open();
                 int count = updateCommand.ExecuteNonQuery();
                 if (count > 0)
+                {
+                    updateStatement =
+                        "UPDATE Login " +
+                        "SET UserID = @NewUserID " +
+                        "WHERE EmployeeID = @OldEmployeeID ";
+                    SqlCommand updateLoginCommand = new SqlCommand(updateStatement, connection);
+                    updateLoginCommand.Parameters.AddWithValue("@NewUserID", newEmployee.login);
+                    updateLoginCommand.Parameters.AddWithValue("@OldEmployeeID", oldEmployee.employeeID);
+                    count = updateLoginCommand.ExecuteNonQuery();
+                    if (count == 0)
+                    {
+                        string insertStatement =
+                            "INSErt INTO Login " +
+                            "(UserID, EmployeeID, Password) " +
+                            "VALUES (@NewUserID, @OldEmployeeID, @Password) ";
+                        SqlCommand insertLoginCommand = new SqlCommand(insertStatement, connection);
+                        insertLoginCommand.Parameters.AddWithValue("@NewUserID", newEmployee.login);
+                        insertLoginCommand.Parameters.AddWithValue("@OldEmployeeID", oldEmployee.employeeID);
+                        insertLoginCommand.Parameters.AddWithValue("@Password", "");
+                        insertLoginCommand.ExecuteNonQuery();
+                    }
                     return true;
+                }
                 else
                     return false;
             }
