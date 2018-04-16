@@ -268,7 +268,6 @@ namespace RentMe.Views
                 }
                 if (e.ColumnIndex == 11)
                 {
-                    RentFurnitureForm rentFurnitureForm = new RentFurnitureForm();
                     Furniture furniture = new Furniture();
                     DataGridViewRow row = this.dataGridViewFurniture.Rows[e.RowIndex];
                     furniture.Category = row.Cells["Category"].Value.ToString();
@@ -281,6 +280,7 @@ namespace RentMe.Views
                     furniture.FurnitureID = (int)row.Cells["FurnitureID"].Value;
                     furniture.Fine_Rate = Convert.ToDecimal(row.Cells["Fine_Rate"].Value.ToString());
                     furniture.Daily_Rate = Convert.ToDecimal(row.Cells["Daily_Rate"].Value.ToString());
+                    RentFurnitureForm rentFurnitureForm = new RentFurnitureForm(furniture);
                     rentFurnitureForm.Show();
                 }
             }

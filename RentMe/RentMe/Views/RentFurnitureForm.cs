@@ -18,6 +18,7 @@ namespace RentMe.Views
         private Member member;
         private Login login;
         private RentalItem rentalItem;
+        private Furniture furniture;
         private LoginController lgnController;
         private Employee employee;
         private EmployeeController empController;
@@ -25,9 +26,10 @@ namespace RentMe.Views
         private RentalItemController rentalItemController;
         private RentalTransactionController rentalTransactionController;
         private MDIView mdiView;
-        public RentFurnitureForm()
+        public RentFurnitureForm(Furniture furnitureSelected)
         {
             InitializeComponent();
+            furniture = furnitureSelected;
             lgnController = new LoginController();
             memController = new MemberController();
             empController = new EmployeeController();
@@ -155,10 +157,10 @@ namespace RentMe.Views
         {
             if (mtxtRentalDate.MaskCompleted && mtxtReturnDate.MaskCompleted && Convert.ToDateTime(mtxtRentalDate.Text) < Convert.ToDateTime(mtxtReturnDate.Text))
             {
-                //RentalItem rentalItem = new RentalItem();
+                RentalItem rentalItem = this.setRentalItem();
                 RentalTransaction rentalTransaction = this.setTransactionInformation();
-                //rentalItemController.AddRentalItem(rentalItem);
-                //rentalTransactionController.AddRentalTransaction(rentalTransaction);
+                rentalItemController.AddRentalItem(rentalItem);
+                rentalTransaction.rentalTransactionID = rentalTransactionController.AddRentalTransaction(rentalTransaction);
                 this.Close();
             } else if (mtxtRentalDate.MaskCompleted && mtxtReturnDate.MaskCompleted && Convert.ToDateTime(mtxtRentalDate.Text) > Convert.ToDateTime(mtxtReturnDate.Text)) {
                 MessageBox.Show("Return date cannot be before rental date. ", "Invalid Information.");
@@ -173,7 +175,8 @@ namespace RentMe.Views
         private RentalTransaction setTransactionInformation()
         {
             RentalTransaction rentalTransaction = new RentalTransaction();
-            rentalTransaction.rentalID = rentalItem.itemID;
+            rentalTransaction.transactionDate = DateTime.Now;
+            rentalTransaction.employeeID = employee.employeeID;
             return rentalTransaction;
         }
 
@@ -182,7 +185,7 @@ namespace RentMe.Views
             rentalItem = new RentalItem();
             rentalItem.memberID = member.memberID;
             rentalItem.expectedReturn = Convert.ToDateTime(mtxtReturnDate.Text);
-            //rentalItem.itemID = 
+            rentalItem.itemID = furniture.FurnitureID;
             rentalItem.returnDate = Convert.ToDateTime(mtxtReturnDate.Text);
             rentalItem.rentalDate = Convert.ToDateTime(mtxtRentalDate.Text);
             return rentalItem;

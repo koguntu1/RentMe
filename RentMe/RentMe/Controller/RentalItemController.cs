@@ -1,4 +1,5 @@
-﻿using RentMe.Models;
+﻿using RentMe.DAL;
+using RentMe.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace RentMe.Controller
 {
     class RentalItemController
     {
-        //public RentalItem GetRentalItem(int RentalID)
-       // {
-           
-       // }
+        public int AddRentalItem(RentalItem rentalItem)
+        {
+            return RentalItemDAL.AddRentalItem(rentalItem);
+        }
     }
 }

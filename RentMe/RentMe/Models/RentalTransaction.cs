@@ -2,6 +2,8 @@
 // cs6232
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace RentMe.Models
 {
     
@@ -15,7 +17,11 @@ namespace RentMe.Models
         }
     
         public int rentalTransactionID { get; set; }
-        public int rentalID { get; set; }
+        public DateTime transactionDate { get; set; }
+        public double amount { get; set; }
+        public String comment { get; set; }
+        public int employeeID { get; set; }
+        public double? fines { get; set; }
     
        
     }
