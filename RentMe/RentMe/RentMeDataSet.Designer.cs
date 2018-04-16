@@ -15136,7 +15136,7 @@ ORDER BY   i.itemID";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT          i.itemID, f.description, c.description AS category, s.description AS style, CASE WHEN rrt.returnID IS NULL THEN 'Y' ELSE 'N' END AS AVAILABLE, f.daily_Rate, f.fine_Rate
+            this._commandCollection[0].CommandText = @"SELECT          i.itemID, f.description, c.description AS category, s.description AS style, CASE WHEN r.return_date IS NULL THEN 'N' ELSE 'Y' END AS AVAILABLE, f.daily_Rate, f.fine_Rate
 FROM              Rental_transaction AS rt LEFT OUTER JOIN
                             Rental_return_transaction AS rrt ON rt.rentalID = rrt.rentalID LEFT OUTER JOIN
                             Rental AS r ON r.rentalID = rt.rentalID INNER JOIN
