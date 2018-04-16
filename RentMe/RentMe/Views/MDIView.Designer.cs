@@ -40,11 +40,11 @@
             this.addUpdateEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.login = new System.Windows.Forms.ToolStripMenuItem();
             this.adminReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.employeeReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.memberReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.furnitureReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rentalReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.returnReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.furnitureReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.memberReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.employeeReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -158,12 +158,27 @@
             this.adminReportsToolStripMenuItem.Size = new System.Drawing.Size(116, 23);
             this.adminReportsToolStripMenuItem.Text = "Admin &Reports";
             // 
-            // employeeReportToolStripMenuItem
+            // furnitureReportToolStripMenuItem
             // 
-            this.employeeReportToolStripMenuItem.Name = "employeeReportToolStripMenuItem";
-            this.employeeReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
-            this.employeeReportToolStripMenuItem.Text = "&Employee Report";
-            this.employeeReportToolStripMenuItem.Click += new System.EventHandler(this.employeeReportToolStripMenuItem_Click);
+            this.furnitureReportToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.furnitureReportToolStripMenuItem.Name = "furnitureReportToolStripMenuItem";
+            this.furnitureReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
+            this.furnitureReportToolStripMenuItem.Text = "&Furniture Report";
+            this.furnitureReportToolStripMenuItem.Click += new System.EventHandler(this.furnitureReportToolStripMenuItem_Click);
+            // 
+            // rentalReportToolStripMenuItem
+            // 
+            this.rentalReportToolStripMenuItem.Name = "rentalReportToolStripMenuItem";
+            this.rentalReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
+            this.rentalReportToolStripMenuItem.Text = "&Rental Report";
+            this.rentalReportToolStripMenuItem.Click += new System.EventHandler(this.rentalReportToolStripMenuItem_Click);
+            // 
+            // returnReportToolStripMenuItem
+            // 
+            this.returnReportToolStripMenuItem.Name = "returnReportToolStripMenuItem";
+            this.returnReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
+            this.returnReportToolStripMenuItem.Text = "Re&turn Report";
+            this.returnReportToolStripMenuItem.Click += new System.EventHandler(this.returnReportToolStripMenuItem_Click);
             // 
             // memberReportToolStripMenuItem
             // 
@@ -172,24 +187,12 @@
             this.memberReportToolStripMenuItem.Text = "&Member Report";
             this.memberReportToolStripMenuItem.Click += new System.EventHandler(this.memberReportToolStripMenuItem_Click);
             // 
-            // rentalReportToolStripMenuItem
+            // employeeReportToolStripMenuItem
             // 
-            this.rentalReportToolStripMenuItem.Name = "rentalReportToolStripMenuItem";
-            this.rentalReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
-            this.rentalReportToolStripMenuItem.Text = "&Rental Report";
-            // 
-            // returnReportToolStripMenuItem
-            // 
-            this.returnReportToolStripMenuItem.Name = "returnReportToolStripMenuItem";
-            this.returnReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
-            this.returnReportToolStripMenuItem.Text = "Re&turn Report";
-            // 
-            // furnitureReportToolStripMenuItem
-            // 
-            this.furnitureReportToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.furnitureReportToolStripMenuItem.Name = "furnitureReportToolStripMenuItem";
-            this.furnitureReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
-            this.furnitureReportToolStripMenuItem.Text = "&Furniture Report";
+            this.employeeReportToolStripMenuItem.Name = "employeeReportToolStripMenuItem";
+            this.employeeReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
+            this.employeeReportToolStripMenuItem.Text = "&Employee Report";
+            this.employeeReportToolStripMenuItem.Click += new System.EventHandler(this.employeeReportToolStripMenuItem_Click);
             // 
             // MDIView
             // 

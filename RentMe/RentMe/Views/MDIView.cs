@@ -19,6 +19,9 @@ namespace RentMe.Views
         EmployeeView employee = new EmployeeView();
         EmployeeReportView employeeReport = new EmployeeReportView();
         MemberReportView memberReport = new MemberReportView();
+        FurnitureAvailabilityReportView furnitureAvailabilityReport = new FurnitureAvailabilityReportView();
+        RentalReportView rentalReport = new RentalReportView();
+        RentalReturnReportView rentalReturnReport = new RentalReturnReportView();
         public MDIView()
         {
             InitializeComponent();
@@ -239,6 +242,72 @@ namespace RentMe.Views
                     memberReport.MdiParent = this;
                     //memberReport.StartPosition = FormStartPosition.CenterScreen;
                     memberReport.Show();
+                }
+            }
+        }
+
+        private void furnitureReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (furnitureAvailabilityReport.Enabled)
+            {
+
+
+                if (furnitureAvailabilityReport.IsDisposed)
+                {
+                    furnitureAvailabilityReport = new FurnitureAvailabilityReportView();
+                    furnitureAvailabilityReport.MdiParent = this;
+                    //memberReport.StartPosition = FormStartPosition.CenterScreen;
+                    furnitureAvailabilityReport.Show();
+                }
+                else
+                {
+                    furnitureAvailabilityReport.MdiParent = this;
+                    //memberReport.StartPosition = FormStartPosition.CenterScreen;
+                    furnitureAvailabilityReport.Show();
+                }
+            }
+        }
+
+        private void rentalReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rentalReport.Enabled)
+            {
+
+
+                if (rentalReport.IsDisposed)
+                {
+                    rentalReport = new RentalReportView();
+                    rentalReport.MdiParent = this;
+                    //rentalReport.StartPosition = FormStartPosition.CenterScreen;
+                    rentalReport.Show();
+                }
+                else
+                {
+                    rentalReport.MdiParent = this;
+                    //memberReport.StartPosition = FormStartPosition.CenterScreen;
+                    rentalReport.Show();
+                }
+            }
+        }
+
+        private void returnReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rentalReturnReport.Enabled)
+            {
+
+
+                if (rentalReturnReport.IsDisposed)
+                {
+                    rentalReturnReport = new RentalReturnReportView();
+                    rentalReturnReport.MdiParent = this;
+                    //rentalReturnReport.StartPosition = FormStartPosition.CenterScreen;
+                    rentalReturnReport.Show();
+                }
+                else
+                {
+                    rentalReturnReport.MdiParent = this;
+                    //rentalReturnReport.StartPosition = FormStartPosition.CenterScreen;
+                    rentalReturnReport.Show();
                 }
             }
         }
