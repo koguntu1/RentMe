@@ -19,6 +19,10 @@ namespace RentMe.Views
         EmployeeView employee = new EmployeeView();
         EmployeeReportView employeeReport = new EmployeeReportView();
         MemberReportView memberReport = new MemberReportView();
+        RentView rentView = new RentView();
+        ItemReturnView itemReturnView = new ItemReturnView();
+        RentalHistoryView rentalHistoryView = new RentalHistoryView();
+        ReturnHistoryView returnHistoryView = new ReturnHistoryView();
         public MDIView()
         {
             InitializeComponent();
@@ -239,6 +243,82 @@ namespace RentMe.Views
                     memberReport.MdiParent = this;
                     //memberReport.StartPosition = FormStartPosition.CenterScreen;
                     memberReport.Show();
+                }
+            }
+        }
+
+        private void rentItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rentView.Enabled)
+            {
+
+                if (rentView.IsDisposed)
+                {
+                    rentView = new RentView();
+                    rentView.MdiParent = this;
+                    rentView.Show();
+                }
+                else
+                {
+                    rentView.MdiParent = this;
+                    rentView.Show();
+                }
+            }
+        }
+
+        private void returnItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (itemReturnView.Enabled)
+            {
+
+                if (itemReturnView.IsDisposed)
+                {
+                    itemReturnView = new ItemReturnView();
+                    itemReturnView.MdiParent = this;
+                    itemReturnView.Show();
+                }
+                else
+                {
+                    itemReturnView.MdiParent = this;
+                    itemReturnView.Show();
+                }
+            }
+        }
+
+        private void rentalItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rentalHistoryView.Enabled)
+            {
+
+                if (rentalHistoryView.IsDisposed)
+                {
+                    rentalHistoryView = new RentalHistoryView();
+                    rentalHistoryView.MdiParent = this;
+                    rentalHistoryView.Show();
+                }
+                else
+                {
+                    rentalHistoryView.MdiParent = this;
+                    rentalHistoryView.Show();
+                }
+            }
+        }
+
+        private void returnItemsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (returnHistoryView.Enabled)
+            {
+
+                if (returnHistoryView.IsDisposed)
+                {
+                    returnHistoryView = new ReturnHistoryView();
+                    returnHistoryView.MdiParent = this;
+                    returnHistoryView.Show();
+                }
+                else
+                {
+                    returnHistoryView.MdiParent = this;
+                    returnHistoryView.Show();
                 }
             }
         }

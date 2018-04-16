@@ -11,6 +11,43 @@ namespace RentMe.DAL
 {
     class MemberDAL
     {
+        public static List<Member> GetMemberList()
+        {
+            List<Member> memberList = new List<Member>();
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT * FROM Member ORDER BY fname";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = selectCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    Member member = new Member();
+                    member.memberID = (int)reader["memberID"];
+                    member.fullname = reader["fname"].ToString() + ", " + reader["lname"].ToString();
+                    memberList.Add(member);
+                }
+                //add an empty Employee
+                Member memberEmpty = new Member();
+                memberEmpty.memberID = -1;
+                memberEmpty.fullname = "";
+                memberList.Add(memberEmpty);
+                reader.Close();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return memberList;
+        }
+
+
         public static Member GetMemberByName(string firstName, string lastName)
         {
             Member member = new Member();
