@@ -65,6 +65,8 @@
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\EmployeeController.cs" />
     <Compile Include="Controller\MemberController.cs" />
+    <Compile Include="Controller\RentalItemController.cs" />
+    <Compile Include="Controller\RentalTransactionController.cs" />
     <Compile Include="Controller\StoreItemController.cs" />
     <Compile Include="Controller\StyleController.cs" />
     <Compile Include="DAL\CategoryDAL.cs" />

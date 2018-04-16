@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using RentMe.DAL;
 using RentMe.Models;
 
@@ -84,5 +85,12 @@ namespace RentMe.Controller
             }
 
         }
+        
+
+        public Login getLoggedInUser(string username)
+        {
+            return LoginDAL.GetLogin(username, LoginDAL.GetLoginPassword(username));
+        }
+        
     }
 }

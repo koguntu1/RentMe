@@ -266,6 +266,23 @@ namespace RentMe.Views
                     AddUpdateFurnitureView addUpdateFurnitureView = new AddUpdateFurnitureView(true, furniture);
                     addUpdateFurnitureView.Show();
                 }
+                if (e.ColumnIndex == 11)
+                {
+                    RentFurnitureForm rentFurnitureForm = new RentFurnitureForm();
+                    Furniture furniture = new Furniture();
+                    DataGridViewRow row = this.dataGridViewFurniture.Rows[e.RowIndex];
+                    furniture.Category = row.Cells["Category"].Value.ToString();
+                    furniture.StyleID = (int)row.Cells["StyleID"].Value;
+                    furniture.Style = row.Cells["Style"].Value.ToString();
+                    furniture.Description = row.Cells["Description"].Value.ToString();
+                    furniture.CategoryID = (int)row.Cells["CategoryID"].Value;
+                    furniture.category = null;
+                    furniture.ItemID = (int)row.Cells["ItemID"].Value;
+                    furniture.FurnitureID = (int)row.Cells["FurnitureID"].Value;
+                    furniture.Fine_Rate = Convert.ToDecimal(row.Cells["Fine_Rate"].Value.ToString());
+                    furniture.Daily_Rate = Convert.ToDecimal(row.Cells["Daily_Rate"].Value.ToString());
+                    rentFurnitureForm.Show();
+                }
             }
             catch (Exception ex)
             {

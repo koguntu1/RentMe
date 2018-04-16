@@ -44,6 +44,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsFile,
             this.maintenanceToolStripMenuItem,
@@ -51,7 +52,8 @@
             this.login});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(804, 27);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1072, 32);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -62,20 +64,20 @@
             this.menuExit});
             this.tsFile.Font = new System.Drawing.Font("Calibri", 12F);
             this.tsFile.Name = "tsFile";
-            this.tsFile.Size = new System.Drawing.Size(44, 23);
+            this.tsFile.Size = new System.Drawing.Size(51, 28);
             this.tsFile.Text = "&File";
             // 
             // menuLogout
             // 
             this.menuLogout.Name = "menuLogout";
-            this.menuLogout.Size = new System.Drawing.Size(122, 24);
+            this.menuLogout.Size = new System.Drawing.Size(143, 28);
             this.menuLogout.Text = "&Logout";
             this.menuLogout.Click += new System.EventHandler(this.menuLogout_Click);
             // 
             // menuExit
             // 
             this.menuExit.Name = "menuExit";
-            this.menuExit.Size = new System.Drawing.Size(122, 24);
+            this.menuExit.Size = new System.Drawing.Size(143, 28);
             this.menuExit.Text = "&Exit";
             this.menuExit.Click += new System.EventHandler(this.menuExit_Click);
             // 
@@ -87,20 +89,20 @@
             this.maintenanceToolStripMenuItem.Enabled = false;
             this.maintenanceToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F);
             this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
-            this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(106, 23);
+            this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(132, 28);
             this.maintenanceToolStripMenuItem.Text = "&Maintenance";
             // 
             // customerToolStripMenuItem
             // 
             this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-            this.customerToolStripMenuItem.Size = new System.Drawing.Size(222, 24);
+            this.customerToolStripMenuItem.Size = new System.Drawing.Size(276, 28);
             this.customerToolStripMenuItem.Text = "Add/Update &Customer";
             this.customerToolStripMenuItem.Click += new System.EventHandler(this.customerToolStripMenuItem_Click);
             // 
             // furnitureToolStripMenuItem
             // 
             this.furnitureToolStripMenuItem.Name = "furnitureToolStripMenuItem";
-            this.furnitureToolStripMenuItem.Size = new System.Drawing.Size(222, 24);
+            this.furnitureToolStripMenuItem.Size = new System.Drawing.Size(276, 28);
             this.furnitureToolStripMenuItem.Text = "Add/Update &Furniture";
             this.furnitureToolStripMenuItem.Click += new System.EventHandler(this.furnitureToolStripMenuItem_Click);
             // 
@@ -112,13 +114,13 @@
             this.employeeToolStripMenuItem.Enabled = false;
             this.employeeToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F);
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(84, 23);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(104, 28);
             this.employeeToolStripMenuItem.Text = "&Employee";
             // 
             // changePasswordToolStripMenuItem
             // 
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(223, 24);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(277, 28);
             this.changePasswordToolStripMenuItem.Text = "Change &Password";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
@@ -126,7 +128,7 @@
             // 
             this.addUpdateEmployeeToolStripMenuItem.Enabled = false;
             this.addUpdateEmployeeToolStripMenuItem.Name = "addUpdateEmployeeToolStripMenuItem";
-            this.addUpdateEmployeeToolStripMenuItem.Size = new System.Drawing.Size(223, 24);
+            this.addUpdateEmployeeToolStripMenuItem.Size = new System.Drawing.Size(277, 28);
             this.addUpdateEmployeeToolStripMenuItem.Text = "Add/Update E&mployee";
             this.addUpdateEmployeeToolStripMenuItem.Click += new System.EventHandler(this.addUpdateEmployeeToolStripMenuItem_Click);
             // 
@@ -134,18 +136,19 @@
             // 
             this.login.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(79, 23);
+            this.login.Size = new System.Drawing.Size(97, 28);
             this.login.Text = "Login_label";
             this.login.Visible = false;
             // 
             // MDIView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 631);
+            this.ClientSize = new System.Drawing.Size(1072, 777);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MDIView";
             this.Text = "MDIView";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

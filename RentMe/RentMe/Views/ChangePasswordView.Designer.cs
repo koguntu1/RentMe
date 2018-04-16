@@ -50,16 +50,18 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(111, 45);
+            this.lblPassword.Location = new System.Drawing.Point(148, 55);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(249, 39);
+            this.lblPassword.Size = new System.Drawing.Size(312, 49);
             this.lblPassword.TabIndex = 7;
             this.lblPassword.Text = "Change Password";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(157, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(209, 15);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(157, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -69,9 +71,10 @@
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(248, 218);
+            this.btnExit.Location = new System.Drawing.Point(331, 268);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(91, 31);
+            this.btnExit.Size = new System.Drawing.Size(121, 38);
             this.btnExit.TabIndex = 17;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -80,9 +83,10 @@
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(129, 218);
+            this.btnSubmit.Location = new System.Drawing.Point(172, 268);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(91, 31);
+            this.btnSubmit.Size = new System.Drawing.Size(121, 38);
             this.btnSubmit.TabIndex = 16;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -92,9 +96,10 @@
             // 
             this.lblCurrentPassword.AutoSize = true;
             this.lblCurrentPassword.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.lblCurrentPassword.Location = new System.Drawing.Point(85, 100);
+            this.lblCurrentPassword.Location = new System.Drawing.Point(113, 123);
+            this.lblCurrentPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCurrentPassword.Name = "lblCurrentPassword";
-            this.lblCurrentPassword.Size = new System.Drawing.Size(134, 19);
+            this.lblCurrentPassword.Size = new System.Drawing.Size(166, 24);
             this.lblCurrentPassword.TabIndex = 18;
             this.lblCurrentPassword.Text = "Current Password:";
             // 
@@ -102,9 +107,10 @@
             // 
             this.lblNewPassword.AutoSize = true;
             this.lblNewPassword.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.lblNewPassword.Location = new System.Drawing.Point(85, 133);
+            this.lblNewPassword.Location = new System.Drawing.Point(113, 164);
+            this.lblNewPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNewPassword.Name = "lblNewPassword";
-            this.lblNewPassword.Size = new System.Drawing.Size(113, 19);
+            this.lblNewPassword.Size = new System.Drawing.Size(140, 24);
             this.lblNewPassword.TabIndex = 19;
             this.lblNewPassword.Text = "New Password:";
             // 
@@ -112,38 +118,42 @@
             // 
             this.lblConfirmPassword.AutoSize = true;
             this.lblConfirmPassword.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            this.lblConfirmPassword.Location = new System.Drawing.Point(85, 166);
+            this.lblConfirmPassword.Location = new System.Drawing.Point(113, 204);
+            this.lblConfirmPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblConfirmPassword.Name = "lblConfirmPassword";
-            this.lblConfirmPassword.Size = new System.Drawing.Size(136, 19);
+            this.lblConfirmPassword.Size = new System.Drawing.Size(169, 24);
             this.lblConfirmPassword.TabIndex = 20;
             this.lblConfirmPassword.Text = "Confirm Password:";
             // 
             // mtxtCurrentPassword
             // 
             this.mtxtCurrentPassword.Font = new System.Drawing.Font("Calibri", 11F);
-            this.mtxtCurrentPassword.Location = new System.Drawing.Point(233, 100);
+            this.mtxtCurrentPassword.Location = new System.Drawing.Point(311, 123);
+            this.mtxtCurrentPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mtxtCurrentPassword.Name = "mtxtCurrentPassword";
             this.mtxtCurrentPassword.PasswordChar = '*';
-            this.mtxtCurrentPassword.Size = new System.Drawing.Size(154, 25);
+            this.mtxtCurrentPassword.Size = new System.Drawing.Size(204, 30);
             this.mtxtCurrentPassword.TabIndex = 21;
             this.ttPassword.SetToolTip(this.mtxtCurrentPassword, "8-20 Characters Required");
             // 
             // mtxtNewPassword
             // 
             this.mtxtNewPassword.Font = new System.Drawing.Font("Calibri", 11F);
-            this.mtxtNewPassword.Location = new System.Drawing.Point(233, 131);
+            this.mtxtNewPassword.Location = new System.Drawing.Point(311, 161);
+            this.mtxtNewPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mtxtNewPassword.Name = "mtxtNewPassword";
             this.mtxtNewPassword.PasswordChar = '*';
-            this.mtxtNewPassword.Size = new System.Drawing.Size(154, 25);
+            this.mtxtNewPassword.Size = new System.Drawing.Size(204, 30);
             this.mtxtNewPassword.TabIndex = 22;
             // 
             // mtxtConfirmPassword
             // 
             this.mtxtConfirmPassword.Font = new System.Drawing.Font("Calibri", 11F);
-            this.mtxtConfirmPassword.Location = new System.Drawing.Point(233, 164);
+            this.mtxtConfirmPassword.Location = new System.Drawing.Point(311, 202);
+            this.mtxtConfirmPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mtxtConfirmPassword.Name = "mtxtConfirmPassword";
             this.mtxtConfirmPassword.PasswordChar = '*';
-            this.mtxtConfirmPassword.Size = new System.Drawing.Size(154, 25);
+            this.mtxtConfirmPassword.Size = new System.Drawing.Size(204, 30);
             this.mtxtConfirmPassword.TabIndex = 23;
             // 
             // ttPassword
@@ -155,9 +165,10 @@
             // 
             this.lblLoggedIn.AutoSize = true;
             this.lblLoggedIn.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoggedIn.Location = new System.Drawing.Point(15, 30);
+            this.lblLoggedIn.Location = new System.Drawing.Point(20, 37);
+            this.lblLoggedIn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLoggedIn.Name = "lblLoggedIn";
-            this.lblLoggedIn.Size = new System.Drawing.Size(71, 14);
+            this.lblLoggedIn.Size = new System.Drawing.Size(80, 18);
             this.lblLoggedIn.TabIndex = 42;
             this.lblLoggedIn.Text = "lblLoggedIn";
             // 
@@ -165,17 +176,18 @@
             // 
             this.lblUser.AutoSize = true;
             this.lblUser.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.Location = new System.Drawing.Point(12, 12);
+            this.lblUser.Location = new System.Drawing.Point(16, 15);
+            this.lblUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(80, 14);
+            this.lblUser.Size = new System.Drawing.Size(99, 18);
             this.lblUser.TabIndex = 41;
             this.lblUser.Text = "Logged In User";
             // 
             // ChangePasswordView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 261);
+            this.ClientSize = new System.Drawing.Size(645, 321);
             this.Controls.Add(this.lblLoggedIn);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.mtxtConfirmPassword);
@@ -188,6 +200,7 @@
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblPassword);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ChangePasswordView";
             this.Text = "ChangePasswordView";
             this.Load += new System.EventHandler(this.ChangePasswordView_Load);

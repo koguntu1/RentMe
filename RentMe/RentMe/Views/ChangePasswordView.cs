@@ -24,7 +24,7 @@ namespace RentMe.Views
 
         private void ChangePasswordView_Load(object sender, EventArgs e)
         {
-            Form frm = (Form)this.MdiParent;
+            Form frm = this.MdiParent;
             MenuStrip ms = (MenuStrip)frm.Controls["menuStrip1"];
             ToolStripMenuItem lt = (ToolStripMenuItem)ms.Items["login"];
             userID = lt.Text;
