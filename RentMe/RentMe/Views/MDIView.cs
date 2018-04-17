@@ -19,9 +19,14 @@ namespace RentMe.Views
         EmployeeView employee = new EmployeeView();
         EmployeeReportView employeeReport = new EmployeeReportView();
         MemberReportView memberReport = new MemberReportView();
+        RentView rentView = new RentView();
+        ItemReturnView itemReturnView = new ItemReturnView();
+        RentalHistoryView rentalHistoryView = new RentalHistoryView();
+        ReturnHistoryView returnHistoryView = new ReturnHistoryView();
         FurnitureAvailabilityReportView furnitureAvailabilityReport = new FurnitureAvailabilityReportView();
         RentalReportView rentalReport = new RentalReportView();
         RentalReturnReportView rentalReturnReport = new RentalReturnReportView();
+
         public MDIView()
         {
             InitializeComponent();
@@ -246,6 +251,44 @@ namespace RentMe.Views
             }
         }
 
+        private void rentItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rentView.Enabled)
+            {
+
+                if (rentView.IsDisposed)
+                {
+                    rentView = new RentView();
+                    rentView.MdiParent = this;
+                    rentView.Show();
+                }
+                else
+                {
+                    rentView.MdiParent = this;
+                    rentView.Show();
+                }
+            }
+        }
+
+        private void returnItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (itemReturnView.Enabled)
+            {
+
+                if (itemReturnView.IsDisposed)
+                {
+                    itemReturnView = new ItemReturnView();
+                    itemReturnView.MdiParent = this;
+                    itemReturnView.Show();
+                }
+                else
+                {
+                    itemReturnView.MdiParent = this;
+                    itemReturnView.Show();
+                }
+            }
+        }
+
         private void furnitureReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (furnitureAvailabilityReport.Enabled)
@@ -264,6 +307,27 @@ namespace RentMe.Views
                     furnitureAvailabilityReport.MdiParent = this;
                     //memberReport.StartPosition = FormStartPosition.CenterScreen;
                     furnitureAvailabilityReport.Show();
+
+                }
+            }
+        }
+
+
+        private void rentalItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rentalHistoryView.Enabled)
+            {
+
+                if (rentalHistoryView.IsDisposed)
+                {
+                    rentalHistoryView = new RentalHistoryView();
+                    rentalHistoryView.MdiParent = this;
+                    rentalHistoryView.Show();
+                }
+                else
+                {
+                    rentalHistoryView.MdiParent = this;
+                    rentalHistoryView.Show();
                 }
             }
         }
@@ -286,10 +350,30 @@ namespace RentMe.Views
                     rentalReport.MdiParent = this;
                     //memberReport.StartPosition = FormStartPosition.CenterScreen;
                     rentalReport.Show();
+
                 }
             }
         }
 
+
+        private void returnItemsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (returnHistoryView.Enabled)
+            {
+
+                if (returnHistoryView.IsDisposed)
+                {
+                    returnHistoryView = new ReturnHistoryView();
+                    returnHistoryView.MdiParent = this;
+                    returnHistoryView.Show();
+                }
+                else
+                {
+                    returnHistoryView.MdiParent = this;
+                    returnHistoryView.Show();
+                }
+            }
+        }
         private void returnReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (rentalReturnReport.Enabled)
@@ -308,6 +392,7 @@ namespace RentMe.Views
                     rentalReturnReport.MdiParent = this;
                     //rentalReturnReport.StartPosition = FormStartPosition.CenterScreen;
                     rentalReturnReport.Show();
+
                 }
             }
         }
