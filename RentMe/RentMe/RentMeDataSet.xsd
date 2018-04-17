@@ -900,6 +900,109 @@ WHERE          (abbreviation = @cboStates)</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RentalReturnReportTableAdapter" GeneratorDataComponentClassName="RentalReturnReportTableAdapter" Name="RentalReturnReport" UserDataComponentName="RentalReturnReportTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RentMeConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          i.itemID, f.description, f.daily_Rate, f.fine_Rate, s.description AS style, c.description AS category, r.rental_date, r.expected_return, r.return_date, m.fname + ' ' + m.lname AS Member, 
+                            e.fname + ' ' + e.lname AS Employee
+FROM              Furniture AS f INNER JOIN
+                            Style AS s ON s.styleID = f.styleID INNER JOIN
+                            Category AS c ON c.categoryID = f.categoryID INNER JOIN
+                            Store_item AS i ON i.furnitureID = f.furnitureID FULL OUTER JOIN
+                            Rental AS r ON r.itemID = i.itemID FULL OUTER JOIN
+                            Rental_return_transaction AS rrt ON rrt.rentalID = r.rentalID FULL OUTER JOIN
+                            Transactions AS t ON t.transactionID = rrt.transactionID FULL OUTER JOIN
+                            Employee AS e ON e.employeeID = t.employeeID INNER JOIN
+                            Member AS m ON m.memberID = r.memberID
+ORDER BY   i.itemID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="description" DataSetColumn="description" />
+              <Mapping SourceColumn="itemID" DataSetColumn="itemID" />
+              <Mapping SourceColumn="style" DataSetColumn="style" />
+              <Mapping SourceColumn="category" DataSetColumn="category" />
+              <Mapping SourceColumn="rental_date" DataSetColumn="rental_date" />
+              <Mapping SourceColumn="expected_return" DataSetColumn="expected_return" />
+              <Mapping SourceColumn="return_date" DataSetColumn="return_date" />
+              <Mapping SourceColumn="Member" DataSetColumn="Member" />
+              <Mapping SourceColumn="Employee" DataSetColumn="Employee" />
+              <Mapping SourceColumn="daily_Rate" DataSetColumn="daily_Rate" />
+              <Mapping SourceColumn="fine_Rate" DataSetColumn="fine_Rate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RentalReportTableAdapter" GeneratorDataComponentClassName="RentalReportTableAdapter" Name="RentalReport" UserDataComponentName="RentalReportTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RentMeConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          i.itemID, f.description, f.daily_Rate, f.fine_Rate, s.description AS style, c.description AS category, r.rental_date, r.expected_return, r.return_date, m.fname + ' ' + m.lname AS Member,  e.fname + ' ' + e.lname AS Employee
+FROM              Furniture AS f INNER JOIN
+                            Style AS s ON s.styleID = f.styleID INNER JOIN
+                            Category AS c ON c.categoryID = f.categoryID INNER JOIN
+                            Store_item AS i ON i.furnitureID = f.furnitureID INNER JOIN
+                            Rental AS r ON r.itemID = i.itemID INNER JOIN
+                            Rental_transaction AS rt ON rt.rentalID = r.rentalID INNER JOIN
+                            Transactions AS t ON t.transactionID = rt.transactionID INNER JOIN
+                            Employee AS e ON e.employeeID = t.employeeID INNER JOIN
+                            Member AS m ON m.memberID = r.memberID
+ORDER BY   i.itemID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="description" DataSetColumn="description" />
+              <Mapping SourceColumn="itemID" DataSetColumn="itemID" />
+              <Mapping SourceColumn="style" DataSetColumn="style" />
+              <Mapping SourceColumn="category" DataSetColumn="category" />
+              <Mapping SourceColumn="rental_date" DataSetColumn="rental_date" />
+              <Mapping SourceColumn="expected_return" DataSetColumn="expected_return" />
+              <Mapping SourceColumn="return_date" DataSetColumn="return_date" />
+              <Mapping SourceColumn="Member" DataSetColumn="Member" />
+              <Mapping SourceColumn="Employee" DataSetColumn="Employee" />
+              <Mapping SourceColumn="daily_Rate" DataSetColumn="daily_Rate" />
+              <Mapping SourceColumn="fine_Rate" DataSetColumn="fine_Rate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FurnitureReportTableAdapter" GeneratorDataComponentClassName="FurnitureReportTableAdapter" Name="FurnitureReport" UserDataComponentName="FurnitureReportTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="RentMeConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          i.itemID, f.description, c.description AS category, s.description AS style, CASE WHEN r.return_date IS NULL THEN 'N' ELSE 'Y' END AS AVAILABLE, f.daily_Rate, f.fine_Rate
+FROM              Rental_transaction AS rt LEFT OUTER JOIN
+                            Rental_return_transaction AS rrt ON rt.rentalID = rrt.rentalID LEFT OUTER JOIN
+                            Rental AS r ON r.rentalID = rt.rentalID INNER JOIN
+                            Store_item AS i ON r.itemID = i.itemID INNER JOIN
+                            Furniture AS f ON f.furnitureID = i.furnitureID INNER JOIN
+                            Category AS c ON c.categoryID = f.categoryID INNER JOIN
+                            Style AS s ON s.styleID = f.styleID
+ORDER BY   i.itemID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="description" DataSetColumn="description" />
+              <Mapping SourceColumn="itemID" DataSetColumn="itemID" />
+              <Mapping SourceColumn="style" DataSetColumn="style" />
+              <Mapping SourceColumn="category" DataSetColumn="category" />
+              <Mapping SourceColumn="AVAILABLE" DataSetColumn="AVAILABLE" />
+              <Mapping SourceColumn="daily_Rate" DataSetColumn="daily_Rate" />
+              <Mapping SourceColumn="fine_Rate" DataSetColumn="fine_Rate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1271,6 +1374,137 @@ WHERE          (abbreviation = @cboStates)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="RentalReturnReport" msprop:Generator_TableClassName="RentalReturnReportDataTable" msprop:Generator_TableVarName="tableRentalReturnReport" msprop:Generator_RowChangedName="RentalReturnReportRowChanged" msprop:Generator_TablePropName="RentalReturnReport" msprop:Generator_RowDeletingName="RentalReturnReportRowDeleting" msprop:Generator_RowChangingName="RentalReturnReportRowChanging" msprop:Generator_RowEvHandlerName="RentalReturnReportRowChangeEventHandler" msprop:Generator_RowDeletedName="RentalReturnReportRowDeleted" msprop:Generator_RowClassName="RentalReturnReportRow" msprop:Generator_UserTableName="RentalReturnReport" msprop:Generator_RowEvArgName="RentalReturnReportRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_UserColumnName="description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itemID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnitemID" msprop:Generator_ColumnPropNameInRow="itemID" msprop:Generator_ColumnPropNameInTable="itemIDColumn" msprop:Generator_UserColumnName="itemID" type="xs:int" />
+              <xs:element name="style" msprop:Generator_ColumnVarNameInTable="columnstyle" msprop:Generator_ColumnPropNameInRow="style" msprop:Generator_ColumnPropNameInTable="styleColumn" msprop:Generator_UserColumnName="style" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="category" msprop:Generator_ColumnVarNameInTable="columncategory" msprop:Generator_ColumnPropNameInRow="category" msprop:Generator_ColumnPropNameInTable="categoryColumn" msprop:Generator_UserColumnName="category" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rental_date" msprop:Generator_ColumnVarNameInTable="columnrental_date" msprop:Generator_ColumnPropNameInRow="rental_date" msprop:Generator_ColumnPropNameInTable="rental_dateColumn" msprop:Generator_UserColumnName="rental_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="expected_return" msprop:Generator_ColumnVarNameInTable="columnexpected_return" msprop:Generator_ColumnPropNameInRow="expected_return" msprop:Generator_ColumnPropNameInTable="expected_returnColumn" msprop:Generator_UserColumnName="expected_return" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="return_date" msprop:Generator_ColumnVarNameInTable="columnreturn_date" msprop:Generator_ColumnPropNameInRow="return_date" msprop:Generator_ColumnPropNameInTable="return_dateColumn" msprop:Generator_UserColumnName="return_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Member" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMember" msprop:Generator_ColumnPropNameInRow="Member" msprop:Generator_ColumnPropNameInTable="MemberColumn" msprop:Generator_UserColumnName="Member" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="91" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Employee" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmployee" msprop:Generator_ColumnPropNameInRow="Employee" msprop:Generator_ColumnPropNameInTable="EmployeeColumn" msprop:Generator_UserColumnName="Employee" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="91" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="daily_Rate" msprop:Generator_ColumnVarNameInTable="columndaily_Rate" msprop:Generator_ColumnPropNameInRow="daily_Rate" msprop:Generator_ColumnPropNameInTable="daily_RateColumn" msprop:Generator_UserColumnName="daily_Rate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fine_Rate" msprop:Generator_ColumnVarNameInTable="columnfine_Rate" msprop:Generator_ColumnPropNameInRow="fine_Rate" msprop:Generator_ColumnPropNameInTable="fine_RateColumn" msprop:Generator_UserColumnName="fine_Rate" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RentalReport" msprop:Generator_TableClassName="RentalReportDataTable" msprop:Generator_TableVarName="tableRentalReport" msprop:Generator_RowChangedName="RentalReportRowChanged" msprop:Generator_TablePropName="RentalReport" msprop:Generator_RowDeletingName="RentalReportRowDeleting" msprop:Generator_RowChangingName="RentalReportRowChanging" msprop:Generator_RowEvHandlerName="RentalReportRowChangeEventHandler" msprop:Generator_RowDeletedName="RentalReportRowDeleted" msprop:Generator_RowClassName="RentalReportRow" msprop:Generator_UserTableName="RentalReport" msprop:Generator_RowEvArgName="RentalReportRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_UserColumnName="description">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itemID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnitemID" msprop:Generator_ColumnPropNameInRow="itemID" msprop:Generator_ColumnPropNameInTable="itemIDColumn" msprop:Generator_UserColumnName="itemID" type="xs:int" />
+              <xs:element name="style" msprop:Generator_ColumnVarNameInTable="columnstyle" msprop:Generator_ColumnPropNameInRow="style" msprop:Generator_ColumnPropNameInTable="styleColumn" msprop:Generator_UserColumnName="style">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="category" msprop:Generator_ColumnVarNameInTable="columncategory" msprop:Generator_ColumnPropNameInRow="category" msprop:Generator_ColumnPropNameInTable="categoryColumn" msprop:Generator_UserColumnName="category">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rental_date" msprop:Generator_ColumnVarNameInTable="columnrental_date" msprop:Generator_ColumnPropNameInRow="rental_date" msprop:Generator_ColumnPropNameInTable="rental_dateColumn" msprop:Generator_UserColumnName="rental_date" type="xs:dateTime" />
+              <xs:element name="expected_return" msprop:Generator_ColumnVarNameInTable="columnexpected_return" msprop:Generator_ColumnPropNameInRow="expected_return" msprop:Generator_ColumnPropNameInTable="expected_returnColumn" msprop:Generator_UserColumnName="expected_return" type="xs:dateTime" />
+              <xs:element name="return_date" msprop:Generator_ColumnVarNameInTable="columnreturn_date" msprop:Generator_ColumnPropNameInRow="return_date" msprop:Generator_ColumnPropNameInTable="return_dateColumn" msprop:Generator_UserColumnName="return_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Member" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMember" msprop:Generator_ColumnPropNameInRow="Member" msprop:Generator_ColumnPropNameInTable="MemberColumn" msprop:Generator_UserColumnName="Member" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="91" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Employee" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmployee" msprop:Generator_ColumnPropNameInRow="Employee" msprop:Generator_ColumnPropNameInTable="EmployeeColumn" msprop:Generator_UserColumnName="Employee" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="91" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="daily_Rate" msprop:Generator_ColumnVarNameInTable="columndaily_Rate" msprop:Generator_ColumnPropNameInRow="daily_Rate" msprop:Generator_ColumnPropNameInTable="daily_RateColumn" msprop:Generator_UserColumnName="daily_Rate" type="xs:decimal" />
+              <xs:element name="fine_Rate" msprop:Generator_ColumnVarNameInTable="columnfine_Rate" msprop:Generator_ColumnPropNameInRow="fine_Rate" msprop:Generator_ColumnPropNameInTable="fine_RateColumn" msprop:Generator_UserColumnName="fine_Rate" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FurnitureReport" msprop:Generator_TableClassName="FurnitureReportDataTable" msprop:Generator_TableVarName="tableFurnitureReport" msprop:Generator_RowChangedName="FurnitureReportRowChanged" msprop:Generator_TablePropName="FurnitureReport" msprop:Generator_RowDeletingName="FurnitureReportRowDeleting" msprop:Generator_RowChangingName="FurnitureReportRowChanging" msprop:Generator_RowEvHandlerName="FurnitureReportRowChangeEventHandler" msprop:Generator_RowDeletedName="FurnitureReportRowDeleted" msprop:Generator_RowClassName="FurnitureReportRow" msprop:Generator_UserTableName="FurnitureReport" msprop:Generator_RowEvArgName="FurnitureReportRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_UserColumnName="description">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itemID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnitemID" msprop:Generator_ColumnPropNameInRow="itemID" msprop:Generator_ColumnPropNameInTable="itemIDColumn" msprop:Generator_UserColumnName="itemID" type="xs:int" />
+              <xs:element name="style" msprop:Generator_ColumnVarNameInTable="columnstyle" msprop:Generator_ColumnPropNameInRow="style" msprop:Generator_ColumnPropNameInTable="styleColumn" msprop:Generator_UserColumnName="style">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="category" msprop:Generator_ColumnVarNameInTable="columncategory" msprop:Generator_ColumnPropNameInRow="category" msprop:Generator_ColumnPropNameInTable="categoryColumn" msprop:Generator_UserColumnName="category">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="45" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AVAILABLE" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAVAILABLE" msprop:Generator_ColumnPropNameInRow="AVAILABLE" msprop:Generator_ColumnPropNameInTable="AVAILABLEColumn" msprop:Generator_UserColumnName="AVAILABLE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="daily_Rate" msprop:Generator_ColumnVarNameInTable="columndaily_Rate" msprop:Generator_ColumnPropNameInRow="daily_Rate" msprop:Generator_ColumnPropNameInTable="daily_RateColumn" msprop:Generator_UserColumnName="daily_Rate" type="xs:decimal" />
+              <xs:element name="fine_Rate" msprop:Generator_ColumnVarNameInTable="columnfine_Rate" msprop:Generator_ColumnPropNameInRow="fine_Rate" msprop:Generator_ColumnPropNameInTable="fine_RateColumn" msprop:Generator_UserColumnName="fine_Rate" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -1324,6 +1558,18 @@ WHERE          (abbreviation = @cboStates)</CommandText>
     <xs:unique name="States_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:States" />
       <xs:field xpath="mstns:stateID" />
+    </xs:unique>
+    <xs:unique name="RentalReturnReport_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:RentalReturnReport" />
+      <xs:field xpath="mstns:itemID" />
+    </xs:unique>
+    <xs:unique name="RentalReport_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:RentalReport" />
+      <xs:field xpath="mstns:itemID" />
+    </xs:unique>
+    <xs:unique name="FurnitureReport_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:FurnitureReport" />
+      <xs:field xpath="mstns:itemID" />
     </xs:unique>
   </xs:element>
   <xs:annotation>
