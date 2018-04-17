@@ -28,35 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Label homePhoneLabel;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtCustomerFirstName = new System.Windows.Forms.TextBox();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblFurnitureInfo = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnGetRecord = new System.Windows.Forms.Button();
             this.txtCustomerLastName = new System.Windows.Forms.TextBox();
             this.lblLastName = new System.Windows.Forms.Label();
-            this.dataGridViewRentedItems = new System.Windows.Forms.DataGridView();
+            this.dataGridRentedItems = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FurnitureID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Style = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExpectedReturnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Return = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.txtTotalAmount = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnPay = new System.Windows.Forms.Button();
+            this.mtxtHomePhone = new System.Windows.Forms.MaskedTextBox();
+            this.btnRestart = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            homePhoneLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridRentedItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRentedItems)).BeginInit();
             this.SuspendLayout();
+            // 
+            // homePhoneLabel
+            // 
+            homePhoneLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            homePhoneLabel.AutoSize = true;
+            homePhoneLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            homePhoneLabel.Location = new System.Drawing.Point(110, 180);
+            homePhoneLabel.Name = "homePhoneLabel";
+            homePhoneLabel.Size = new System.Drawing.Size(117, 19);
+            homePhoneLabel.TabIndex = 103;
+            homePhoneLabel.Text = "Phone Number:";
             // 
             // txtCustomerFirstName
             // 
+            this.txtCustomerFirstName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtCustomerFirstName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCustomerFirstName.Location = new System.Drawing.Point(198, 138);
+            this.txtCustomerFirstName.Location = new System.Drawing.Point(242, 138);
             this.txtCustomerFirstName.Name = "txtCustomerFirstName";
             this.txtCustomerFirstName.Size = new System.Drawing.Size(193, 27);
             this.txtCustomerFirstName.TabIndex = 7;
@@ -64,9 +72,10 @@
             // 
             // lblFirstName
             // 
+            this.lblFirstName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblFirstName.AutoSize = true;
             this.lblFirstName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirstName.Location = new System.Drawing.Point(24, 141);
+            this.lblFirstName.Location = new System.Drawing.Point(68, 141);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(159, 19);
             this.lblFirstName.TabIndex = 8;
@@ -74,39 +83,33 @@
             // 
             // lblFurnitureInfo
             // 
+            this.lblFurnitureInfo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblFurnitureInfo.AutoSize = true;
             this.lblFurnitureInfo.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFurnitureInfo.Location = new System.Drawing.Point(296, 67);
+            this.lblFurnitureInfo.Location = new System.Drawing.Point(340, 67);
             this.lblFurnitureInfo.Name = "lblFurnitureInfo";
             this.lblFurnitureInfo.Size = new System.Drawing.Size(273, 39);
             this.lblFurnitureInfo.TabIndex = 61;
             this.lblFurnitureInfo.Text = "Return Information";
             this.lblFurnitureInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::RentMe.Properties.Resources._2018_03_27_13_08_06;
-            this.pictureBox1.Location = new System.Drawing.Point(346, 25);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(157, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 60;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnGetRecord
             // 
+            this.btnGetRecord.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnGetRecord.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGetRecord.Location = new System.Drawing.Point(28, 190);
+            this.btnGetRecord.Location = new System.Drawing.Point(195, 495);
             this.btnGetRecord.Name = "btnGetRecord";
             this.btnGetRecord.Size = new System.Drawing.Size(125, 31);
             this.btnGetRecord.TabIndex = 94;
             this.btnGetRecord.Text = "Get Record";
             this.btnGetRecord.UseVisualStyleBackColor = true;
+            this.btnGetRecord.Click += new System.EventHandler(this.btnGetRecord_Click);
             // 
             // txtCustomerLastName
             // 
+            this.txtCustomerLastName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtCustomerLastName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCustomerLastName.Location = new System.Drawing.Point(632, 138);
+            this.txtCustomerLastName.Location = new System.Drawing.Point(676, 138);
             this.txtCustomerLastName.Name = "txtCustomerLastName";
             this.txtCustomerLastName.Size = new System.Drawing.Size(175, 27);
             this.txtCustomerLastName.TabIndex = 95;
@@ -114,104 +117,64 @@
             // 
             // lblLastName
             // 
+            this.lblLastName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblLastName.AutoSize = true;
             this.lblLastName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastName.Location = new System.Drawing.Point(469, 141);
+            this.lblLastName.Location = new System.Drawing.Point(513, 141);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(157, 19);
             this.lblLastName.TabIndex = 96;
             this.lblLastName.Text = "Customer Last Name: ";
             // 
-            // dataGridViewRentedItems
+            // dataGridRentedItems
             // 
-            this.dataGridViewRentedItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRentedItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ItemID,
-            this.FurnitureID,
-            this.Description,
-            this.Category,
-            this.Style,
-            this.RentDate,
-            this.ExpectedReturnDate,
-            this.Return});
-            this.dataGridViewRentedItems.Location = new System.Drawing.Point(28, 281);
-            this.dataGridViewRentedItems.Name = "dataGridViewRentedItems";
-            this.dataGridViewRentedItems.Size = new System.Drawing.Size(779, 192);
-            this.dataGridViewRentedItems.TabIndex = 97;
+            this.dataGridRentedItems.AllowUserToAddRows = false;
+            this.dataGridRentedItems.AllowUserToDeleteRows = false;
+            this.dataGridRentedItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridRentedItems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridRentedItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridRentedItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridRentedItems.Location = new System.Drawing.Point(12, 281);
+            this.dataGridRentedItems.Name = "dataGridRentedItems";
+            this.dataGridRentedItems.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridRentedItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridRentedItems.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridRentedItems.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridRentedItems.Size = new System.Drawing.Size(907, 192);
+            this.dataGridRentedItems.TabIndex = 97;
+            this.dataGridRentedItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridRentedItems_CellContentClick);
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 248);
+            this.label1.Location = new System.Drawing.Point(12, 249);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 19);
             this.label1.TabIndex = 98;
             this.label1.Text = "Rented Items";
             // 
-            // ItemID
-            // 
-            this.ItemID.HeaderText = "Item ID";
-            this.ItemID.Name = "ItemID";
-            // 
-            // FurnitureID
-            // 
-            this.FurnitureID.HeaderText = "Furniture ID";
-            this.FurnitureID.Name = "FurnitureID";
-            // 
-            // Description
-            // 
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
-            // 
-            // Category
-            // 
-            this.Category.HeaderText = "Category";
-            this.Category.Name = "Category";
-            // 
-            // Style
-            // 
-            this.Style.HeaderText = "Style";
-            this.Style.Name = "Style";
-            // 
-            // RentDate
-            // 
-            this.RentDate.HeaderText = "Rent Date";
-            this.RentDate.Name = "RentDate";
-            // 
-            // ExpectedReturnDate
-            // 
-            this.ExpectedReturnDate.HeaderText = "Expected Return Date";
-            this.ExpectedReturnDate.Name = "ExpectedReturnDate";
-            // 
-            // Return
-            // 
-            this.Return.HeaderText = "Return";
-            this.Return.Name = "Return";
-            // 
-            // txtTotalAmount
-            // 
-            this.txtTotalAmount.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalAmount.Location = new System.Drawing.Point(321, 499);
-            this.txtTotalAmount.Name = "txtTotalAmount";
-            this.txtTotalAmount.Size = new System.Drawing.Size(154, 27);
-            this.txtTotalAmount.TabIndex = 99;
-            this.txtTotalAmount.Tag = "Total Amount";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(195, 502);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 19);
-            this.label2.TabIndex = 100;
-            this.label2.Text = "Total Amount: ";
-            // 
             // btnExit
             // 
+            this.btnExit.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnExit.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(716, 495);
+            this.btnExit.Location = new System.Drawing.Point(539, 495);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(91, 31);
             this.btnExit.TabIndex = 102;
@@ -219,27 +182,51 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // btnPay
+            // mtxtHomePhone
             // 
-            this.btnPay.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPay.Location = new System.Drawing.Point(574, 495);
-            this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(91, 31);
-            this.btnPay.TabIndex = 101;
-            this.btnPay.Text = "Pay";
-            this.btnPay.UseVisualStyleBackColor = true;
+            this.mtxtHomePhone.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.mtxtHomePhone.Font = new System.Drawing.Font("Calibri", 12F);
+            this.mtxtHomePhone.Location = new System.Drawing.Point(242, 177);
+            this.mtxtHomePhone.Mask = "(999) 000-0000";
+            this.mtxtHomePhone.Name = "mtxtHomePhone";
+            this.mtxtHomePhone.Size = new System.Drawing.Size(193, 27);
+            this.mtxtHomePhone.TabIndex = 104;
+            // 
+            // btnRestart
+            // 
+            this.btnRestart.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnRestart.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRestart.Location = new System.Drawing.Point(384, 495);
+            this.btnRestart.Name = "btnRestart";
+            this.btnRestart.Size = new System.Drawing.Size(91, 31);
+            this.btnRestart.TabIndex = 105;
+            this.btnRestart.Text = "Restart";
+            this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox1.Image = global::RentMe.Properties.Resources._2018_03_27_13_08_06;
+            this.pictureBox1.Location = new System.Drawing.Point(390, 25);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(157, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 60;
+            this.pictureBox1.TabStop = false;
             // 
             // ItemReturnView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(843, 550);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(931, 550);
+            this.Controls.Add(this.btnRestart);
+            this.Controls.Add(homePhoneLabel);
+            this.Controls.Add(this.mtxtHomePhone);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnPay);
-            this.Controls.Add(this.txtTotalAmount);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridViewRentedItems);
+            this.Controls.Add(this.dataGridRentedItems);
             this.Controls.Add(this.txtCustomerLastName);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.btnGetRecord);
@@ -249,8 +236,8 @@
             this.Controls.Add(this.lblFirstName);
             this.Name = "ItemReturnView";
             this.Text = "Return View";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridRentedItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRentedItems)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,19 +252,10 @@
         private System.Windows.Forms.Button btnGetRecord;
         private System.Windows.Forms.TextBox txtCustomerLastName;
         private System.Windows.Forms.Label lblLastName;
-        private System.Windows.Forms.DataGridView dataGridViewRentedItems;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FurnitureID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Style;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RentDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ExpectedReturnDate;
-        private System.Windows.Forms.DataGridViewButtonColumn Return;
+        private System.Windows.Forms.DataGridView dataGridRentedItems;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtTotalAmount;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnPay;
+        private System.Windows.Forms.MaskedTextBox mtxtHomePhone;
+        private System.Windows.Forms.Button btnRestart;
     }
 }

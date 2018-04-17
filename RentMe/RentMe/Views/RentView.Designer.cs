@@ -39,8 +39,6 @@
             this.mtxtDueDate = new System.Windows.Forms.MaskedTextBox();
             this.LblDateFormat = new System.Windows.Forms.Label();
             this.dataGridViewItems = new System.Windows.Forms.DataGridView();
-            this.btnRent = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
             this.ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.funitureID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +47,8 @@
             this.Fine_rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Daily_rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.add = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnRent = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.txtTotalAmount = new System.Windows.Forms.TextBox();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -89,6 +89,16 @@
             fnameLabel.Size = new System.Drawing.Size(101, 19);
             fnameLabel.TabIndex = 87;
             fnameLabel.Text = "Current Date:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(406, 183);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(76, 19);
+            label1.TabIndex = 89;
+            label1.Text = "Due Date:";
             // 
             // cboEmployeeID
             // 
@@ -150,16 +160,6 @@
             this.mtxtDueDate.Tag = "Date of Birth";
             this.mtxtDueDate.ValidatingType = typeof(System.DateTime);
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.Location = new System.Drawing.Point(406, 183);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(76, 19);
-            label1.TabIndex = 89;
-            label1.Text = "Due Date:";
-            // 
             // LblDateFormat
             // 
             this.LblDateFormat.AutoSize = true;
@@ -181,31 +181,10 @@
             this.Fine_rate,
             this.Daily_rate,
             this.add});
-            this.dataGridViewItems.Location = new System.Drawing.Point(55, 233);
+            this.dataGridViewItems.Location = new System.Drawing.Point(64, 231);
             this.dataGridViewItems.Name = "dataGridViewItems";
             this.dataGridViewItems.Size = new System.Drawing.Size(772, 206);
             this.dataGridViewItems.TabIndex = 92;
-            // 
-            // btnRent
-            // 
-            this.btnRent.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRent.Location = new System.Drawing.Point(594, 462);
-            this.btnRent.Name = "btnRent";
-            this.btnRent.Size = new System.Drawing.Size(91, 31);
-            this.btnRent.TabIndex = 93;
-            this.btnRent.Text = "Rent";
-            this.btnRent.UseVisualStyleBackColor = true;
-            // 
-            // btnExit
-            // 
-            this.btnExit.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(736, 462);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(91, 31);
-            this.btnExit.TabIndex = 94;
-            this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // ItemID
             // 
@@ -246,6 +225,27 @@
             // 
             this.add.HeaderText = "Add Cart";
             this.add.Name = "add";
+            // 
+            // btnRent
+            // 
+            this.btnRent.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRent.Location = new System.Drawing.Point(594, 462);
+            this.btnRent.Name = "btnRent";
+            this.btnRent.Size = new System.Drawing.Size(91, 31);
+            this.btnRent.TabIndex = 93;
+            this.btnRent.Text = "Rent";
+            this.btnRent.UseVisualStyleBackColor = true;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(736, 462);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(91, 31);
+            this.btnExit.TabIndex = 94;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // txtTotalAmount
             // 
