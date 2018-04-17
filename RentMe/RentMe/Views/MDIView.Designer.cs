@@ -45,6 +45,12 @@
             this.returnReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.memberReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rentItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.returnItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rentalItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.returnItemsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +61,9 @@
             this.maintenanceToolStripMenuItem,
             this.employeeToolStripMenuItem,
             this.login,
-            this.adminReportsToolStripMenuItem});
+            this.adminReportsToolStripMenuItem,
+            this.actionsToolStripMenuItem,
+            this.historyToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(804, 27);
@@ -164,6 +172,7 @@
             this.furnitureReportToolStripMenuItem.Name = "furnitureReportToolStripMenuItem";
             this.furnitureReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
             this.furnitureReportToolStripMenuItem.Text = "&Furniture Report";
+
             this.furnitureReportToolStripMenuItem.Click += new System.EventHandler(this.furnitureReportToolStripMenuItem_Click);
             // 
             // rentalReportToolStripMenuItem
@@ -193,6 +202,54 @@
             this.employeeReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
             this.employeeReportToolStripMenuItem.Text = "&Employee Report";
             this.employeeReportToolStripMenuItem.Click += new System.EventHandler(this.employeeReportToolStripMenuItem_Click);
+            // 
+            // actionsToolStripMenuItem
+            // 
+            this.actionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rentItemsToolStripMenuItem,
+            this.returnItemsToolStripMenuItem});
+            this.actionsToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F);
+            this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
+            this.actionsToolStripMenuItem.Size = new System.Drawing.Size(69, 23);
+            this.actionsToolStripMenuItem.Text = "Actions";
+            // 
+            // rentItemsToolStripMenuItem
+            // 
+            this.rentItemsToolStripMenuItem.Name = "rentItemsToolStripMenuItem";
+            this.rentItemsToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
+            this.rentItemsToolStripMenuItem.Text = "Rent Items";
+            this.rentItemsToolStripMenuItem.Click += new System.EventHandler(this.rentItemsToolStripMenuItem_Click);
+            // 
+            // returnItemsToolStripMenuItem
+            // 
+            this.returnItemsToolStripMenuItem.Name = "returnItemsToolStripMenuItem";
+            this.returnItemsToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
+            this.returnItemsToolStripMenuItem.Text = "Return Items";
+            this.returnItemsToolStripMenuItem.Click += new System.EventHandler(this.returnItemsToolStripMenuItem_Click);
+            // 
+            // historyToolStripMenuItem
+            // 
+            this.historyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rentalItemsToolStripMenuItem,
+            this.returnItemsToolStripMenuItem1});
+            this.historyToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F);
+            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
+            this.historyToolStripMenuItem.Size = new System.Drawing.Size(67, 23);
+            this.historyToolStripMenuItem.Text = "History";
+            // 
+            // rentalItemsToolStripMenuItem
+            // 
+            this.rentalItemsToolStripMenuItem.Name = "rentalItemsToolStripMenuItem";
+            this.rentalItemsToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
+            this.rentalItemsToolStripMenuItem.Text = "Rental Items";
+            this.rentalItemsToolStripMenuItem.Click += new System.EventHandler(this.rentalItemsToolStripMenuItem_Click);
+            // 
+            // returnItemsToolStripMenuItem1
+            // 
+            this.returnItemsToolStripMenuItem1.Name = "returnItemsToolStripMenuItem1";
+            this.returnItemsToolStripMenuItem1.Size = new System.Drawing.Size(161, 24);
+            this.returnItemsToolStripMenuItem1.Text = "Return Items";
+            this.returnItemsToolStripMenuItem1.Click += new System.EventHandler(this.returnItemsToolStripMenuItem1_Click);
             // 
             // MDIView
             // 
@@ -232,5 +289,11 @@
         private System.Windows.Forms.ToolStripMenuItem rentalReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem returnReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem furnitureReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem actionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rentItemsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem returnItemsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem historyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rentalItemsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem returnItemsToolStripMenuItem1;
     }
 }

@@ -18,6 +18,7 @@ namespace RentMe.Models
         public string fname { get; set; }
         public string middleInitial { get; set; }
         public string lname { get; set; }
+        public string fullname { get; set; }
         public System.DateTime dateOfBirth { get; set; }
         public string gender { get; set; }
         public string homePhone { get; set; }
