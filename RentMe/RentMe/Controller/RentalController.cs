@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RentMe.DAL;
+using RentMe.Models;
 
 namespace RentMe.Controller
 {
-    public static class RentalController
+    class RentalController
     {
         public static DataSet GetRentHistory(int employeeID, int memberID, DateTime fromDate, DateTime toDate)
         {
@@ -19,5 +20,6 @@ namespace RentMe.Controller
         {
             return RentalItemDAL.GetReturnHistory(employeeID, memberID, fromDate, toDate);
         }
+
     }
 }

@@ -7,19 +7,197 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RentMe.Models;
+using RentMe.Controller;
 
 namespace RentMe.Views
 {
     public partial class ItemReturnView : Form
     {
+        ReturnTransaction returnTransaction;
+        List<Member> memberList;
+        ReturnController returnController;
+        List<ReturnTransaction> listReturnTransaction;
         public ItemReturnView()
         {
             InitializeComponent();
+            returnTransaction = new ReturnTransaction();
+            memberList = new List<Member>();
+            returnController = new ReturnController();
+            listReturnTransaction = new List<ReturnTransaction>();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void SearchMember()
+        {
+            mtxtHomePhone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            btnRestart.Enabled = true;
+            try
+            {
+                mtxtHomePhone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                string memberName = ("%" + txtCustomerFirstName.Text.ToString().ToUpper() + "%" + txtCustomerLastName.Text.ToString().ToUpper() + "%");
+                string phoneNumber = ("%" + mtxtHomePhone.Text.ToString() + "%");
+                if (!memberName.Equals("%%%") || !mtxtHomePhone.Text.Equals(""))
+                {
+                    if ((!txtCustomerFirstName.Text.Equals("") || !txtCustomerLastName.Equals("")))
+                    {
+
+                        memberList = returnController.GetMemberByName(memberName);
+                        listReturnTransaction = new List<ReturnTransaction>();
+                        for (int i = 0; i < memberList.Count(); i++)
+                        {
+                            listReturnTransaction.AddRange(returnController.GetRentedFurniture(memberList[i].memberID));
+                        }
+                    }
+
+                    if (!mtxtHomePhone.Text.Equals(""))
+                    {
+
+                        memberList = returnController.GetMemberByPhone(phoneNumber);
+                        listReturnTransaction = new List<ReturnTransaction>();
+                        for (int i = 0; i < memberList.Count(); i++)
+                        {
+                            listReturnTransaction.AddRange(returnController.GetRentedFurniture(memberList[i].memberID));
+                        }
+                    }
+
+                    DisplayReturn();
+                    btnExit.Enabled = true;
+                    btnRestart.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("You must enter a name or phone number.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        private void DisplayReturn()
+        {
+            if (memberList.Count == 0)
+            {
+                MessageBox.Show("No results. Please search again.");
+                ClearForm();
+            }
+            else
+            {
+                BindingList<ReturnTransaction> bindingReturnList = new BindingList<ReturnTransaction>(listReturnTransaction);
+                dataGridRentedItems.DataSource = bindingReturnList;
+                dataGridRentedItems.AutoGenerateColumns = true;
+                dataGridRentedItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                DataGridViewButtonColumn returnButton = new DataGridViewButtonColumn();
+                dataGridRentedItems.Columns["fname"].HeaderText = "First Name";
+                dataGridRentedItems.Columns["lname"].HeaderText = "Last Name";
+                dataGridRentedItems.Columns["description"].HeaderText = "Description";
+                dataGridRentedItems.Columns["Style"].HeaderText = "Style";
+                dataGridRentedItems.Columns["Category"].HeaderText = "Category";
+                dataGridRentedItems.Columns["rental_date"].HeaderText = "Rental Date";
+                dataGridRentedItems.Columns["expected_return"].HeaderText = "Expected Return Date";
+                dataGridRentedItems.Columns["returnTransactionID"].Visible = false;
+                dataGridRentedItems.Columns["transaction_date"].Visible = false;
+                dataGridRentedItems.Columns["amount"].Visible = false;
+                dataGridRentedItems.Columns["comment"].Visible = false;
+                dataGridRentedItems.Columns["itemID"].Visible = false;
+                dataGridRentedItems.Columns["fines"].Visible = false;
+                dataGridRentedItems.Columns["return_date"].Visible = false;
+                dataGridRentedItems.Columns["employeeID"].Visible = false;
+                dataGridRentedItems.Columns["memberID"].Visible = false;
+                dataGridRentedItems.Columns["transactionID"].Visible = false;
+                dataGridRentedItems.Columns["rentalID"].Visible = false;
+                dataGridRentedItems.Columns["daily_Rate"].Visible = false;
+                dataGridRentedItems.Columns["fine_Rate"].Visible = false;
+                returnButton.HeaderText = "Return Rental";
+                returnButton.Text = "Return Rental";
+                returnButton.Name = "returnRental";
+                returnButton.UseColumnTextForButtonValue = true;
+                if (dataGridRentedItems.Columns["returnRental"] == null)
+                {
+                    dataGridRentedItems.Columns.Insert(0, returnButton);
+                }
+            }
+
+        }
+
+        private void dataGridRentedItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == 0)
+                {
+                    DataGridViewRow row = this.dataGridRentedItems.Rows[e.RowIndex];
+                    ReturnTransaction returnTransaction = new ReturnTransaction();
+                    returnTransaction.fname = row.Cells["fname"].Value.ToString();
+                    returnTransaction.lname = row.Cells["lname"].Value.ToString();
+                    returnTransaction.description = row.Cells["description"].Value.ToString();
+                    returnTransaction.style = row.Cells["Style"].Value.ToString();
+                    returnTransaction.category = row.Cells["Category"].Value.ToString();
+                    returnTransaction.rental_date = Convert.ToDateTime(row.Cells["rental_date"].Value.ToString());
+                    returnTransaction.expected_return = Convert.ToDateTime(row.Cells["expected_return"].Value.ToString());
+                    //returnTransaction.returnTransactionID = Convert.ToInt32(row.Cells["returnTransactionID"].Value.ToString());
+                    //returnTransaction.transaction_date = Convert.ToDateTime(row.Cells["transaction_date"].Value.ToString());
+                    returnTransaction.amount = Convert.ToDecimal(row.Cells["amount"].Value.ToString());
+                    //returnTransaction.comment = row.Cells["comment"].Value.ToString();
+                    returnTransaction.itemID = Convert.ToInt32(row.Cells["itemID"].Value.ToString());
+                    //returnTransaction.fines = Convert.ToDecimal(row.Cells["fines"].Value.ToString());
+                    //returnTransaction.return_date = Convert.ToDateTime(row.Cells["return_date"].Value.ToString());
+                    //returnTransaction.employeeID = Convert.ToInt32(row.Cells["employeeID"].Value.ToString());
+                    returnTransaction.memberID = Convert.ToInt32(row.Cells["memberID"].Value.ToString());
+                    //returnTransaction.transactionID = Convert.ToInt32(row.Cells["transactionID"].Value.ToString());
+                    returnTransaction.rentalID = Convert.ToInt32(row.Cells["rentalID"].Value.ToString());
+                    returnTransaction.fine_Rate = Convert.ToDecimal(row.Cells["fine_Rate"].Value.ToString());
+                    returnTransaction.daily_Rate = Convert.ToDecimal(row.Cells["daily_Rate"].Value.ToString());
+                    Form frm = (Form)this.MdiParent;
+                    MenuStrip ms = (MenuStrip)frm.Controls["menuStrip1"];
+                    ToolStripMenuItem lt = (ToolStripMenuItem)ms.Items["login"];
+                    string login = lt.Text;
+                    ReturnFurnitureView returnFurnitureView = new ReturnFurnitureView(returnTransaction, login);
+                    returnFurnitureView.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        private void ClearForm()
+        {
+            dataGridRentedItems.DataSource = null;
+            dataGridRentedItems.Columns.Clear();
+            dataGridRentedItems.Rows.Clear();
+            dataGridRentedItems.Refresh();
+            foreach (var c in this.Controls)
+            {
+                if (c is TextBox)
+                {
+                    ((TextBox)c).Text = String.Empty;
+                }
+
+                if (c is MaskedTextBox)
+                {
+                    ((MaskedTextBox)c).Text = String.Empty;
+                }
+            }
+        }
+
+        private void btnGetRecord_Click(object sender, EventArgs e)
+        {
+            SearchMember();
+        }
+
+        private void btnRestart_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+        }
+
     }
-}
+ }
+
