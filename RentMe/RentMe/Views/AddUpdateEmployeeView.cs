@@ -238,6 +238,7 @@ namespace RentMe.Views
                 btnSubmit.Enabled = false;
                 btnChangePassword.Text = "Update Password";
                 ChangeEnabled(false);
+                btnExit.Enabled = true;
                 btnChangePassword.Enabled = true;
                 txtPassword.Enabled = true;
             }
