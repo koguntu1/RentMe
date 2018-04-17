@@ -186,12 +186,12 @@ namespace RentMe.Views
                         {
                             dataGridViewFurniture.Columns.Insert(10, SelectButton);
                         }
-
-                        DataGridViewButtonColumn RentFurnitureButton = new DataGridViewButtonColumn();
-                        RentFurnitureButton.Name = "";
-                        RentFurnitureButton.Text = "Rent Furniture";
-                        RentFurnitureButton.UseColumnTextForButtonValue = true;
-                        dataGridViewFurniture.Columns.Insert(11, RentFurnitureButton);
+                        //commenting out this code for rental button - to fix next iteration
+                        //DataGridViewButtonColumn RentFurnitureButton = new DataGridViewButtonColumn();
+                        //RentFurnitureButton.Name = "";
+                        //RentFurnitureButton.Text = "Rent Furniture";
+                        //RentFurnitureButton.UseColumnTextForButtonValue = true;
+                        //dataGridViewFurniture.Columns.Insert(11, RentFurnitureButton);
 
                         //end for grid data
 

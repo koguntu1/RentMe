@@ -172,7 +172,6 @@
             this.furnitureReportToolStripMenuItem.Name = "furnitureReportToolStripMenuItem";
             this.furnitureReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
             this.furnitureReportToolStripMenuItem.Text = "&Furniture Report";
-
             this.furnitureReportToolStripMenuItem.Click += new System.EventHandler(this.furnitureReportToolStripMenuItem_Click);
             // 
             // rentalReportToolStripMenuItem
@@ -210,6 +209,7 @@
             this.returnItemsToolStripMenuItem});
             this.actionsToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F);
             this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
+            this.actionsToolStripMenuItem.ShowShortcutKeys = false;
             this.actionsToolStripMenuItem.Size = new System.Drawing.Size(69, 23);
             this.actionsToolStripMenuItem.Text = "Actions";
             // 
