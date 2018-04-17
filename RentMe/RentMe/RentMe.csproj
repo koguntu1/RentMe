@@ -67,6 +67,7 @@
     <Compile Include="Controller\MemberController.cs" />
     <Compile Include="Controller\RentalItemController.cs" />
     <Compile Include="Controller\RentalTransactionController.cs" />
+    <Compile Include="Controller\RentalTransactionIDController.cs" />
     <Compile Include="Controller\StoreItemController.cs" />
     <Compile Include="Controller\StyleController.cs" />
     <Compile Include="DAL\CategoryDAL.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="DAL\MemberDAL.cs" />
     <Compile Include="DAL\RentalItemDAL.cs" />
     <Compile Include="DAL\RentalTransactionDAL.cs" />
+    <Compile Include="DAL\RentalTransactionIDDAL.cs" />
     <Compile Include="DAL\RentMeDBConnection.cs" />
     <Compile Include="DAL\ReturnTransactionDAL.cs" />
     <Compile Include="DAL\Store_ItemDAL.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\RentalItem.cs" />
     <Compile Include="Models\RentalTransaction.cs" />
+    <Compile Include="Models\RentalTransactionID.cs" />
     <Compile Include="Models\ReturnTransaction.cs" />
     <Compile Include="Models\Store_item.cs" />
     <Compile Include="Models\Style.cs" />

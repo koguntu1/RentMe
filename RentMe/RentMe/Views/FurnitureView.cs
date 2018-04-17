@@ -192,7 +192,6 @@ namespace RentMe.Views
                         RentFurnitureButton.Text = "Rent Furniture";
                         RentFurnitureButton.UseColumnTextForButtonValue = true;
                         dataGridViewFurniture.Columns.Insert(11, RentFurnitureButton);
-
                         //end for grid data
 
 
