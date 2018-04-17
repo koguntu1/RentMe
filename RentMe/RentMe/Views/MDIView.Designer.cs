@@ -172,18 +172,22 @@
             this.furnitureReportToolStripMenuItem.Name = "furnitureReportToolStripMenuItem";
             this.furnitureReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
             this.furnitureReportToolStripMenuItem.Text = "&Furniture Report";
+
+            this.furnitureReportToolStripMenuItem.Click += new System.EventHandler(this.furnitureReportToolStripMenuItem_Click);
             // 
             // rentalReportToolStripMenuItem
             // 
             this.rentalReportToolStripMenuItem.Name = "rentalReportToolStripMenuItem";
             this.rentalReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
             this.rentalReportToolStripMenuItem.Text = "&Rental Report";
+            this.rentalReportToolStripMenuItem.Click += new System.EventHandler(this.rentalReportToolStripMenuItem_Click);
             // 
             // returnReportToolStripMenuItem
             // 
             this.returnReportToolStripMenuItem.Name = "returnReportToolStripMenuItem";
             this.returnReportToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
             this.returnReportToolStripMenuItem.Text = "Re&turn Report";
+            this.returnReportToolStripMenuItem.Click += new System.EventHandler(this.returnReportToolStripMenuItem_Click);
             // 
             // memberReportToolStripMenuItem
             // 

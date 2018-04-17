@@ -123,6 +123,12 @@
     <Compile Include="Views\AddUpdateFurnitureView.Designer.cs">
       <DependentUpon>AddUpdateFurnitureView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\RentFurnitureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RentFurnitureForm.Designer.cs">
+      <DependentUpon>RentFurnitureForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\EmployeeReportView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,12 @@
     </Compile>
     <Compile Include="Views\ItemReturnView.designer.cs">
       <DependentUpon>ItemReturnView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FurnitureAvailabilityReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FurnitureAvailabilityReportView.Designer.cs">
+      <DependentUpon>FurnitureAvailabilityReportView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\MemberReportView.cs">
       <SubType>Form</SubType>
@@ -164,6 +176,18 @@
     </Compile>
     <Compile Include="Views\ReturnHistoryView.designer.cs">
       <DependentUpon>ReturnHistoryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RentalReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RentalReportView.Designer.cs">
+      <DependentUpon>RentalReportView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RentalReturnReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RentalReturnReportView.Designer.cs">
+      <DependentUpon>RentalReturnReportView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Validator.cs" />
     <Compile Include="Program.cs" />
@@ -224,6 +248,11 @@
     </Compile>
     <EmbeddedResource Include="Reports\EmployeeReport.rdlc" />
     <EmbeddedResource Include="Reports\MemberReport.rdlc" />
+    <EmbeddedResource Include="Reports\FurnitureAvailabilityReport.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RentalReport.rdlc" />
+    <EmbeddedResource Include="Reports\RentalReturnReport.rdlc" />
     <EmbeddedResource Include="Views\AddItemView.resx">
       <DependentUpon>AddItemView.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,6 +277,9 @@
     <EmbeddedResource Include="Views\ItemReturnView.resx">
       <DependentUpon>ItemReturnView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\FurnitureAvailabilityReportView.resx">
+      <DependentUpon>FurnitureAvailabilityReportView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
     </EmbeddedResource>
@@ -266,8 +298,17 @@
     <EmbeddedResource Include="Views\RentView.resx">
       <DependentUpon>RentView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ReturnHistoryView.resx">
-      <DependentUpon>ReturnHistoryView.cs</DependentUpon>
+  <EmbeddedResource Include="Views\ReturnHistoryView.resx">
+    <DependentUpon>ReturnHistoryView.cs</DependentUpon>
+  </EmbeddedResource>
+    <EmbeddedResource Include="Views\RentFurnitureForm.resx">
+      <DependentUpon>RentFurnitureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RentalReportView.resx">
+      <DependentUpon>RentalReportView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RentalReturnReportView.resx">
+      <DependentUpon>RentalReturnReportView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
