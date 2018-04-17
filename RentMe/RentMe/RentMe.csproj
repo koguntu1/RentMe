@@ -140,11 +140,29 @@
     <Compile Include="Views\EmployeeView.Designer.cs">
       <DependentUpon>EmployeeView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FurnitureAvailabilityReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FurnitureAvailabilityReportView.Designer.cs">
+      <DependentUpon>FurnitureAvailabilityReportView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\MemberReportView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\MemberReportView.Designer.cs">
       <DependentUpon>MemberReportView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RentalReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RentalReportView.Designer.cs">
+      <DependentUpon>RentalReportView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RentalReturnReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RentalReturnReportView.Designer.cs">
+      <DependentUpon>RentalReturnReportView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Validator.cs" />
     <Compile Include="Program.cs" />
@@ -205,6 +223,11 @@
     </Compile>
     <EmbeddedResource Include="Reports\EmployeeReport.rdlc" />
     <EmbeddedResource Include="Reports\MemberReport.rdlc" />
+    <EmbeddedResource Include="Reports\FurnitureAvailabilityReport.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RentalReport.rdlc" />
+    <EmbeddedResource Include="Reports\RentalReturnReport.rdlc" />
     <EmbeddedResource Include="Views\AddItemView.resx">
       <DependentUpon>AddItemView.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +249,9 @@
     <EmbeddedResource Include="Views\EmployeeView.resx">
       <DependentUpon>EmployeeView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\FurnitureAvailabilityReportView.resx">
+      <DependentUpon>FurnitureAvailabilityReportView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
     </EmbeddedResource>
@@ -240,6 +266,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RentFurnitureForm.resx">
       <DependentUpon>RentFurnitureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RentalReportView.resx">
+      <DependentUpon>RentalReportView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RentalReturnReportView.resx">
+      <DependentUpon>RentalReturnReportView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
