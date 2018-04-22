@@ -66,13 +66,13 @@ namespace RentMe.Views
                 {
                     customer = new CustomerView();
                     customer.MdiParent = this;
-                    //customer.StartPosition = FormStartPosition.CenterScreen;
+                    customer.StartPosition = FormStartPosition.CenterScreen;
                     customer.Show();
                 }
                 else
                 {
                     customer.MdiParent = this;
-                    //customer.StartPosition = FormStartPosition.CenterScreen;
+                    customer.StartPosition = FormStartPosition.CenterScreen;
                     customer.Show();
                 }
             }
@@ -88,13 +88,13 @@ namespace RentMe.Views
                 {
                     furniture = new FurnitureView();
                     furniture.MdiParent = this;
-                    //furniture.StartPosition = FormStartPosition.CenterScreen;
+                    furniture.StartPosition = FormStartPosition.CenterScreen;
                     furniture.Show();
                 }
                 else
                 {
                     furniture.MdiParent = this;
-                    //furniture.StartPosition = FormStartPosition.CenterScreen;
+                    furniture.StartPosition = FormStartPosition.CenterScreen;
                     furniture.Show();
                 }
             }
@@ -111,13 +111,13 @@ namespace RentMe.Views
                 {
                     password = new ChangePasswordView();
                     password.MdiParent = this;
-                    //password.StartPosition = FormStartPosition.CenterScreen;
+                    password.StartPosition = FormStartPosition.CenterScreen;
                     password.Show();
                 }
                 else
                 {
                     password.MdiParent = this;
-                    //password.StartPosition = FormStartPosition.CenterScreen;
+                    password.StartPosition = FormStartPosition.CenterScreen;
                     password.Show();
                 }
             }
@@ -185,13 +185,13 @@ namespace RentMe.Views
                 {
                     employee = new EmployeeView();
                     employee.MdiParent = this;
-                    //employee.StartPosition = FormStartPosition.CenterScreen;
+                    employee.StartPosition = FormStartPosition.CenterScreen;
                     employee.Show();
                 }
                 else
                 {
                     employee.MdiParent = this;
-                    //employee.StartPosition = FormStartPosition.CenterScreen;
+                    employee.StartPosition = FormStartPosition.CenterScreen;
                     employee.Show();
                 }
             }
@@ -217,13 +217,13 @@ namespace RentMe.Views
                 {
                     employeeReport = new EmployeeReportView();
                     employeeReport.MdiParent = this;
-                    //employeeReport.StartPosition = FormStartPosition.CenterScreen;
+                    employeeReport.StartPosition = FormStartPosition.CenterScreen;
                     employeeReport.Show();
                 }
                 else
                 {
                     employeeReport.MdiParent = this;
-                    //employeeReport.StartPosition = FormStartPosition.CenterScreen;
+                    employeeReport.StartPosition = FormStartPosition.CenterScreen;
                     employeeReport.Show();
                 }
             }
@@ -239,13 +239,13 @@ namespace RentMe.Views
                 {
                     memberReport = new MemberReportView();
                     memberReport.MdiParent = this;
-                    //memberReport.StartPosition = FormStartPosition.CenterScreen;
+                    memberReport.StartPosition = FormStartPosition.CenterScreen;
                     memberReport.Show();
                 }
                 else
                 {
                     memberReport.MdiParent = this;
-                    //memberReport.StartPosition = FormStartPosition.CenterScreen;
+                    memberReport.StartPosition = FormStartPosition.CenterScreen;
                     memberReport.Show();
                 }
             }
@@ -260,11 +260,13 @@ namespace RentMe.Views
                 {
                     rentView = new RentView();
                     rentView.MdiParent = this;
+                    rentView.StartPosition = FormStartPosition.CenterScreen;
                     rentView.Show();
                 }
                 else
                 {
                     rentView.MdiParent = this;
+                    rentView.StartPosition = FormStartPosition.CenterScreen;
                     rentView.Show();
                 }
             }
@@ -279,11 +281,13 @@ namespace RentMe.Views
                 {
                     itemReturnView = new ItemReturnView();
                     itemReturnView.MdiParent = this;
+                    itemReturnView.StartPosition = FormStartPosition.CenterScreen;
                     itemReturnView.Show();
                 }
                 else
                 {
                     itemReturnView.MdiParent = this;
+                    itemReturnView.StartPosition = FormStartPosition.CenterScreen;
                     itemReturnView.Show();
                 }
             }
@@ -299,12 +303,14 @@ namespace RentMe.Views
                 {
                     furnitureAvailabilityReport = new FurnitureAvailabilityReportView();
                     furnitureAvailabilityReport.MdiParent = this;
+                    furnitureAvailabilityReport.StartPosition = FormStartPosition.CenterScreen;
                     //memberReport.StartPosition = FormStartPosition.CenterScreen;
                     furnitureAvailabilityReport.Show();
                 }
                 else
                 {
                     furnitureAvailabilityReport.MdiParent = this;
+                    furnitureAvailabilityReport.StartPosition = FormStartPosition.CenterScreen;
                     //memberReport.StartPosition = FormStartPosition.CenterScreen;
                     furnitureAvailabilityReport.Show();
 
@@ -322,11 +328,13 @@ namespace RentMe.Views
                 {
                     rentalHistoryView = new RentalHistoryView();
                     rentalHistoryView.MdiParent = this;
+                    rentalHistoryView.StartPosition = FormStartPosition.CenterScreen;
                     rentalHistoryView.Show();
                 }
                 else
                 {
                     rentalHistoryView.MdiParent = this;
+                    rentalHistoryView.StartPosition = FormStartPosition.CenterScreen;
                     rentalHistoryView.Show();
                 }
             }
@@ -342,12 +350,13 @@ namespace RentMe.Views
                 {
                     rentalReport = new RentalReportView();
                     rentalReport.MdiParent = this;
-                    //rentalReport.StartPosition = FormStartPosition.CenterScreen;
+                    rentalReport.StartPosition = FormStartPosition.CenterScreen;
                     rentalReport.Show();
                 }
                 else
                 {
                     rentalReport.MdiParent = this;
+                    rentalReport.StartPosition = FormStartPosition.CenterScreen;
                     //memberReport.StartPosition = FormStartPosition.CenterScreen;
                     rentalReport.Show();
 
@@ -364,12 +373,14 @@ namespace RentMe.Views
                 if (returnHistoryView.IsDisposed)
                 {
                     returnHistoryView = new ReturnHistoryView();
+                    returnHistoryView.StartPosition = FormStartPosition.CenterScreen;
                     returnHistoryView.MdiParent = this;
                     returnHistoryView.Show();
                 }
                 else
                 {
                     returnHistoryView.MdiParent = this;
+                    returnHistoryView.StartPosition = FormStartPosition.CenterScreen;
                     returnHistoryView.Show();
                 }
             }
@@ -384,13 +395,13 @@ namespace RentMe.Views
                 {
                     rentalReturnReport = new RentalReturnReportView();
                     rentalReturnReport.MdiParent = this;
-                    //rentalReturnReport.StartPosition = FormStartPosition.CenterScreen;
+                    rentalReturnReport.StartPosition = FormStartPosition.CenterScreen;
                     rentalReturnReport.Show();
                 }
                 else
                 {
                     rentalReturnReport.MdiParent = this;
-                    //rentalReturnReport.StartPosition = FormStartPosition.CenterScreen;
+                    rentalReturnReport.StartPosition = FormStartPosition.CenterScreen;
                     rentalReturnReport.Show();
 
                 }

@@ -127,9 +127,9 @@ namespace RentMe.Views
                     dataGridViewRentItem.DataMember = "RentalHistory";
                     //hiden some columns
                     dataGridViewRentItem.Columns[4].Visible = false;
-                    dataGridViewRentItem.Columns[7].Visible = false;
-                    dataGridViewRentItem.Columns[9].Visible = false;
-                    dataGridViewRentItem.Columns[10].DefaultCellStyle.Format = "C";
+                    dataGridViewRentItem.Columns[11].Visible = false;
+                    //dataGridViewRentItem.Columns[9].Visible = false;
+                    //dataGridViewRentItem.Columns[10].DefaultCellStyle.Format = "C";
                     DisableControls();
                     btnExit.Enabled = true;
                     btnRestart.Enabled = true;
