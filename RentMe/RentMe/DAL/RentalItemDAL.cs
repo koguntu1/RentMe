@@ -57,8 +57,8 @@ namespace RentMe.DAL
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string selectStatement =
                 "SELECT Employee.fname as 'employee firstname', Employee.lname as 'employee lastname', Member.fname as 'customer firstname', Member.lname as 'customer lastname', " +
-                "Rental.rentalID, Rental.rental_date, Rental.return_date, Store_item.furnitureID, Furniture.description, Rental_transaction.transactionID, " +
-                "Transactions.amount " +
+                "Rental.rentalID, Rental.itemID, Rental.rental_date, Rental.return_date, Rental.expected_return as 'due date', Store_item.furnitureID, Furniture.description, Rental_transaction.transactionID, " +
+                "Transactions.amount, Transactions.fines " +
                 "from Rental, Member, Store_item, Furniture, Rental_transaction, Transactions, Employee where " +
                 "(Rental.memberID = Member.memberID and Rental.itemID = Store_item.itemID and " +
                 "Store_item.furnitureID = Furniture.furnitureID and Rental.rentalID = Rental_transaction.rentalID " +
@@ -127,8 +127,8 @@ namespace RentMe.DAL
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string selectStatement =
                 "SELECT Employee.fname as 'employee firstname', Employee.lname as 'employee lastname', Member.fname as 'customer firstname', Member.lname as 'customer lastname', " +
-                "Rental.rentalID, Rental.rental_date, Rental.return_date, Store_item.furnitureID, Furniture.description, Rental_return_transaction.transactionID, " +
-                "Transactions.amount " +
+                "Rental.rentalID, Rental.itemID, Rental.rental_date, Rental.return_date, Rental.expected_return as 'due date', Store_item.furnitureID, Furniture.description, Rental_return_transaction.transactionID, " +
+                "Transactions.amount, Transactions.fines " +
                 "from Rental, Member, Store_item, Furniture, Rental_return_transaction, Transactions, Employee where " +
                 "(Rental.memberID = Member.memberID and Rental.itemID = Store_item.itemID and " +
                 "Store_item.furnitureID = Furniture.furnitureID and Rental.rentalID = Rental_return_transaction.rentalID " +

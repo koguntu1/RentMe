@@ -115,9 +115,9 @@ namespace RentMe.Views
                     dataGridViewReturnItem.DataMember = "ReturnHistory";
                     //hiden some columns
                     dataGridViewReturnItem.Columns[4].Visible = false;
-                    dataGridViewReturnItem.Columns[7].Visible = false;
-                    dataGridViewReturnItem.Columns[9].Visible = false;
-                    dataGridViewReturnItem.Columns[10].DefaultCellStyle.Format = "C";
+                    dataGridViewReturnItem.Columns[11].Visible = false;
+                    //dataGridViewReturnItem.Columns[9].Visible = false;
+                    dataGridViewReturnItem.Columns[12].DefaultCellStyle.Format = "C";
                     DisableControls();
                     btnExit.Enabled = true;
                     btnRestart.Enabled = true;

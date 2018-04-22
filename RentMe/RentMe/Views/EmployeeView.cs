@@ -159,6 +159,7 @@ namespace RentMe.Views
                     employee.dateOfBirth = Convert.ToDateTime(row.Cells["dateOfBirth"].Value.ToString());
                     employee.homePhone = row.Cells["homePhone"].Value.ToString();
                     AddUpdateEmployeeView addUpdateEmployeeView = new AddUpdateEmployeeView(true, employee);
+                    addUpdateEmployeeView.StartPosition = FormStartPosition.CenterScreen;
                     addUpdateEmployeeView.Show();
                 }
             }
@@ -171,6 +172,7 @@ namespace RentMe.Views
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddUpdateEmployeeView addUpdateEmployeeView = new AddUpdateEmployeeView(false, null);
+            addUpdateEmployeeView.StartPosition = FormStartPosition.CenterScreen;
             addUpdateEmployeeView.Show();
             addUpdateEmployeeView.Refresh();
         }
