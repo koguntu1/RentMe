@@ -158,7 +158,7 @@ namespace RentMe.Views
                     MenuStrip ms = (MenuStrip)frm.Controls["menuStrip1"];
                     ToolStripMenuItem lt = (ToolStripMenuItem)ms.Items["login"];
                     string login = lt.Text;
-                    ReturnFurnitureView returnFurnitureView = new ReturnFurnitureView(returnTransaction, login);
+                    ReturnFurnitureView returnFurnitureView = new ReturnFurnitureView(returnTransaction, login, this);
                     returnFurnitureView.StartPosition = FormStartPosition.CenterScreen;
                     returnFurnitureView.Show();
                 }
