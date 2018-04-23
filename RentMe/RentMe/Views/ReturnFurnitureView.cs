@@ -16,15 +16,17 @@ namespace RentMe.Views
     {
         ReturnTransaction returnTransaction;
         ReturnController returnController;
+        ItemReturnView returnForm;
         string userID;
         decimal amountOwed;
         decimal amountFined;
-        public ReturnFurnitureView(ReturnTransaction transactionReturn, string login)
+        public ReturnFurnitureView(ReturnTransaction transactionReturn, string login, ItemReturnView returnParent)
         {
             InitializeComponent();
             returnTransaction = transactionReturn;
             returnController = new ReturnController();
             userID = login;
+            this.returnForm = returnParent;
         }
 
         private void DisplayReturn(ReturnTransaction returnTransaction)
@@ -69,6 +71,9 @@ namespace RentMe.Views
                 if (success)
                 {
                     MessageBox.Show("Transaction completed for " + returnTransaction.fname + " " + returnTransaction.lname + ". for " + txtTotalOwed.Text);
+                    this.returnForm.Close();
+                    returnForm = new ItemReturnView();
+                    returnForm.Show();
                     this.Close();
                 }
             }
