@@ -160,7 +160,7 @@ namespace RentMe.Views
                         //}
                         //lvFurniture.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
                         DisableControls();
-                      //  btnSearch.Text = "Refresh";
+                        btnSearch.Text = "Refresh";
                         btnSearch.Enabled = true;
                         // change to true for next iteration
                         btnAddFurniture.Enabled = true;
