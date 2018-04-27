@@ -48,9 +48,10 @@ namespace RentMe.DAL
         }
 
 
-        public static Member GetMemberByName(string firstName, string lastName)
+        public static List<Member> GetMemberByName(string firstName, string lastName)
         {
-            Member member = new Member();
+           
+            List<Member> memberList = new List<Member>();
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string selectstatement =
                 "SELECT memberID, fname, middleInitial, lname, dateOfBirth, gender, homePhone, Address1, Address2, City, State, PostalCode " +
@@ -63,10 +64,10 @@ namespace RentMe.DAL
             try
             {
                 connection.Open();
-                SqlDataReader reader =
-                    selectCommand.ExecuteReader(CommandBehavior.SingleRow);
-                if (reader.Read())
+                SqlDataReader reader = selectCommand.ExecuteReader();
+                while (reader.Read())
                 {
+                    Member member = new Member();
                     member.memberID = Convert.ToInt32(reader["memberID"].ToString());
                     member.fname = reader["fname"].ToString();
                     member.middleInitial = reader["middleInitial"].ToString();
@@ -80,11 +81,8 @@ namespace RentMe.DAL
                     member.State = reader["State"].ToString();
                     member.PostalCode = reader["PostalCode"].ToString();
 
+                    memberList.Add(member);
 
-                }
-                else
-                {
-                    member = null;
                 }
                 reader.Close();
             }
@@ -96,12 +94,12 @@ namespace RentMe.DAL
             {
                 connection.Close();
             }
-            return member;
+            return memberList;
         }
 
-        public static Member GetMemberByPhone(string phoneNumber)
+        public static List<Member> GetMemberByPhone(string phoneNumber)
         {
-            Member member = new Member();
+            List<Member> memberList = new List<Member>();
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string selectstatement =
                 "SELECT memberID, fname, middleInitial, lname, dateOfBirth, gender, homePhone, Address1, Address2, City, State, PostalCode " +
@@ -113,9 +111,10 @@ namespace RentMe.DAL
             {
                 connection.Open();
                 SqlDataReader reader =
-                    selectCommand.ExecuteReader(CommandBehavior.SingleRow);
-                if (reader.Read())
+                    selectCommand.ExecuteReader();
+                while (reader.Read())
                 {
+                    Member member = new Member();
                     member.memberID = Convert.ToInt32(reader["memberID"].ToString());
                     member.fname = reader["fname"].ToString();
                     member.middleInitial = reader["middleInitial"].ToString();
@@ -128,13 +127,11 @@ namespace RentMe.DAL
                     member.City = reader["City"].ToString();
                     member.State = reader["State"].ToString();
                     member.PostalCode = reader["PostalCode"].ToString();
+                    memberList.Add(member);
 
 
                 }
-                else
-                {
-                    member = null;
-                }
+                
                 reader.Close();
             }
             catch (SqlException ex)
@@ -145,7 +142,7 @@ namespace RentMe.DAL
             {
                 connection.Close();
             }
-            return member;
+            return memberList;
         }
 
         public static int AddMember(Member member)
