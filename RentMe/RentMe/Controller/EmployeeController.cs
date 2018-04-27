@@ -44,5 +44,10 @@ namespace RentMe.Controller
         {
             return EmployeeDAL.UpdateEmployeePassword(employee, password);
         }
-    }
+
+        public Employee GetEmployeeById(int employeeID)
+        {
+            return EmployeeDAL.GetEmployeeByID(employeeID);
+        }
+}
 }

@@ -186,13 +186,11 @@ namespace RentMe.Views
                         {
                             dataGridViewFurniture.Columns.Insert(10, SelectButton);
                         }
-                        //commenting out this code for rental button - to fix next iteration
-                        //DataGridViewButtonColumn RentFurnitureButton = new DataGridViewButtonColumn();
-                        //RentFurnitureButton.Name = "";
-                        //RentFurnitureButton.Text = "Rent Furniture";
-                        //RentFurnitureButton.UseColumnTextForButtonValue = true;
-                        //dataGridViewFurniture.Columns.Insert(11, RentFurnitureButton);
-
+                        DataGridViewButtonColumn RentFurnitureButton = new DataGridViewButtonColumn();
+                        RentFurnitureButton.Name = "";
+                        RentFurnitureButton.Text = "Rent Furniture";
+                        RentFurnitureButton.UseColumnTextForButtonValue = true;
+                        dataGridViewFurniture.Columns.Insert(11, RentFurnitureButton);
                         //end for grid data
 
 
@@ -203,7 +201,7 @@ namespace RentMe.Views
                     }
                 }
 
-                
+
             }
             catch (Exception ex)
             {
@@ -266,6 +264,23 @@ namespace RentMe.Views
                     AddUpdateFurnitureView addUpdateFurnitureView = new AddUpdateFurnitureView(true, furniture);
                     addUpdateFurnitureView.StartPosition = FormStartPosition.CenterScreen;
                     addUpdateFurnitureView.Show();
+                }
+                if (e.ColumnIndex == 11)
+                {
+                    Furniture furniture = new Furniture();
+                    DataGridViewRow row = this.dataGridViewFurniture.Rows[e.RowIndex];
+                    furniture.Category = row.Cells["Category"].Value.ToString();
+                    furniture.StyleID = (int)row.Cells["StyleID"].Value;
+                    furniture.Style = row.Cells["Style"].Value.ToString();
+                    furniture.Description = row.Cells["Description"].Value.ToString();
+                    furniture.CategoryID = (int)row.Cells["CategoryID"].Value;
+                    furniture.category = null;
+                    furniture.ItemID = (int)row.Cells["ItemID"].Value;
+                    furniture.FurnitureID = (int)row.Cells["FurnitureID"].Value;
+                    furniture.Fine_Rate = Convert.ToDecimal(row.Cells["Fine_Rate"].Value.ToString());
+                    furniture.Daily_Rate = Convert.ToDecimal(row.Cells["Daily_Rate"].Value.ToString());
+                    RentFurnitureForm rentFurnitureForm = new RentFurnitureForm(furniture);
+                    rentFurnitureForm.Show();
                 }
             }
             catch (Exception ex)

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RentMe.Controller;
+using RentMe.Models;
 
 namespace RentMe.Views
 {
@@ -16,11 +17,14 @@ namespace RentMe.Views
     public partial class LoginView : Form
     {
         private LoginController lgCont;
+        private EmployeeController empController;
+        private Login login;
         public LoginView()
         {
 
             InitializeComponent();
             lgCont = new LoginController();
+            empController = new EmployeeController();
 
         }
 
