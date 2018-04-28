@@ -48,7 +48,108 @@ namespace RentMe.DAL
         }
 
 
-        public static List<Member> GetMemberByName(string firstName, string lastName)
+        public static Member GetMemberByName(string firstName, string lastName)
+        {
+            Member member = new Member();
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string selectstatement =
+                "SELECT memberID, fname, middleInitial, lname, dateOfBirth, gender, homePhone, Address1, Address2, City, State, PostalCode " +
+                "FROM member " +
+                "WHERE fname = @fname " +
+                "AND lname = @lname";
+            SqlCommand selectCommand = new SqlCommand(selectstatement, connection);
+            selectCommand.Parameters.AddWithValue("@fname", firstName);
+            selectCommand.Parameters.AddWithValue("@lname", lastName);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader =
+                    selectCommand.ExecuteReader(CommandBehavior.SingleRow);
+                if (reader.Read())
+                {
+                    member.memberID = Convert.ToInt32(reader["memberID"].ToString());
+                    member.fname = reader["fname"].ToString();
+                    member.middleInitial = reader["middleInitial"].ToString();
+                    member.lname = reader["lname"].ToString();
+                    member.dateOfBirth = (DateTime)reader["dateOfBirth"];
+                    member.gender = reader["gender"].ToString();
+                    member.homePhone = reader["homePhone"].ToString();
+                    member.Address1 = reader["Address1"].ToString();
+                    member.Address2 = reader["Address2"].ToString();
+                    member.City = reader["City"].ToString();
+                    member.State = reader["State"].ToString();
+                    member.PostalCode = reader["PostalCode"].ToString();
+
+
+                }
+                else
+                {
+                    member = null;
+                }
+                reader.Close();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return member;
+        }
+
+        public static Member GetMemberByPhone(string phoneNumber)
+        {
+            Member member = new Member();
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string selectstatement =
+                "SELECT memberID, fname, middleInitial, lname, dateOfBirth, gender, homePhone, Address1, Address2, City, State, PostalCode " +
+                "FROM member " +
+                "WHERE homePhone = @homePhone";
+            SqlCommand selectCommand = new SqlCommand(selectstatement, connection);
+            selectCommand.Parameters.AddWithValue("@homePhone", phoneNumber);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader =
+                    selectCommand.ExecuteReader(CommandBehavior.SingleRow);
+                if (reader.Read())
+                {
+                    member.memberID = Convert.ToInt32(reader["memberID"].ToString());
+                    member.fname = reader["fname"].ToString();
+                    member.middleInitial = reader["middleInitial"].ToString();
+                    member.lname = reader["lname"].ToString();
+                    member.dateOfBirth = (DateTime)reader["dateOfBirth"];
+                    member.gender = reader["gender"].ToString();
+                    member.homePhone = reader["homePhone"].ToString();
+                    member.Address1 = reader["Address1"].ToString();
+                    member.Address2 = reader["Address2"].ToString();
+                    member.City = reader["City"].ToString();
+                    member.State = reader["State"].ToString();
+                    member.PostalCode = reader["PostalCode"].ToString();
+
+
+                }
+                else
+                {
+                    member = null;
+                }
+                reader.Close();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return member;
+        }
+
+
+        public static List<Member> GetMembersByName(string firstName, string lastName)
         {
            
             List<Member> memberList = new List<Member>();
@@ -80,6 +181,7 @@ namespace RentMe.DAL
                     member.City = reader["City"].ToString();
                     member.State = reader["State"].ToString();
                     member.PostalCode = reader["PostalCode"].ToString();
+                    member.fullname = reader["fname"].ToString() + " " + reader["lname"].ToString();
 
                     memberList.Add(member);
 
@@ -97,7 +199,7 @@ namespace RentMe.DAL
             return memberList;
         }
 
-        public static List<Member> GetMemberByPhone(string phoneNumber)
+        public static List<Member> GetMembersByPhone(string phoneNumber)
         {
             List<Member> memberList = new List<Member>();
             SqlConnection connection = RentMeDBConnection.GetConnection();
@@ -128,7 +230,7 @@ namespace RentMe.DAL
                     member.State = reader["State"].ToString();
                     member.PostalCode = reader["PostalCode"].ToString();
                     memberList.Add(member);
-
+                    member.fullname = reader["fname"].ToString() + " " + reader["lname"].ToString();
 
                 }
                 

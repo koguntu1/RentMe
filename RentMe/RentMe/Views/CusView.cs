@@ -61,13 +61,13 @@ namespace RentMe.Views
                     if ((!txtFname.Text.Equals("") || !txtLname.Equals("")))
                     {
 
-                        memberList = memberController.GetMemberByName(memberFName,memberLName);
+                        memberList = memberController.GetMembersByName(memberFName,memberLName);
                     }
 
                     if (!mtxtHomePhone.Text.Equals(""))
                     {
 
-                        memberList = memberController.GetMemberByPhone(phoneNumber);
+                        memberList = memberController.GetMembersByPhone(phoneNumber);
                     }
 
                     DisplayEmployee();
@@ -102,7 +102,7 @@ namespace RentMe.Views
                     if ((!txtFname.Text.Equals("") || !txtLname.Equals("")))
                     {
 
-                        memberList = memberController.GetMemberByName(memberFName, memberLName);
+                        memberList = memberController.GetMembersByName(memberFName, memberLName);
                     }
 
                     DisplayEmployee();
@@ -148,6 +148,7 @@ namespace RentMe.Views
                 memberDataGridView.Columns["dateOfBirth"].DefaultCellStyle.Format = "MM/dd/yyyy";
                 memberDataGridView.Columns["homePhone"].DefaultCellStyle.Format = "(###) ###-####";
                 memberDataGridView.Columns["gender"].HeaderText = "Gender";
+                memberDataGridView.Columns["fullname"].HeaderText = "Full Name";
                 editButton.HeaderText = "Edit Employee";
                 editButton.Text = "Edit Member";
                 editButton.Name = "editButton";
@@ -188,6 +189,7 @@ namespace RentMe.Views
                     member.dateOfBirth = Convert.ToDateTime(row.Cells["dateOfBirth"].Value.ToString());
                     member.homePhone = row.Cells["homePhone"].Value.ToString();
                     member.gender = row.Cells["gender"].Value.ToString();
+                    member.fullname = row.Cells["fullname"].Value.ToString();
                     AddUpdateMemberView addUpdateMemberView = new AddUpdateMemberView(true, member, this);
                     addUpdateMemberView.StartPosition = FormStartPosition.CenterScreen;
                     addUpdateMemberView.Show();
