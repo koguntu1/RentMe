@@ -118,10 +118,15 @@ namespace RentMe.Views
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            refreshData();
+        }
+
+        public void refreshData()
+        {
             //clear data table first
-            if (dataGridViewFurniture.Columns.Count > 11)
+            if (dataGridViewFurniture.Columns.Count >= 11)
             {
-                dataGridViewFurniture.Columns.RemoveAt(11);
+                dataGridViewFurniture.Columns.RemoveAt(10);
             }
             dataGridViewFurniture.DataSource = null;
             dataGridViewFurniture.Rows.Clear();
@@ -134,7 +139,8 @@ namespace RentMe.Views
             int styleID = 0;
             try
             {
-                if (cboFurnitureID.SelectedValue == null && cboItemID.SelectedValue == null && cboCategory.SelectedValue == null && cboStyle.SelectedValue == null) {
+                if (cboFurnitureID.SelectedValue == null && cboItemID.SelectedValue == null && cboCategory.SelectedValue == null && cboStyle.SelectedValue == null)
+                {
                     MessageBox.Show("At least one box must be selected.");
                 }
                 else
@@ -208,9 +214,6 @@ namespace RentMe.Views
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
                 this.BeginInvoke(new MethodInvoker(Close));
             }
-
-
-
         }
 
         private void btnRestart_Click(object sender, EventArgs e)
@@ -224,9 +227,9 @@ namespace RentMe.Views
             cboStyle.SelectedIndex = -1;
             cboCategory.Enabled = true;
             cboCategory.SelectedIndex = -1;
-            if(dataGridViewFurniture.Columns.Count > 11)
+            if(dataGridViewFurniture.Columns.Count >= 11)
             {
-                dataGridViewFurniture.Columns.RemoveAt(11);
+                dataGridViewFurniture.Columns.RemoveAt(10);
             }
             dataGridViewFurniture.DataSource = null;
             dataGridViewFurniture.Rows.Clear();
@@ -261,7 +264,7 @@ namespace RentMe.Views
                     //int invoiceID = (int)row.Cells["InvoiceID"].Value;
                     //frmLineItem frmLineItem = new frmLineItem(invoiceID);
                     //frmLineItem.Show();
-                    AddUpdateFurnitureView addUpdateFurnitureView = new AddUpdateFurnitureView(true, furniture);
+                    AddUpdateFurnitureView addUpdateFurnitureView = new AddUpdateFurnitureView(true, furniture, this);
                     addUpdateFurnitureView.StartPosition = FormStartPosition.CenterScreen;
                     addUpdateFurnitureView.Show();
                 }
@@ -291,7 +294,7 @@ namespace RentMe.Views
 
         private void btnAddFurniture_Click(object sender, EventArgs e)
         {
-            AddUpdateFurnitureView addUpdateFurnitureView = new AddUpdateFurnitureView(false, null);
+            AddUpdateFurnitureView addUpdateFurnitureView = new AddUpdateFurnitureView(false, null, this);
             addUpdateFurnitureView.StartPosition = FormStartPosition.CenterScreen;
             addUpdateFurnitureView.Show();
         }

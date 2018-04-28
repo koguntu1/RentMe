@@ -18,12 +18,15 @@ namespace RentMe.Views
         private Furniture furniture;
         private List<Style> styleList;
         private List<Category> categoryList;
+        FurnitureView furnitureView;
 
-        public AddUpdateFurnitureView(bool isUpdate, Furniture furnitureSelected)
+        public AddUpdateFurnitureView(bool isUpdate, Furniture furnitureSelected, FurnitureView fView)
         {
             InitializeComponent();
             update = isUpdate;
             furniture = furnitureSelected;
+            furnitureView = fView;
+            this.FormClosing += new FormClosingEventHandler(formClosing);
             LoadComboBoxes();
             if (update)
             {
@@ -37,6 +40,11 @@ namespace RentMe.Views
                 cboStyle.SelectedValue = -1;
             }
             
+        }
+
+        private void formClosing(object sender, FormClosingEventArgs e)
+        {
+            furnitureView.refreshData();
         }
 
         private void LoadComboBoxes()
