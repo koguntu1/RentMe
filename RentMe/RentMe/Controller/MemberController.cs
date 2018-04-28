@@ -20,12 +20,12 @@ namespace RentMe.Controller
         }
 
 
-        public Member GetMemberByName(string firstName, string lastName)
+        public List<Member> GetMemberByName(string firstName, string lastName)
         {
             return MemberDAL.GetMemberByName(firstName, lastName);
         }
 
-        public Member GetMemberByPhone(string phoneNumber)
+        public List<Member> GetMemberByPhone(string phoneNumber)
         {
             return MemberDAL.GetMemberByPhone(phoneNumber);
         }

@@ -118,11 +118,23 @@
     <Compile Include="Views\AddItemView.Designer.cs">
       <DependentUpon>AddItemView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddUpdateMemberView .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddUpdateMemberView .Designer.cs">
+      <DependentUpon>AddUpdateMemberView .cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddUpdateFurnitureView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\AddUpdateFurnitureView.Designer.cs">
       <DependentUpon>AddUpdateFurnitureView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CusView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CusView.Designer.cs">
+      <DependentUpon>CusView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\RentFurnitureForm.cs">
       <SubType>Form</SubType>
@@ -263,6 +275,9 @@
     <EmbeddedResource Include="Views\AddItemView.resx">
       <DependentUpon>AddItemView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddUpdateMemberView .resx">
+      <DependentUpon>AddUpdateMemberView .cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\AddUpdateFurnitureView.resx">
       <DependentUpon>AddUpdateFurnitureView.cs</DependentUpon>
     </EmbeddedResource>
@@ -277,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AddUpdateEmployeeView.resx">
       <DependentUpon>AddUpdateEmployeeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CusView.resx">
+      <DependentUpon>CusView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EmployeeView.resx">
       <DependentUpon>EmployeeView.cs</DependentUpon>

@@ -12,7 +12,7 @@ namespace RentMe.Views
 {
     public partial class MDIView : Form
     {
-        CustomerView customer = new CustomerView();
+        CusView customer = new CusView();
         FurnitureView furniture = new FurnitureView();
         ChangePasswordView password = new ChangePasswordView();
         LoginView loginForm = new LoginView();
@@ -64,7 +64,7 @@ namespace RentMe.Views
 
                 if (customer.IsDisposed)
                 {
-                    customer = new CustomerView();
+                    customer = new CusView();
                     customer.MdiParent = this;
                     customer.StartPosition = FormStartPosition.CenterScreen;
                     customer.Show();
