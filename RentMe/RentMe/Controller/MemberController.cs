@@ -19,15 +19,25 @@ namespace RentMe.Controller
             return MemberDAL.GetMemberList();
         }
 
-
-        public List<Member> GetMemberByName(string firstName, string lastName)
+        public Member GetMemberByName(string firstName, string lastName)
         {
             return MemberDAL.GetMemberByName(firstName, lastName);
         }
 
-        public List<Member> GetMemberByPhone(string phoneNumber)
+        public Member GetMemberByPhone(string phoneNumber)
         {
             return MemberDAL.GetMemberByPhone(phoneNumber);
+        }
+
+
+        public List<Member> GetMembersByName(string firstName, string lastName)
+        {
+            return MemberDAL.GetMembersByName(firstName, lastName);
+        }
+
+        public List<Member> GetMembersByPhone(string phoneNumber)
+        {
+            return MemberDAL.GetMembersByPhone(phoneNumber);
         }
 
         public int AddMember(Member member)
