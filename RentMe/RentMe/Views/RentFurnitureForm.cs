@@ -97,7 +97,7 @@ namespace RentMe.Views
         {
             try
             {
-                member = this.memController.GetMemberByName(firstName, lastName);
+                //member = this.memController.GetMemberByName(firstName, lastName);
 
             }
             catch (Exception ex)
@@ -110,7 +110,7 @@ namespace RentMe.Views
         {
             try
             {
-                member = this.memController.GetMemberByPhone(phoneNumber);
+                //member = this.memController.GetMemberByPhone(phoneNumber);
 
             }
             catch (Exception ex)

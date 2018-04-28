@@ -93,7 +93,12 @@ namespace RentMe.Views
                 dataGridRentedItems.DataSource = bindingReturnList;
                 dataGridRentedItems.AutoGenerateColumns = true;
                 dataGridRentedItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                DataGridViewButtonColumn returnButton = new DataGridViewButtonColumn();
+                //DataGridViewButtonColumn returnButton = new DataGridViewButtonColumn();
+                DataGridViewCheckBoxColumn returnBox = new DataGridViewCheckBoxColumn();
+                returnBox.HeaderText = "Return Rental";
+                returnBox.FalseValue = 0;
+                returnBox.TrueValue = 1;
+
                 dataGridRentedItems.Columns["fname"].HeaderText = "First Name";
                 dataGridRentedItems.Columns["lname"].HeaderText = "Last Name";
                 dataGridRentedItems.Columns["description"].HeaderText = "Description";
@@ -114,13 +119,13 @@ namespace RentMe.Views
                 dataGridRentedItems.Columns["rentalID"].Visible = false;
                 dataGridRentedItems.Columns["daily_Rate"].Visible = false;
                 dataGridRentedItems.Columns["fine_Rate"].Visible = false;
-                returnButton.HeaderText = "Return Rental";
-                returnButton.Text = "Return Rental";
-                returnButton.Name = "returnRental";
-                returnButton.UseColumnTextForButtonValue = true;
+                //returnButton.HeaderText = "Return Rental";
+                //returnButton.Text = "Return Rental";
+                //returnButton.Name = "returnRental";
+                //returnButton.UseColumnTextForButtonValue = true;
                 if (dataGridRentedItems.Columns["returnRental"] == null)
                 {
-                    dataGridRentedItems.Columns.Insert(0, returnButton);
+                    dataGridRentedItems.Columns.Insert(0, returnBox);
                 }
             }
 
@@ -199,6 +204,10 @@ namespace RentMe.Views
             ClearForm();
         }
 
+        private void ItemReturnView_Load(object sender, EventArgs e)
+        {
+
+        }
     }
  }
 

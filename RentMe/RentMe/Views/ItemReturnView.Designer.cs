@@ -44,6 +44,7 @@
             this.mtxtHomePhone = new System.Windows.Forms.MaskedTextBox();
             this.btnRestart = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnReturnItems = new System.Windows.Forms.Button();
             homePhoneLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRentedItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -97,9 +98,9 @@
             // 
             this.btnGetRecord.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnGetRecord.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGetRecord.Location = new System.Drawing.Point(195, 495);
+            this.btnGetRecord.Location = new System.Drawing.Point(205, 496);
             this.btnGetRecord.Name = "btnGetRecord";
-            this.btnGetRecord.Size = new System.Drawing.Size(125, 31);
+            this.btnGetRecord.Size = new System.Drawing.Size(119, 31);
             this.btnGetRecord.TabIndex = 94;
             this.btnGetRecord.Text = "Get Record";
             this.btnGetRecord.UseVisualStyleBackColor = true;
@@ -174,7 +175,7 @@
             // 
             this.btnExit.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnExit.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(539, 495);
+            this.btnExit.Location = new System.Drawing.Point(641, 496);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(91, 31);
             this.btnExit.TabIndex = 102;
@@ -196,7 +197,7 @@
             // 
             this.btnRestart.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnRestart.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestart.Location = new System.Drawing.Point(384, 495);
+            this.btnRestart.Location = new System.Drawing.Point(520, 496);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(91, 31);
             this.btnRestart.TabIndex = 105;
@@ -215,12 +216,24 @@
             this.pictureBox1.TabIndex = 60;
             this.pictureBox1.TabStop = false;
             // 
+            // btnReturnItems
+            // 
+            this.btnReturnItems.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnReturnItems.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturnItems.Location = new System.Drawing.Point(354, 496);
+            this.btnReturnItems.Name = "btnReturnItems";
+            this.btnReturnItems.Size = new System.Drawing.Size(136, 31);
+            this.btnReturnItems.TabIndex = 106;
+            this.btnReturnItems.Text = "Return Item(s)";
+            this.btnReturnItems.UseVisualStyleBackColor = true;
+            // 
             // ItemReturnView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(931, 550);
+            this.Controls.Add(this.btnReturnItems);
             this.Controls.Add(this.btnRestart);
             this.Controls.Add(homePhoneLabel);
             this.Controls.Add(this.mtxtHomePhone);
@@ -236,6 +249,7 @@
             this.Controls.Add(this.lblFirstName);
             this.Name = "ItemReturnView";
             this.Text = "Return View";
+            this.Load += new System.EventHandler(this.ItemReturnView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRentedItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -257,5 +271,6 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.MaskedTextBox mtxtHomePhone;
         private System.Windows.Forms.Button btnRestart;
+        private System.Windows.Forms.Button btnReturnItems;
     }
 }
