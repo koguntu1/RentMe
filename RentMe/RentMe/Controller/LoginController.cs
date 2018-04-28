@@ -151,5 +151,10 @@ namespace RentMe.Controller
 
             return Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount);
         }
-    }
+
+         public Login getLoggedInUser(string username)
+         {
+           return LoginDAL.GetLogin(username, LoginDAL.GetLoginPassword(username));
+         }
+}
 }

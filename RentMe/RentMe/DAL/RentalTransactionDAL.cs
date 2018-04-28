@@ -16,11 +16,11 @@ namespace RentMe.DAL
             RentalTransaction rentalTransaction = new RentalTransaction();
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string selectstatement =
-                "SELECT rentalTransactionID, memberID, expected_return, rental_date, employeeID " +
+                "SELECT transactionID, date, amount, comment, employeeID, fines " +
                 "FROM rentalTransaction " +
-                "WHERE rentalTransactionID = @rentalTransactionID";
+                "WHERE transactionID = @transactionID";
             SqlCommand selectCommand = new SqlCommand(selectstatement, connection);
-            selectCommand.Parameters.AddWithValue("@rentalTransactionID", rentalTransactionID);
+            selectCommand.Parameters.AddWithValue("@transactionID", rentalTransactionID);
             try
             {
                 connection.Open();
@@ -28,11 +28,12 @@ namespace RentMe.DAL
                     selectCommand.ExecuteReader(CommandBehavior.SingleRow);
                 if (reader.Read())
                 {
-                    rentalTransaction.rentalTransactionID = Convert.ToInt32(reader["rentalTransactionID"].ToString());
-                    rentalTransaction.memberID = Convert.ToInt32(reader["memberID"].ToString());
-                    rentalTransaction.expected_return = (DateTime)reader["expected_return"];
-                    rentalTransaction.rental_date = (DateTime)reader["rental_date"];
+                    rentalTransaction.rentalTransactionID = Convert.ToInt32(reader["transactionID"].ToString());
+                    rentalTransaction.transactionDate = Convert.ToDateTime(reader["memberID"].ToString());
+                    rentalTransaction.amount = Convert.ToDouble(reader["expected_return"]);
+                    rentalTransaction.comment = reader["rental_date"].ToString();
                     rentalTransaction.employeeID = Convert.ToInt32(reader["employeeID"].ToString());
+                    rentalTransaction.fines = Convert.ToDouble(reader["fines"]);
 
                 }
                 else
@@ -50,6 +51,54 @@ namespace RentMe.DAL
                 connection.Close();
             }
             return rentalTransaction;
+        }
+
+        public static int AddRentalTransaction(RentalTransaction rentalTransaction)
+        {
+            SqlConnection connection = RentMeDBConnection.GetConnection();
+            string insertStatement =
+                "INSERT Transactions " +
+                  "(date, amount, comment, employeeID, fines) " +
+                "VALUES (@date, @amount, @comment, @employeeID, @fines)";
+            SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
+            insertCommand.Parameters.AddWithValue("@date", rentalTransaction.transactionDate);
+            insertCommand.Parameters.AddWithValue("@amount", rentalTransaction.amount);
+            if (string.IsNullOrEmpty(rentalTransaction.comment))
+            {
+                insertCommand.Parameters.AddWithValue("@comment", "");
+            }
+            else
+            {
+                insertCommand.Parameters.AddWithValue("@comment", rentalTransaction.comment);
+            }
+            insertCommand.Parameters.AddWithValue("@employeeID", rentalTransaction.employeeID);
+            if (rentalTransaction.fines == null)
+            {
+                insertCommand.Parameters.AddWithValue("@fines", 0.00);
+            }
+            else
+            {
+
+                insertCommand.Parameters.AddWithValue("@fines", rentalTransaction.fines);
+            }
+            try
+            {
+                connection.Open();
+                insertCommand.ExecuteNonQuery();
+                string selectStatement =
+                    "SELECT IDENT_CURRENT('Transactions') FROM Transactions";
+                SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+                int transactionID = Convert.ToInt32(selectCommand.ExecuteScalar());
+                return transactionID;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
     }
 }
