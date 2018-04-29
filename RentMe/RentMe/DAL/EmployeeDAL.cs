@@ -82,6 +82,7 @@ namespace RentMe.DAL
                     employee.gender = reader["gender"].ToString();
                     employee.admin = reader["Admin"].ToString();
                     employee.login = reader["userID"].ToString();
+                    employee.fullname = reader["fname"].ToString() + " " + reader["lname"].ToString();
                     employeeList.Add(employee);
                 }
                 reader.Close();
@@ -132,6 +133,7 @@ namespace RentMe.DAL
                     employee.gender = reader["gender"].ToString();
                     employee.admin = reader["Admin"].ToString();
                     employee.login = reader["userID"].ToString();
+                    employee.fullname = reader["fname"].ToString() + " " + reader["lname"].ToString();
                     employeeList.Add(employee);
 
 

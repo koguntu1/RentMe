@@ -86,6 +86,48 @@ namespace RentMe.Views
                 MessageBox.Show("No results found. Please try again.");
             }
         }
+
+        public void refresh(String fname, String lname)
+        {
+            mtxtHomePhone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            btnRestart.Enabled = true;
+            try
+            {
+                mtxtHomePhone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                String employeeName = ("%" + fname.ToUpper() + "%" + lname.ToUpper() + "%");
+                String phoneNumber = ("%" + mtxtHomePhone.Text.ToString() + "%");
+                if (!employeeName.Equals("%%%") || !mtxtHomePhone.Text.Equals(""))
+                {
+                    if ((!txtFname.Text.Equals("") || !txtLname.Equals("")))
+                    {
+
+                        employeeList = employeeController.GetEmployeeByName(employeeName);
+                    }
+
+                    if (!mtxtHomePhone.Text.Equals(""))
+                    {
+
+                        employeeList = employeeController.GetEmployeeByPhone(phoneNumber);
+                    }
+
+                    DisplayEmployee(employee);
+                    btnAdd.Enabled = true;
+                    btnExit.Enabled = true;
+                    btnSearch.Enabled = true;
+                    btnRestart.Enabled = true;
+                    btnSearch.Text = "Search Again";
+                }
+                else
+                {
+                    MessageBox.Show("You must enter a name or phone number.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No results found. Please try again.");
+            }
+        }
+
         private void DisplayEmployee(Employee employee)
         {
 
@@ -158,7 +200,7 @@ namespace RentMe.Views
                     employee.login = row.Cells["login"].Value.ToString();
                     employee.dateOfBirth = Convert.ToDateTime(row.Cells["dateOfBirth"].Value.ToString());
                     employee.homePhone = row.Cells["homePhone"].Value.ToString();
-                    AddUpdateEmployeeView addUpdateEmployeeView = new AddUpdateEmployeeView(true, employee);
+                    AddUpdateEmployeeView addUpdateEmployeeView = new AddUpdateEmployeeView(true, employee, this);
                     addUpdateEmployeeView.StartPosition = FormStartPosition.CenterScreen;
                     addUpdateEmployeeView.Show();
                 }
@@ -171,7 +213,7 @@ namespace RentMe.Views
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddUpdateEmployeeView addUpdateEmployeeView = new AddUpdateEmployeeView(false, null);
+            AddUpdateEmployeeView addUpdateEmployeeView = new AddUpdateEmployeeView(false, null, this);
             addUpdateEmployeeView.StartPosition = FormStartPosition.CenterScreen;
             addUpdateEmployeeView.Show();
             addUpdateEmployeeView.Refresh();

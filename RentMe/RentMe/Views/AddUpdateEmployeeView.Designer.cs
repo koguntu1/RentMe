@@ -99,11 +99,11 @@
             // 
             fnameLabel.AutoSize = true;
             fnameLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            fnameLabel.Location = new System.Drawing.Point(39, 106);
+            fnameLabel.Location = new System.Drawing.Point(33, 106);
             fnameLabel.Name = "fnameLabel";
-            fnameLabel.Size = new System.Drawing.Size(86, 19);
+            fnameLabel.Size = new System.Drawing.Size(94, 19);
             fnameLabel.TabIndex = 85;
-            fnameLabel.Text = "First Name:";
+            fnameLabel.Text = "*First Name:";
             // 
             // middleInitialLabel
             // 
@@ -121,9 +121,9 @@
             lnameLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lnameLabel.Location = new System.Drawing.Point(365, 106);
             lnameLabel.Name = "lnameLabel";
-            lnameLabel.Size = new System.Drawing.Size(84, 19);
+            lnameLabel.Size = new System.Drawing.Size(92, 19);
             lnameLabel.TabIndex = 89;
-            lnameLabel.Text = "Last Name:";
+            lnameLabel.Text = "*Last Name:";
             // 
             // dateOfBirthLabel
             // 
@@ -141,9 +141,9 @@
             address1Label.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             address1Label.Location = new System.Drawing.Point(15, 150);
             address1Label.Name = "address1Label";
-            address1Label.Size = new System.Drawing.Size(113, 19);
+            address1Label.Size = new System.Drawing.Size(121, 19);
             address1Label.TabIndex = 95;
-            address1Label.Text = "Street Address:";
+            address1Label.Text = "*Street Address:";
             // 
             // address2Label
             // 
@@ -159,21 +159,21 @@
             // 
             cityLabel.AutoSize = true;
             cityLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            cityLabel.Location = new System.Drawing.Point(78, 238);
+            cityLabel.Location = new System.Drawing.Point(74, 238);
             cityLabel.Name = "cityLabel";
-            cityLabel.Size = new System.Drawing.Size(39, 19);
+            cityLabel.Size = new System.Drawing.Size(47, 19);
             cityLabel.TabIndex = 99;
-            cityLabel.Text = "City:";
+            cityLabel.Text = "*City:";
             // 
             // postalCodeLabel
             // 
             postalCodeLabel.AutoSize = true;
             postalCodeLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            postalCodeLabel.Location = new System.Drawing.Point(439, 238);
+            postalCodeLabel.Location = new System.Drawing.Point(448, 238);
             postalCodeLabel.Name = "postalCodeLabel";
-            postalCodeLabel.Size = new System.Drawing.Size(34, 19);
+            postalCodeLabel.Size = new System.Drawing.Size(42, 19);
             postalCodeLabel.TabIndex = 109;
-            postalCodeLabel.Text = "Zip:";
+            postalCodeLabel.Text = "*Zip:";
             // 
             // homePhoneLabel
             // 
@@ -181,9 +181,9 @@
             homePhoneLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             homePhoneLabel.Location = new System.Drawing.Point(21, 283);
             homePhoneLabel.Name = "homePhoneLabel";
-            homePhoneLabel.Size = new System.Drawing.Size(101, 19);
+            homePhoneLabel.Size = new System.Drawing.Size(109, 19);
             homePhoneLabel.TabIndex = 110;
-            homePhoneLabel.Text = "Home Phone:";
+            homePhoneLabel.Text = "*Home Phone:";
             // 
             // userIDLabel
             // 
@@ -201,9 +201,9 @@
             label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.Location = new System.Drawing.Point(335, 238);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(49, 19);
+            label1.Size = new System.Drawing.Size(57, 19);
             label1.TabIndex = 118;
-            label1.Text = "State:";
+            label1.Text = "*State:";
             // 
             // label2
             // 
@@ -211,9 +211,9 @@
             label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label2.Location = new System.Drawing.Point(461, 280);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(63, 19);
+            label2.Size = new System.Drawing.Size(71, 19);
             label2.TabIndex = 119;
-            label2.Text = "Gender:";
+            label2.Text = "*Gender:";
             // 
             // label3
             // 
@@ -221,9 +221,9 @@
             label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label3.Location = new System.Drawing.Point(461, 335);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(58, 19);
+            label3.Size = new System.Drawing.Size(66, 19);
             label3.TabIndex = 121;
-            label3.Text = "Admin:";
+            label3.Text = "*Admin:";
             // 
             // btnExit
             // 
@@ -317,7 +317,7 @@
             // 
             this.txtLname.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "lname", true));
             this.txtLname.Font = new System.Drawing.Font("Calibri", 12F);
-            this.txtLname.Location = new System.Drawing.Point(454, 101);
+            this.txtLname.Location = new System.Drawing.Point(465, 98);
             this.txtLname.Name = "txtLname";
             this.txtLname.Size = new System.Drawing.Size(125, 27);
             this.txtLname.TabIndex = 3;
@@ -337,7 +337,7 @@
             // 
             this.txtAddress1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "Address1", true));
             this.txtAddress1.Font = new System.Drawing.Font("Calibri", 12F);
-            this.txtAddress1.Location = new System.Drawing.Point(128, 147);
+            this.txtAddress1.Location = new System.Drawing.Point(139, 147);
             this.txtAddress1.Name = "txtAddress1";
             this.txtAddress1.Size = new System.Drawing.Size(451, 27);
             this.txtAddress1.TabIndex = 4;
@@ -372,7 +372,7 @@
             // 
             this.mtxtZip.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "PostalCode", true));
             this.mtxtZip.Font = new System.Drawing.Font("Calibri", 12F);
-            this.mtxtZip.Location = new System.Drawing.Point(479, 235);
+            this.mtxtZip.Location = new System.Drawing.Point(496, 235);
             this.mtxtZip.Mask = "00000-9999";
             this.mtxtZip.Name = "mtxtZip";
             this.mtxtZip.Size = new System.Drawing.Size(100, 27);
@@ -383,7 +383,7 @@
             // 
             this.mtxtHomePhone.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.employeeBindingSource, "homePhone", true));
             this.mtxtHomePhone.Font = new System.Drawing.Font("Calibri", 12F);
-            this.mtxtHomePhone.Location = new System.Drawing.Point(128, 280);
+            this.mtxtHomePhone.Location = new System.Drawing.Point(131, 280);
             this.mtxtHomePhone.Mask = "(999) 000-0000";
             this.mtxtHomePhone.Name = "mtxtHomePhone";
             this.mtxtHomePhone.Size = new System.Drawing.Size(200, 27);
@@ -490,7 +490,7 @@
             this.cboState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboState.Font = new System.Drawing.Font("Calibri", 12F);
             this.cboState.FormattingEnabled = true;
-            this.cboState.Location = new System.Drawing.Point(390, 235);
+            this.cboState.Location = new System.Drawing.Point(398, 235);
             this.cboState.Name = "cboState";
             this.cboState.Size = new System.Drawing.Size(44, 27);
             this.cboState.TabIndex = 7;
@@ -505,7 +505,7 @@
             this.cboGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboGender.Font = new System.Drawing.Font("Calibri", 12F);
             this.cboGender.FormattingEnabled = true;
-            this.cboGender.Location = new System.Drawing.Point(527, 277);
+            this.cboGender.Location = new System.Drawing.Point(540, 277);
             this.cboGender.Name = "cboGender";
             this.cboGender.Size = new System.Drawing.Size(50, 27);
             this.cboGender.TabIndex = 10;
@@ -521,7 +521,7 @@
             this.cboAdmin.Items.AddRange(new object[] {
             "Y",
             "N"});
-            this.cboAdmin.Location = new System.Drawing.Point(527, 332);
+            this.cboAdmin.Location = new System.Drawing.Point(533, 332);
             this.cboAdmin.Name = "cboAdmin";
             this.cboAdmin.Size = new System.Drawing.Size(50, 27);
             this.cboAdmin.TabIndex = 12;
@@ -569,6 +569,7 @@
             this.Controls.Add(this.lblEmployee);
             this.Name = "AddUpdateEmployeeView";
             this.Text = "Add/Update Employee";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddUpdateEmployeeView_FormClosing);
             this.Load += new System.EventHandler(this.EmployeeView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();

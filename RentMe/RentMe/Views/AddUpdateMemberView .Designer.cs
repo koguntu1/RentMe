@@ -489,6 +489,7 @@
             this.Controls.Add(this.lblMember);
             this.Name = "AddUpdateMemberView";
             this.Text = "Add/Update Member";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddUpdateMemberView_FormClosing);
             this.Load += new System.EventHandler(this.MemberView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
