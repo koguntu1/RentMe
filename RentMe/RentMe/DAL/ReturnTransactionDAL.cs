@@ -16,8 +16,8 @@ namespace RentMe.DAL
             List<ReturnTransaction> listReturnTransaction = new List<ReturnTransaction>();
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string selectstatement =
-                "SELECT m.fname, m.lname, f.description, s.description AS Style, " +
-                "c.description AS Category, r.rental_date, r.expected_return, t.amount, r.rentalID, t.transactionID, f.daily_Rate, f.fine_Rate " +
+                "SELECT m.fname, m.lname, f.furnitureID, i.itemID, f.description, s.description AS Style, " +
+                "c.description AS Category, r.rental_date, r.expected_return, t.amount, r.rentalID, t.transactionID, f.daily_Rate, f.fine_Rate, m.memberID " +
                 "FROM Rental AS r INNER JOIN " +
                 "Rental_transaction AS rt ON r.rentalID = rt.rentalID INNER JOIN " +
                 "Transactions AS t ON t.transactionID = rt.transactionID INNER JOIN " +
@@ -38,6 +38,8 @@ namespace RentMe.DAL
                     ReturnTransaction returnTransaction = new ReturnTransaction();
                     returnTransaction.fname = reader["fname"].ToString();
                     returnTransaction.lname = reader["lname"].ToString();
+                    returnTransaction.furnitureID = Convert.ToInt32(reader["furnitureID"].ToString());
+                    returnTransaction.itemID = Convert.ToInt32(reader["itemID"].ToString());
                     returnTransaction.description = reader["description"].ToString();
                     returnTransaction.style = reader["Style"].ToString();
                     returnTransaction.category = reader["Category"].ToString();
@@ -48,6 +50,7 @@ namespace RentMe.DAL
                     returnTransaction.transactionID = Convert.ToInt32(reader["transactionID"].ToString());
                     returnTransaction.daily_Rate = Convert.ToDecimal(reader["daily_Rate"].ToString());
                     returnTransaction.fine_Rate = Convert.ToDecimal(reader["fine_Rate"].ToString());
+                    returnTransaction.memberID = Convert.ToInt32(reader["memberID"].ToString());
                     listReturnTransaction.Add(returnTransaction);
                 }
                 reader.Close();

@@ -31,41 +31,33 @@
             System.Windows.Forms.Label fnameLabel;
             System.Windows.Forms.Label lnameLabel;
             System.Windows.Forms.Label label5;
-            System.Windows.Forms.Label label6;
-            System.Windows.Forms.Label label7;
-            System.Windows.Forms.Label label8;
-            System.Windows.Forms.Label label9;
-            System.Windows.Forms.Label label10;
             System.Windows.Forms.Label label11;
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label2;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblFurnitureInfo = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtFname = new System.Windows.Forms.TextBox();
             this.txtLname = new System.Windows.Forms.TextBox();
             this.txtAmountOwed = new System.Windows.Forms.TextBox();
-            this.txtStyle = new System.Windows.Forms.TextBox();
-            this.txtCategory = new System.Windows.Forms.TextBox();
-            this.txtDescription = new System.Windows.Forms.TextBox();
-            this.dtRented = new System.Windows.Forms.DateTimePicker();
-            this.dtExpectedReturn = new System.Windows.Forms.DateTimePicker();
             this.txtFines = new System.Windows.Forms.TextBox();
             this.txtComments = new System.Windows.Forms.TextBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.txtTotalOwed = new System.Windows.Forms.TextBox();
+            this.dataGridItemsToReturn = new System.Windows.Forms.DataGridView();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnCalculateOwed = new System.Windows.Forms.Button();
             fnameLabel = new System.Windows.Forms.Label();
             lnameLabel = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
-            label6 = new System.Windows.Forms.Label();
-            label7 = new System.Windows.Forms.Label();
-            label8 = new System.Windows.Forms.Label();
-            label9 = new System.Windows.Forms.Label();
-            label10 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridItemsToReturn)).BeginInit();
             this.SuspendLayout();
             // 
             // fnameLabel
@@ -73,7 +65,7 @@
             fnameLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             fnameLabel.AutoSize = true;
             fnameLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            fnameLabel.Location = new System.Drawing.Point(27, 119);
+            fnameLabel.Location = new System.Drawing.Point(27, 126);
             fnameLabel.Name = "fnameLabel";
             fnameLabel.Size = new System.Drawing.Size(86, 19);
             fnameLabel.TabIndex = 93;
@@ -84,7 +76,7 @@
             lnameLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             lnameLabel.AutoSize = true;
             lnameLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lnameLabel.Location = new System.Drawing.Point(315, 122);
+            lnameLabel.Location = new System.Drawing.Point(315, 129);
             lnameLabel.Name = "lnameLabel";
             lnameLabel.Size = new System.Drawing.Size(84, 19);
             lnameLabel.TabIndex = 95;
@@ -95,73 +87,51 @@
             label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             label5.AutoSize = true;
             label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.Location = new System.Drawing.Point(0, 331);
+            label5.Location = new System.Drawing.Point(614, 319);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(117, 19);
             label5.TabIndex = 105;
             label5.Text = "Amount Owed: ";
             // 
-            // label6
+            // label11
             // 
-            label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label6.Location = new System.Drawing.Point(41, 292);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(162, 19);
-            label6.TabIndex = 107;
-            label6.Text = "Expected Return Date:";
+            label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            label11.AutoSize = true;
+            label11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label11.Location = new System.Drawing.Point(629, 359);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(89, 19);
+            label11.TabIndex = 119;
+            label11.Text = "Total Fines: ";
             // 
-            // label7
+            // label1
             // 
-            label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            label7.AutoSize = true;
-            label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label7.Location = new System.Drawing.Point(105, 255);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(98, 19);
-            label7.TabIndex = 109;
-            label7.Text = "Date Rented:";
+            label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(27, 450);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(85, 19);
+            label1.TabIndex = 121;
+            label1.Text = "Comments:";
             // 
-            // label8
+            // label2
             // 
-            label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            label8.AutoSize = true;
-            label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label8.Location = new System.Drawing.Point(350, 208);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(47, 19);
-            label8.TabIndex = 111;
-            label8.Text = "Style:";
-            // 
-            // label9
-            // 
-            label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            label9.AutoSize = true;
-            label9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label9.Location = new System.Drawing.Point(39, 208);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(74, 19);
-            label9.TabIndex = 113;
-            label9.Text = "Category:";
-            // 
-            // label10
-            // 
-            label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            label10.AutoSize = true;
-            label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label10.Location = new System.Drawing.Point(27, 162);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(90, 19);
-            label10.TabIndex = 115;
-            label10.Text = "Description:";
+            label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Location = new System.Drawing.Point(622, 406);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(104, 23);
+            label2.TabIndex = 125;
+            label2.Text = "Total Owed:";
             // 
             // lblFurnitureInfo
             // 
             this.lblFurnitureInfo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblFurnitureInfo.AutoSize = true;
             this.lblFurnitureInfo.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFurnitureInfo.Location = new System.Drawing.Point(173, 57);
+            this.lblFurnitureInfo.Location = new System.Drawing.Point(335, 57);
             this.lblFurnitureInfo.Name = "lblFurnitureInfo";
             this.lblFurnitureInfo.Size = new System.Drawing.Size(266, 39);
             this.lblFurnitureInfo.TabIndex = 63;
@@ -172,7 +142,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = global::RentMe.Properties.Resources._2018_03_27_13_08_06;
-            this.pictureBox1.Location = new System.Drawing.Point(236, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(398, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(157, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -185,7 +155,7 @@
             this.txtFname.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtFname.Enabled = false;
             this.txtFname.Font = new System.Drawing.Font("Calibri", 12F);
-            this.txtFname.Location = new System.Drawing.Point(119, 114);
+            this.txtFname.Location = new System.Drawing.Point(119, 121);
             this.txtFname.Name = "txtFname";
             this.txtFname.Size = new System.Drawing.Size(178, 27);
             this.txtFname.TabIndex = 90;
@@ -197,7 +167,7 @@
             this.txtLname.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtLname.Enabled = false;
             this.txtLname.Font = new System.Drawing.Font("Calibri", 12F);
-            this.txtLname.Location = new System.Drawing.Point(405, 114);
+            this.txtLname.Location = new System.Drawing.Point(405, 121);
             this.txtLname.Name = "txtLname";
             this.txtLname.Size = new System.Drawing.Size(162, 27);
             this.txtLname.TabIndex = 92;
@@ -209,82 +179,11 @@
             this.txtAmountOwed.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtAmountOwed.Enabled = false;
             this.txtAmountOwed.Font = new System.Drawing.Font("Calibri", 12F);
-            this.txtAmountOwed.Location = new System.Drawing.Point(119, 328);
+            this.txtAmountOwed.Location = new System.Drawing.Point(732, 316);
             this.txtAmountOwed.Name = "txtAmountOwed";
-            this.txtAmountOwed.Size = new System.Drawing.Size(178, 27);
+            this.txtAmountOwed.Size = new System.Drawing.Size(187, 27);
             this.txtAmountOwed.TabIndex = 102;
             this.txtAmountOwed.TabStop = false;
-            // 
-            // txtStyle
-            // 
-            this.txtStyle.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtStyle.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtStyle.Enabled = false;
-            this.txtStyle.Font = new System.Drawing.Font("Calibri", 12F);
-            this.txtStyle.Location = new System.Drawing.Point(405, 202);
-            this.txtStyle.Name = "txtStyle";
-            this.txtStyle.Size = new System.Drawing.Size(162, 27);
-            this.txtStyle.TabIndex = 110;
-            this.txtStyle.TabStop = false;
-            // 
-            // txtCategory
-            // 
-            this.txtCategory.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtCategory.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtCategory.Enabled = false;
-            this.txtCategory.Font = new System.Drawing.Font("Calibri", 12F);
-            this.txtCategory.Location = new System.Drawing.Point(119, 200);
-            this.txtCategory.Name = "txtCategory";
-            this.txtCategory.Size = new System.Drawing.Size(178, 27);
-            this.txtCategory.TabIndex = 112;
-            this.txtCategory.TabStop = false;
-            // 
-            // txtDescription
-            // 
-            this.txtDescription.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtDescription.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtDescription.Enabled = false;
-            this.txtDescription.Font = new System.Drawing.Font("Calibri", 12F);
-            this.txtDescription.Location = new System.Drawing.Point(119, 157);
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(449, 27);
-            this.txtDescription.TabIndex = 114;
-            this.txtDescription.TabStop = false;
-            // 
-            // dtRented
-            // 
-            this.dtRented.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dtRented.CalendarFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtRented.Enabled = false;
-            this.dtRented.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtRented.Location = new System.Drawing.Point(209, 249);
-            this.dtRented.Name = "dtRented";
-            this.dtRented.Size = new System.Drawing.Size(262, 27);
-            this.dtRented.TabIndex = 116;
-            this.dtRented.TabStop = false;
-            // 
-            // dtExpectedReturn
-            // 
-            this.dtExpectedReturn.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dtExpectedReturn.CalendarFont = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtExpectedReturn.Enabled = false;
-            this.dtExpectedReturn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtExpectedReturn.Location = new System.Drawing.Point(209, 286);
-            this.dtExpectedReturn.Name = "dtExpectedReturn";
-            this.dtExpectedReturn.Size = new System.Drawing.Size(262, 27);
-            this.dtExpectedReturn.TabIndex = 117;
-            this.dtExpectedReturn.TabStop = false;
-            // 
-            // label11
-            // 
-            label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            label11.AutoSize = true;
-            label11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label11.Location = new System.Drawing.Point(342, 331);
-            label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(51, 19);
-            label11.TabIndex = 119;
-            label11.Text = "Fines: ";
             // 
             // txtFines
             // 
@@ -292,38 +191,27 @@
             this.txtFines.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtFines.Enabled = false;
             this.txtFines.Font = new System.Drawing.Font("Calibri", 12F);
-            this.txtFines.Location = new System.Drawing.Point(405, 328);
+            this.txtFines.Location = new System.Drawing.Point(732, 359);
             this.txtFines.Name = "txtFines";
-            this.txtFines.Size = new System.Drawing.Size(162, 27);
+            this.txtFines.Size = new System.Drawing.Size(187, 27);
             this.txtFines.TabIndex = 118;
             this.txtFines.TabStop = false;
-            // 
-            // label1
-            // 
-            label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.Location = new System.Drawing.Point(17, 452);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(85, 19);
-            label1.TabIndex = 121;
-            label1.Text = "Comments:";
             // 
             // txtComments
             // 
             this.txtComments.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtComments.Font = new System.Drawing.Font("Calibri", 12F);
-            this.txtComments.Location = new System.Drawing.Point(109, 447);
+            this.txtComments.Location = new System.Drawing.Point(150, 447);
             this.txtComments.Multiline = true;
             this.txtComments.Name = "txtComments";
-            this.txtComments.Size = new System.Drawing.Size(449, 61);
+            this.txtComments.Size = new System.Drawing.Size(769, 61);
             this.txtComments.TabIndex = 0;
             // 
             // btnExit
             // 
             this.btnExit.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnExit.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(380, 556);
+            this.btnExit.Location = new System.Drawing.Point(656, 556);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(91, 31);
             this.btnExit.TabIndex = 123;
@@ -335,7 +223,7 @@
             // 
             this.btnSubmit.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnSubmit.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(135, 556);
+            this.btnSubmit.Location = new System.Drawing.Point(398, 556);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(197, 31);
             this.btnSubmit.TabIndex = 122;
@@ -343,34 +231,76 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // label2
-            // 
-            label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label2.Location = new System.Drawing.Point(149, 389);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(104, 23);
-            label2.TabIndex = 125;
-            label2.Text = "Total Owed:";
-            // 
             // txtTotalOwed
             // 
             this.txtTotalOwed.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtTotalOwed.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txtTotalOwed.Enabled = false;
             this.txtTotalOwed.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalOwed.Location = new System.Drawing.Point(259, 386);
+            this.txtTotalOwed.Location = new System.Drawing.Point(732, 403);
             this.txtTotalOwed.Name = "txtTotalOwed";
             this.txtTotalOwed.Size = new System.Drawing.Size(187, 31);
             this.txtTotalOwed.TabIndex = 124;
             this.txtTotalOwed.TabStop = false;
             // 
+            // dataGridItemsToReturn
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridItemsToReturn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridItemsToReturn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridItemsToReturn.Location = new System.Drawing.Point(31, 160);
+            this.dataGridItemsToReturn.Name = "dataGridItemsToReturn";
+            this.dataGridItemsToReturn.ReadOnly = true;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridItemsToReturn.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridItemsToReturn.Size = new System.Drawing.Size(888, 150);
+            this.dataGridItemsToReturn.TabIndex = 126;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Calibri", 12F);
+            this.dateTimePicker1.Location = new System.Drawing.Point(193, 324);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(256, 27);
+            this.dateTimePicker1.TabIndex = 127;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(27, 324);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(113, 19);
+            this.label3.TabIndex = 128;
+            this.label3.Text = "Date Returned:";
+            // 
+            // btnCalculateOwed
+            // 
+            this.btnCalculateOwed.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnCalculateOwed.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCalculateOwed.Location = new System.Drawing.Point(150, 556);
+            this.btnCalculateOwed.Name = "btnCalculateOwed";
+            this.btnCalculateOwed.Size = new System.Drawing.Size(197, 31);
+            this.btnCalculateOwed.TabIndex = 129;
+            this.btnCalculateOwed.Text = "Calculate Total Owed";
+            this.btnCalculateOwed.UseVisualStyleBackColor = true;
+            this.btnCalculateOwed.Click += new System.EventHandler(this.btnCalculateOwed_Click);
+            // 
             // ReturnFurnitureView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(606, 619);
+            this.ClientSize = new System.Drawing.Size(931, 619);
+            this.Controls.Add(this.btnCalculateOwed);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dataGridItemsToReturn);
             this.Controls.Add(label2);
             this.Controls.Add(this.txtTotalOwed);
             this.Controls.Add(this.btnExit);
@@ -379,16 +309,6 @@
             this.Controls.Add(this.txtComments);
             this.Controls.Add(label11);
             this.Controls.Add(this.txtFines);
-            this.Controls.Add(this.dtExpectedReturn);
-            this.Controls.Add(this.dtRented);
-            this.Controls.Add(label10);
-            this.Controls.Add(this.txtDescription);
-            this.Controls.Add(label9);
-            this.Controls.Add(this.txtCategory);
-            this.Controls.Add(label8);
-            this.Controls.Add(this.txtStyle);
-            this.Controls.Add(label7);
-            this.Controls.Add(label6);
             this.Controls.Add(label5);
             this.Controls.Add(this.txtAmountOwed);
             this.Controls.Add(fnameLabel);
@@ -401,6 +321,7 @@
             this.Text = "ReturnFurnitureView";
             this.Load += new System.EventHandler(this.ReturnFurnitureView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridItemsToReturn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -413,15 +334,14 @@
         private System.Windows.Forms.TextBox txtFname;
         private System.Windows.Forms.TextBox txtLname;
         private System.Windows.Forms.TextBox txtAmountOwed;
-        private System.Windows.Forms.TextBox txtStyle;
-        private System.Windows.Forms.TextBox txtCategory;
-        private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.DateTimePicker dtRented;
-        private System.Windows.Forms.DateTimePicker dtExpectedReturn;
         private System.Windows.Forms.TextBox txtFines;
         private System.Windows.Forms.TextBox txtComments;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.TextBox txtTotalOwed;
+        private System.Windows.Forms.DataGridView dataGridItemsToReturn;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnCalculateOwed;
     }
 }
