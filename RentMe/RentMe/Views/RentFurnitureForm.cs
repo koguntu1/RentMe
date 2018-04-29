@@ -31,6 +31,7 @@ namespace RentMe.Views
         private MDIView mdiView;
         public RentFurnitureForm(Furniture furnitureSelected)
         {
+           
             InitializeComponent();
             furniture = furnitureSelected;
             lgnController = new LoginController();
@@ -40,57 +41,6 @@ namespace RentMe.Views
             rentalTransactionController = new RentalTransactionController();
             rentalTransactionIDController = new RentalTransactionIDController();
             mdiView = new MDIView();
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            if (txtFName.Text != "" && txtLastName.Text != "")
-            {
-                try
-                {
-                    member = new Member();
-                    member.fname = txtFName.Text;
-                    member.lname = txtLastName.Text;
-                    this.GetMemberByName(member.fname, member.lname);
-                    this.DisplayMember();
-                    btnRent.Enabled = true;
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("No member found by that name. " +
-                         "Please try again.", "Member Not Found");
-                }
-
-            }
-            else if (mtxtHomePhone.MaskCompleted)
-            {
-                try
-                {
-                    if (Validator.IsPhoneNumber(mtxtHomePhone))
-                    {
-                        member = new Member();
-                        member.homePhone = mtxtHomePhone.Text.Replace(".", "").Replace("(", "").Replace("_", "").Replace(")", "").Replace("-", "").Replace(" ", "");
-                        this.GetMemberByPhone(member.homePhone);
-                        this.DisplayMember();
-                    }
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("No member found by that phone number. " +
-                    "Please try again.", "Member Not Found");
-
-                }
-
-
-
-
-            }
-            else
-            {
-                MessageBox.Show("Search criteria incomplete. " +
-                       "Please try again.", "Member Not Found");
-                return;
-            }
         }
 
         private void GetMemberByName(string firstName, string lastName)
@@ -127,15 +77,6 @@ namespace RentMe.Views
             mtxtHomePhone.Text = member.homePhone;
         }
 
-        private void btnRestart_Click_1(object sender, EventArgs e)
-        {
-            txtFName.Text = "";
-            txtLastName.Text = "";
-            txtEmployeeMInitial.Text = "";
-            mtxtHomePhone.Text = "";
-            mtxtRentalDate.Text = "";
-            mtxtReturnDate.Text = "";
-        }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -144,6 +85,9 @@ namespace RentMe.Views
 
         private void RentFurnitureForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'rentMeDataSet.Member' table. You can move, or remove it, as needed.
+            this.memberTableAdapter.Fill(this.rentMeDataSet.Member);
+            cbID.SelectedIndex = -1;
             btnRent.Enabled = false;
             Form frm = MDIView.ActiveForm;
             MenuStrip ms = (MenuStrip)frm.Controls["menuStrip1"];
@@ -159,27 +103,44 @@ namespace RentMe.Views
 
         private void btnRent_Click(object sender, EventArgs e)
         {
-            if (mtxtRentalDate.MaskCompleted && mtxtReturnDate.MaskCompleted && Convert.ToDateTime(mtxtRentalDate.Text) < Convert.ToDateTime(mtxtReturnDate.Text))
+          
+            if (!mtxtRentalDate.MaskCompleted)
             {
-                RentalItem rentalItem = this.setRentalItem();
-                RentalTransaction rentalTransaction = this.setTransactionInformation();
-                rentalItem.rentalItemID = rentalItemController.AddRentalItem(rentalItem);
-                rentalTransaction.rentalTransactionID = rentalTransactionController.AddRentalTransaction(rentalTransaction);
-                rentalTransactionID = this.setRentalTransactionID();
-                rentalTransactionID.rentalTransactionID = rentalTransactionIDController.AddRentalTransactionID(rentalTransactionID);
-                MessageBox.Show("Item has been rented. ", "Item Rented.");
-                this.Close();
+                MessageBox.Show("Please enter a rental date.");
+                return;
             }
-            else if (mtxtRentalDate.MaskCompleted && mtxtReturnDate.MaskCompleted && Convert.ToDateTime(mtxtRentalDate.Text) > Convert.ToDateTime(mtxtReturnDate.Text))
-            {
-                MessageBox.Show("Return date cannot be before rental date. ", "Invalid Information.");
 
+            else if (!mtxtReturnDate.MaskCompleted)
+            {
+                MessageBox.Show("Please enter a return date.");
+                return;
             }
+
             else
             {
-                MessageBox.Show("Please provide a rental and return date. ", "Incomplete Information.");
-            }
+               
 
+                if (mtxtRentalDate.MaskCompleted && mtxtReturnDate.MaskCompleted && Convert.ToDateTime(mtxtRentalDate.Text) < Convert.ToDateTime(mtxtReturnDate.Text))
+                {
+                    RentalItem rentalItem = this.setRentalItem();
+                    RentalTransaction rentalTransaction = this.setTransactionInformation();
+                    rentalItem.rentalItemID = rentalItemController.AddRentalItem(rentalItem);
+                    rentalTransaction.rentalTransactionID = rentalTransactionController.AddRentalTransaction(rentalTransaction);
+                    rentalTransactionID = this.setRentalTransactionID();
+                    rentalTransactionID.rentalTransactionID = rentalTransactionIDController.AddRentalTransactionID(rentalTransactionID);
+                    MessageBox.Show("Item has been rented. ", "Item Rented.");
+                    this.Close();
+                }
+                else if (mtxtRentalDate.MaskCompleted && mtxtReturnDate.MaskCompleted && Convert.ToDateTime(mtxtRentalDate.Text) > Convert.ToDateTime(mtxtReturnDate.Text))
+                {
+                    MessageBox.Show("Return date cannot be before rental date. ", "Invalid Information.");
+
+                }
+                else
+                {
+                    MessageBox.Show("Please provide a rental and return date. ", "Incomplete Information.");
+                }
+            }
         }
 
         private RentalTransaction setTransactionInformation()
@@ -208,6 +169,17 @@ namespace RentMe.Views
             rentalTransactionID.rentalID = rentalItem.rentalItemID;
             rentalTransactionID.transactionID = rentalTransaction.rentalTransactionID;
             return rentalTransactionID;
+        }
+
+
+        private void cbID_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            this.member = this.memController.GetMemberByID((int)cbID.SelectedValue);
+            txtFName.Text = member.fname;
+            txtLastName.Text = member.lname;
+            txtMInitial.Text = member.middleInitial;
+            mtxtHomePhone.Text = member.homePhone;
+            btnRent.Enabled = true;
         }
     }
 }
