@@ -132,15 +132,16 @@ namespace RentMe.DAL
             return memberList;
         }
 
-        public static bool ReturnFurniture(int rentalID)
+        public static bool ReturnFurniture(int rentalID, DateTime returnDate)
         {
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string updateStatement =
                 "UPDATE Rental " +
-                "SET return_date = GETDATE() WHERE " +
+                "SET return_date = @returnDate WHERE " +
                 "rentalID = @rentalID";
             SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
             updateCommand.Parameters.AddWithValue("@rentalID", rentalID);
+            updateCommand.Parameters.AddWithValue("@returnDate", returnDate);
             try
             {
                 connection.Open();

@@ -28,9 +28,9 @@ namespace RentMe.Controller
             return ReturnTransactionDAL.GetMemberByPhone(phoneNumber);
         }
 
-        public bool ReturnFurniture(int rentalID)
+        public bool ReturnFurniture(int rentalID, DateTime returnDate)
         {
-            return ReturnTransactionDAL.ReturnFurniture(rentalID);
+            return ReturnTransactionDAL.ReturnFurniture(rentalID, returnDate);
         }
 
         public int ReturnFurnitureTransaction(DateTime date, decimal amount, string comment, int employeeID, decimal fines)

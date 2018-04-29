@@ -82,12 +82,12 @@ namespace RentMe.Views
         {
             bool success = false;
             string name = "";
+            int employeeID = returnController.GetEmployeeID(userID);
+            int transactionID = returnController.ReturnFurnitureTransaction(Convert.ToDateTime(dateTimePicker1.Value.ToString()), amountOwed, txtComments.Text, employeeID, amountFined); ;
             foreach (var transaction in returnTransaction)
             {
-                if (returnController.ReturnFurniture(transaction.rentalID))
-                {
-                    int employeeID = returnController.GetEmployeeID(userID);
-                    int transactionID = returnController.ReturnFurnitureTransaction(DateTime.Now, amountOwed, txtComments.Text, employeeID, amountFined);
+                if (returnController.ReturnFurniture(transaction.rentalID, Convert.ToDateTime(dateTimePicker1.Value.ToString())))
+                { 
                     success = returnController.RentalReturnTransaction(transactionID, transaction.rentalID);
                     name = transaction.fname + " " + transaction.lname;
                 }
