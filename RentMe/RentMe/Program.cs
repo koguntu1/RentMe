@@ -16,7 +16,7 @@ namespace RentMe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MDIView());
+            Application.Run(new ItemReturnView());
         }
     }
 }

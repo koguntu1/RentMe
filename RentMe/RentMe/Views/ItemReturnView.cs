@@ -18,6 +18,8 @@ namespace RentMe.Views
         List<Member> memberList;
         ReturnController returnController;
         List<ReturnTransaction> listReturnTransaction;
+        DataGridViewCheckBoxColumn returnBox;
+
         public ItemReturnView()
         {
             InitializeComponent();
@@ -94,23 +96,24 @@ namespace RentMe.Views
                 dataGridRentedItems.AutoGenerateColumns = true;
                 dataGridRentedItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 //DataGridViewButtonColumn returnButton = new DataGridViewButtonColumn();
-                DataGridViewCheckBoxColumn returnBox = new DataGridViewCheckBoxColumn();
+                returnBox = new DataGridViewCheckBoxColumn();
                 returnBox.HeaderText = "Return Rental";
                 returnBox.FalseValue = 0;
                 returnBox.TrueValue = 1;
-
+                returnBox.Name = "returnRental";
                 dataGridRentedItems.Columns["fname"].HeaderText = "First Name";
                 dataGridRentedItems.Columns["lname"].HeaderText = "Last Name";
                 dataGridRentedItems.Columns["description"].HeaderText = "Description";
+                dataGridRentedItems.Columns["furnitureID"].HeaderText = "Furniture ID";
+                dataGridRentedItems.Columns["itemID"].HeaderText = "Item ID";
                 dataGridRentedItems.Columns["Style"].HeaderText = "Style";
                 dataGridRentedItems.Columns["Category"].HeaderText = "Category";
                 dataGridRentedItems.Columns["rental_date"].HeaderText = "Rental Date";
-                dataGridRentedItems.Columns["expected_return"].HeaderText = "Expected Return Date";
+                dataGridRentedItems.Columns["expected_return"].HeaderText = "Due Date";
                 dataGridRentedItems.Columns["returnTransactionID"].Visible = false;
                 dataGridRentedItems.Columns["transaction_date"].Visible = false;
                 dataGridRentedItems.Columns["amount"].Visible = false;
                 dataGridRentedItems.Columns["comment"].Visible = false;
-                dataGridRentedItems.Columns["itemID"].Visible = false;
                 dataGridRentedItems.Columns["fines"].Visible = false;
                 dataGridRentedItems.Columns["return_date"].Visible = false;
                 dataGridRentedItems.Columns["employeeID"].Visible = false;
@@ -119,58 +122,24 @@ namespace RentMe.Views
                 dataGridRentedItems.Columns["rentalID"].Visible = false;
                 dataGridRentedItems.Columns["daily_Rate"].Visible = false;
                 dataGridRentedItems.Columns["fine_Rate"].Visible = false;
-                //returnButton.HeaderText = "Return Rental";
-                //returnButton.Text = "Return Rental";
-                //returnButton.Name = "returnRental";
-                //returnButton.UseColumnTextForButtonValue = true;
+                dataGridRentedItems.Enabled = true;
                 if (dataGridRentedItems.Columns["returnRental"] == null)
                 {
                     dataGridRentedItems.Columns.Insert(0, returnBox);
                 }
-            }
+                dataGridRentedItems.ReadOnly = false;
 
-        }
-
-        private void dataGridRentedItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                if (e.ColumnIndex == 0)
+                foreach (DataGridViewColumn dc in dataGridRentedItems.Columns)
                 {
-                    DataGridViewRow row = this.dataGridRentedItems.Rows[e.RowIndex];
-                    ReturnTransaction returnTransaction = new ReturnTransaction();
-                    returnTransaction.fname = row.Cells["fname"].Value.ToString();
-                    returnTransaction.lname = row.Cells["lname"].Value.ToString();
-                    returnTransaction.description = row.Cells["description"].Value.ToString();
-                    returnTransaction.style = row.Cells["Style"].Value.ToString();
-                    returnTransaction.category = row.Cells["Category"].Value.ToString();
-                    returnTransaction.rental_date = Convert.ToDateTime(row.Cells["rental_date"].Value.ToString());
-                    returnTransaction.expected_return = Convert.ToDateTime(row.Cells["expected_return"].Value.ToString());
-                    //returnTransaction.returnTransactionID = Convert.ToInt32(row.Cells["returnTransactionID"].Value.ToString());
-                    //returnTransaction.transaction_date = Convert.ToDateTime(row.Cells["transaction_date"].Value.ToString());
-                    returnTransaction.amount = Convert.ToDecimal(row.Cells["amount"].Value.ToString());
-                    //returnTransaction.comment = row.Cells["comment"].Value.ToString();
-                    returnTransaction.itemID = Convert.ToInt32(row.Cells["itemID"].Value.ToString());
-                    //returnTransaction.fines = Convert.ToDecimal(row.Cells["fines"].Value.ToString());
-                    //returnTransaction.return_date = Convert.ToDateTime(row.Cells["return_date"].Value.ToString());
-                    //returnTransaction.employeeID = Convert.ToInt32(row.Cells["employeeID"].Value.ToString());
-                    returnTransaction.memberID = Convert.ToInt32(row.Cells["memberID"].Value.ToString());
-                    //returnTransaction.transactionID = Convert.ToInt32(row.Cells["transactionID"].Value.ToString());
-                    returnTransaction.rentalID = Convert.ToInt32(row.Cells["rentalID"].Value.ToString());
-                    returnTransaction.fine_Rate = Convert.ToDecimal(row.Cells["fine_Rate"].Value.ToString());
-                    returnTransaction.daily_Rate = Convert.ToDecimal(row.Cells["daily_Rate"].Value.ToString());
-                    Form frm = (Form)this.MdiParent;
-                    MenuStrip ms = (MenuStrip)frm.Controls["menuStrip1"];
-                    ToolStripMenuItem lt = (ToolStripMenuItem)ms.Items["login"];
-                    string login = lt.Text;
-                    ReturnFurnitureView returnFurnitureView = new ReturnFurnitureView(returnTransaction, login, this);
-                    returnFurnitureView.StartPosition = FormStartPosition.CenterScreen;
-                    returnFurnitureView.Show();
+                    if (dc.Index.Equals(0))
+                    {
+                        dc.ReadOnly = false;
+                    }
+                    else
+                    {
+                        dc.ReadOnly = true;
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
 
@@ -206,8 +175,83 @@ namespace RentMe.Views
 
         private void ItemReturnView_Load(object sender, EventArgs e)
         {
-
+           
         }
+
+        private void btnReturnItems_Click(object sender, EventArgs e)
+        {
+            if (dataGridRentedItems.ColumnCount == 0)
+            {
+                MessageBox.Show("There is no furniture to return.");
+                return;
+            }
+            else if (!IsSelected())
+            {
+                MessageBox.Show("You have not selected any furniture to return.");
+                return;
+            }
+            else 
+            {
+                List<DataGridViewRow> returnDataGridView = new List<DataGridViewRow>();
+                listReturnTransaction = new List<ReturnTransaction>();
+                decimal amountDue = 0;
+                decimal fineDue = 0;
+                foreach (DataGridViewRow row in dataGridRentedItems.Rows)
+                {
+                    if (Convert.ToBoolean(row.Cells[returnBox.Name].Value) == true)
+                    {
+                        returnTransaction = new ReturnTransaction();
+                        returnTransaction.fname = row.Cells["fname"].Value.ToString();
+                        returnTransaction.lname = row.Cells["lname"].Value.ToString();
+                        returnTransaction.description = row.Cells["description"].Value.ToString();
+                        returnTransaction.style = row.Cells["Style"].Value.ToString();
+                        returnTransaction.category = row.Cells["Category"].Value.ToString();
+                        returnTransaction.rental_date = Convert.ToDateTime(row.Cells["rental_date"].Value.ToString());
+                        returnTransaction.expected_return = Convert.ToDateTime(row.Cells["expected_return"].Value.ToString());
+                        returnTransaction.itemID = Convert.ToInt32(row.Cells["itemID"].Value.ToString());
+                        returnTransaction.memberID = Convert.ToInt32(row.Cells["memberID"].Value.ToString());
+                        returnTransaction.rentalID = Convert.ToInt32(row.Cells["rentalID"].Value.ToString());
+                        returnTransaction.fine_Rate = Convert.ToDecimal(row.Cells["fine_Rate"].Value.ToString());
+                        returnTransaction.daily_Rate = Convert.ToDecimal(row.Cells["daily_Rate"].Value.ToString());
+                        returnTransaction.amount = (Decimal.Multiply(returnTransaction.daily_Rate, Convert.ToDecimal((DateTime.Now - returnTransaction.rental_date).TotalDays)) - returnTransaction.amount);
+                        //Console.WriteLine("MemberID: " + returnTransaction.memberID.ToString() + "; Amount due: " + returnTransaction.amount.ToString());
+                        returnTransaction.fines = (Decimal.Multiply(returnTransaction.fine_Rate, Convert.ToDecimal((DateTime.Now - returnTransaction.expected_return).TotalDays)));
+                        //Console.WriteLine("MemberID: " + returnTransaction.memberID.ToString() + "; Fine due: " + returnTransaction.fines.ToString());
+                        if (listReturnTransaction.Count >= 1)
+                        {
+                            if (!listReturnTransaction.Exists(x => x.memberID == returnTransaction.memberID))
+                            {
+                                MessageBox.Show("You can only return items for the same member.");
+                                return;
+                            }
+
+                        }
+                        listReturnTransaction.Add(returnTransaction);
+                        foreach (var transaction in listReturnTransaction)
+                        {
+                            amountDue = amountDue + transaction.amount;
+                            fineDue = fineDue + transaction.fines;
+                            if (fineDue <= 0)
+                            {
+                                fineDue = 0;
+                            }
+                        }
+                    } 
+                }
+                Console.WriteLine(amountDue.ToString() + " " + fineDue.ToString());
+            }
+        }
+
+        public bool IsSelected()
+        {
+            for (int i = 0; i < dataGridRentedItems.RowCount; i++)
+            {
+                if (dataGridRentedItems.Rows[i].Cells[0].Selected == true)
+                    return true;
+            }
+            return false;
+        }
+
     }
  }
 

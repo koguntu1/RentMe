@@ -158,7 +158,7 @@
             this.dataGridRentedItems.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridRentedItems.Size = new System.Drawing.Size(907, 192);
             this.dataGridRentedItems.TabIndex = 97;
-            this.dataGridRentedItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridRentedItems_CellContentClick);
+            //this.dataGridRentedItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridRentedItems_CellContentClick);
             // 
             // label1
             // 
@@ -226,6 +226,7 @@
             this.btnReturnItems.TabIndex = 106;
             this.btnReturnItems.Text = "Return Item(s)";
             this.btnReturnItems.UseVisualStyleBackColor = true;
+            this.btnReturnItems.Click += new System.EventHandler(this.btnReturnItems_Click);
             // 
             // ItemReturnView
             // 

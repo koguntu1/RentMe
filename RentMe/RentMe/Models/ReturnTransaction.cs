@@ -15,6 +15,8 @@ namespace RentMe.Models
     {
         public string fname { get; set; }
         public string lname { get; set; }
+        public int furnitureID { get; set; }
+        public int itemID { get; set; }
         public string description { get; set; }
         public string style { get; set; }
         public string category { get; set; }
@@ -24,7 +26,6 @@ namespace RentMe.Models
         public System.DateTime transaction_date { get; set; }
         public decimal amount { get; set; }
         public string comment { get; set; }
-        public int itemID { get; set; }
         public decimal fines { get; set; }
         public System.DateTime return_date { get; set; }
         public int employeeID { get; set; }
@@ -33,6 +34,7 @@ namespace RentMe.Models
         public int rentalID { get; set; }
         public decimal daily_Rate { get; set; }
         public decimal fine_Rate { get; set; }
+ 
         
     
       
