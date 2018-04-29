@@ -160,6 +160,9 @@ namespace RentMe.Views
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            mtxtZip.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            mtxtHomePhone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+
             if (txtFname.Text == string.Empty)
             {
                 MessageBox.Show("Please enter a first name.");
@@ -222,6 +225,9 @@ namespace RentMe.Views
 
         private void AddUpdateEmployeeView_KeyPress(object sender, KeyPressEventArgs e)
         {
+            mtxtZip.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            mtxtHomePhone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+
             if (e.KeyChar == (char)Keys.Enter)
             {
                 if (txtFname.Text == string.Empty)

@@ -24,6 +24,11 @@ namespace RentMe.Controller
             return MemberDAL.GetMemberByName(firstName, lastName);
         }
 
+        public Member GetMemberByID(int id)
+        {
+            return MemberDAL.GetMemberByID(id);
+        }
+
         public Member GetMemberByPhone(string phoneNumber)
         {
             return MemberDAL.GetMemberByPhone(phoneNumber);

@@ -265,7 +265,8 @@ namespace RentMe.Views
                     //frmLineItem frmLineItem = new frmLineItem(invoiceID);
                     //frmLineItem.Show();
                     AddUpdateFurnitureView addUpdateFurnitureView = new AddUpdateFurnitureView(true, furniture, this);
-                    addUpdateFurnitureView.StartPosition = FormStartPosition.CenterScreen;
+                    addUpdateFurnitureView.MdiParent = this;
+                    addUpdateFurnitureView.StartPosition = FormStartPosition.CenterParent;
                     addUpdateFurnitureView.Show();
                 }
                 if (e.ColumnIndex == 11)
@@ -295,7 +296,8 @@ namespace RentMe.Views
         private void btnAddFurniture_Click(object sender, EventArgs e)
         {
             AddUpdateFurnitureView addUpdateFurnitureView = new AddUpdateFurnitureView(false, null, this);
-            addUpdateFurnitureView.StartPosition = FormStartPosition.CenterScreen;
+            addUpdateFurnitureView.MdiParent = this;
+            addUpdateFurnitureView.StartPosition = FormStartPosition.CenterParent;
             addUpdateFurnitureView.Show();
         }
 
