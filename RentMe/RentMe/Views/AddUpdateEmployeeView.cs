@@ -15,15 +15,18 @@ namespace RentMe.Views
     public partial class AddUpdateEmployeeView : Form
     {
         EmployeeController employeeController;
+        EmployeeView employeeView;
         LoginController loginController;
         Employee employee;
         bool update;
-        public AddUpdateEmployeeView(bool isUpdate, Employee employeeSelected)
+        public AddUpdateEmployeeView(bool isUpdate, Employee employeeSelected, EmployeeView parent)
         {
             InitializeComponent();
             employeeController = new EmployeeController();
             loginController = new LoginController();
             employee = employeeSelected;
+            this.employeeView = parent;
+            this.employeeView.Enabled = false;
             update = isUpdate;
         }
 
@@ -141,7 +144,8 @@ namespace RentMe.Views
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+           
+                this.Close();
         }
 
         private void cboState_SelectedIndexChanged(object sender, EventArgs e)
@@ -156,14 +160,128 @@ namespace RentMe.Views
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            AddUpdateEmployee();
+            if (txtFname.Text == string.Empty)
+            {
+                MessageBox.Show("Please enter a first name.");
+                return;
+            }
+            else if (txtLname.Text == string.Empty)
+            {
+                MessageBox.Show("Please enter a last name.");
+                return;
+            }
+
+            else if (txtAddress1.Text == string.Empty)
+            {
+                MessageBox.Show("Please enter an address.");
+                return;
+            }
+
+            else if (txtCity.Text == string.Empty)
+            {
+                MessageBox.Show("Please enter a city.");
+                return;
+            }
+
+            else if (mtxtZip.Text == string.Empty)
+            {
+                MessageBox.Show("Please enter a zip code.");
+                return;
+            }
+
+            else if (mtxtHomePhone.Text == string.Empty)
+            {
+                MessageBox.Show("Please enter a phone number.");
+                return;
+            }
+
+            else if (cboState.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a state.");
+                return;
+            }
+
+            else if (cboGender.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a gender.");
+                return;
+            }
+
+            else if (cboAdmin.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a role.");
+                return;
+            }
+
+            else
+            {
+                AddUpdateEmployee();
+            }
+            
         }
 
         private void AddUpdateEmployeeView_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                AddUpdateEmployee();
+                if (txtFname.Text == string.Empty)
+                {
+                    MessageBox.Show("Please enter a first name.");
+                    return;
+                }
+                else if (txtLname.Text == string.Empty)
+                {
+                    MessageBox.Show("Please enter a last name.");
+                    return;
+                }
+
+                else if (txtAddress1.Text == string.Empty)
+                {
+                    MessageBox.Show("Please enter an address.");
+                    return;
+                }
+
+                else if (txtCity.Text == string.Empty)
+                {
+                    MessageBox.Show("Please enter a city.");
+                    return;
+                }
+
+                else if (mtxtZip.Text == string.Empty)
+                {
+                    MessageBox.Show("Please enter a zip code.");
+                    return;
+                }
+
+                else if (mtxtHomePhone.Text == string.Empty)
+                {
+                    MessageBox.Show("Please enter a phone number.");
+                    return;
+                }
+
+                else if (cboState.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select a state.");
+                    return;
+                }
+
+                else if (cboGender.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select a gender.");
+                    return;
+                }
+
+                else if (cboAdmin.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select a role.");
+                    return;
+                }
+
+                else
+                {
+                     AddUpdateEmployee();
+                }
+               
             }
         }
 
@@ -299,6 +417,16 @@ namespace RentMe.Views
                 {
                     ((Label)c).Enabled = true;
                 }
+            }
+        }
+
+
+        private void AddUpdateEmployeeView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.employeeView.Enabled = true;
+            if (txtFname.Text != string.Empty || txtLname.Text != string.Empty)
+            {
+                this.employeeView.refresh(employee.fname, employee.lname);
             }
         }
     }

@@ -23,6 +23,7 @@ namespace RentMe.Views
             InitializeComponent();
             memberController = new MemberController();
             this.memberview = parent;
+            this.memberview.Enabled = false;
             member = employeeSelected;
             update = isUpdate;
         }
@@ -137,8 +138,10 @@ namespace RentMe.Views
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
-            this.memberview.refresh(member.fname, member.lname);
+               
+                this.Close();
+               
+     
         }
 
         private void cboState_SelectedIndexChanged(object sender, EventArgs e)
@@ -314,6 +317,14 @@ namespace RentMe.Views
             }
         }
 
+        private void AddUpdateMemberView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.memberview.Enabled = true;
+            if (txtFname.Text != string.Empty || txtLname.Text != string.Empty)
+            {
+                this.memberview.refresh(member.fname, member.lname);
 
+            }
+        }
     }
 }
