@@ -271,6 +271,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reports\EmployeeReport.rdlc" />
+    <EmbeddedResource Include="Reports\FurnitureReport.rdlc" />
     <EmbeddedResource Include="Reports\MemberReport.rdlc" />
     <EmbeddedResource Include="Reports\FurnitureAvailabilityReport.rdlc">
       <SubType>Designer</SubType>
@@ -343,6 +344,7 @@
     <EmbeddedResource Include="Views\RentalReturnReportView.resx">
       <DependentUpon>RentalReturnReportView.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

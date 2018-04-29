@@ -5633,13 +5633,6 @@ namespace RentMe {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public RentalReturnReportRow FindByitemID(int itemID) {
-                return ((RentalReturnReportRow)(this.Rows.Find(new object[] {
-                            itemID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 RentalReturnReportDataTable cln = ((RentalReturnReportDataTable)(base.Clone()));
                 cln.InitVars();
@@ -5693,15 +5686,11 @@ namespace RentMe {
                 base.Columns.Add(this.columndaily_Rate);
                 this.columnfine_Rate = new global::System.Data.DataColumn("fine_Rate", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfine_Rate);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnitemID}, true));
                 this.columndescription.MaxLength = 45;
                 this.columnitemID.AutoIncrement = true;
                 this.columnitemID.AutoIncrementSeed = -1;
                 this.columnitemID.AutoIncrementStep = -1;
-                this.columnitemID.AllowDBNull = false;
                 this.columnitemID.ReadOnly = true;
-                this.columnitemID.Unique = true;
                 this.columnstyle.MaxLength = 45;
                 this.columncategory.MaxLength = 45;
                 this.columnMember.ReadOnly = true;
@@ -6042,13 +6031,6 @@ namespace RentMe {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public RentalReportRow FindByitemID(int itemID) {
-                return ((RentalReportRow)(this.Rows.Find(new object[] {
-                            itemID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 RentalReportDataTable cln = ((RentalReportDataTable)(base.Clone()));
                 cln.InitVars();
@@ -6102,8 +6084,6 @@ namespace RentMe {
                 base.Columns.Add(this.columndaily_Rate);
                 this.columnfine_Rate = new global::System.Data.DataColumn("fine_Rate", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfine_Rate);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnitemID}, true));
                 this.columndescription.AllowDBNull = false;
                 this.columndescription.MaxLength = 45;
                 this.columnitemID.AutoIncrement = true;
@@ -6111,7 +6091,6 @@ namespace RentMe {
                 this.columnitemID.AutoIncrementStep = -1;
                 this.columnitemID.AllowDBNull = false;
                 this.columnitemID.ReadOnly = true;
-                this.columnitemID.Unique = true;
                 this.columnstyle.AllowDBNull = false;
                 this.columnstyle.MaxLength = 45;
                 this.columncategory.AllowDBNull = false;
@@ -6414,13 +6393,6 @@ namespace RentMe {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public FurnitureReportRow FindByitemID(int itemID) {
-                return ((FurnitureReportRow)(this.Rows.Find(new object[] {
-                            itemID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 FurnitureReportDataTable cln = ((FurnitureReportDataTable)(base.Clone()));
                 cln.InitVars();
@@ -6462,8 +6434,6 @@ namespace RentMe {
                 base.Columns.Add(this.columndaily_Rate);
                 this.columnfine_Rate = new global::System.Data.DataColumn("fine_Rate", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfine_Rate);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnitemID}, true));
                 this.columndescription.AllowDBNull = false;
                 this.columndescription.MaxLength = 45;
                 this.columnitemID.AutoIncrement = true;
@@ -6471,7 +6441,6 @@ namespace RentMe {
                 this.columnitemID.AutoIncrementStep = -1;
                 this.columnitemID.AllowDBNull = false;
                 this.columnitemID.ReadOnly = true;
-                this.columnitemID.Unique = true;
                 this.columnstyle.AllowDBNull = false;
                 this.columnstyle.MaxLength = 45;
                 this.columncategory.AllowDBNull = false;
@@ -8174,7 +8143,12 @@ namespace RentMe {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int itemID {
                 get {
-                    return ((int)(this[this.tableRentalReturnReport.itemIDColumn]));
+                    try {
+                        return ((int)(this[this.tableRentalReturnReport.itemIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'itemID\' in table \'RentalReturnReport\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableRentalReturnReport.itemIDColumn] = value;
@@ -8335,6 +8309,18 @@ namespace RentMe {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetdescriptionNull() {
                 this[this.tableRentalReturnReport.descriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsitemIDNull() {
+                return this.IsNull(this.tableRentalReturnReport.itemIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetitemIDNull() {
+                this[this.tableRentalReturnReport.itemIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14765,7 +14751,7 @@ SELECT stateID, name, country, abbreviation FROM States WHERE (stateID = @stateI
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT          i.itemID, f.description, f.daily_Rate, f.fine_Rate, s.description AS style, c.description AS category, r.rental_date, r.expected_return, r.return_date, m.fname + ' ' + m.lname AS Member, 
+            this._commandCollection[0].CommandText = @"SELECT DISTINCT i.itemID, f.description, f.daily_Rate, f.fine_Rate, s.description AS style, c.description AS category, r.rental_date, r.expected_return, r.return_date, m.fname + ' ' + m.lname AS Member, 
                             e.fname + ' ' + e.lname AS Employee
 FROM              Furniture AS f INNER JOIN
                             Style AS s ON s.styleID = f.styleID INNER JOIN
@@ -15136,7 +15122,7 @@ ORDER BY   i.itemID";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT          i.itemID, f.description, c.description AS category, s.description AS style, CASE WHEN r.return_date IS NULL THEN 'N' ELSE 'Y' END AS AVAILABLE, f.daily_Rate, f.fine_Rate
+            this._commandCollection[0].CommandText = @"SELECT  distinct        i.itemID, f.description, c.description AS category, s.description AS style, CASE WHEN r.return_date IS NULL THEN 'N' ELSE 'Y' END AS AVAILABLE, f.daily_Rate, f.fine_Rate
 FROM              Rental_transaction AS rt LEFT OUTER JOIN
                             Rental_return_transaction AS rrt ON rt.rentalID = rrt.rentalID LEFT OUTER JOIN
                             Rental AS r ON r.rentalID = rt.rentalID INNER JOIN

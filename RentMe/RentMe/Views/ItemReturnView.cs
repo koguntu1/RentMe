@@ -240,9 +240,9 @@ namespace RentMe.Views
 
         public bool IsSelected()
         {
-            for (int i = 0; i < dataGridRentedItems.RowCount; i++)
+            foreach (DataGridViewRow row in dataGridRentedItems.Rows)
             {
-                if (dataGridRentedItems.Rows[i].Cells[0].Selected == true)
+                if (Convert.ToBoolean(row.Cells[0].Value))
                     return true;
             }
             return false;

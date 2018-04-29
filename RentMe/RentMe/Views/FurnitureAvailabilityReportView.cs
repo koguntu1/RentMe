@@ -17,17 +17,26 @@ namespace RentMe.Views
             InitializeComponent();
         }
 
-        private void FurnitureAvailabilityReportView_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'rentMeDataSet.FurnitureReport' table. You can move, or remove it, as needed.
-            this.furnitureReportTableAdapter.Fill(this.rentMeDataSet.FurnitureReport);
-
-            this.reportViewer1.RefreshReport();
-        }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FurnitureAvailabilityReportView_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'rentMeDataSet.FurnitureReport' table. You can move, or remove it, as needed.
+           this.furnitureReportTableAdapter.Fill(this.rentMeDataSet.FurnitureReport);
+
+
+
+
+
+            this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();
         }
     }
 }
