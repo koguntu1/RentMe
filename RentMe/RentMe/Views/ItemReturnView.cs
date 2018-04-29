@@ -194,8 +194,6 @@ namespace RentMe.Views
             {
                 List<DataGridViewRow> returnDataGridView = new List<DataGridViewRow>();
                 listReturnTransaction = new List<ReturnTransaction>();
-                decimal amountDue = 0;
-                decimal fineDue = 0;
                 foreach (DataGridViewRow row in dataGridRentedItems.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells[returnBox.Name].Value) == true)
@@ -209,13 +207,14 @@ namespace RentMe.Views
                         returnTransaction.rental_date = Convert.ToDateTime(row.Cells["rental_date"].Value.ToString());
                         returnTransaction.expected_return = Convert.ToDateTime(row.Cells["expected_return"].Value.ToString());
                         returnTransaction.itemID = Convert.ToInt32(row.Cells["itemID"].Value.ToString());
+                        returnTransaction.furnitureID = Convert.ToInt32(row.Cells["furnitureID"].Value.ToString());
                         returnTransaction.memberID = Convert.ToInt32(row.Cells["memberID"].Value.ToString());
                         returnTransaction.rentalID = Convert.ToInt32(row.Cells["rentalID"].Value.ToString());
                         returnTransaction.fine_Rate = Convert.ToDecimal(row.Cells["fine_Rate"].Value.ToString());
                         returnTransaction.daily_Rate = Convert.ToDecimal(row.Cells["daily_Rate"].Value.ToString());
-                        returnTransaction.amount = (Decimal.Multiply(returnTransaction.daily_Rate, Convert.ToDecimal((DateTime.Now - returnTransaction.rental_date).TotalDays)) - returnTransaction.amount);
+                        returnTransaction.amount = 0;
                         //Console.WriteLine("MemberID: " + returnTransaction.memberID.ToString() + "; Amount due: " + returnTransaction.amount.ToString());
-                        returnTransaction.fines = (Decimal.Multiply(returnTransaction.fine_Rate, Convert.ToDecimal((DateTime.Now - returnTransaction.expected_return).TotalDays)));
+                        returnTransaction.fines = 0;
                         //Console.WriteLine("MemberID: " + returnTransaction.memberID.ToString() + "; Fine due: " + returnTransaction.fines.ToString());
                         if (listReturnTransaction.Count >= 1)
                         {
@@ -227,18 +226,15 @@ namespace RentMe.Views
 
                         }
                         listReturnTransaction.Add(returnTransaction);
-                        foreach (var transaction in listReturnTransaction)
-                        {
-                            amountDue = amountDue + transaction.amount;
-                            fineDue = fineDue + transaction.fines;
-                            if (fineDue <= 0)
-                            {
-                                fineDue = 0;
-                            }
-                        }
                     } 
                 }
-                Console.WriteLine(amountDue.ToString() + " " + fineDue.ToString());
+                //Console.WriteLine(amountDue.ToString() + " " + fineDue.ToString());
+                //Form frm = (Form)this.MdiParent;
+                //MenuStrip ms = (MenuStrip)frm.Controls["menuStrip1"];
+                //ToolStripMenuItem lt = (ToolStripMenuItem)ms.Items["login"];
+                string login = "dEla"; // lt.Text;
+                ReturnFurnitureView returnFurnitureView = new ReturnFurnitureView(listReturnTransaction, login, this);
+                returnFurnitureView.Show();
             }
         }
 

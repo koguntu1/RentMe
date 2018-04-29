@@ -14,13 +14,13 @@ namespace RentMe.Views
 {
     public partial class ReturnFurnitureView : Form
     {
-        ReturnTransaction returnTransaction;
+        List<ReturnTransaction> returnTransaction;
         ReturnController returnController;
         ItemReturnView returnForm;
         string userID;
         decimal amountOwed;
         decimal amountFined;
-        public ReturnFurnitureView(ReturnTransaction transactionReturn, string login, ItemReturnView returnParent)
+        public ReturnFurnitureView(List<ReturnTransaction> transactionReturn, string login, ItemReturnView returnParent)
         {
             InitializeComponent();
             returnTransaction = transactionReturn;
@@ -29,31 +29,48 @@ namespace RentMe.Views
             this.returnForm = returnParent;
         }
 
-        private void DisplayReturn(ReturnTransaction returnTransaction)
+        private void DisplayReturn(List<ReturnTransaction> listReturnTransaction)
         {
-            txtFname.Text = returnTransaction.fname.ToString();
-            txtLname.Text = returnTransaction.lname.ToString();
-            txtDescription.Text = returnTransaction.description.ToString();
-            txtCategory.Text = returnTransaction.category.ToString();
-            txtStyle.Text = returnTransaction.style.ToString();
-            dtRented.Text = returnTransaction.rental_date.ToString();
-            dtExpectedReturn.Text = returnTransaction.expected_return.ToString();
-            amountOwed = Decimal.Multiply(returnTransaction.daily_Rate, Convert.ToDecimal((DateTime.Now - returnTransaction.rental_date).TotalDays)) - returnTransaction.amount;
-            amountFined = 0;
-            if (DateTime.Now > returnTransaction.expected_return)
-            {
-                amountFined = Decimal.Multiply(returnTransaction.fine_Rate, Convert.ToDecimal((DateTime.Now - returnTransaction.expected_return).TotalDays));
-            }
-            txtAmountOwed.Text = amountOwed.ToString("C");
 
-            txtFines.Text = amountFined.ToString("C");
-            string totalOwed = (amountOwed + amountFined).ToString("C");
-            txtTotalOwed.Text = totalOwed;
+            int i = 0;
+            txtFname.Text = listReturnTransaction[i].fname.ToString();
+            txtLname.Text = listReturnTransaction[i].lname.ToString();
+            BindingList<ReturnTransaction> bindingReturnList = new BindingList<ReturnTransaction>(listReturnTransaction);
+            dataGridItemsToReturn.DataSource = bindingReturnList;
+            dataGridItemsToReturn.AutoGenerateColumns = true;
+            dataGridItemsToReturn.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridItemsToReturn.Columns["description"].HeaderText = "Description";
+            dataGridItemsToReturn.Columns["furnitureID"].HeaderText = "Furniture ID";
+            dataGridItemsToReturn.Columns["itemID"].HeaderText = "Item ID";
+            dataGridItemsToReturn.Columns["Style"].HeaderText = "Style";
+            dataGridItemsToReturn.Columns["Category"].HeaderText = "Category";
+            dataGridItemsToReturn.Columns["rental_date"].HeaderText = "Rental Date";
+            dataGridItemsToReturn.Columns["expected_return"].HeaderText = "Due Date";
+            dataGridItemsToReturn.Columns["daily_Rate"].HeaderText = "Daily Rate";
+            dataGridItemsToReturn.Columns["daily_Rate"].DefaultCellStyle.Format = "c";
+            dataGridItemsToReturn.Columns["amount"].HeaderText = "Amount Due";
+            dataGridItemsToReturn.Columns["amount"].DefaultCellStyle.Format = "c";
+            dataGridItemsToReturn.Columns["fine_Rate"].HeaderText = "Late Fee";
+            dataGridItemsToReturn.Columns["fine_Rate"].DefaultCellStyle.Format = "c";
+            dataGridItemsToReturn.Columns["fines"].HeaderText = "Amount Fined";
+            dataGridItemsToReturn.Columns["fines"].DefaultCellStyle.Format = "c";
+            dataGridItemsToReturn.Columns["fname"].Visible = false;
+            dataGridItemsToReturn.Columns["lname"].Visible = false;
+            dataGridItemsToReturn.Columns["returnTransactionID"].Visible = false;
+            dataGridItemsToReturn.Columns["transaction_date"].Visible = false;
+            dataGridItemsToReturn.Columns["comment"].Visible = false;
+            dataGridItemsToReturn.Columns["return_date"].Visible = false;
+            dataGridItemsToReturn.Columns["employeeID"].Visible = false;
+            dataGridItemsToReturn.Columns["memberID"].Visible = false;
+            dataGridItemsToReturn.Columns["transactionID"].Visible = false;
+            dataGridItemsToReturn.Columns["rentalID"].Visible = false;
+
         }
 
         private void ReturnFurnitureView_Load(object sender, EventArgs e)
         {
             DisplayReturn(returnTransaction);
+            btnSubmit.Enabled = false;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -63,27 +80,55 @@ namespace RentMe.Views
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if(returnController.ReturnFurniture(returnTransaction.rentalID))
+            bool success = false;
+            string name = "";
+            foreach (var transaction in returnTransaction)
             {
-                int employeeID = returnController.GetEmployeeID(userID);
-                int transactionID = returnController.ReturnFurnitureTransaction(DateTime.Now, amountOwed, txtComments.Text, employeeID, amountFined);
-                bool success = returnController.RentalReturnTransaction(transactionID, returnTransaction.rentalID);
-                if (success)
+                if (returnController.ReturnFurniture(transaction.rentalID))
                 {
-                    MessageBox.Show("Transaction completed for " + returnTransaction.fname + " " + returnTransaction.lname + ". for " + txtTotalOwed.Text);
-                    this.returnForm.Close();
-                    returnForm = new ItemReturnView();
-                    returnForm.Show();
-                    this.Close();
+                    int employeeID = returnController.GetEmployeeID(userID);
+                    int transactionID = returnController.ReturnFurnitureTransaction(DateTime.Now, amountOwed, txtComments.Text, employeeID, amountFined);
+                    success = returnController.RentalReturnTransaction(transactionID, transaction.rentalID);
+                    name = transaction.fname + " " + transaction.lname;
                 }
             }
-
+            if (success)
+            {
+                MessageBox.Show("Transaction completed for " + name + " for " + txtTotalOwed.Text);
+                this.returnForm.Close();
+                returnForm = new ItemReturnView();
+                returnForm.Show();
+                this.Close();
+            }
             else
             {
                 MessageBox.Show("Unable to update this transaction.");
                 this.Close();
             }
+        }
 
+        private void btnCalculateOwed_Click(object sender, EventArgs e)
+        {
+            amountOwed = 0;
+            amountFined = 0;
+            foreach (var transaction in returnTransaction)
+            {
+                decimal amount = (Decimal.Multiply(transaction.daily_Rate, Convert.ToDecimal((Convert.ToDateTime(dateTimePicker1.Value.ToString()) - transaction.rental_date).TotalDays)));
+                transaction.amount = amount - (Decimal.Multiply(amount, Convert.ToDecimal(0.20)));
+                transaction.fines = (Decimal.Multiply(transaction.fine_Rate, Convert.ToDecimal((Convert.ToDateTime(dateTimePicker1.Value.ToString()) - transaction.expected_return).TotalDays)));
+                amountOwed = amountOwed + transaction.amount;
+                amountFined = amountFined + transaction.fines;
+                if (amountFined <= 0)
+                {
+                    amountFined = 0;
+                }
+            }
+            txtAmountOwed.Text = amountOwed.ToString("C");
+            txtFines.Text = amountFined.ToString("C");
+            string totalOwed = (amountOwed + amountFined).ToString("C");
+            txtTotalOwed.Text = totalOwed;
+            dataGridItemsToReturn.Refresh();
+            btnSubmit.Enabled = true;
         }
     }
 }
