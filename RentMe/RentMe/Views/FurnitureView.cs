@@ -296,7 +296,7 @@ namespace RentMe.Views
         private void btnAddFurniture_Click(object sender, EventArgs e)
         {
             AddUpdateFurnitureView addUpdateFurnitureView = new AddUpdateFurnitureView(false, null, this);
-            addUpdateFurnitureView.MdiParent = this;
+            //addUpdateFurnitureView.MdiParent = this;
             addUpdateFurnitureView.StartPosition = FormStartPosition.CenterParent;
             addUpdateFurnitureView.Show();
         }
