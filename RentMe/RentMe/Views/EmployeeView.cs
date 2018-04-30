@@ -69,12 +69,14 @@ namespace RentMe.Views
                         employeeList = employeeController.GetEmployeeByPhone(phoneNumber);
                     }
 
-                    DisplayEmployee(employee);
+                    DisplayEmployee();
                     btnAdd.Enabled = true;
                     btnExit.Enabled = true;
                     btnSearch.Enabled = true;
                     btnRestart.Enabled = true;
+                    this.Enabled = true;
                     btnSearch.Text = "Search Again";
+                    btnSearch.AutoSize = true;
                 }
                 else
                 {
@@ -110,12 +112,16 @@ namespace RentMe.Views
                         employeeList = employeeController.GetEmployeeByPhone(phoneNumber);
                     }
 
-                    DisplayEmployee(employee);
+                    DisplayEmployee();
                     btnAdd.Enabled = true;
+                    this.Enabled = true;
                     btnExit.Enabled = true;
                     btnSearch.Enabled = true;
                     btnRestart.Enabled = true;
-                    btnSearch.Text = "Search Again";
+                    btnSearch.Text = "Search";
+                    btnSearch.AutoSize = true;
+                    txtFname.Text = "";
+                    txtLname.Text = "";
                 }
                 else
                 {
@@ -128,7 +134,7 @@ namespace RentMe.Views
             }
         }
 
-        private void DisplayEmployee(Employee employee)
+        private void DisplayEmployee()
         {
 
             if (employeeList.Count == 0)
@@ -149,6 +155,7 @@ namespace RentMe.Views
                 employeeDataGridView.Columns["fname"].HeaderText = "First Name";
                 employeeDataGridView.Columns["middleInitial"].HeaderText = "MI";
                 employeeDataGridView.Columns["lname"].HeaderText = "Last Name";
+                employeeDataGridView.Columns["fullname"].Visible = false;
                 employeeDataGridView.Columns["Address1"].HeaderText = "Address";
                 employeeDataGridView.Columns["Address2"].HeaderText = "Address, cont.";
                 employeeDataGridView.Columns["dateOfBirth"].HeaderText = "Birth Date";
@@ -174,6 +181,7 @@ namespace RentMe.Views
                 employeeDataGridView.Width = i + employeeDataGridView.RowHeadersWidth + 2;
                 employeeDataGridView.Focus();
                 employeeDataGridView.CurrentCell = employeeDataGridView.Rows[0].Cells[0];
+                this.CenterToScreen();
             }
 
         }
@@ -247,6 +255,7 @@ namespace RentMe.Views
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+
         }
     }
 }
