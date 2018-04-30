@@ -197,13 +197,13 @@ namespace RentMe.DAL
             SqlConnection connection = RentMeDBConnection.GetConnection();
             string insertStatement =
                 "INSERT Rental " +
-                  "(memberID, expected_return, itemID, return_date, rental_date) " +
-                "VALUES (@memberID, @expected_return, @itemID, @return_date, @rental_date)";
+                  "(memberID, expected_return, itemID, rental_date) " +
+                "VALUES (@memberID, @expected_return, @itemID, @rental_date)";
             SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
             insertCommand.Parameters.AddWithValue("@memberID", rentalItem.memberID);
             insertCommand.Parameters.AddWithValue("@expected_return", rentalItem.expectedReturn);
             insertCommand.Parameters.AddWithValue("@itemID", rentalItem.itemID);
-            insertCommand.Parameters.AddWithValue("@return_date", rentalItem.returnDate);
+            //insertCommand.Parameters.AddWithValue("@return_date", rentalItem.returnDate);
             insertCommand.Parameters.AddWithValue("@rental_date", rentalItem.rentalDate);
             try
             {

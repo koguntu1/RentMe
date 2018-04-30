@@ -229,10 +229,10 @@ namespace RentMe.Views
                     } 
                 }
                 //Console.WriteLine(amountDue.ToString() + " " + fineDue.ToString());
-                //Form frm = (Form)this.MdiParent;
-                //MenuStrip ms = (MenuStrip)frm.Controls["menuStrip1"];
-                //ToolStripMenuItem lt = (ToolStripMenuItem)ms.Items["login"];
-                string login = "dEla"; // lt.Text;
+                Form frm = (Form)this.MdiParent;
+                MenuStrip ms = (MenuStrip)frm.Controls["menuStrip1"];
+                ToolStripMenuItem lt = (ToolStripMenuItem)ms.Items["login"];
+                string login = lt.Text;
                 ReturnFurnitureView returnFurnitureView = new ReturnFurnitureView(listReturnTransaction, login, this);
                 returnFurnitureView.Show();
             }

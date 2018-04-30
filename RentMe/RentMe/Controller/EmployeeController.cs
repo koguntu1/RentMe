@@ -20,9 +20,9 @@ namespace RentMe.Controller
             return EmployeeDAL.GetemployeeList();
         }
 
-        public List<Employee> GetEmployeeByName(string employeeName)
+        public List<Employee> GetEmployeeByName(string fname, string lname)
         {
-            return EmployeeDAL.GetEmployeeByName(employeeName);
+            return EmployeeDAL.GetEmployeeByName(fname, lname);
         }
 
         public List<Employee> GetEmployeeByPhone(string phoneNumber)

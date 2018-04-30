@@ -46,7 +46,6 @@
             this.memberReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rentItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.returnItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rentalItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -99,7 +98,6 @@
             this.maintenanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.customerToolStripMenuItem,
             this.furnitureToolStripMenuItem});
-            this.maintenanceToolStripMenuItem.Enabled = false;
             this.maintenanceToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F);
             this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
             this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(106, 23);
@@ -124,7 +122,6 @@
             this.employeeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.changePasswordToolStripMenuItem,
             this.addUpdateEmployeeToolStripMenuItem});
-            this.employeeToolStripMenuItem.Enabled = false;
             this.employeeToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F);
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
             this.employeeToolStripMenuItem.Size = new System.Drawing.Size(84, 23);
@@ -205,20 +202,12 @@
             // actionsToolStripMenuItem
             // 
             this.actionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rentItemsToolStripMenuItem,
             this.returnItemsToolStripMenuItem});
             this.actionsToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F);
             this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
             this.actionsToolStripMenuItem.ShowShortcutKeys = false;
             this.actionsToolStripMenuItem.Size = new System.Drawing.Size(69, 23);
             this.actionsToolStripMenuItem.Text = "Actions";
-            // 
-            // rentItemsToolStripMenuItem
-            // 
-            this.rentItemsToolStripMenuItem.Name = "rentItemsToolStripMenuItem";
-            this.rentItemsToolStripMenuItem.Size = new System.Drawing.Size(161, 24);
-            this.rentItemsToolStripMenuItem.Text = "Rent Items";
-            this.rentItemsToolStripMenuItem.Click += new System.EventHandler(this.rentItemsToolStripMenuItem_Click);
             // 
             // returnItemsToolStripMenuItem
             // 
@@ -290,7 +279,6 @@
         private System.Windows.Forms.ToolStripMenuItem returnReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem furnitureReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem actionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rentItemsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem returnItemsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem historyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rentalItemsToolStripMenuItem;

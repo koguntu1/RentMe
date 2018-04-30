@@ -48,7 +48,7 @@ namespace RentMe.DAL
         }
 
 
-        public static List<Employee> GetEmployeeByName(string employeeName)
+        public static List<Employee> GetEmployeeByName(string fname, string lname)
         {
             
             List<Employee> employeeList = new List<Employee>();
@@ -58,9 +58,10 @@ namespace RentMe.DAL
                 "e.Address1, e.Address2, e.City, e.State, e.PostalCode, e.gender, e.Admin, l.userID " +
                 "FROM employee e LEFT OUTER JOIN login l " +
                 "ON e.employeeID = l.employeeID " +
-                "WHERE UPPER(e.fname) + UPPER(e.lname) LIKE @employeeName";
+                "WHERE UPPER(e.fname) + UPPER(e.lname) LIKE concat('%', @fname, '%', @lname, '%')";
             SqlCommand selectCommand = new SqlCommand(selectstatement, connection);
-            selectCommand.Parameters.AddWithValue("@employeeName", employeeName);
+            selectCommand.Parameters.AddWithValue("@fname", fname);
+            selectCommand.Parameters.AddWithValue("@lname", lname);
             try
             {
                 connection.Open();
@@ -108,7 +109,7 @@ namespace RentMe.DAL
                 "e.Address1, e.Address2, e.City, e.State, e.PostalCode, e.gender, e.Admin, l.userID " +
                 "FROM employee e LEFT OUTER JOIN login l " +
                 "ON l.employeeID = e.employeeID " +
-                "WHERE e.homePhone LIKE @phone";
+                "WHERE e.homePhone LIKE concat('%', @phone, '%')";
             SqlCommand selectCommand = new SqlCommand(selectstatement, connection);
             selectCommand.Parameters.AddWithValue("@phone", phoneNumber);
             try

@@ -322,6 +322,8 @@ namespace RentMe.Views
             this.memberview.Enabled = true;
             if (txtFname.Text != string.Empty || txtLname.Text != string.Empty)
             {
+                member.fname = txtFname.Text;
+                member.lname = txtLname.Text;
                 this.memberview.refresh(member.fname, member.lname);
 
             }

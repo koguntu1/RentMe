@@ -428,9 +428,13 @@ namespace RentMe.Views
 
         private void AddUpdateEmployeeView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            employee.fname = txtFname.Text;
-            employee.lname = txtLname.Text;
-            this.employeeView.refresh(employee.fname, employee.lname);
+            this.employeeView.Enabled = true;
+            if (txtFname.Text != string.Empty || txtLname.Text != string.Empty)
+            {
+                employee.fname = txtFname.Text;
+                employee.lname = txtLname.Text;
+                this.employeeView.refresh(employee.fname, employee.lname);
+            }
         }
     }
 }

@@ -39,8 +39,6 @@
             this.lblPhoneNumber = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.mtxtRentalDate = new System.Windows.Forms.MaskedTextBox();
-            this.mtxtReturnDate = new System.Windows.Forms.MaskedTextBox();
             this.mtxtEmployeeHomePhone = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtEmployeeMInitial = new System.Windows.Forms.TextBox();
@@ -58,6 +56,8 @@
             this.memberBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rentMeDataSet = new RentMe.RentMeDataSet();
             this.memberTableAdapter = new RentMe.RentMeDataSetTableAdapters.MemberTableAdapter();
+            this.dtRentalDate = new System.Windows.Forms.DateTimePicker();
+            this.dtReturnDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memberBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).BeginInit();
@@ -164,28 +164,6 @@
             this.label2.TabIndex = 43;
             this.label2.Text = "Expected Return Date";
             // 
-            // mtxtRentalDate
-            // 
-            this.mtxtRentalDate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtxtRentalDate.Location = new System.Drawing.Point(10, 339);
-            this.mtxtRentalDate.Mask = "00/00/0000";
-            this.mtxtRentalDate.Name = "mtxtRentalDate";
-            this.mtxtRentalDate.Size = new System.Drawing.Size(332, 27);
-            this.mtxtRentalDate.TabIndex = 44;
-            this.mtxtRentalDate.Tag = "Date of Birth";
-            this.mtxtRentalDate.ValidatingType = typeof(System.DateTime);
-            // 
-            // mtxtReturnDate
-            // 
-            this.mtxtReturnDate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtxtReturnDate.Location = new System.Drawing.Point(8, 399);
-            this.mtxtReturnDate.Mask = "00/00/0000";
-            this.mtxtReturnDate.Name = "mtxtReturnDate";
-            this.mtxtReturnDate.Size = new System.Drawing.Size(332, 27);
-            this.mtxtReturnDate.TabIndex = 45;
-            this.mtxtReturnDate.Tag = "Date of Birth";
-            this.mtxtReturnDate.ValidatingType = typeof(System.DateTime);
-            // 
             // mtxtEmployeeHomePhone
             // 
             this.mtxtEmployeeHomePhone.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -290,7 +268,7 @@
             // btnRent
             // 
             this.btnRent.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRent.Location = new System.Drawing.Point(127, 473);
+            this.btnRent.Location = new System.Drawing.Point(242, 476);
             this.btnRent.Name = "btnRent";
             this.btnRent.Size = new System.Drawing.Size(91, 31);
             this.btnRent.TabIndex = 57;
@@ -301,7 +279,7 @@
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(622, 420);
+            this.btnExit.Location = new System.Drawing.Point(360, 476);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(91, 31);
             this.btnExit.TabIndex = 59;
@@ -324,6 +302,7 @@
             this.cbID.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.memberBindingSource, "memberID", true));
             this.cbID.DataSource = this.memberBindingSource;
             this.cbID.DisplayMember = "memberID";
+            this.cbID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbID.FormattingEnabled = true;
             this.cbID.Location = new System.Drawing.Point(107, 85);
             this.cbID.Name = "cbID";
@@ -346,11 +325,29 @@
             // 
             this.memberTableAdapter.ClearBeforeFill = true;
             // 
+            // dtRentalDate
+            // 
+            this.dtRentalDate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtRentalDate.Location = new System.Drawing.Point(14, 338);
+            this.dtRentalDate.Name = "dtRentalDate";
+            this.dtRentalDate.Size = new System.Drawing.Size(272, 27);
+            this.dtRentalDate.TabIndex = 61;
+            // 
+            // dtReturnDate
+            // 
+            this.dtReturnDate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtReturnDate.Location = new System.Drawing.Point(14, 390);
+            this.dtReturnDate.Name = "dtReturnDate";
+            this.dtReturnDate.Size = new System.Drawing.Size(272, 27);
+            this.dtReturnDate.TabIndex = 62;
+            // 
             // RentFurnitureForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 553);
+            this.Controls.Add(this.dtReturnDate);
+            this.Controls.Add(this.dtRentalDate);
             this.Controls.Add(this.cbID);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnRent);
@@ -364,8 +361,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtEmployeeFName);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.mtxtReturnDate);
-            this.Controls.Add(this.mtxtRentalDate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.mtxtHomePhone);
@@ -402,8 +397,6 @@
         private System.Windows.Forms.Label lblPhoneNumber;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox mtxtRentalDate;
-        private System.Windows.Forms.MaskedTextBox mtxtReturnDate;
         private System.Windows.Forms.MaskedTextBox mtxtEmployeeHomePhone;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtEmployeeMInitial;
@@ -421,5 +414,7 @@
         private RentMeDataSet rentMeDataSet;
         private System.Windows.Forms.BindingSource memberBindingSource;
         private RentMeDataSetTableAdapters.MemberTableAdapter memberTableAdapter;
+        private System.Windows.Forms.DateTimePicker dtRentalDate;
+        private System.Windows.Forms.DateTimePicker dtReturnDate;
     }
 }
