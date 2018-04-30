@@ -124,7 +124,6 @@ namespace RentMe.Views
         private void PutEmployee(Employee employee)
         {
             employee.fname = txtFname.Text;
-            employee.fname = txtFname.Text;
             employee.middleInitial = txtMI.Text;
             employee.lname = txtLname.Text;
             employee.Address1 = txtAddress1.Text;
@@ -144,8 +143,8 @@ namespace RentMe.Views
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
-           
-                this.Close();
+            this.Close();
+
         }
 
         private void cboState_SelectedIndexChanged(object sender, EventArgs e)
@@ -429,11 +428,9 @@ namespace RentMe.Views
 
         private void AddUpdateEmployeeView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.employeeView.Enabled = true;
-            if (txtFname.Text != string.Empty || txtLname.Text != string.Empty)
-            {
-                this.employeeView.refresh(employee.fname, employee.lname);
-            }
+            employee.fname = txtFname.Text;
+            employee.lname = txtLname.Text;
+            this.employeeView.refresh(employee.fname, employee.lname);
         }
     }
 }
