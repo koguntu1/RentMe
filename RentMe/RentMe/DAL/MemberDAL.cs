@@ -207,8 +207,7 @@ namespace RentMe.DAL
             string selectstatement =
                 "SELECT memberID, fname, middleInitial, lname, dateOfBirth, gender, homePhone, Address1, Address2, City, State, PostalCode " +
                 "FROM member " +
-                "WHERE fname = @fname " +
-                "AND lname = @lname";
+                "WHERE upper(fname) + upper(lname) like concat('%', @fname, '%', @lname, '%')";
             SqlCommand selectCommand = new SqlCommand(selectstatement, connection);
             selectCommand.Parameters.AddWithValue("@fname", firstName);
             selectCommand.Parameters.AddWithValue("@lname", lastName);
@@ -256,7 +255,7 @@ namespace RentMe.DAL
             string selectstatement =
                 "SELECT memberID, fname, middleInitial, lname, dateOfBirth, gender, homePhone, Address1, Address2, City, State, PostalCode " +
                 "FROM member " +
-                "WHERE homePhone = @homePhone";
+                "WHERE homePhone like concat('%', @homePhone, '%')";
             SqlCommand selectCommand = new SqlCommand(selectstatement, connection);
             selectCommand.Parameters.AddWithValue("@homePhone", phoneNumber);
             try

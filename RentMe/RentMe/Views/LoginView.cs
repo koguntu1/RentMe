@@ -51,9 +51,9 @@ namespace RentMe.Views
             //Code to disable rental forms for turnin - to fix next iteration
             ToolStripMenuItem at = (ToolStripMenuItem)ms.Items["actionsToolStripMenuItem"];
             at.Enabled = true;
-            at.DropDownItems["rentItemsToolStripMenuItem"].Enabled = false;
-            at.DropDownItems["rentItemsToolStripMenuItem"].Visible = true;
-            at.DropDownItems["rentItemsToolStripMenuItem"].ToolTipText = "Will fix next iteration";
+            //at.DropDownItems["rentItemsToolStripMenuItem"].Enabled = false;
+            //at.DropDownItems["rentItemsToolStripMenuItem"].Visible = true;
+            //at.DropDownItems["rentItemsToolStripMenuItem"].ToolTipText = "Will fix next iteration";
             try
             {
                 if (lgCont.IsAdminRole(txtLogin.Text, textBox2.Text))

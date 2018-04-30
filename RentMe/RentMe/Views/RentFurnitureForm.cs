@@ -104,13 +104,13 @@ namespace RentMe.Views
         private void btnRent_Click(object sender, EventArgs e)
         {
           
-            if (!mtxtRentalDate.MaskCompleted)
+            if (dtRentalDate.Text.Equals(""))
             {
                 MessageBox.Show("Please enter a rental date.");
                 return;
             }
 
-            else if (!mtxtReturnDate.MaskCompleted)
+            else if (dtReturnDate.Text.Equals(""))
             {
                 MessageBox.Show("Please enter a return date.");
                 return;
@@ -120,7 +120,7 @@ namespace RentMe.Views
             {
                
 
-                if (mtxtRentalDate.MaskCompleted && mtxtReturnDate.MaskCompleted && Convert.ToDateTime(mtxtRentalDate.Text) < Convert.ToDateTime(mtxtReturnDate.Text))
+                if (!dtRentalDate.Text.Equals("") && !dtReturnDate.Text.Equals("") && Convert.ToDateTime(dtRentalDate.Text) < Convert.ToDateTime(dtReturnDate.Text))
                 {
                     RentalItem rentalItem = this.setRentalItem();
                     RentalTransaction rentalTransaction = this.setTransactionInformation();
@@ -131,7 +131,7 @@ namespace RentMe.Views
                     MessageBox.Show("Item has been rented. ", "Item Rented.");
                     this.Close();
                 }
-                else if (mtxtRentalDate.MaskCompleted && mtxtReturnDate.MaskCompleted && Convert.ToDateTime(mtxtRentalDate.Text) > Convert.ToDateTime(mtxtReturnDate.Text))
+                else if (!dtRentalDate.Text.Equals("") && !dtReturnDate.Text.Equals("") && Convert.ToDateTime(dtRentalDate.Text) > Convert.ToDateTime(dtRentalDate.Text))
                 {
                     MessageBox.Show("Return date cannot be before rental date. ", "Invalid Information.");
 
@@ -148,7 +148,7 @@ namespace RentMe.Views
             rentalTransaction = new RentalTransaction();
             rentalTransaction.transactionDate = DateTime.Now;
             rentalTransaction.employeeID = employee.employeeID;
-            rentalTransaction.amount = Convert.ToDouble(furniture.Daily_Rate) * (Convert.ToDateTime(mtxtReturnDate.Text) - Convert.ToDateTime(mtxtRentalDate.Text)).TotalDays;
+            rentalTransaction.amount = Convert.ToDouble(furniture.Daily_Rate) * (Convert.ToDateTime(dtReturnDate.Text) - Convert.ToDateTime(dtRentalDate.Text)).TotalDays;
             return rentalTransaction;
         }
 
@@ -156,10 +156,10 @@ namespace RentMe.Views
         {
             rentalItem = new RentalItem();
             rentalItem.memberID = member.memberID;
-            rentalItem.expectedReturn = Convert.ToDateTime(mtxtReturnDate.Text);
+            rentalItem.expectedReturn = Convert.ToDateTime(dtReturnDate.Text);
             rentalItem.itemID = furniture.FurnitureID;
-            rentalItem.returnDate = Convert.ToDateTime(mtxtReturnDate.Text);
-            rentalItem.rentalDate = Convert.ToDateTime(mtxtRentalDate.Text);
+            //rentalItem.returnDate = "";
+            rentalItem.rentalDate = Convert.ToDateTime(dtRentalDate.Text);
             return rentalItem;
         }
 

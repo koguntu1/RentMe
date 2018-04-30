@@ -12846,14 +12846,15 @@ SELECT rentalTransacationID, rentalID, transactionID FROM Rental_transaction WHE
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Store_item] ([furnitureID]) VALUES (@furnitureID);\r\nSELECT ite" +
-                "mID, furnitureID FROM Store_item WHERE (itemID = SCOPE_IDENTITY())";
+                "mID, furnitureID FROM Store_item WHERE (itemID = SCOPE_IDENTITY()) ORDER BY item" +
+                "ID";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@furnitureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "furnitureID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Store_item] SET [furnitureID] = @furnitureID WHERE (([itemID] = @Or" +
                 "iginal_itemID) AND ([furnitureID] = @Original_furnitureID));\r\nSELECT itemID, fur" +
-                "nitureID FROM Store_item WHERE (itemID = @itemID)";
+                "nitureID FROM Store_item WHERE (itemID = @itemID) ORDER BY itemID";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@furnitureID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "furnitureID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_itemID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "itemID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -12874,7 +12875,7 @@ SELECT rentalTransacationID, rentalID, transactionID FROM Rental_transaction WHE
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT itemID, furnitureID FROM dbo.Store_item";
+            this._commandCollection[0].CommandText = "SELECT itemID, furnitureID FROM dbo.Store_item order by itemID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

@@ -53,35 +53,28 @@ namespace RentMe.Views
             try
             {
                 mtxtHomePhone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                String employeeName = ("%" + txtFname.Text.ToString().ToUpper() + "%" + txtLname.Text.ToString().ToUpper() + "%");
-                String phoneNumber = ("%" + mtxtHomePhone.Text.ToString() + "%");
-                if (!employeeName.Equals("%%%") || !mtxtHomePhone.Text.Equals(""))
+                if ((!txtFname.Text.Equals("") && !txtLname.Equals("")))
                 {
-                    if ((!txtFname.Text.Equals("") || !txtLname.Equals("")))
-                    {
 
-                        employeeList = employeeController.GetEmployeeByName(employeeName);
-                    }
+                    employeeList = employeeController.GetEmployeeByName(txtFname.Text.ToString().ToUpper(), txtLname.Text.ToString().ToUpper());
+                }
+                else if (!mtxtHomePhone.Text.Equals(""))
+                {
 
-                    if (!mtxtHomePhone.Text.Equals(""))
-                    {
-
-                        employeeList = employeeController.GetEmployeeByPhone(phoneNumber);
-                    }
-
-                    DisplayEmployee();
-                    btnAdd.Enabled = true;
-                    btnExit.Enabled = true;
-                    btnSearch.Enabled = true;
-                    btnRestart.Enabled = true;
-                    this.Enabled = true;
-                    btnSearch.Text = "Search Again";
-                    btnSearch.AutoSize = true;
+                    employeeList = employeeController.GetEmployeeByPhone(mtxtHomePhone.Text);
                 }
                 else
                 {
                     MessageBox.Show("You must enter a name or phone number.");
                 }
+                DisplayEmployee();
+                btnAdd.Enabled = true;
+                btnExit.Enabled = true;
+                btnSearch.Enabled = true;
+                btnRestart.Enabled = true;
+                btnSearch.Text = "Search Again";
+                btnSearch.AutoSize = true;
+
             }
             catch (Exception ex)
             {
@@ -96,37 +89,32 @@ namespace RentMe.Views
             try
             {
                 mtxtHomePhone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-                String employeeName = ("%" + fname.ToUpper() + "%" + lname.ToUpper() + "%");
-                String phoneNumber = ("%" + mtxtHomePhone.Text.ToString() + "%");
-                if (!employeeName.Equals("%%%") || !mtxtHomePhone.Text.Equals(""))
+                if ((!fname.Equals("") && !lname.Equals("")))
                 {
-                    if ((!txtFname.Text.Equals("") || !txtLname.Equals("")))
-                    {
 
-                        employeeList = employeeController.GetEmployeeByName(employeeName);
-                    }
+                    employeeList = employeeController.GetEmployeeByName(fname.ToUpper(), lname.ToUpper());
+                }
 
-                    if (!mtxtHomePhone.Text.Equals(""))
-                    {
+                else if (!mtxtHomePhone.Text.Equals(""))
+                {
 
-                        employeeList = employeeController.GetEmployeeByPhone(phoneNumber);
-                    }
-
-                    DisplayEmployee();
-                    btnAdd.Enabled = true;
-                    this.Enabled = true;
-                    btnExit.Enabled = true;
-                    btnSearch.Enabled = true;
-                    btnRestart.Enabled = true;
-                    btnSearch.Text = "Search";
-                    btnSearch.AutoSize = true;
-                    txtFname.Text = "";
-                    txtLname.Text = "";
+                    employeeList = employeeController.GetEmployeeByPhone(mtxtHomePhone.Text);
                 }
                 else
                 {
                     MessageBox.Show("You must enter a name or phone number.");
                 }
+
+                DisplayEmployee();
+                btnAdd.Enabled = true;
+                btnExit.Enabled = true;
+                btnSearch.Enabled = true;
+                btnRestart.Enabled = true;
+                btnSearch.Text = "Search";
+                btnSearch.AutoSize = true;
+                txtFname.Text = "";
+                txtLname.Text = "";
+                
             }
             catch (Exception ex)
             {
@@ -162,9 +150,10 @@ namespace RentMe.Views
                 employeeDataGridView.Columns["gender"].HeaderText = "Gender";
                 employeeDataGridView.Columns["admin"].HeaderText = "Admin";
                 employeeDataGridView.Columns["homePhone"].HeaderText = "Phone Number";
-                employeeDataGridView.Columns["login"].HeaderText = "User ID";
                 employeeDataGridView.Columns["dateOfBirth"].DefaultCellStyle.Format = "MM/dd/yyyy";
                 employeeDataGridView.Columns["homePhone"].DefaultCellStyle.Format = "(###) ###-####";
+                employeeDataGridView.Columns["login"].HeaderText = "User ID";
+
                 editButton.HeaderText = "Edit Employee";
                 editButton.Text = "Edit Employee";
                 editButton.Name = "editButton";
@@ -215,7 +204,14 @@ namespace RentMe.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                if (ex is IndexOutOfRangeException || ex is ArgumentOutOfRangeException)
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
             }
         }
 

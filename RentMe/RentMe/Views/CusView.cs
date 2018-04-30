@@ -149,7 +149,7 @@ namespace RentMe.Views
                 memberDataGridView.Columns["homePhone"].DefaultCellStyle.Format = "(###) ###-####";
                 memberDataGridView.Columns["gender"].HeaderText = "Gender";
                 memberDataGridView.Columns["fullname"].HeaderText = "Full Name";
-                editButton.HeaderText = "Edit Employee";
+                editButton.HeaderText = "Edit Member";
                 editButton.Text = "Edit Member";
                 editButton.Name = "editButton";
                 editButton.UseColumnTextForButtonValue = true;
@@ -197,7 +197,14 @@ namespace RentMe.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                if (ex is IndexOutOfRangeException || ex is ArgumentOutOfRangeException)
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
             }
         }
 
