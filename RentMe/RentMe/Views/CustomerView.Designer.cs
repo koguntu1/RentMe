@@ -636,7 +636,7 @@
             this.Controls.Add(this.lblCustomerInfo);
             this.Controls.Add(this.pictureBox1);
             this.Name = "CustomerView";
-            this.Text = "CustomerRegistrationView";
+            this.Text = "Customer Registration";
             this.Load += new System.EventHandler(this.CustomerView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.streetsBindingSource)).EndInit();

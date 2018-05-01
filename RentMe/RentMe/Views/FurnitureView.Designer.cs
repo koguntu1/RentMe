@@ -410,7 +410,7 @@
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.pictureBox1);
             this.Name = "FurnitureView";
-            this.Text = "SearchFurnitureView";
+            this.Text = "Search for Furniture";
             this.Load += new System.EventHandler(this.SearchFurnitureView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.store_itemBindingSource)).EndInit();

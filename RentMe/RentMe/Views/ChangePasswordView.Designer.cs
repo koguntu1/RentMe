@@ -189,7 +189,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblPassword);
             this.Name = "ChangePasswordView";
-            this.Text = "ChangePasswordView";
+            this.Text = "Change Password";
             this.Load += new System.EventHandler(this.ChangePasswordView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

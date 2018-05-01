@@ -30,14 +30,24 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.btnExit = new System.Windows.Forms.Button();
             this.rentalReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rentMeDataSet = new RentMe.RentMeDataSet();
+            this.btnExit = new System.Windows.Forms.Button();
             this.rentalReportTableAdapter = new RentMe.RentMeDataSetTableAdapters.RentalReportTableAdapter();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.rentalReportBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).BeginInit();
             this.SuspendLayout();
+            // 
+            // rentalReportBindingSource
+            // 
+            this.rentalReportBindingSource.DataMember = "RentalReport";
+            this.rentalReportBindingSource.DataSource = this.rentMeDataSet;
+            // 
+            // rentMeDataSet
+            // 
+            this.rentMeDataSet.DataSetName = "RentMeDataSet";
+            this.rentMeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnExit
             // 
@@ -49,16 +59,6 @@
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // rentalReportBindingSource
-            // 
-            this.rentalReportBindingSource.DataMember = "RentalReport";
-            this.rentalReportBindingSource.DataSource = this.rentMeDataSet;
-            // 
-            // rentMeDataSet
-            // 
-            this.rentMeDataSet.DataSetName = "RentMeDataSet";
-            this.rentMeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // rentalReportTableAdapter
             // 
@@ -85,7 +85,7 @@
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.btnExit);
             this.Name = "RentalReportView";
-            this.Text = "RentalReportView";
+            this.Text = "Rental Report";
             this.Load += new System.EventHandler(this.RentalReportView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rentalReportBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).EndInit();

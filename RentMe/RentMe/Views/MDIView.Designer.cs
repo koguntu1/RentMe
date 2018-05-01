@@ -249,7 +249,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MDIView";
-            this.Text = "MDIView";
+            this.Text = "RentME!";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MDIView_Load);
             this.menuStrip1.ResumeLayout(false);

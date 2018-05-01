@@ -29,21 +29,31 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.rentMeDataSet = new RentMe.RentMeDataSet();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.rentalReturnReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rentMeDataSet = new RentMe.RentMeDataSet();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.rentalReturnReportTableAdapter = new RentMe.RentMeDataSetTableAdapters.RentalReturnReportTableAdapter();
             this.btnExit = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentalReturnReportBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).BeginInit();
             this.SuspendLayout();
+            // 
+            // rentalReturnReportBindingSource
+            // 
+            this.rentalReturnReportBindingSource.DataMember = "RentalReturnReport";
+            this.rentalReturnReportBindingSource.DataSource = this.rentMeDataSet;
+            // 
+            // rentMeDataSet
+            // 
+            this.rentMeDataSet.DataSetName = "RentMeDataSet";
+            this.rentMeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
-            reportDataSource2.Name = "RentalReturnDataSet";
-            reportDataSource2.Value = this.rentalReturnReportBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource1.Name = "RentalReturnDataSet";
+            reportDataSource1.Value = this.rentalReturnReportBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "RentMe.Reports.RentalReturnReport.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(13, 13);
             this.reportViewer1.Name = "reportViewer1";
@@ -51,16 +61,6 @@
             this.reportViewer1.Size = new System.Drawing.Size(1209, 379);
             this.reportViewer1.TabIndex = 0;
             this.reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
-            // 
-            // rentMeDataSet
-            // 
-            this.rentMeDataSet.DataSetName = "RentMeDataSet";
-            this.rentMeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // rentalReturnReportBindingSource
-            // 
-            this.rentalReturnReportBindingSource.DataMember = "RentalReturnReport";
-            this.rentalReturnReportBindingSource.DataSource = this.rentMeDataSet;
             // 
             // rentalReturnReportTableAdapter
             // 
@@ -85,10 +85,10 @@
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.reportViewer1);
             this.Name = "RentalReturnReportView";
-            this.Text = "RentalReturnReportView";
+            this.Text = "Rental Return Report";
             this.Load += new System.EventHandler(this.RentalReturnReportView_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentalReturnReportBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
