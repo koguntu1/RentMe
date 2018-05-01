@@ -298,7 +298,7 @@
             this.Controls.Add(this.cboCustomerID);
             this.Controls.Add(lblFurnitureID);
             this.Name = "RentView";
-            this.Text = "Rent View";
+            this.Text = "View Available Furniture";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -30,15 +30,25 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.furnitureReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rentMeDataSet = new RentMe.RentMeDataSet();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.furnitureReportTableAdapter = new RentMe.RentMeDataSetTableAdapters.FurnitureReportTableAdapter();
             this.tableAdapterManager = new RentMe.RentMeDataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.furnitureReportBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).BeginInit();
             this.SuspendLayout();
+            // 
+            // furnitureReportBindingSource
+            // 
+            this.furnitureReportBindingSource.DataMember = "FurnitureReport";
+            this.furnitureReportBindingSource.DataSource = this.rentMeDataSet;
+            // 
+            // rentMeDataSet
+            // 
+            this.rentMeDataSet.DataSetName = "RentMeDataSet";
+            this.rentMeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnExit
             // 
@@ -63,16 +73,6 @@
             this.reportViewer1.Size = new System.Drawing.Size(1215, 351);
             this.reportViewer1.TabIndex = 18;
             this.reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
-            // 
-            // furnitureReportBindingSource
-            // 
-            this.furnitureReportBindingSource.DataMember = "FurnitureReport";
-            this.furnitureReportBindingSource.DataSource = this.rentMeDataSet;
-            // 
-            // rentMeDataSet
-            // 
-            this.rentMeDataSet.DataSetName = "RentMeDataSet";
-            this.rentMeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // furnitureReportTableAdapter
             // 
@@ -106,7 +106,7 @@
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.btnExit);
             this.Name = "FurnitureAvailabilityReportView";
-            this.Text = "FurnitureAvailabilityReportView";
+            this.Text = "Furniture Availability Report";
             this.Load += new System.EventHandler(this.FurnitureAvailabilityReportView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.furnitureReportBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentMeDataSet)).EndInit();

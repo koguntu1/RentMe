@@ -158,7 +158,6 @@
             this.dataGridRentedItems.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridRentedItems.Size = new System.Drawing.Size(907, 192);
             this.dataGridRentedItems.TabIndex = 97;
-            //this.dataGridRentedItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridRentedItems_CellContentClick);
             // 
             // label1
             // 
@@ -249,7 +248,7 @@
             this.Controls.Add(this.txtCustomerFirstName);
             this.Controls.Add(this.lblFirstName);
             this.Name = "ItemReturnView";
-            this.Text = "Return View";
+            this.Text = "Return Furniture";
             this.Load += new System.EventHandler(this.ItemReturnView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRentedItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -225,7 +225,7 @@
             this.Controls.Add(this.lblFurnitureInfo);
             this.Controls.Add(this.pictureBox1);
             this.Name = "ReturnHistoryView";
-            this.Text = "Return History View";
+            this.Text = "Return History";
             this.Load += new System.EventHandler(this.ReturnHistoryView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReturnItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

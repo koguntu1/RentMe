@@ -52,29 +52,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblFurnitureInfo
-            // 
-            this.lblFurnitureInfo.AutoSize = true;
-            this.lblFurnitureInfo.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFurnitureInfo.Location = new System.Drawing.Point(336, 58);
-            this.lblFurnitureInfo.Name = "lblFurnitureInfo";
-            this.lblFurnitureInfo.Size = new System.Drawing.Size(205, 39);
-            this.lblFurnitureInfo.TabIndex = 58;
-            this.lblFurnitureInfo.Text = "Rental History";
-            this.lblFurnitureInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cboMemberID
-            // 
-            this.cboMemberID.AllowDrop = true;
-            this.cboMemberID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboMemberID.Font = new System.Drawing.Font("Calibri", 12F);
-            this.cboMemberID.FormattingEnabled = true;
-            this.cboMemberID.Location = new System.Drawing.Point(110, 120);
-            this.cboMemberID.Name = "cboMemberID";
-            this.cboMemberID.Size = new System.Drawing.Size(260, 27);
-            this.cboMemberID.TabIndex = 59;
-            this.cboMemberID.Tag = "Customer ID";
-            // 
             // lblItemID
             // 
             lblItemID.AutoSize = true;
@@ -84,18 +61,6 @@
             lblItemID.Size = new System.Drawing.Size(80, 19);
             lblItemID.TabIndex = 62;
             lblItemID.Text = "Employee:";
-            // 
-            // cboEmployeeID
-            // 
-            this.cboEmployeeID.AllowDrop = true;
-            this.cboEmployeeID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEmployeeID.Font = new System.Drawing.Font("Calibri", 12F);
-            this.cboEmployeeID.FormattingEnabled = true;
-            this.cboEmployeeID.Location = new System.Drawing.Point(522, 120);
-            this.cboEmployeeID.Name = "cboEmployeeID";
-            this.cboEmployeeID.Size = new System.Drawing.Size(279, 27);
-            this.cboEmployeeID.TabIndex = 60;
-            this.cboEmployeeID.Tag = "Employee ID";
             // 
             // lblFurnitureID
             // 
@@ -127,6 +92,51 @@
             label2.TabIndex = 64;
             label2.Text = "From:";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            label3.Location = new System.Drawing.Point(487, 212);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(29, 19);
+            label3.TabIndex = 66;
+            label3.Text = "To:";
+            // 
+            // lblFurnitureInfo
+            // 
+            this.lblFurnitureInfo.AutoSize = true;
+            this.lblFurnitureInfo.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFurnitureInfo.Location = new System.Drawing.Point(336, 58);
+            this.lblFurnitureInfo.Name = "lblFurnitureInfo";
+            this.lblFurnitureInfo.Size = new System.Drawing.Size(205, 39);
+            this.lblFurnitureInfo.TabIndex = 58;
+            this.lblFurnitureInfo.Text = "Rental History";
+            this.lblFurnitureInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cboMemberID
+            // 
+            this.cboMemberID.AllowDrop = true;
+            this.cboMemberID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMemberID.Font = new System.Drawing.Font("Calibri", 12F);
+            this.cboMemberID.FormattingEnabled = true;
+            this.cboMemberID.Location = new System.Drawing.Point(110, 120);
+            this.cboMemberID.Name = "cboMemberID";
+            this.cboMemberID.Size = new System.Drawing.Size(260, 27);
+            this.cboMemberID.TabIndex = 59;
+            this.cboMemberID.Tag = "Customer ID";
+            // 
+            // cboEmployeeID
+            // 
+            this.cboEmployeeID.AllowDrop = true;
+            this.cboEmployeeID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEmployeeID.Font = new System.Drawing.Font("Calibri", 12F);
+            this.cboEmployeeID.FormattingEnabled = true;
+            this.cboEmployeeID.Location = new System.Drawing.Point(522, 120);
+            this.cboEmployeeID.Name = "cboEmployeeID";
+            this.cboEmployeeID.Size = new System.Drawing.Size(279, 27);
+            this.cboEmployeeID.TabIndex = 60;
+            this.cboEmployeeID.Tag = "Employee ID";
+            // 
             // tpFromDate
             // 
             this.tpFromDate.Font = new System.Drawing.Font("Calibri", 12F);
@@ -142,16 +152,6 @@
             this.dtToDate.Name = "dtToDate";
             this.dtToDate.Size = new System.Drawing.Size(279, 27);
             this.dtToDate.TabIndex = 67;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            label3.Location = new System.Drawing.Point(487, 212);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(29, 19);
-            label3.TabIndex = 66;
-            label3.Text = "To:";
             // 
             // btnRestart
             // 
@@ -225,7 +225,7 @@
             this.Controls.Add(this.lblFurnitureInfo);
             this.Controls.Add(this.pictureBox1);
             this.Name = "RentalHistoryView";
-            this.Text = "Rental History View";
+            this.Text = "Rental History";
             this.Load += new System.EventHandler(this.RentalHistoryView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRentItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -50,6 +50,56 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            label1.Location = new System.Drawing.Point(65, 164);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(90, 19);
+            label1.TabIndex = 69;
+            label1.Text = "Description:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            label2.Location = new System.Drawing.Point(65, 217);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(74, 19);
+            label2.TabIndex = 71;
+            label2.Text = "Category:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            label3.Location = new System.Drawing.Point(65, 270);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(47, 19);
+            label3.TabIndex = 72;
+            label3.Text = "Style:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            label4.Location = new System.Drawing.Point(65, 370);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(82, 19);
+            label4.TabIndex = 75;
+            label4.Text = "Daily Rate:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            label5.Location = new System.Drawing.Point(65, 322);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(76, 19);
+            label5.TabIndex = 73;
+            label5.Text = "Fine Rate:";
+            // 
             // cboCategory
             // 
             this.cboCategory.AllowDrop = true;
@@ -96,36 +146,6 @@
             this.txtDescription.TabIndex = 70;
             this.txtDescription.Tag = "Description";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            label1.Location = new System.Drawing.Point(65, 164);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(90, 19);
-            label1.TabIndex = 69;
-            label1.Text = "Description:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            label2.Location = new System.Drawing.Point(65, 217);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(74, 19);
-            label2.TabIndex = 71;
-            label2.Text = "Category:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            label3.Location = new System.Drawing.Point(65, 270);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(47, 19);
-            label3.TabIndex = 72;
-            label3.Text = "Style:";
-            // 
             // txtDailyRate
             // 
             this.txtDailyRate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -135,16 +155,6 @@
             this.txtDailyRate.TabIndex = 76;
             this.txtDailyRate.Tag = "Daily Rate";
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            label4.Location = new System.Drawing.Point(65, 370);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(82, 19);
-            label4.TabIndex = 75;
-            label4.Text = "Daily Rate:";
-            // 
             // txtFineRate
             // 
             this.txtFineRate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -153,16 +163,6 @@
             this.txtFineRate.Size = new System.Drawing.Size(240, 27);
             this.txtFineRate.TabIndex = 74;
             this.txtFineRate.Tag = "Fine Rate";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-            label5.Location = new System.Drawing.Point(65, 322);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(76, 19);
-            label5.TabIndex = 73;
-            label5.Text = "Fine Rate:";
             // 
             // btnSubmit
             // 
@@ -216,7 +216,7 @@
             this.Controls.Add(this.lblFurnitureInfo);
             this.Controls.Add(this.pictureBox1);
             this.Name = "AddUpdateFurnitureView";
-            this.Text = "AddUpdateFurnitureView";
+            this.Text = "Add or Update Furniture";
             this.Load += new System.EventHandler(this.AddUpdateFurnitureView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

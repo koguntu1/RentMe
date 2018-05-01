@@ -375,7 +375,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RentFurnitureForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "RentFurnitureFormcs";
+            this.Text = "Rent Furniture";
             this.Load += new System.EventHandler(this.RentFurnitureForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memberBindingSource)).EndInit();
